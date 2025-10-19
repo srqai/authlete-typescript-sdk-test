@@ -3,7 +3,7 @@ speakeasyVersion: latest
 sources:
     Authlete API Explorer:
         inputs:
-            - location: ../../../../../../../../Documents/new-api-doc2/app/specs/shared/3.0.15/en3-referenced.yaml
+            - location: ./en3-referenced.yaml
         overlays:
             - location: .speakeasy/speakeasy-modifications-overlay.yaml
         output: .speakeasy/out.openapi.yaml
