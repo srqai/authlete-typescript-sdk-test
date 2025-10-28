@@ -19,13 +19,17 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
   sdkHooksConfigAccess: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
   tests:
     generateTests: false
     generateNewTests: true
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.1.1
+  version: 0.2.0
+  acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -56,10 +60,13 @@ typescript:
   jsonpath: rfc9535
   maxMethodParams: 0
   methodArguments: infer-optional-args
+  modelPropertyCasing: camel
   moduleFormat: dual
   outputModelSuffix: output
   packageName: authlete-test
   responseFormat: flat
+  sseFlatResponse: false
   templateVersion: v2
   usageSDKInitImports: []
   useIndexModules: true
+  zodVersion: v3
