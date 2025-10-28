@@ -3,22 +3,25 @@ id: 6bef56a0-baee-4c65-b71e-495533b2af98
 management:
   docChecksum: 304d222e12a9ae79583c1a91547cf846
   docVersion: 3.0.15
-  speakeasyVersion: 1.603.2
-  generationVersion: 2.681.8
-  releaseVersion: 0.1.1
-  configChecksum: 0d486ea828954cb7d962ccb8f7794045
+  speakeasyVersion: 1.640.0
+  generationVersion: 2.730.5
+  releaseVersion: 0.2.0
+  configChecksum: ff89124e672ab281acb44c513f304bf8
+  repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
+  installationURL: https://github.com/srqai/authlete-typescript-sdk-test
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.21.20
+    core: 3.24.1
     defaultEnabledRetries: 0.1.0
-    devContainers: 2.90.0
+    devContainers: 2.90.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    globalSecurity: 2.82.13
+    globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.5
-    groups: 2.81.2
+    groups: 2.81.3
     inputOutputModels: 2.82.0
     methodArguments: 0.1.2
     nameOverrides: 2.81.2
@@ -319,7 +322,6 @@ generatedFiles:
   - docs/models/vcisingleparseresponse.md
   - docs/models/vcisingleparseresponseaction.md
   - docs/models/verifiedclaimsvalidationschema.md
-  - docs/sdks/authletetest/README.md
   - docs/sdks/authorization/README.md
   - docs/sdks/authorizationendpoint/README.md
   - docs/sdks/ciba/README.md
@@ -1806,3 +1808,157 @@ examples:
         "500":
           application/json: {}
 examplesVersion: 1.0.2
+releaseNotes: |
+  ## Typescript SDK Changes Detected:
+  * `authletetest.services.get()`: **Added**
+  * `authletetest.services.update()`: **Added**
+  * `authletetest.services.delete()`: **Added**
+  * `authletetest.serviceManagement.listServices()`: **Added**
+  * `authletetest.serviceManagement.create()`: **Added**
+  * `authletetest.serviceManagement.getServiceConfiguration()`: **Added**
+  * `authletetest.clientManagement.getClient()`: **Added**
+  * `authletetest.clientManagement.deleteClient()`: **Added**
+  * `authletetest.clientManagement.updateSecret()`: **Added**
+  * `authletetest.clientManagement.listAuthorizedApplications()`: **Added**
+  * `authletetest.clientManagement.updateAuthorization()`: **Added**
+  * `authletetest.clientManagement.deleteAuthorizations()`: **Added**
+  * `authletetest.clientManagement.getRequestableScopes()`: **Added**
+  * `authletetest.clientManagement.deleteRequestableScopes()`: **Added**
+  * `authletetest.clients.list()`: **Added**
+  * `authletetest.clients.create()`: **Added**
+  * `authletetest.clients.update()`: **Added**
+  * `authletetest.clients.updateLockFlag()`: **Added**
+  * `authletetest.clients.refreshSecret()`: **Added**
+  * `authletetest.clients.getGrantedScopes()`: **Added**
+  * `authletetest.clients.deleteGrantedScopes()`: **Added**
+  * `authletetest.clients.updateRequestableScopes()`: **Added**
+  * `authletetest.authorizationEndpoint.processAuthorization()`: **Added**
+  * `authletetest.authorizationEndpoint.failAuthorization()`: **Added**
+  * `authletetest.authorizationEndpoint.issueAuthorization()`: **Added**
+  * `authletetest.pushedAuthorizationEndpoint.create()`: **Added**
+  * `authletetest.tokenEndpoint.processToken()`: **Added**
+  * `authletetest.tokenEndpoint.issueToken()`: **Added**
+  * `authletetest.tokenEndpoint.reissueIdToken()`: **Added**
+  * `authletetest.tokens.fail()`: **Added**
+  * `authletetest.tokens.delete()`: **Added**
+  * `authletetest.tokens.revoke()`: **Added**
+  * `authletetest.introspection.process()`: **Added**
+  * `authletetest.introspectionEndpoint.processIntrospection()`: **Added**
+  * `authletetest.revocationEndpoint.processRevocation()`: **Added**
+  * `authletetest.userinfoEndpoint.processUserInfo()`: **Added**
+  * `authletetest.userInfoEndpoint.issueIdToken()`: **Added**
+  * `authletetest.grantManagementEndpoint.processGrantManagement()`: **Added**
+  * `authletetest.jwksSet.get()`: **Added**
+  * `authletetest.clientRegistration.register()`: **Added**
+  * `authletetest.clientRegistration.get()`: **Added**
+  * `authletetest.dynamicClientRegistration.update()`: **Added**
+  * `authletetest.dynamicClientRegistration.delete()`: **Added**
+  * `authletetest.ciba.processAuthentication()`: **Added**
+  * `authletetest.ciba.issue()`: **Added**
+  * `authletetest.ciba.failBackchannelAuthentication()`: **Added**
+  * `authletetest.ciba.completeBackchannelAuthentication()`: **Added**
+  * `authletetest.deviceFlow.processAuthorization()`: **Added**
+  * `authletetest.deviceFlow.processVerification()`: **Added**
+  * `authletetest.deviceFlow.complete()`: **Added**
+  * `authletetest.tokenOperations.listTokens()`: **Added**
+  * `authletetest.tokenOperations.create()`: **Added**
+  * `authletetest.tokenOperations.update()`: **Added**
+  * `authletetest.joseObject.verify()`: **Added**
+  * `authletetest.federationEndpoint.processConfiguration()`: **Added**
+  * `authletetest.federationEndpoint.processRegistration()`: **Added**
+  * `authletetest.utilityEndpoints.getServerMetadata()`: **Added**
+  * `authletetest.utilityEndpoints.echo()`: **Added**
+  * `authletetest.hardwareSecurityKeys.create()`: **Added**
+  * `authletetest.hardwareSecurityKeys.list()`: **Added**
+  * `authletetest.hardwareSecurityKey.delete()`: **Added**
+  * `authletetest.hardwareSecurityKey.get()`: **Added**
+  * `authletetest.verifiableCredentials.getMetadata()`: **Added**
+  * `authletetest.verifiableCredentials.getJwks()`: **Added**
+  * `authletetest.verifiableCredentials.createOffer()`: **Added**
+  * `authletetest.verifiableCredentials.parse()`: **Added**
+  * `authletetest.verifiableCredentialIssuer.getJwtIssuer()`: **Added**
+  * `authletetest.verifiableCredentialIssuer.getOfferInfo()`: **Added**
+  * `authletetest.verifiableCredentialIssuer.issueSingle()`: **Added**
+  * `authletetest.verifiableCredentialIssuer.parseBatch()`: **Added**
+  * `authletetest.verifiableCredentialIssuer.batchIssue()`: **Added**
+  * `authletetest.verifiableCredentialIssuer.parseDeferred()`: **Added**
+  * `authletetest.verifiableCredentialIssuer.deferredIssue()`: **Added**
+  * `authletetest.authorization.ticketUpdate()`: **Added**
+  * `authletetest.nativeSso.process()`: **Added**
+  * `authletetest.nativeSso.logout()`: **Added**
+  * `authletetest.serviceManagement.serviceGetApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.serviceManagement.serviceGetListApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.serviceManagement.serviceCreateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.serviceManagement.serviceUpdateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.serviceManagement.serviceDeleteApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.serviceManagement.serviceConfigurationApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientGetApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientGetListApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientCreateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientUpdateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientDeleteApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientFlagUpdateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientSecretRefreshApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientSecretUpdateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientAuthorizationGetListApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientAuthorizationUpdateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientAuthorizationDeleteApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientGrantedScopesGetApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientGrantedScopesDeleteApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientExtensionRequestablesScopesGetApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientExtensionRequestablesScopesUpdateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.clientManagement.clientExtensionRequestablesScopesDeleteApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.authorizationEndpoint.authAuthorizationApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.authorizationEndpoint.authAuthorizationFailApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.authorizationEndpoint.authAuthorizationIssueApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.authorizationEndpoint.updateAuthorizationTicket()`: **Deleted** **Breaking** :warning:
+  * `authletetest.pushedAuthorizationEndpoint.pushedAuthReqApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.tokenEndpoint.authTokenApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.tokenEndpoint.authTokenFailApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.tokenEndpoint.authTokenIssueApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.tokenEndpoint.idtokenReissueApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.introspectionEndpoint.authIntrospectionApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.introspectionEndpoint.authIntrospectionStandardApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.revocationEndpoint.authRevocationApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.userInfoEndpoint.authUserinfoApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.userInfoEndpoint.authUserinfoIssueApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.grantManagementEndpoint.grantMApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.jwkSetEndpoint.serviceJwksGetApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.dynamicClientRegistration.clientRegistrationApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.dynamicClientRegistration.clientRegistrationGetApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.dynamicClientRegistration.clientRegistrationUpdateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.dynamicClientRegistration.clientRegistrationDeleteApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.ciba.backchannelAuthenticationApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.ciba.backchannelAuthenticationIssueApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.ciba.backchannelAuthenticationFailApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.ciba.backchannelAuthenticationCompleteApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.deviceFlow.deviceAuthorizationApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.deviceFlow.deviceVerificationApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.deviceFlow.deviceCompleteApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.tokenOperations.authTokenGetListApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.tokenOperations.authTokenCreateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.tokenOperations.authTokenUpdateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.tokenOperations.authTokenDeleteApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.tokenOperations.authTokenRevokeApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.joseObject.joseVerifyApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.federationEndpoint.federationConfigurationApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.federationEndpoint.federationRegistrationApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.utilityEndpoints.infoApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.utilityEndpoints.miscEchoApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.hardwareSecurityKey.hskCreateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.hardwareSecurityKey.hskDeleteApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.hardwareSecurityKey.hskGetApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.hardwareSecurityKey.hskGetListApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.verifiableCredentialIssuer.vciMetadataApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.verifiableCredentialIssuer.vciJwtissuerApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.verifiableCredentialIssuer.vciJwksApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.verifiableCredentialIssuer.vciOfferCreateApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.verifiableCredentialIssuer.vciOfferInfoApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.verifiableCredentialIssuer.vciSingleParseApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.verifiableCredentialIssuer.vciSingleIssueApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.verifiableCredentialIssuer.vciBatchParseApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.verifiableCredentialIssuer.vciBatchIssueApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.verifiableCredentialIssuer.vciDeferredParseApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.verifiableCredentialIssuer.vciDeferredIssueApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.nativeSso.nativeSsoApi()`: **Deleted** **Breaking** :warning:
+  * `authletetest.nativeSso.nativeSsoLogoutApi()`: **Deleted** **Breaking** :warning:
