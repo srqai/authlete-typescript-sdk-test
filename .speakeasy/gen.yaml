@@ -3,7 +3,7 @@ generation:
   devContainers:
     enabled: true
     schemaPath: .speakeasy/out.openapi.yaml
-  sdkClassName: AuthleteTest
+  sdkClassName: Authlete
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
@@ -27,7 +27,7 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
 typescript:
-  version: 0.3.5
+  version: 0.3.6
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -35,15 +35,15 @@ typescript:
     peerDependencies: {}
   additionalPackageJSON: {}
   author: Speakeasy
-  baseErrorName: AuthleteTestError
+  baseErrorName: AuthleteError
   clientServerStatusCodesAsErrors: true
   constFieldsAlwaysOptional: false
-  defaultErrorName: AuthleteTestDefaultError
+  defaultErrorName: AuthleteDefaultError
   enableCustomCodeRegions: false
   enableMCPServer: false
   enableReactQuery: false
   enumFormat: union
-  envVarPrefix: AUTHLETETEST
+  envVarPrefix: AUTHLETE
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
   generateExamples: true
@@ -62,7 +62,7 @@ typescript:
   modelPropertyCasing: camel
   moduleFormat: dual
   outputModelSuffix: output
-  packageName: authlete-test
+  packageName: authlete
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2

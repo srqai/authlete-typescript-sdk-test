@@ -6,7 +6,7 @@ An object representing OpenID Provider configuration information. See [OpenID Pr
 ## Example Usage
 
 ```typescript
-import { ServiceConfigurationApiResponse } from "authlete-test/models/operations";
+import { ServiceConfigurationApiResponse } from "authlete/models/operations";
 
 let value: ServiceConfigurationApiResponse = {};
 ```

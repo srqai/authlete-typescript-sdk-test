@@ -8,7 +8,7 @@ Client Registration 1.0, 2. Client Metadata](https://openid.net/specs/openid-con
 ## Example Usage
 
 ```typescript
-import { PushedAuthorizationResponseClientAuthMethod } from "authlete-test/models";
+import { PushedAuthorizationResponseClientAuthMethod } from "authlete/models";
 
 let value: PushedAuthorizationResponseClientAuthMethod =
   "SELF_SIGNED_TLS_CLIENT_AUTH";

@@ -5,8 +5,8 @@ management:
   docVersion: 3.0.15
   speakeasyVersion: 1.603.2
   generationVersion: 2.681.8
-  releaseVersion: 0.3.5
-  configChecksum: 49ac59983ff15fd412d2c6d8c61c04e6
+  releaseVersion: 0.3.6
+  configChecksum: bc91f78100c7f81ef55a6b6695f15630
   repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
   installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
@@ -320,7 +320,7 @@ generatedFiles:
   - docs/models/vcisingleparseresponse.md
   - docs/models/vcisingleparseresponseaction.md
   - docs/models/verifiedclaimsvalidationschema.md
-  - docs/sdks/authletetest/README.md
+  - docs/sdks/authlete/README.md
   - docs/sdks/authorizationendpoint/README.md
   - docs/sdks/ciba/README.md
   - docs/sdks/clientmanagement/README.md
@@ -502,8 +502,8 @@ generatedFiles:
   - src/models/deviceverificationresponse.ts
   - src/models/display.ts
   - src/models/dynamicscope.ts
-  - src/models/errors/authletetestdefaulterror.ts
-  - src/models/errors/authletetesterror.ts
+  - src/models/errors/authletedefaulterror.ts
+  - src/models/errors/authleteerror.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
   - src/models/errors/responsevalidationerror.ts

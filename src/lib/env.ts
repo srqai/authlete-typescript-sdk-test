@@ -7,17 +7,17 @@ import { dlv } from "./dlv.js";
 import * as z from "zod";
 
 export interface Env {
-  AUTHLETETEST_AUTHLETE?: string | undefined;
-  AUTHLETETEST_BEARER?: string | undefined;
+  AUTHLETE_AUTHLETE?: string | undefined;
+  AUTHLETE_BEARER?: string | undefined;
 
-  AUTHLETETEST_DEBUG?: boolean | undefined;
+  AUTHLETE_DEBUG?: boolean | undefined;
 }
 
 export const envSchema: z.ZodType<Env, z.ZodTypeDef, unknown> = z.object({
-  AUTHLETETEST_AUTHLETE: z.string().optional(),
-  AUTHLETETEST_BEARER: z.string().optional(),
+  AUTHLETE_AUTHLETE: z.string().optional(),
+  AUTHLETE_BEARER: z.string().optional(),
 
-  AUTHLETETEST_DEBUG: z.coerce.boolean().optional(),
+  AUTHLETE_DEBUG: z.coerce.boolean().optional(),
 });
 
 let envMemo: Env | undefined = undefined;

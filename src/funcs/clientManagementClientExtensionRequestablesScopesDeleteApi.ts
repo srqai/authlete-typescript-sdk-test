@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod";
-import { AuthleteTestCore } from "../core.js";
+import { AuthleteCore } from "../core.js";
 import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -11,7 +11,7 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import { AuthleteTestError } from "../models/errors/authletetesterror.js";
+import { AuthleteError } from "../models/errors/authleteerror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -33,14 +33,14 @@ import { Result } from "../types/fp.js";
  * Delete requestable scopes of a client
  */
 export function clientManagementClientExtensionRequestablesScopesDeleteApi(
-  client: AuthleteTestCore,
+  client: AuthleteCore,
   request: operations.ClientExtensionRequestablesScopesDeleteApiRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
     void,
     | errors.ResultError
-    | AuthleteTestError
+    | AuthleteError
     | ResponseValidationError
     | ConnectionError
     | RequestAbortedError
@@ -58,7 +58,7 @@ export function clientManagementClientExtensionRequestablesScopesDeleteApi(
 }
 
 async function $do(
-  client: AuthleteTestCore,
+  client: AuthleteCore,
   request: operations.ClientExtensionRequestablesScopesDeleteApiRequest,
   options?: RequestOptions,
 ): Promise<
@@ -66,7 +66,7 @@ async function $do(
     Result<
       void,
       | errors.ResultError
-      | AuthleteTestError
+      | AuthleteError
       | ResponseValidationError
       | ConnectionError
       | RequestAbortedError
@@ -163,7 +163,7 @@ async function $do(
   const [result] = await M.match<
     void,
     | errors.ResultError
-    | AuthleteTestError
+    | AuthleteError
     | ResponseValidationError
     | ConnectionError
     | RequestAbortedError

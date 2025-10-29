@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { PushedAuthorizationRequest } from "authlete-test/models";
+import { PushedAuthorizationRequest } from "authlete/models";
 
 let value: PushedAuthorizationRequest = {
   parameters: "<value>",

@@ -1,4 +1,4 @@
-# AuthleteTest SDK
+# Authlete SDK
 
 ## Overview
 

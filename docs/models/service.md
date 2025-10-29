@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Service } from "authlete-test/models";
+import { Service } from "authlete/models";
 
 let value: Service = {
   number: 715948317,

@@ -8,7 +8,7 @@ Values for the `client_registration_types` RP metadata and the
 ## Example Usage
 
 ```typescript
-import { ClientRegistrationType } from "authlete-test/models";
+import { ClientRegistrationType } from "authlete/models";
 
 let value: ClientRegistrationType = "EXPLICIT";
 ```

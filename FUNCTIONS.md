@@ -19,19 +19,19 @@ specific category of applications.
 ## Example
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { serviceManagementServiceGetApi } from "authlete-test/funcs/serviceManagementServiceGetApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { serviceManagementServiceGetApi } from "authlete/funcs/serviceManagementServiceGetApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await serviceManagementServiceGetApi(authleteTest, {
+  const res = await serviceManagementServiceGetApi(authlete, {
     serviceId: "<id>",
   });
   if (res.ok) {

@@ -463,16 +463,16 @@ Cache-Control: no-cache, no-store
 
 <!-- UsageSnippet language="typescript" operationID="auth_token_api" method="post" path="/api/{serviceId}/auth/token" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.tokenEndpoint.authTokenApi({
+  const result = await authlete.tokenEndpoint.authTokenApi({
     serviceId: "<id>",
     tokenRequest: {
       parameters: "grant_type=authorization_code&code=Xv_su944auuBgc5mfUnxXayiiQU9Z4-T_Yae_UfExmo&redirect_uri=https%3A%2F%2Fmy-client.example.com%2Fcb1&code_verifier=dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
@@ -492,19 +492,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { tokenEndpointAuthTokenApi } from "authlete-test/funcs/tokenEndpointAuthTokenApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { tokenEndpointAuthTokenApi } from "authlete/funcs/tokenEndpointAuthTokenApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await tokenEndpointAuthTokenApi(authleteTest, {
+  const res = await tokenEndpointAuthTokenApi(authlete, {
     serviceId: "<id>",
     tokenRequest: {
       parameters: "grant_type=authorization_code&code=Xv_su944auuBgc5mfUnxXayiiQU9Z4-T_Yae_UfExmo&redirect_uri=https%3A%2F%2Fmy-client.example.com%2Fcb1&code_verifier=dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk",
@@ -538,11 +538,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## authTokenFailApi
 
@@ -621,16 +621,16 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_token_fail_api" method="post" path="/api/{serviceId}/auth/token/fail" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.tokenEndpoint.authTokenFailApi({
+  const result = await authlete.tokenEndpoint.authTokenFailApi({
     serviceId: "<id>",
     tokenFailRequest: {
       ticket: "83BNqKIhGMyrkvop_7jQjv2Z1612LNdGSQKkvkrf47c",
@@ -649,19 +649,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { tokenEndpointAuthTokenFailApi } from "authlete-test/funcs/tokenEndpointAuthTokenFailApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { tokenEndpointAuthTokenFailApi } from "authlete/funcs/tokenEndpointAuthTokenFailApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await tokenEndpointAuthTokenFailApi(authleteTest, {
+  const res = await tokenEndpointAuthTokenFailApi(authlete, {
     serviceId: "<id>",
     tokenFailRequest: {
       ticket: "83BNqKIhGMyrkvop_7jQjv2Z1612LNdGSQKkvkrf47c",
@@ -694,11 +694,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## authTokenIssueApi
 
@@ -777,16 +777,16 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_token_issue_api" method="post" path="/api/{serviceId}/auth/token/issue" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.tokenEndpoint.authTokenIssueApi({
+  const result = await authlete.tokenEndpoint.authTokenIssueApi({
     serviceId: "<id>",
     tokenIssueRequest: {
       ticket: "p7SXQ9JFjng7KFOZdCMBKcoR3ift7B54l1LGIgQXqEM",
@@ -805,19 +805,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { tokenEndpointAuthTokenIssueApi } from "authlete-test/funcs/tokenEndpointAuthTokenIssueApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { tokenEndpointAuthTokenIssueApi } from "authlete/funcs/tokenEndpointAuthTokenIssueApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await tokenEndpointAuthTokenIssueApi(authleteTest, {
+  const res = await tokenEndpointAuthTokenIssueApi(authlete, {
     serviceId: "<id>",
     tokenIssueRequest: {
       ticket: "p7SXQ9JFjng7KFOZdCMBKcoR3ift7B54l1LGIgQXqEM",
@@ -850,11 +850,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## idtokenReissueApi
 
@@ -869,16 +869,16 @@ token.
 
 <!-- UsageSnippet language="typescript" operationID="idtoken_reissue_api" method="post" path="/api/{serviceId}/idtoken/reissue" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.tokenEndpoint.idtokenReissueApi({
+  const result = await authlete.tokenEndpoint.idtokenReissueApi({
     serviceId: "<id>",
   });
 
@@ -893,19 +893,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { tokenEndpointIdtokenReissueApi } from "authlete-test/funcs/tokenEndpointIdtokenReissueApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { tokenEndpointIdtokenReissueApi } from "authlete/funcs/tokenEndpointIdtokenReissueApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await tokenEndpointIdtokenReissueApi(authleteTest, {
+  const res = await tokenEndpointIdtokenReissueApi(authlete, {
     serviceId: "<id>",
   });
   if (res.ok) {
@@ -934,8 +934,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod";
-import { AuthleteTestError } from "./authletetesterror.js";
+import { AuthleteError } from "./authleteerror.js";
 
 export type ResultErrorData = {
   /**
@@ -16,7 +16,7 @@ export type ResultErrorData = {
   resultMessage?: string | undefined;
 };
 
-export class ResultError extends AuthleteTestError {
+export class ResultError extends AuthleteError {
   /**
    * The code which represents the result of the API call.
    */

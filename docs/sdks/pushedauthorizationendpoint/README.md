@@ -18,16 +18,16 @@ This API creates a pushed request authorization. It authenticates the client and
 
 <!-- UsageSnippet language="typescript" operationID="pushed_auth_req_api" method="post" path="/api/{serviceId}/pushed_auth_req" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.pushedAuthorizationEndpoint.pushedAuthReqApi({
+  const result = await authlete.pushedAuthorizationEndpoint.pushedAuthReqApi({
     serviceId: "<id>",
     pushedAuthorizationRequest: {
       parameters: "response_type=code%20id_token&client_id=5921531358155430&redirect_uri=https%3A%2F%2Fserver.example.com%2Fcb&state=SOME_VALUE_ABLE_TO_PREVENT_CSRF&scope=openid&nonce=SOME_VALUE_ABLE_TO_PREVENT_REPLAY_ATTACK&code_challenge=5ZWDQJiryK3eaLtSeFV8y1XySMCWtyITxICLaTwvK8g&code_challenge_method=S256",
@@ -47,19 +47,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { pushedAuthorizationEndpointPushedAuthReqApi } from "authlete-test/funcs/pushedAuthorizationEndpointPushedAuthReqApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { pushedAuthorizationEndpointPushedAuthReqApi } from "authlete/funcs/pushedAuthorizationEndpointPushedAuthReqApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await pushedAuthorizationEndpointPushedAuthReqApi(authleteTest, {
+  const res = await pushedAuthorizationEndpointPushedAuthReqApi(authlete, {
     serviceId: "<id>",
     pushedAuthorizationRequest: {
       parameters: "response_type=code%20id_token&client_id=5921531358155430&redirect_uri=https%3A%2F%2Fserver.example.com%2Fcb&state=SOME_VALUE_ABLE_TO_PREVENT_CSRF&scope=openid&nonce=SOME_VALUE_ABLE_TO_PREVENT_REPLAY_ATTACK&code_challenge=5ZWDQJiryK3eaLtSeFV8y1XySMCWtyITxICLaTwvK8g&code_challenge_method=S256",
@@ -93,8 +93,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |

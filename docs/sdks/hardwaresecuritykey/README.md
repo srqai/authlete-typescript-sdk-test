@@ -20,16 +20,16 @@ Create Security Key
 
 <!-- UsageSnippet language="typescript" operationID="hsk_create_api" method="post" path="/api/{serviceId}/hsk/create" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.hardwareSecurityKey.hskCreateApi({
+  const result = await authlete.hardwareSecurityKey.hskCreateApi({
     serviceId: "<id>",
     hskCreateRequest: {},
   });
@@ -45,19 +45,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { hardwareSecurityKeyHskCreateApi } from "authlete-test/funcs/hardwareSecurityKeyHskCreateApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { hardwareSecurityKeyHskCreateApi } from "authlete/funcs/hardwareSecurityKeyHskCreateApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await hardwareSecurityKeyHskCreateApi(authleteTest, {
+  const res = await hardwareSecurityKeyHskCreateApi(authlete, {
     serviceId: "<id>",
     hskCreateRequest: {},
   });
@@ -87,11 +87,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## hskDeleteApi
 
@@ -101,16 +101,16 @@ Delete Security Key
 
 <!-- UsageSnippet language="typescript" operationID="hsk_delete_api" method="delete" path="/api/{serviceId}/hsk/delete/{handle}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.hardwareSecurityKey.hskDeleteApi({
+  const result = await authlete.hardwareSecurityKey.hskDeleteApi({
     serviceId: "<id>",
     handle: "<value>",
   });
@@ -126,19 +126,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { hardwareSecurityKeyHskDeleteApi } from "authlete-test/funcs/hardwareSecurityKeyHskDeleteApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { hardwareSecurityKeyHskDeleteApi } from "authlete/funcs/hardwareSecurityKeyHskDeleteApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await hardwareSecurityKeyHskDeleteApi(authleteTest, {
+  const res = await hardwareSecurityKeyHskDeleteApi(authlete, {
     serviceId: "<id>",
     handle: "<value>",
   });
@@ -168,11 +168,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## hskGetApi
 
@@ -182,16 +182,16 @@ Get Security Key
 
 <!-- UsageSnippet language="typescript" operationID="hsk_get_api" method="get" path="/api/{serviceId}/hsk/get/{handle}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.hardwareSecurityKey.hskGetApi({
+  const result = await authlete.hardwareSecurityKey.hskGetApi({
     serviceId: "<id>",
     handle: "<value>",
   });
@@ -207,19 +207,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { hardwareSecurityKeyHskGetApi } from "authlete-test/funcs/hardwareSecurityKeyHskGetApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { hardwareSecurityKeyHskGetApi } from "authlete/funcs/hardwareSecurityKeyHskGetApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await hardwareSecurityKeyHskGetApi(authleteTest, {
+  const res = await hardwareSecurityKeyHskGetApi(authlete, {
     serviceId: "<id>",
     handle: "<value>",
   });
@@ -249,11 +249,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## hskGetListApi
 
@@ -263,16 +263,16 @@ List Security Keys
 
 <!-- UsageSnippet language="typescript" operationID="hsk_get_list_api" method="get" path="/api/{serviceId}/hsk/get/list" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.hardwareSecurityKey.hskGetListApi({
+  const result = await authlete.hardwareSecurityKey.hskGetListApi({
     serviceId: "<id>",
   });
 
@@ -287,19 +287,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { hardwareSecurityKeyHskGetListApi } from "authlete-test/funcs/hardwareSecurityKeyHskGetListApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { hardwareSecurityKeyHskGetListApi } from "authlete/funcs/hardwareSecurityKeyHskGetListApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await hardwareSecurityKeyHskGetListApi(authleteTest, {
+  const res = await hardwareSecurityKeyHskGetListApi(authlete, {
     serviceId: "<id>",
   });
   if (res.ok) {
@@ -328,8 +328,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |

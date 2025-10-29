@@ -19,16 +19,16 @@ defined in "<a href="https://openid.net/specs/fapi-grant-management.html">Grant 
 
 <!-- UsageSnippet language="typescript" operationID="grant_m_api" method="post" path="/api/{serviceId}/gm" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.grantManagementEndpoint.grantMApi({
+  const result = await authlete.grantManagementEndpoint.grantMApi({
     serviceId: "<id>",
     gMRequest: {
       accessToken: "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE1NTk4MTE3NTAsImlzcyI6IjU3Mjk3NDA4ODY3In0K.csmdholMVcmjqHe59YWgLGNvm7I5Whp4phQCoGxyrlRGMnTgsfxtwyxBgMXQqEPD5q5k9FaEWNk37K8uAtSwrA",
@@ -48,19 +48,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { grantManagementEndpointGrantMApi } from "authlete-test/funcs/grantManagementEndpointGrantMApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { grantManagementEndpointGrantMApi } from "authlete/funcs/grantManagementEndpointGrantMApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await grantManagementEndpointGrantMApi(authleteTest, {
+  const res = await grantManagementEndpointGrantMApi(authlete, {
     serviceId: "<id>",
     gMRequest: {
       accessToken: "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE1NTk4MTE3NTAsImlzcyI6IjU3Mjk3NDA4ODY3In0K.csmdholMVcmjqHe59YWgLGNvm7I5Whp4phQCoGxyrlRGMnTgsfxtwyxBgMXQqEPD5q5k9FaEWNk37K8uAtSwrA",
@@ -94,8 +94,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |

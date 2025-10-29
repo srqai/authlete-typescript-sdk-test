@@ -7,7 +7,7 @@ described in the description.
 ## Example Usage
 
 ```typescript
-import { DeviceCompleteRequestResult } from "authlete-test/models";
+import { DeviceCompleteRequestResult } from "authlete/models";
 
 let value: DeviceCompleteRequestResult = "TRANSACTION_FAILED";
 ```

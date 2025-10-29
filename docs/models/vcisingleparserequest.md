@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { VciSingleParseRequest } from "authlete-test/models";
+import { VciSingleParseRequest } from "authlete/models";
 
 let value: VciSingleParseRequest = {};
 ```

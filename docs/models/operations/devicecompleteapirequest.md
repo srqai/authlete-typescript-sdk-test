@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeviceCompleteApiRequest } from "authlete-test/models/operations";
+import { DeviceCompleteApiRequest } from "authlete/models/operations";
 
 let value: DeviceCompleteApiRequest = {
   serviceId: "<id>",

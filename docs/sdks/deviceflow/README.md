@@ -115,16 +115,16 @@ and return to the client application.
 
 <!-- UsageSnippet language="typescript" operationID="device_authorization_api" method="post" path="/api/{serviceId}/device/authorization" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.deviceFlow.deviceAuthorizationApi({
+  const result = await authlete.deviceFlow.deviceAuthorizationApi({
     serviceId: "<id>",
     deviceAuthorizationRequest: {
       parameters: "client_id=26888344961664&scope=history.read",
@@ -144,19 +144,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { deviceFlowDeviceAuthorizationApi } from "authlete-test/funcs/deviceFlowDeviceAuthorizationApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { deviceFlowDeviceAuthorizationApi } from "authlete/funcs/deviceFlowDeviceAuthorizationApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await deviceFlowDeviceAuthorizationApi(authleteTest, {
+  const res = await deviceFlowDeviceAuthorizationApi(authlete, {
     serviceId: "<id>",
     deviceAuthorizationRequest: {
       parameters: "client_id=26888344961664&scope=history.read",
@@ -190,11 +190,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## deviceVerificationApi
 
@@ -245,16 +245,16 @@ to ask whether she approves or rejects the authorization request from the device
 
 <!-- UsageSnippet language="typescript" operationID="device_verification_api" method="post" path="/api/{serviceId}/device/verification" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.deviceFlow.deviceVerificationApi({
+  const result = await authlete.deviceFlow.deviceVerificationApi({
     serviceId: "<id>",
     deviceVerificationRequest: {
       userCode: "XWWKPBWVXQ",
@@ -272,19 +272,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { deviceFlowDeviceVerificationApi } from "authlete-test/funcs/deviceFlowDeviceVerificationApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { deviceFlowDeviceVerificationApi } from "authlete/funcs/deviceFlowDeviceVerificationApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await deviceFlowDeviceVerificationApi(authleteTest, {
+  const res = await deviceFlowDeviceVerificationApi(authlete, {
     serviceId: "<id>",
     deviceVerificationRequest: {
       userCode: "XWWKPBWVXQ",
@@ -316,11 +316,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## deviceCompleteApi
 
@@ -400,16 +400,16 @@ using.
 
 <!-- UsageSnippet language="typescript" operationID="device_complete_api" method="post" path="/api/{serviceId}/device/complete" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.deviceFlow.deviceCompleteApi({
+  const result = await authlete.deviceFlow.deviceCompleteApi({
     serviceId: "<id>",
     deviceCompleteRequest: {
       userCode: "XWWKPBWVXQ",
@@ -429,19 +429,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { deviceFlowDeviceCompleteApi } from "authlete-test/funcs/deviceFlowDeviceCompleteApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { deviceFlowDeviceCompleteApi } from "authlete/funcs/deviceFlowDeviceCompleteApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await deviceFlowDeviceCompleteApi(authleteTest, {
+  const res = await deviceFlowDeviceCompleteApi(authlete, {
     serviceId: "<id>",
     deviceCompleteRequest: {
       userCode: "XWWKPBWVXQ",
@@ -475,8 +475,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |

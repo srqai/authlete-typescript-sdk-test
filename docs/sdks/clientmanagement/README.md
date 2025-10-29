@@ -33,16 +33,16 @@ Get a client.
 
 <!-- UsageSnippet language="typescript" operationID="client_get_api" method="get" path="/api/{serviceId}/client/get/{clientId}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientGetApi({
+  const result = await authlete.clientManagement.clientGetApi({
     serviceId: "<id>",
     clientId: "<id>",
   });
@@ -58,19 +58,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientGetApi } from "authlete-test/funcs/clientManagementClientGetApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientGetApi } from "authlete/funcs/clientManagementClientGetApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientGetApi(authleteTest, {
+  const res = await clientManagementClientGetApi(authlete, {
     serviceId: "<id>",
     clientId: "<id>",
   });
@@ -100,11 +100,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientGetListApi
 
@@ -120,16 +120,16 @@ service are returned.
 
 <!-- UsageSnippet language="typescript" operationID="client_get_list_api" method="get" path="/api/{serviceId}/client/get/list" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientGetListApi({
+  const result = await authlete.clientManagement.clientGetListApi({
     serviceId: "<id>",
   });
 
@@ -144,19 +144,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientGetListApi } from "authlete-test/funcs/clientManagementClientGetListApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientGetListApi } from "authlete/funcs/clientManagementClientGetListApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientGetListApi(authleteTest, {
+  const res = await clientManagementClientGetListApi(authlete, {
     serviceId: "<id>",
   });
   if (res.ok) {
@@ -185,11 +185,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientCreateApi
 
@@ -200,16 +200,16 @@ Create a new client.
 
 <!-- UsageSnippet language="typescript" operationID="client_create_api" method="post" path="/api/{serviceId}/client/create" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientCreateApi({
+  const result = await authlete.clientManagement.clientCreateApi({
     serviceId: "<id>",
     client: {
       clientName: "My Client",
@@ -254,19 +254,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientCreateApi } from "authlete-test/funcs/clientManagementClientCreateApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientCreateApi } from "authlete/funcs/clientManagementClientCreateApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientCreateApi(authleteTest, {
+  const res = await clientManagementClientCreateApi(authlete, {
     serviceId: "<id>",
     client: {
       clientName: "My Client",
@@ -325,11 +325,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientUpdateApi
 
@@ -340,16 +340,16 @@ Update a client.
 
 <!-- UsageSnippet language="typescript" operationID="client_update_api" method="post" path="/api/{serviceId}/client/update/{clientId}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientUpdateApi({
+  const result = await authlete.clientManagement.clientUpdateApi({
     serviceId: "<id>",
     clientId: "<id>",
     client: {
@@ -406,19 +406,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientUpdateApi } from "authlete-test/funcs/clientManagementClientUpdateApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientUpdateApi } from "authlete/funcs/clientManagementClientUpdateApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientUpdateApi(authleteTest, {
+  const res = await clientManagementClientUpdateApi(authlete, {
     serviceId: "<id>",
     clientId: "<id>",
     client: {
@@ -489,11 +489,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientDeleteApi
 
@@ -504,16 +504,16 @@ Delete a client.
 
 <!-- UsageSnippet language="typescript" operationID="client_delete_api" method="delete" path="/api/{serviceId}/client/delete/{clientId}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  await authleteTest.clientManagement.clientDeleteApi({
+  await authlete.clientManagement.clientDeleteApi({
     serviceId: "<id>",
     clientId: "<id>",
   });
@@ -529,19 +529,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientDeleteApi } from "authlete-test/funcs/clientManagementClientDeleteApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientDeleteApi } from "authlete/funcs/clientManagementClientDeleteApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientDeleteApi(authleteTest, {
+  const res = await clientManagementClientDeleteApi(authlete, {
     serviceId: "<id>",
     clientId: "<id>",
   });
@@ -571,11 +571,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientFlagUpdateApi
 
@@ -586,16 +586,16 @@ Lock and unlock a client
 
 <!-- UsageSnippet language="typescript" operationID="client_flag_update_api" method="post" path="/api/{serviceId}/client/lock_flag/update/{clientIdentifier}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientFlagUpdateApi({
+  const result = await authlete.clientManagement.clientFlagUpdateApi({
     serviceId: "<id>",
     clientIdentifier: "<value>",
     clientFlagUpdateRequest: {
@@ -614,19 +614,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientFlagUpdateApi } from "authlete-test/funcs/clientManagementClientFlagUpdateApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientFlagUpdateApi } from "authlete/funcs/clientManagementClientFlagUpdateApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientFlagUpdateApi(authleteTest, {
+  const res = await clientManagementClientFlagUpdateApi(authlete, {
     serviceId: "<id>",
     clientIdentifier: "<value>",
     clientFlagUpdateRequest: {
@@ -659,11 +659,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientSecretRefreshApi
 
@@ -677,16 +677,16 @@ If you want to specify a new value, use `/api/client/secret/update` API.
 
 <!-- UsageSnippet language="typescript" operationID="client_secret_refresh_api" method="get" path="/api/{serviceId}/client/secret/refresh/{clientIdentifier}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientSecretRefreshApi({
+  const result = await authlete.clientManagement.clientSecretRefreshApi({
     serviceId: "<id>",
     clientIdentifier: "<value>",
   });
@@ -702,19 +702,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientSecretRefreshApi } from "authlete-test/funcs/clientManagementClientSecretRefreshApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientSecretRefreshApi } from "authlete/funcs/clientManagementClientSecretRefreshApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientSecretRefreshApi(authleteTest, {
+  const res = await clientManagementClientSecretRefreshApi(authlete, {
     serviceId: "<id>",
     clientIdentifier: "<value>",
   });
@@ -744,11 +744,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientSecretUpdateApi
 
@@ -762,16 +762,16 @@ API.
 
 <!-- UsageSnippet language="typescript" operationID="client_secret_update_api" method="post" path="/api/{serviceId}/client/secret/update/{clientIdentifier}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientSecretUpdateApi({
+  const result = await authlete.clientManagement.clientSecretUpdateApi({
     serviceId: "<id>",
     clientIdentifier: "<value>",
     clientSecretUpdateRequest: {
@@ -790,19 +790,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientSecretUpdateApi } from "authlete-test/funcs/clientManagementClientSecretUpdateApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientSecretUpdateApi } from "authlete/funcs/clientManagementClientSecretUpdateApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientSecretUpdateApi(authleteTest, {
+  const res = await clientManagementClientSecretUpdateApi(authlete, {
     serviceId: "<id>",
     clientIdentifier: "<value>",
     clientSecretUpdateRequest: {
@@ -835,11 +835,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientAuthorizationGetListApi
 
@@ -852,16 +852,16 @@ The subject parameter is required and can be provided either in the path or as a
 
 <!-- UsageSnippet language="typescript" operationID="client_authorization_get_list_api" method="get" path="/api/{serviceId}/client/authorization/get/list/{subject}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientAuthorizationGetListApi({
+  const result = await authlete.clientManagement.clientAuthorizationGetListApi({
     serviceId: "<id>",
     subjectPathParameter: "<value>",
     subjectQueryParameter: "<value>",
@@ -878,19 +878,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientAuthorizationGetListApi } from "authlete-test/funcs/clientManagementClientAuthorizationGetListApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientAuthorizationGetListApi } from "authlete/funcs/clientManagementClientAuthorizationGetListApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientAuthorizationGetListApi(authleteTest, {
+  const res = await clientManagementClientAuthorizationGetListApi(authlete, {
     serviceId: "<id>",
     subjectPathParameter: "<value>",
     subjectQueryParameter: "<value>",
@@ -921,11 +921,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientAuthorizationUpdateApi
 
@@ -936,16 +936,16 @@ Update attributes of all existing access tokens given to a client application.
 
 <!-- UsageSnippet language="typescript" operationID="client_authorization_update_api" method="post" path="/api/{serviceId}/client/authorization/update/{clientId}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientAuthorizationUpdateApi({
+  const result = await authlete.clientManagement.clientAuthorizationUpdateApi({
     serviceId: "<id>",
     clientId: "<id>",
     clientAuthorizationUpdateRequest: {
@@ -967,19 +967,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientAuthorizationUpdateApi } from "authlete-test/funcs/clientManagementClientAuthorizationUpdateApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientAuthorizationUpdateApi } from "authlete/funcs/clientManagementClientAuthorizationUpdateApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientAuthorizationUpdateApi(authleteTest, {
+  const res = await clientManagementClientAuthorizationUpdateApi(authlete, {
     serviceId: "<id>",
     clientId: "<id>",
     clientAuthorizationUpdateRequest: {
@@ -1015,11 +1015,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientAuthorizationDeleteApi
 
@@ -1032,16 +1032,16 @@ The subject parameter is required and can be provided either in the path or as a
 
 <!-- UsageSnippet language="typescript" operationID="client_authorization_delete_api" method="delete" path="/api/{serviceId}/client/authorization/delete/{clientId}/{subject}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientAuthorizationDeleteApi({
+  const result = await authlete.clientManagement.clientAuthorizationDeleteApi({
     serviceId: "<id>",
     clientId: "<id>",
     subjectPathParameter: "<value>",
@@ -1059,19 +1059,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientAuthorizationDeleteApi } from "authlete-test/funcs/clientManagementClientAuthorizationDeleteApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientAuthorizationDeleteApi } from "authlete/funcs/clientManagementClientAuthorizationDeleteApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientAuthorizationDeleteApi(authleteTest, {
+  const res = await clientManagementClientAuthorizationDeleteApi(authlete, {
     serviceId: "<id>",
     clientId: "<id>",
     subjectPathParameter: "<value>",
@@ -1103,11 +1103,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientGrantedScopesGetApi
 
@@ -1143,16 +1143,16 @@ The subject parameter is required and can be provided either in the path or as a
 
 <!-- UsageSnippet language="typescript" operationID="client_granted_scopes_get_api" method="get" path="/api/{serviceId}/client/granted_scopes/get/{clientId}/{subject}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientGrantedScopesGetApi({
+  const result = await authlete.clientManagement.clientGrantedScopesGetApi({
     serviceId: "715948317",
     clientId: "1140735077",
     subjectPathParameter: "<value>",
@@ -1170,19 +1170,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientGrantedScopesGetApi } from "authlete-test/funcs/clientManagementClientGrantedScopesGetApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientGrantedScopesGetApi } from "authlete/funcs/clientManagementClientGrantedScopesGetApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientGrantedScopesGetApi(authleteTest, {
+  const res = await clientManagementClientGrantedScopesGetApi(authlete, {
     serviceId: "715948317",
     clientId: "1140735077",
     subjectPathParameter: "<value>",
@@ -1214,11 +1214,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientGrantedScopesDeleteApi
 
@@ -1239,16 +1239,16 @@ The subject parameter is required and can be provided either in the path or as a
 
 <!-- UsageSnippet language="typescript" operationID="client_granted_scopes_delete_api" method="delete" path="/api/{serviceId}/client/granted_scopes/delete/{clientId}/{subject}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientGrantedScopesDeleteApi({
+  const result = await authlete.clientManagement.clientGrantedScopesDeleteApi({
     serviceId: "<id>",
     clientId: "<id>",
     subjectPathParameter: "<value>",
@@ -1266,19 +1266,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientGrantedScopesDeleteApi } from "authlete-test/funcs/clientManagementClientGrantedScopesDeleteApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientGrantedScopesDeleteApi } from "authlete/funcs/clientManagementClientGrantedScopesDeleteApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientGrantedScopesDeleteApi(authleteTest, {
+  const res = await clientManagementClientGrantedScopesDeleteApi(authlete, {
     serviceId: "<id>",
     clientId: "<id>",
     subjectPathParameter: "<value>",
@@ -1310,11 +1310,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientExtensionRequestablesScopesGetApi
 
@@ -1325,16 +1325,16 @@ Get the requestable scopes per client
 
 <!-- UsageSnippet language="typescript" operationID="client_extension_requestables_scopes_get_api" method="get" path="/api/{serviceId}/client/extension/requestable_scopes/get/{clientId}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientExtensionRequestablesScopesGetApi({
+  const result = await authlete.clientManagement.clientExtensionRequestablesScopesGetApi({
     serviceId: "<id>",
     clientId: "<id>",
   });
@@ -1350,19 +1350,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientExtensionRequestablesScopesGetApi } from "authlete-test/funcs/clientManagementClientExtensionRequestablesScopesGetApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientExtensionRequestablesScopesGetApi } from "authlete/funcs/clientManagementClientExtensionRequestablesScopesGetApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientExtensionRequestablesScopesGetApi(authleteTest, {
+  const res = await clientManagementClientExtensionRequestablesScopesGetApi(authlete, {
     serviceId: "<id>",
     clientId: "<id>",
   });
@@ -1392,11 +1392,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientExtensionRequestablesScopesUpdateApi
 
@@ -1407,16 +1407,16 @@ Update requestable scopes of a client
 
 <!-- UsageSnippet language="typescript" operationID="client_extension_requestables_scopes_update_api" method="put" path="/api/{serviceId}/client/extension/requestable_scopes/update/{clientId}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.clientManagement.clientExtensionRequestablesScopesUpdateApi({
+  const result = await authlete.clientManagement.clientExtensionRequestablesScopesUpdateApi({
     serviceId: "<id>",
     clientId: "<id>",
     clientExtensionRequestableScopesUpdateRequest: {},
@@ -1433,19 +1433,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientExtensionRequestablesScopesUpdateApi } from "authlete-test/funcs/clientManagementClientExtensionRequestablesScopesUpdateApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientExtensionRequestablesScopesUpdateApi } from "authlete/funcs/clientManagementClientExtensionRequestablesScopesUpdateApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientExtensionRequestablesScopesUpdateApi(authleteTest, {
+  const res = await clientManagementClientExtensionRequestablesScopesUpdateApi(authlete, {
     serviceId: "<id>",
     clientId: "<id>",
     clientExtensionRequestableScopesUpdateRequest: {},
@@ -1476,11 +1476,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## clientExtensionRequestablesScopesDeleteApi
 
@@ -1491,16 +1491,16 @@ Delete requestable scopes of a client
 
 <!-- UsageSnippet language="typescript" operationID="client_extension_requestables_scopes_delete_api" method="delete" path="/api/{serviceId}/client/extension/requestable_scopes/delete/{clientId}" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  await authleteTest.clientManagement.clientExtensionRequestablesScopesDeleteApi({
+  await authlete.clientManagement.clientExtensionRequestablesScopesDeleteApi({
     serviceId: "<id>",
     clientId: "<id>",
   });
@@ -1516,19 +1516,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { clientManagementClientExtensionRequestablesScopesDeleteApi } from "authlete-test/funcs/clientManagementClientExtensionRequestablesScopesDeleteApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { clientManagementClientExtensionRequestablesScopesDeleteApi } from "authlete/funcs/clientManagementClientExtensionRequestablesScopesDeleteApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await clientManagementClientExtensionRequestablesScopesDeleteApi(authleteTest, {
+  const res = await clientManagementClientExtensionRequestablesScopesDeleteApi(authlete, {
     serviceId: "<id>",
     clientId: "<id>",
   });
@@ -1558,8 +1558,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |

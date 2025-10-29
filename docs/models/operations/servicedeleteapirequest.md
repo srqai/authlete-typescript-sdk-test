@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ServiceDeleteApiRequest } from "authlete-test/models/operations";
+import { ServiceDeleteApiRequest } from "authlete/models/operations";
 
 let value: ServiceDeleteApiRequest = {
   serviceId: "<id>",

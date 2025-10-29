@@ -14,7 +14,7 @@ Values for this property correspond to the values listed in
 ## Example Usage
 
 ```typescript
-import { Display } from "authlete-test/models";
+import { Display } from "authlete/models";
 
 let value: Display = "POPUP";
 ```

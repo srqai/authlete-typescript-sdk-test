@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ResultError } from "authlete-test/models/errors";
+import { ResultError } from "authlete/models/errors";
 
 // No examples available for this model
 ```

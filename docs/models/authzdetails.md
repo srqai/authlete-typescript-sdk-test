@@ -8,7 +8,7 @@ request parameter in the preceding device authorization request which is defined
 ## Example Usage
 
 ```typescript
-import { AuthzDetails } from "authlete-test/models";
+import { AuthzDetails } from "authlete/models";
 
 let value: AuthzDetails = {};
 ```

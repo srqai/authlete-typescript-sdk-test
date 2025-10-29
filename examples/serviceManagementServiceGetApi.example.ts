@@ -5,22 +5,22 @@
 import dotenv from "dotenv";
 dotenv.config();
 /**
- * Example usage of the authlete-test SDK
+ * Example usage of the authlete SDK
  *
  * To run this example from the examples directory:
  * npm run build && npx tsx serviceManagementServiceGetApi.example.ts
  */
 
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function main() {
-  const result = await authleteTest.serviceGetApi({
+  const result = await authlete.serviceGetApi({
     serviceId: "<id>",
   });
 

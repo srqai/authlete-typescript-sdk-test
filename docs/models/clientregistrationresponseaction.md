@@ -6,7 +6,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { ClientRegistrationResponseAction } from "authlete-test/models";
+import { ClientRegistrationResponseAction } from "authlete/models";
 
 let value: ClientRegistrationResponseAction = "UNAUTHORIZED";
 ```

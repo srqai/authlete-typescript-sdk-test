@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeviceVerificationRequest } from "authlete-test/models";
+import { DeviceVerificationRequest } from "authlete/models";
 
 let value: DeviceVerificationRequest = {
   userCode: "<value>",

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { InfoResponse } from "authlete-test/models";
+import { InfoResponse } from "authlete/models";
 
 let value: InfoResponse = {
   version: "<value>",

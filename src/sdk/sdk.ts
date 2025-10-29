@@ -24,7 +24,7 @@ import { UserInfoEndpoint } from "./userinfoendpoint.js";
 import { UtilityEndpoints } from "./utilityendpoints.js";
 import { VerifiableCredentialIssuer } from "./verifiablecredentialissuer.js";
 
-export class AuthleteTest extends ClientSDK {
+export class Authlete extends ClientSDK {
   private _serviceManagement?: ServiceManagement;
   get serviceManagement(): ServiceManagement {
     return (this._serviceManagement ??= new ServiceManagement(this._options));

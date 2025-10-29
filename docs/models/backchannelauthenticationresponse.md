@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BackchannelAuthenticationResponse } from "authlete-test/models";
+import { BackchannelAuthenticationResponse } from "authlete/models";
 
 let value: BackchannelAuthenticationResponse = {};
 ```

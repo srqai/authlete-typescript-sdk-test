@@ -183,16 +183,16 @@ may be different.
 
 <!-- UsageSnippet language="typescript" operationID="auth_introspection_api" method="post" path="/api/{serviceId}/auth/introspection" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.introspectionEndpoint.authIntrospectionApi({
+  const result = await authlete.introspectionEndpoint.authIntrospectionApi({
     serviceId: "<id>",
     introspectionRequest: {
       token: "VFGsNK-5sXiqterdaR7b5QbRX9VTwVCQB87jbr2_xAI",
@@ -215,19 +215,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { introspectionEndpointAuthIntrospectionApi } from "authlete-test/funcs/introspectionEndpointAuthIntrospectionApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { introspectionEndpointAuthIntrospectionApi } from "authlete/funcs/introspectionEndpointAuthIntrospectionApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await introspectionEndpointAuthIntrospectionApi(authleteTest, {
+  const res = await introspectionEndpointAuthIntrospectionApi(authlete, {
     serviceId: "<id>",
     introspectionRequest: {
       token: "VFGsNK-5sXiqterdaR7b5QbRX9VTwVCQB87jbr2_xAI",
@@ -264,11 +264,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## authIntrospectionStandardApi
 
@@ -373,16 +373,16 @@ request does not satisfy authorization requirements imposed by your introspectio
 
 <!-- UsageSnippet language="typescript" operationID="auth_introspection_standard_api" method="post" path="/api/{serviceId}/auth/introspection/standard" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.introspectionEndpoint.authIntrospectionStandardApi({
+  const result = await authlete.introspectionEndpoint.authIntrospectionStandardApi({
     serviceId: "<id>",
     standardIntrospectionRequest: {
       parameters: "token=VFGsNK-5sXiqterdaR7b5QbRX9VTwVCQB87jbr2_xAI&token_type_hint=access_token",
@@ -400,19 +400,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { introspectionEndpointAuthIntrospectionStandardApi } from "authlete-test/funcs/introspectionEndpointAuthIntrospectionStandardApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { introspectionEndpointAuthIntrospectionStandardApi } from "authlete/funcs/introspectionEndpointAuthIntrospectionStandardApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await introspectionEndpointAuthIntrospectionStandardApi(authleteTest, {
+  const res = await introspectionEndpointAuthIntrospectionStandardApi(authlete, {
     serviceId: "<id>",
     standardIntrospectionRequest: {
       parameters: "token=VFGsNK-5sXiqterdaR7b5QbRX9VTwVCQB87jbr2_xAI&token_type_hint=access_token",
@@ -444,8 +444,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |

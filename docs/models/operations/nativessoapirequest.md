@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NativeSsoApiRequest } from "authlete-test/models/operations";
+import { NativeSsoApiRequest } from "authlete/models/operations";
 
 let value: NativeSsoApiRequest = {
   serviceId: "715948317",

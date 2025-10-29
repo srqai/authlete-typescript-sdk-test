@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { TokenIssueResponseAction } from "authlete-test/models";
+import { TokenIssueResponseAction } from "authlete/models";
 
 let value: TokenIssueResponseAction = "OK";
 ```

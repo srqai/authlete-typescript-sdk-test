@@ -5,7 +5,7 @@ The next action that the batch credential endpoint should take.
 ## Example Usage
 
 ```typescript
-import { VciBatchParseResponseAction } from "authlete-test/models";
+import { VciBatchParseResponseAction } from "authlete/models";
 
 let value: VciBatchParseResponseAction = "UNAUTHORIZED";
 ```

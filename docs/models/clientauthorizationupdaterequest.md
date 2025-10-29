@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ClientAuthorizationUpdateRequest } from "authlete-test/models";
+import { ClientAuthorizationUpdateRequest } from "authlete/models";
 
 let value: ClientAuthorizationUpdateRequest = {
   subject: "<value>",

@@ -1,15 +1,15 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.serviceManagement.serviceGetApi({
+  const result = await authlete.serviceManagement.serviceGetApi({
     serviceId: "<id>",
   });
 

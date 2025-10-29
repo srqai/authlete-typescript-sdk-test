@@ -3,13 +3,13 @@
  */
 
 import * as z from "zod";
-import { AuthleteTestCore } from "../core.js";
+import { AuthleteCore } from "../core.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import { AuthleteTestError } from "../models/errors/authletetesterror.js";
+import { AuthleteError } from "../models/errors/authleteerror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -29,12 +29,12 @@ import { Result } from "../types/fp.js";
  * Echo test endpoint. Will return all path parameters in the request
  */
 export function utilityEndpointsMiscEchoApi(
-  client: AuthleteTestCore,
+  client: AuthleteCore,
   options?: RequestOptions,
 ): APIPromise<
   Result<
     void,
-    | AuthleteTestError
+    | AuthleteError
     | ResponseValidationError
     | ConnectionError
     | RequestAbortedError
@@ -51,13 +51,13 @@ export function utilityEndpointsMiscEchoApi(
 }
 
 async function $do(
-  client: AuthleteTestCore,
+  client: AuthleteCore,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
       void,
-      | AuthleteTestError
+      | AuthleteError
       | ResponseValidationError
       | ConnectionError
       | RequestAbortedError
@@ -120,7 +120,7 @@ async function $do(
 
   const [result] = await M.match<
     void,
-    | AuthleteTestError
+    | AuthleteError
     | ResponseValidationError
     | ConnectionError
     | RequestAbortedError

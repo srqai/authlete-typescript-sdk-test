@@ -3,10 +3,10 @@
  */
 
 import * as z from "zod";
-import { AuthleteTestError } from "./authletetesterror.js";
+import { AuthleteError } from "./authleteerror.js";
 import { formatZodError } from "./sdkvalidationerror.js";
 
-export class ResponseValidationError extends AuthleteTestError {
+export class ResponseValidationError extends AuthleteError {
   /**
    * The raw value that failed validation.
    */

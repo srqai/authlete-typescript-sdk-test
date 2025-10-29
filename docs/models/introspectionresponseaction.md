@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { IntrospectionResponseAction } from "authlete-test/models";
+import { IntrospectionResponseAction } from "authlete/models";
 
 let value: IntrospectionResponseAction = "FORBIDDEN";
 ```

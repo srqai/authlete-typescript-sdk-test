@@ -111,7 +111,7 @@ export class ClientSDK {
     this._options = { ...options, hooks: this.#hooks };
 
     this.#logger = this._options.debugLogger;
-    if (!this.#logger && env().AUTHLETETEST_DEBUG) {
+    if (!this.#logger && env().AUTHLETE_DEBUG) {
       this.#logger = console;
     }
   }

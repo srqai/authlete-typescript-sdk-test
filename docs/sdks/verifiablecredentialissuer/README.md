@@ -27,16 +27,16 @@ Get verifiable credential issuer metadata
 
 <!-- UsageSnippet language="typescript" operationID="vci_metadata_api" method="post" path="/api/{serviceId}/vci/metadata" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.verifiableCredentialIssuer.vciMetadataApi({
+  const result = await authlete.verifiableCredentialIssuer.vciMetadataApi({
     serviceId: "<id>",
     vciMetadataRequest: {
       pretty: true,
@@ -54,19 +54,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { verifiableCredentialIssuerVciMetadataApi } from "authlete-test/funcs/verifiableCredentialIssuerVciMetadataApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { verifiableCredentialIssuerVciMetadataApi } from "authlete/funcs/verifiableCredentialIssuerVciMetadataApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciMetadataApi(authleteTest, {
+  const res = await verifiableCredentialIssuerVciMetadataApi(authlete, {
     serviceId: "<id>",
     vciMetadataRequest: {
       pretty: true,
@@ -98,11 +98,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## vciJwtissuerApi
 
@@ -112,16 +112,16 @@ Get JWT issuer information for VCI
 
 <!-- UsageSnippet language="typescript" operationID="vci_jwtissuer_api" method="post" path="/api/{serviceId}/vci/jwtissuer" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.verifiableCredentialIssuer.vciJwtissuerApi({
+  const result = await authlete.verifiableCredentialIssuer.vciJwtissuerApi({
     serviceId: "<id>",
     vciJwtissuerRequest: {
       pretty: true,
@@ -139,19 +139,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { verifiableCredentialIssuerVciJwtissuerApi } from "authlete-test/funcs/verifiableCredentialIssuerVciJwtissuerApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { verifiableCredentialIssuerVciJwtissuerApi } from "authlete/funcs/verifiableCredentialIssuerVciJwtissuerApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciJwtissuerApi(authleteTest, {
+  const res = await verifiableCredentialIssuerVciJwtissuerApi(authlete, {
     serviceId: "<id>",
     vciJwtissuerRequest: {
       pretty: true,
@@ -183,11 +183,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## vciJwksApi
 
@@ -197,16 +197,16 @@ Get JSON Web Key Set for VCI
 
 <!-- UsageSnippet language="typescript" operationID="vci_jwks_api" method="post" path="/api/{serviceId}/vci/jwks" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.verifiableCredentialIssuer.vciJwksApi({
+  const result = await authlete.verifiableCredentialIssuer.vciJwksApi({
     serviceId: "<id>",
     vciJwksRequest: {
       pretty: false,
@@ -224,19 +224,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { verifiableCredentialIssuerVciJwksApi } from "authlete-test/funcs/verifiableCredentialIssuerVciJwksApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { verifiableCredentialIssuerVciJwksApi } from "authlete/funcs/verifiableCredentialIssuerVciJwksApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciJwksApi(authleteTest, {
+  const res = await verifiableCredentialIssuerVciJwksApi(authlete, {
     serviceId: "<id>",
     vciJwksRequest: {
       pretty: false,
@@ -268,11 +268,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## vciOfferCreateApi
 
@@ -282,16 +282,16 @@ Create a verifiable credential offer
 
 <!-- UsageSnippet language="typescript" operationID="vci_offer_create_api" method="post" path="/api/{serviceId}/vci/offer/create" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.verifiableCredentialIssuer.vciOfferCreateApi({
+  const result = await authlete.verifiableCredentialIssuer.vciOfferCreateApi({
     serviceId: "<id>",
     vciOfferCreateRequest: {},
   });
@@ -307,19 +307,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { verifiableCredentialIssuerVciOfferCreateApi } from "authlete-test/funcs/verifiableCredentialIssuerVciOfferCreateApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { verifiableCredentialIssuerVciOfferCreateApi } from "authlete/funcs/verifiableCredentialIssuerVciOfferCreateApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciOfferCreateApi(authleteTest, {
+  const res = await verifiableCredentialIssuerVciOfferCreateApi(authlete, {
     serviceId: "<id>",
     vciOfferCreateRequest: {},
   });
@@ -349,11 +349,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## vciOfferInfoApi
 
@@ -363,16 +363,16 @@ Get information about a verifiable credential offer
 
 <!-- UsageSnippet language="typescript" operationID="vci_offer_info_api" method="post" path="/api/{serviceId}/vci/offer/info" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.verifiableCredentialIssuer.vciOfferInfoApi({
+  const result = await authlete.verifiableCredentialIssuer.vciOfferInfoApi({
     serviceId: "<id>",
     vciOfferInfoRequest: {},
   });
@@ -388,19 +388,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { verifiableCredentialIssuerVciOfferInfoApi } from "authlete-test/funcs/verifiableCredentialIssuerVciOfferInfoApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { verifiableCredentialIssuerVciOfferInfoApi } from "authlete/funcs/verifiableCredentialIssuerVciOfferInfoApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciOfferInfoApi(authleteTest, {
+  const res = await verifiableCredentialIssuerVciOfferInfoApi(authlete, {
     serviceId: "<id>",
     vciOfferInfoRequest: {},
   });
@@ -430,11 +430,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## vciSingleParseApi
 
@@ -444,16 +444,16 @@ Parse a single verifiable credential
 
 <!-- UsageSnippet language="typescript" operationID="vci_single_parse_api" method="post" path="/api/{serviceId}/vci/single/parse" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.verifiableCredentialIssuer.vciSingleParseApi({
+  const result = await authlete.verifiableCredentialIssuer.vciSingleParseApi({
     serviceId: "<id>",
     vciSingleParseRequest: {},
   });
@@ -469,19 +469,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { verifiableCredentialIssuerVciSingleParseApi } from "authlete-test/funcs/verifiableCredentialIssuerVciSingleParseApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { verifiableCredentialIssuerVciSingleParseApi } from "authlete/funcs/verifiableCredentialIssuerVciSingleParseApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciSingleParseApi(authleteTest, {
+  const res = await verifiableCredentialIssuerVciSingleParseApi(authlete, {
     serviceId: "<id>",
     vciSingleParseRequest: {},
   });
@@ -511,11 +511,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## vciSingleIssueApi
 
@@ -525,16 +525,16 @@ Issue a single verifiable credential
 
 <!-- UsageSnippet language="typescript" operationID="vci_single_issue_api" method="post" path="/api/{serviceId}/vci/single/issue" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.verifiableCredentialIssuer.vciSingleIssueApi({
+  const result = await authlete.verifiableCredentialIssuer.vciSingleIssueApi({
     serviceId: "<id>",
     vciSingleIssueRequest: {},
   });
@@ -550,19 +550,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { verifiableCredentialIssuerVciSingleIssueApi } from "authlete-test/funcs/verifiableCredentialIssuerVciSingleIssueApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { verifiableCredentialIssuerVciSingleIssueApi } from "authlete/funcs/verifiableCredentialIssuerVciSingleIssueApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciSingleIssueApi(authleteTest, {
+  const res = await verifiableCredentialIssuerVciSingleIssueApi(authlete, {
     serviceId: "<id>",
     vciSingleIssueRequest: {},
   });
@@ -592,11 +592,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## vciBatchParseApi
 
@@ -606,16 +606,16 @@ Parse multiple verifiable credentials in batch
 
 <!-- UsageSnippet language="typescript" operationID="vci_batch_parse_api" method="post" path="/api/{serviceId}/vci/batch/parse" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.verifiableCredentialIssuer.vciBatchParseApi({
+  const result = await authlete.verifiableCredentialIssuer.vciBatchParseApi({
     serviceId: "<id>",
     vciBatchParseRequest: {},
   });
@@ -631,19 +631,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { verifiableCredentialIssuerVciBatchParseApi } from "authlete-test/funcs/verifiableCredentialIssuerVciBatchParseApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { verifiableCredentialIssuerVciBatchParseApi } from "authlete/funcs/verifiableCredentialIssuerVciBatchParseApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciBatchParseApi(authleteTest, {
+  const res = await verifiableCredentialIssuerVciBatchParseApi(authlete, {
     serviceId: "<id>",
     vciBatchParseRequest: {},
   });
@@ -673,11 +673,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## vciBatchIssueApi
 
@@ -687,16 +687,16 @@ Issue multiple verifiable credentials in batch
 
 <!-- UsageSnippet language="typescript" operationID="vci_batch_issue_api" method="post" path="/api/{serviceId}/vci/batch/issue" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.verifiableCredentialIssuer.vciBatchIssueApi({
+  const result = await authlete.verifiableCredentialIssuer.vciBatchIssueApi({
     serviceId: "<id>",
     vciBatchIssueRequest: {},
   });
@@ -712,19 +712,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { verifiableCredentialIssuerVciBatchIssueApi } from "authlete-test/funcs/verifiableCredentialIssuerVciBatchIssueApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { verifiableCredentialIssuerVciBatchIssueApi } from "authlete/funcs/verifiableCredentialIssuerVciBatchIssueApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciBatchIssueApi(authleteTest, {
+  const res = await verifiableCredentialIssuerVciBatchIssueApi(authlete, {
     serviceId: "<id>",
     vciBatchIssueRequest: {},
   });
@@ -754,11 +754,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## vciDeferredParseApi
 
@@ -768,16 +768,16 @@ Parse a deferred verifiable credential
 
 <!-- UsageSnippet language="typescript" operationID="vci_deferred_parse_api" method="post" path="/api/{serviceId}/vci/deferred/parse" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.verifiableCredentialIssuer.vciDeferredParseApi({
+  const result = await authlete.verifiableCredentialIssuer.vciDeferredParseApi({
     serviceId: "<id>",
     vciDeferredParseRequest: {},
   });
@@ -793,19 +793,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { verifiableCredentialIssuerVciDeferredParseApi } from "authlete-test/funcs/verifiableCredentialIssuerVciDeferredParseApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { verifiableCredentialIssuerVciDeferredParseApi } from "authlete/funcs/verifiableCredentialIssuerVciDeferredParseApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciDeferredParseApi(authleteTest, {
+  const res = await verifiableCredentialIssuerVciDeferredParseApi(authlete, {
     serviceId: "<id>",
     vciDeferredParseRequest: {},
   });
@@ -835,11 +835,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## vciDeferredIssueApi
 
@@ -849,16 +849,16 @@ Issue a deferred verifiable credential
 
 <!-- UsageSnippet language="typescript" operationID="vci_deferred_issue_api" method="post" path="/api/{serviceId}/vci/deferred/issue" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.verifiableCredentialIssuer.vciDeferredIssueApi({
+  const result = await authlete.verifiableCredentialIssuer.vciDeferredIssueApi({
     serviceId: "<id>",
     vciDeferredIssueRequest: {},
   });
@@ -874,19 +874,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { verifiableCredentialIssuerVciDeferredIssueApi } from "authlete-test/funcs/verifiableCredentialIssuerVciDeferredIssueApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { verifiableCredentialIssuerVciDeferredIssueApi } from "authlete/funcs/verifiableCredentialIssuerVciDeferredIssueApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciDeferredIssueApi(authleteTest, {
+  const res = await verifiableCredentialIssuerVciDeferredIssueApi(authlete, {
     serviceId: "<id>",
     vciDeferredIssueRequest: {},
   });
@@ -916,8 +916,8 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |

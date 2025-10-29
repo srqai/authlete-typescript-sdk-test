@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { TokenIssueRequest } from "authlete-test/models";
+import { TokenIssueRequest } from "authlete/models";
 
 let value: TokenIssueRequest = {
   ticket: "<value>",

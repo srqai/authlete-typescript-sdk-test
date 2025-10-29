@@ -1,6 +1,6 @@
-# authlete-test Examples
+# authlete Examples
 
-This directory contains example scripts demonstrating how to use the authlete-test SDK.
+This directory contains example scripts demonstrating how to use the authlete SDK.
 
 ## Prerequisites
 

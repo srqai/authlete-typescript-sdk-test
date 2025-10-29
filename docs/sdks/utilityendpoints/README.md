@@ -19,16 +19,16 @@ get the server version and enabled features
 
 <!-- UsageSnippet language="typescript" operationID="info_api" method="get" path="/api/info" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.utilityEndpoints.infoApi();
+  const result = await authlete.utilityEndpoints.infoApi();
 
   console.log(result);
 }
@@ -41,19 +41,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { utilityEndpointsInfoApi } from "authlete-test/funcs/utilityEndpointsInfoApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { utilityEndpointsInfoApi } from "authlete/funcs/utilityEndpointsInfoApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await utilityEndpointsInfoApi(authleteTest);
+  const res = await utilityEndpointsInfoApi(authlete);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -79,11 +79,11 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ResultError              | 400, 401, 403                   | application/json                |
-| errors.ResultError              | 500                             | application/json                |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ResultError          | 400, 401, 403               | application/json            |
+| errors.ResultError          | 500                         | application/json            |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
 ## miscEchoApi
 
@@ -94,16 +94,16 @@ Echo test endpoint. Will return all path parameters in the request
 
 <!-- UsageSnippet language="typescript" operationID="misc_echo_api" method="get" path="/api/misc/echo" -->
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  await authleteTest.utilityEndpoints.miscEchoApi();
+  await authlete.utilityEndpoints.miscEchoApi();
 
 
 }
@@ -116,19 +116,19 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteTestCore } from "authlete-test/core.js";
-import { utilityEndpointsMiscEchoApi } from "authlete-test/funcs/utilityEndpointsMiscEchoApi.js";
+import { AuthleteCore } from "authlete/core.js";
+import { utilityEndpointsMiscEchoApi } from "authlete/funcs/utilityEndpointsMiscEchoApi.js";
 
-// Use `AuthleteTestCore` for best tree-shaking performance.
+// Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const authleteTest = new AuthleteTestCore({
+const authlete = new AuthleteCore({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const res = await utilityEndpointsMiscEchoApi(authleteTest);
+  const res = await utilityEndpointsMiscEchoApi(authlete);
   if (res.ok) {
     const { value: result } = res;
     
@@ -154,6 +154,6 @@ run();
 
 ### Errors
 
-| Error Type                      | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+| Error Type                  | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |

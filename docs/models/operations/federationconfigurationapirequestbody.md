@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { FederationConfigurationApiRequestBody } from "authlete-test/models/operations";
+import { FederationConfigurationApiRequestBody } from "authlete/models/operations";
 
 let value: FederationConfigurationApiRequestBody = {};
 ```

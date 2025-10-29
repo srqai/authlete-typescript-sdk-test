@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { IntrospectionRequest } from "authlete-test/models";
+import { IntrospectionRequest } from "authlete/models";
 
 let value: IntrospectionRequest = {
   token: "<value>",

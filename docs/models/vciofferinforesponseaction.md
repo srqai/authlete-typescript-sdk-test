@@ -5,7 +5,7 @@ The result of the `/vci/offer/info` API call.
 ## Example Usage
 
 ```typescript
-import { VciOfferInfoResponseAction } from "authlete-test/models";
+import { VciOfferInfoResponseAction } from "authlete/models";
 
 let value: VciOfferInfoResponseAction = "AUTHLETE_ERROR";
 ```

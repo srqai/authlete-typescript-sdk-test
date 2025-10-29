@@ -8,7 +8,7 @@ Client Registration 1.0, 2. Client Metadata](https://openid.net/specs/openid-con
 ## Example Usage
 
 ```typescript
-import { ClientAuthMethod } from "authlete-test/models";
+import { ClientAuthMethod } from "authlete/models";
 
 let value: ClientAuthMethod = "CLIENT_SECRET_JWT";
 ```

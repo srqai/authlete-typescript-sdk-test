@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NativeSsoRequest } from "authlete-test/models";
+import { NativeSsoRequest } from "authlete/models";
 
 let value: NativeSsoRequest = {
   accessToken: "<value>",

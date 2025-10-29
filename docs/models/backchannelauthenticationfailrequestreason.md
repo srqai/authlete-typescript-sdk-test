@@ -8,7 +8,7 @@ is used as a reason.
 ## Example Usage
 
 ```typescript
-import { BackchannelAuthenticationFailRequestReason } from "authlete-test/models";
+import { BackchannelAuthenticationFailRequestReason } from "authlete/models";
 
 let value: BackchannelAuthenticationFailRequestReason =
   "INVALID_BINDING_MESSAGE";

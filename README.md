@@ -139,25 +139,25 @@ The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https
 ### NPM
 
 ```bash
-npm add authlete-test
+npm add authlete
 ```
 
 ### PNPM
 
 ```bash
-pnpm add authlete-test
+pnpm add authlete
 ```
 
 ### Bun
 
 ```bash
-bun add authlete-test
+bun add authlete
 ```
 
 ### Yarn
 
 ```bash
-yarn add authlete-test zod
+yarn add authlete zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
@@ -179,16 +179,16 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ### Example
 
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.serviceManagement.serviceGetApi({
+  const result = await authlete.serviceManagement.serviceGetApi({
     serviceId: "<id>",
   });
 
@@ -207,23 +207,23 @@ run();
 
 This SDK supports the following security schemes globally:
 
-| Name       | Type   | Scheme       | Environment Variable    |
-| ---------- | ------ | ------------ | ----------------------- |
-| `authlete` | oauth2 | OAuth2 token | `AUTHLETETEST_AUTHLETE` |
-| `bearer`   | http   | HTTP Bearer  | `AUTHLETETEST_BEARER`   |
+| Name       | Type   | Scheme       | Environment Variable |
+| ---------- | ------ | ------------ | -------------------- |
+| `authlete` | oauth2 | OAuth2 token | `AUTHLETE_AUTHLETE`  |
+| `bearer`   | http   | HTTP Bearer  | `AUTHLETE_BEARER`    |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.serviceManagement.serviceGetApi({
+  const result = await authlete.serviceManagement.serviceGetApi({
     serviceId: "<id>",
   });
 
@@ -483,16 +483,16 @@ Some of the endpoints in this SDK support retries.  If you use the SDK without a
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.serviceManagement.serviceGetApi({
+  const result = await authlete.serviceManagement.serviceGetApi({
     serviceId: "<id>",
   }, {
     retries: {
@@ -516,9 +516,9 @@ run();
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   retryConfig: {
     strategy: "backoff",
     backoff: {
@@ -530,12 +530,12 @@ const authleteTest = new AuthleteTest({
     retryConnectionErrors: false,
   },
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.serviceManagement.serviceGetApi({
+  const result = await authlete.serviceManagement.serviceGetApi({
     serviceId: "<id>",
   });
 
@@ -550,7 +550,7 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-[`AuthleteTestError`](./src/models/errors/authletetesterror.ts) is the base class for all HTTP error responses. It has the following properties:
+[`AuthleteError`](./src/models/errors/authleteerror.ts) is the base class for all HTTP error responses. It has the following properties:
 
 | Property            | Type       | Description                                                                             |
 | ------------------- | ---------- | --------------------------------------------------------------------------------------- |
@@ -563,25 +563,25 @@ run();
 
 ### Example
 ```typescript
-import { AuthleteTest } from "authlete-test";
-import * as errors from "authlete-test/models/errors";
+import { Authlete } from "authlete";
+import * as errors from "authlete/models/errors";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
   try {
-    const result = await authleteTest.serviceManagement.serviceGetApi({
+    const result = await authlete.serviceManagement.serviceGetApi({
       serviceId: "<id>",
     });
 
     console.log(result);
   } catch (error) {
     // The base class for HTTP error responses
-    if (error instanceof errors.AuthleteTestError) {
+    if (error instanceof errors.AuthleteError) {
       console.log(error.message);
       console.log(error.statusCode);
       console.log(error.body);
@@ -602,7 +602,7 @@ run();
 
 ### Error Classes
 **Primary errors:**
-* [`AuthleteTestError`](./src/models/errors/authletetesterror.ts): The base class for HTTP error responses.
+* [`AuthleteError`](./src/models/errors/authleteerror.ts): The base class for HTTP error responses.
   * [`ResultError`](./src/models/errors/resulterror.ts): . *
 
 <details><summary>Less common errors (6)</summary>
@@ -617,7 +617,7 @@ run();
 * [`UnexpectedClientError`](./src/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
 
 
-**Inherit from [`AuthleteTestError`](./src/models/errors/authletetesterror.ts)**:
+**Inherit from [`AuthleteError`](./src/models/errors/authleteerror.ts)**:
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
@@ -642,17 +642,17 @@ You can override the default server globally by passing a server index to the `s
 #### Example
 
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   serverIdx: 3,
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.serviceManagement.serviceGetApi({
+  const result = await authlete.serviceManagement.serviceGetApi({
     serviceId: "<id>",
   });
 
@@ -667,17 +667,17 @@ run();
 
 The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const authleteTest = new AuthleteTest({
+const authlete = new Authlete({
   serverURL: "https://br.authlete.com",
   security: {
-    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
 });
 
 async function run() {
-  const result = await authleteTest.serviceManagement.serviceGetApi({
+  const result = await authlete.serviceManagement.serviceGetApi({
     serviceId: "<id>",
   });
 
@@ -707,8 +707,8 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { AuthleteTest } from "authlete-test";
-import { HTTPClient } from "authlete-test/lib/http";
+import { Authlete } from "authlete";
+import { HTTPClient } from "authlete/lib/http";
 
 const httpClient = new HTTPClient({
   // fetcher takes a function that has the same signature as native `fetch`.
@@ -734,7 +734,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new AuthleteTest({ httpClient });
+const sdk = new Authlete({ httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
@@ -749,12 +749,12 @@ You can pass a logger that matches `console`'s interface as an SDK option.
 > Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
 
 ```typescript
-import { AuthleteTest } from "authlete-test";
+import { Authlete } from "authlete";
 
-const sdk = new AuthleteTest({ debugLogger: console });
+const sdk = new Authlete({ debugLogger: console });
 ```
 
-You can also enable a default debug logger by setting an environment variable `AUTHLETETEST_DEBUG` to true.
+You can also enable a default debug logger by setting an environment variable `AUTHLETE_DEBUG` to true.
 <!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

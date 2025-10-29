@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeviceCompleteRequest } from "authlete-test/models";
+import { DeviceCompleteRequest } from "authlete/models";
 
 let value: DeviceCompleteRequest = {
   userCode: "<value>",

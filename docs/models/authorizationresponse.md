@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { AuthorizationResponse } from "authlete-test/models";
+import { AuthorizationResponse } from "authlete/models";
 
 let value: AuthorizationResponse = {
   service: {

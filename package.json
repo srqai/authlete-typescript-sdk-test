@@ -1,11 +1,11 @@
 {
-  "name": "authlete-test",
-  "version": "0.3.5",
+  "name": "authlete",
+  "version": "0.3.6",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {
     "sourceDialects": [
-      "authlete-test/source"
+      "authlete/source"
     ],
     "exports": {
       ".": "./src/index.ts",

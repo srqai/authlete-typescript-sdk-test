@@ -5,7 +5,7 @@ The result of the `/vci/offer/create` API call.
 ## Example Usage
 
 ```typescript
-import { VciOfferCreateResponseAction } from "authlete-test/models";
+import { VciOfferCreateResponseAction } from "authlete/models";
 
 let value: VciOfferCreateResponseAction = "CREATED";
 ```

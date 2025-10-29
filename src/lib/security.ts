@@ -244,14 +244,14 @@ export function resolveGlobalSecurity(
       {
         fieldName: "Authorization",
         type: "oauth2",
-        value: security?.authlete ?? env().AUTHLETETEST_AUTHLETE,
+        value: security?.authlete ?? env().AUTHLETE_AUTHLETE,
       },
     ],
     [
       {
         fieldName: "Authorization",
         type: "http:bearer",
-        value: security?.bearer ?? env().AUTHLETETEST_BEARER,
+        value: security?.bearer ?? env().AUTHLETE_BEARER,
       },
     ],
   );
