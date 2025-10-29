@@ -418,26 +418,6 @@ actions:
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
-  - target: $["paths"]["/api/{serviceId}/service/jwks/get"]["get"]
-    update:
-      x-speakeasy-group: jwks
-      x-speakeasy-name-override: get
-    x-speakeasy-metadata:
-      after: sdk.jwks.get()
-      before: ""
-      created_at: 1761727785993
-      reviewed_at: 1761727785993
-      type: method-name
-  - target: $["paths"]["/api/{serviceId}/jose/verify"]["post"]
-    update:
-      x-speakeasy-group: jose
-      x-speakeasy-name-override: verify
-    x-speakeasy-metadata:
-      after: sdk.jose.verify()
-      before: ""
-      created_at: 1761727785993
-      reviewed_at: 1761727785993
-      type: method-name
   - target: $["paths"]["/api/{serviceId}/nativesso"]["post"]
     update:
       x-speakeasy-group: nativeSso
