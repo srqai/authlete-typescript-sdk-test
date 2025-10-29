@@ -20,7 +20,7 @@ import { unwrapAsync } from "../types/fp.js";
 
 export class VerifiableCredentials extends ClientSDK {
   /**
-   * /api/{serviceId}/vci/metadata API
+   * Get Verifiable Credential Issuer Metadata
    *
    * @remarks
    * Get verifiable credential issuer metadata
@@ -37,7 +37,7 @@ export class VerifiableCredentials extends ClientSDK {
   }
 
   /**
-   * /api/{serviceId}/vci/jwtissuer API
+   * Get JWT Issuer Information
    *
    * @remarks
    * Get JWT issuer information for VCI
@@ -54,7 +54,7 @@ export class VerifiableCredentials extends ClientSDK {
   }
 
   /**
-   * /api/{serviceId}/vci/jwks API
+   * Get JSON Web Key Set
    *
    * @remarks
    * Get JSON Web Key Set for VCI
@@ -71,7 +71,7 @@ export class VerifiableCredentials extends ClientSDK {
   }
 
   /**
-   * /api/{serviceId}/vci/offer/create API
+   * Create Credential Offer
    *
    * @remarks
    * Create a verifiable credential offer
@@ -88,7 +88,7 @@ export class VerifiableCredentials extends ClientSDK {
   }
 
   /**
-   * /api/{serviceId}/vci/offer/info API
+   * Get Credential Offer Information
    *
    * @remarks
    * Get information about a verifiable credential offer
@@ -105,7 +105,7 @@ export class VerifiableCredentials extends ClientSDK {
   }
 
   /**
-   * /api/{serviceId}/vci/single/parse API
+   * Parse Single Credential
    *
    * @remarks
    * Parse a single verifiable credential
@@ -122,7 +122,7 @@ export class VerifiableCredentials extends ClientSDK {
   }
 
   /**
-   * /api/{serviceId}/vci/single/issue API
+   * Issue Single Credential
    *
    * @remarks
    * Issue a single verifiable credential
@@ -139,7 +139,7 @@ export class VerifiableCredentials extends ClientSDK {
   }
 
   /**
-   * /api/{serviceId}/vci/batch/parse API
+   * Parse Batch Credentials
    *
    * @remarks
    * Parse multiple verifiable credentials in batch
@@ -156,7 +156,7 @@ export class VerifiableCredentials extends ClientSDK {
   }
 
   /**
-   * /api/{serviceId}/vci/batch/issue API
+   * Issue Batch Credentials
    *
    * @remarks
    * Issue multiple verifiable credentials in batch
@@ -173,7 +173,7 @@ export class VerifiableCredentials extends ClientSDK {
   }
 
   /**
-   * /api/{serviceId}/vci/deferred/parse API
+   * Parse Deferred Credential
    *
    * @remarks
    * Parse a deferred verifiable credential
@@ -190,7 +190,7 @@ export class VerifiableCredentials extends ClientSDK {
   }
 
   /**
-   * /api/{serviceId}/vci/deferred/issue API
+   * Issue Deferred Credential
    *
    * @remarks
    * Issue a deferred verifiable credential

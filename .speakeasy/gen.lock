@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6bef56a0-baee-4c65-b71e-495533b2af98
 management:
-  docChecksum: 9de580524443bbc7a132a19293e2e76f
+  docChecksum: b947a9e697999de7b86ade4968f90173
   docVersion: 3.0.15
   speakeasyVersion: 1.642.1
   generationVersion: 2.731.4
-  releaseVersion: 0.7.1
-  configChecksum: deb89ff5735f711760429dd2a1200d17
+  releaseVersion: 0.7.2
+  configChecksum: 6cbc36b38b8e21449ce2d7dbdfe847a2
   repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
   installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
@@ -1811,121 +1811,3 @@ examples:
         "500":
           application/json: {}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Typescript SDK Changes Detected:
-  * `authlete.service.get()`: **Added**
-  * `authlete.service.list()`: **Added**
-  * `authlete.service.create()`: **Added**
-  * `authlete.service.update()`: **Added**
-  * `authlete.service.delete()`: **Added**
-  * `authlete.service.getConfiguration()`: **Added**
-  * `authlete.client.get()`: **Added**
-  * `authlete.client.list()`: **Added**
-  * `authlete.client.create()`: **Added**
-  * `authlete.client.update()`: **Added**
-  * `authlete.client.delete()`: **Added**
-  * `authlete.client.updateLockFlag()`: **Added**
-  * `authlete.client.refreshSecret()`: **Added**
-  * `authlete.client.updateSecret()`: **Added**
-  * `authlete.client.listAuthorizations()`: **Added**
-  * `authlete.client.updateAuthorizations()`: **Added**
-  * `authlete.client.deleteAuthorizations()`: **Added**
-  * `authlete.client.getGrantedScopes()`: **Added**
-  * `authlete.client.deleteGrantedScopes()`: **Added**
-  * `authlete.client.getRequestableScopes()`: **Added**
-  * `authlete.client.updateRequestableScopes()`: **Added**
-  * `authlete.client.deleteRequestableScopes()`: **Added**
-  * `authlete.authorization.processRequest()`: **Added**
-  * `authlete.authorization.fail()`: **Added**
-  * `authlete.authorization.issue()`: **Added**
-  * `authlete.authorization.updateTicket()`: **Added**
-  * `authlete.pushedAuthorization.create()`: **Added**
-  * `authlete.token.process()`: **Added**
-  * `authlete.token.fail()`: **Added**
-  * `authlete.token.issue()`: **Added**
-  * `authlete.token.reissueIdToken()`: **Added**
-  * `authlete.introspection.standardProcess()`: **Added**
-  * `authlete.revocation.process()`: **Added**
-  * `authlete.userinfo.process()`: **Added**
-  * `authlete.userinfo.issue()`: **Added**
-  * `authlete.grantManagement.processRequest()`: **Added**
-  * `authlete.jwks.get()`: **Added**
-  * `authlete.dynamicClientRegistration.register()`: **Added**
-  * `authlete.dynamicClientRegistration.get()`: **Added**
-  * `authlete.ciba.fail()`: **Added**
-  * `authlete.ciba.complete()`: **Added**
-  * `authlete.tokens.list()`: **Added**
-  * `authlete.tokens.create()`: **Added**
-  * `authlete.tokens.update()`: **Added**
-  * `authlete.jose.verify()`: **Added**
-  * `authlete.federation.processConfiguration()`: **Added**
-  * `authlete.federation.processRegistration()`: **Added**
-  * `authlete.utility.getServerMetadata()`: **Added**
-  * `authlete.utility.echo()`: **Added**
-  * `authlete.hardwareSecurityKeys.delete()`: **Added**
-  * `authlete.hardwareSecurityKeys.get()`: **Added**
-  * `authlete.verifiableCredentials.getJwtIssuer()`: **Added**
-  * `authlete.verifiableCredentials.getOfferInfo()`: **Added**
-  * `authlete.verifiableCredentials.issue()`: **Added**
-  * `authlete.verifiableCredentials.batchParse()`: **Added**
-  * `authlete.verifiableCredentials.batchIssue()`: **Added**
-  * `authlete.verifiableCredentials.deferredParse()`: **Added**
-  * `authlete.verifiableCredentials.deferredIssue()`: **Added**
-  * `authlete.services.get()`: **Deleted** **Breaking** :warning:
-  * `authlete.services.update()`: **Deleted** **Breaking** :warning:
-  * `authlete.services.delete()`: **Deleted** **Breaking** :warning:
-  * `authlete.serviceManagement.listServices()`: **Deleted** **Breaking** :warning:
-  * `authlete.serviceManagement.create()`: **Deleted** **Breaking** :warning:
-  * `authlete.serviceManagement.getServiceConfiguration()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.getClient()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.deleteClient()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.updateSecret()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.listAuthorizedApplications()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.updateAuthorization()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.deleteAuthorizations()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.getRequestableScopes()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.deleteRequestableScopes()`: **Deleted** **Breaking** :warning:
-  * `authlete.clients.list()`: **Deleted** **Breaking** :warning:
-  * `authlete.clients.create()`: **Deleted** **Breaking** :warning:
-  * `authlete.clients.update()`: **Deleted** **Breaking** :warning:
-  * `authlete.clients.updateLockFlag()`: **Deleted** **Breaking** :warning:
-  * `authlete.clients.refreshSecret()`: **Deleted** **Breaking** :warning:
-  * `authlete.clients.getGrantedScopes()`: **Deleted** **Breaking** :warning:
-  * `authlete.clients.deleteGrantedScopes()`: **Deleted** **Breaking** :warning:
-  * `authlete.clients.updateRequestableScopes()`: **Deleted** **Breaking** :warning:
-  * `authlete.authorizationEndpoint.processAuthorization()`: **Deleted** **Breaking** :warning:
-  * `authlete.authorizationEndpoint.failAuthorization()`: **Deleted** **Breaking** :warning:
-  * `authlete.authorizationEndpoint.issueAuthorization()`: **Deleted** **Breaking** :warning:
-  * `authlete.pushedAuthorizationEndpoint.create()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenEndpoint.processToken()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenEndpoint.issueToken()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenEndpoint.reissueIdToken()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokens.fail()`: **Deleted** **Breaking** :warning:
-  * `authlete.introspectionEndpoint.processIntrospection()`: **Deleted** **Breaking** :warning:
-  * `authlete.revocationEndpoint.processRevocation()`: **Deleted** **Breaking** :warning:
-  * `authlete.userinfoEndpoint.processUserInfo()`: **Deleted** **Breaking** :warning:
-  * `authlete.userInfoEndpoint.issueIdToken()`: **Deleted** **Breaking** :warning:
-  * `authlete.grantManagementEndpoint.processGrantManagement()`: **Deleted** **Breaking** :warning:
-  * `authlete.jwksSet.get()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientRegistration.register()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientRegistration.get()`: **Deleted** **Breaking** :warning:
-  * `authlete.ciba.failBackchannelAuthentication()`: **Deleted** **Breaking** :warning:
-  * `authlete.ciba.completeBackchannelAuthentication()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenOperations.listTokens()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenOperations.create()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenOperations.update()`: **Deleted** **Breaking** :warning:
-  * `authlete.joseObject.verify()`: **Deleted** **Breaking** :warning:
-  * `authlete.federationEndpoint.processConfiguration()`: **Deleted** **Breaking** :warning:
-  * `authlete.federationEndpoint.processRegistration()`: **Deleted** **Breaking** :warning:
-  * `authlete.utilityEndpoints.getServerMetadata()`: **Deleted** **Breaking** :warning:
-  * `authlete.utilityEndpoints.echo()`: **Deleted** **Breaking** :warning:
-  * `authlete.hardwareSecurityKey.delete()`: **Deleted** **Breaking** :warning:
-  * `authlete.hardwareSecurityKey.get()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.getJwtIssuer()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.getOfferInfo()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.issueSingle()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.parseBatch()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.batchIssue()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.parseDeferred()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.deferredIssue()`: **Deleted** **Breaking** :warning:
-  * `authlete.authorization.ticketUpdate()`: **Deleted** **Breaking** :warning:

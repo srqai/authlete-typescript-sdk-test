@@ -9025,7 +9025,7 @@ paths:
       x-speakeasy-name-override: echo
   /api/{serviceId}/vci/metadata:
     post:
-      summary: /api/{serviceId}/vci/metadata API
+      summary: Get Verifiable Credential Issuer Metadata
       description: Get verifiable credential issuer metadata
       parameters:
         - in: path
@@ -9065,7 +9065,7 @@ paths:
       x-speakeasy-name-override: getMetadata
   /api/{serviceId}/vci/jwtissuer:
     post:
-      summary: /api/{serviceId}/vci/jwtissuer API
+      summary: Get JWT Issuer Information
       description: Get JWT issuer information for VCI
       parameters:
         - in: path
@@ -9105,7 +9105,7 @@ paths:
       x-speakeasy-name-override: getJwtIssuer
   /api/{serviceId}/vci/jwks:
     post:
-      summary: /api/{serviceId}/vci/jwks API
+      summary: Get JSON Web Key Set
       description: Get JSON Web Key Set for VCI
       parameters:
         - in: path
@@ -9145,7 +9145,7 @@ paths:
       x-speakeasy-name-override: getJwks
   /api/{serviceId}/vci/offer/create:
     post:
-      summary: /api/{serviceId}/vci/offer/create API
+      summary: Create Credential Offer
       description: Create a verifiable credential offer
       parameters:
         - in: path
@@ -9185,7 +9185,7 @@ paths:
       x-speakeasy-name-override: createOffer
   /api/{serviceId}/vci/offer/info:
     post:
-      summary: /api/{serviceId}/vci/offer/info API
+      summary: Get Credential Offer Information
       description: Get information about a verifiable credential offer
       parameters:
         - in: path
@@ -9225,7 +9225,7 @@ paths:
       x-speakeasy-name-override: getOfferInfo
   /api/{serviceId}/vci/single/parse:
     post:
-      summary: /api/{serviceId}/vci/single/parse API
+      summary: Parse Single Credential
       description: Parse a single verifiable credential
       parameters:
         - in: path
@@ -9265,7 +9265,7 @@ paths:
       x-speakeasy-name-override: parse
   /api/{serviceId}/vci/single/issue:
     post:
-      summary: /api/{serviceId}/vci/single/issue API
+      summary: Issue Single Credential
       description: Issue a single verifiable credential
       parameters:
         - in: path
@@ -9302,7 +9302,7 @@ paths:
       x-speakeasy-name-override: issue
   /api/{serviceId}/vci/batch/parse:
     post:
-      summary: /api/{serviceId}/vci/batch/parse API
+      summary: Parse Batch Credentials
       description: Parse multiple verifiable credentials in batch
       parameters:
         - in: path
@@ -9342,7 +9342,7 @@ paths:
       x-speakeasy-name-override: batchParse
   /api/{serviceId}/vci/batch/issue:
     post:
-      summary: /api/{serviceId}/vci/batch/issue API
+      summary: Issue Batch Credentials
       description: Issue multiple verifiable credentials in batch
       parameters:
         - in: path
@@ -9379,7 +9379,7 @@ paths:
       x-speakeasy-name-override: batchIssue
   /api/{serviceId}/vci/deferred/parse:
     post:
-      summary: /api/{serviceId}/vci/deferred/parse API
+      summary: Parse Deferred Credential
       description: Parse a deferred verifiable credential
       parameters:
         - in: path
@@ -9419,7 +9419,7 @@ paths:
       x-speakeasy-name-override: deferredParse
   /api/{serviceId}/vci/deferred/issue:
     post:
-      summary: /api/{serviceId}/vci/deferred/issue API
+      summary: Issue Deferred Credential
       description: Issue a deferred verifiable credential
       parameters:
         - in: path

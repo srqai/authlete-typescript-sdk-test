@@ -5,17 +5,17 @@
 
 ### Available Operations
 
-* [getMetadata](#getmetadata) - /api/{serviceId}/vci/metadata API
-* [getJwtIssuer](#getjwtissuer) - /api/{serviceId}/vci/jwtissuer API
-* [getJwks](#getjwks) - /api/{serviceId}/vci/jwks API
-* [createOffer](#createoffer) - /api/{serviceId}/vci/offer/create API
-* [getOfferInfo](#getofferinfo) - /api/{serviceId}/vci/offer/info API
-* [parse](#parse) - /api/{serviceId}/vci/single/parse API
-* [issue](#issue) - /api/{serviceId}/vci/single/issue API
-* [batchParse](#batchparse) - /api/{serviceId}/vci/batch/parse API
-* [batchIssue](#batchissue) - /api/{serviceId}/vci/batch/issue API
-* [deferredParse](#deferredparse) - /api/{serviceId}/vci/deferred/parse API
-* [deferredIssue](#deferredissue) - /api/{serviceId}/vci/deferred/issue API
+* [getMetadata](#getmetadata) - Get Verifiable Credential Issuer Metadata
+* [getJwtIssuer](#getjwtissuer) - Get JWT Issuer Information
+* [getJwks](#getjwks) - Get JSON Web Key Set
+* [createOffer](#createoffer) - Create Credential Offer
+* [getOfferInfo](#getofferinfo) - Get Credential Offer Information
+* [parse](#parse) - Parse Single Credential
+* [issue](#issue) - Issue Single Credential
+* [batchParse](#batchparse) - Parse Batch Credentials
+* [batchIssue](#batchissue) - Issue Batch Credentials
+* [deferredParse](#deferredparse) - Parse Deferred Credential
+* [deferredIssue](#deferredissue) - Issue Deferred Credential
 
 ## getMetadata
 
