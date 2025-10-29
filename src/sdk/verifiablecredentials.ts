@@ -16,7 +16,7 @@ export class VerifiableCredentials extends ClientSDK {
    * /api/{serviceId}/vci/metadata API
    *
    * @remarks
-   * Get metadata for Verifiable Credential Issuer (VCI) service
+   * Get verifiable credential issuer metadata
    */
   async getMetadata(
     request: operations.VciMetadataApiRequest,
@@ -33,7 +33,7 @@ export class VerifiableCredentials extends ClientSDK {
    * /api/{serviceId}/vci/jwks API
    *
    * @remarks
-   * Get JSON Web Key Set (JWKS) for Verifiable Credential Issuer (VCI) service
+   * Get JSON Web Key Set for VCI
    */
   async getJwks(
     request: operations.VciJwksApiRequest,
@@ -50,7 +50,7 @@ export class VerifiableCredentials extends ClientSDK {
    * /api/{serviceId}/vci/offer/create API
    *
    * @remarks
-   * Create offer for Verifiable Credential Issuer (VCI) service
+   * Create a verifiable credential offer
    */
   async createOffer(
     request: operations.VciOfferCreateApiRequest,
@@ -67,7 +67,7 @@ export class VerifiableCredentials extends ClientSDK {
    * /api/{serviceId}/vci/single/parse API
    *
    * @remarks
-   * Parse single credential request for Verifiable Credential Issuer (VCI) service
+   * Parse a single verifiable credential
    */
   async parse(
     request: operations.VciSingleParseApiRequest,

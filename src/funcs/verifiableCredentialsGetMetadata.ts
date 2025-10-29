@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * /api/{serviceId}/vci/metadata API
  *
  * @remarks
- * Get metadata for Verifiable Credential Issuer (VCI) service
+ * Get verifiable credential issuer metadata
  */
 export function verifiableCredentialsGetMetadata(
   client: AuthleteCore,
@@ -112,7 +112,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "vci_metadata_api",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

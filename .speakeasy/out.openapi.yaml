@@ -2037,6 +2037,7 @@ paths:
           required: true
           schema:
             type: string
+          example: '715948317'
         - in: path
           name: clientId
           schema:
@@ -2044,6 +2045,7 @@ paths:
           required: true
           description: |
             A client ID.
+          example: '1140735077'
         - in: path
           name: subject
           schema:
@@ -2060,7 +2062,7 @@ paths:
             Unique user ID of an end-user.
       responses:
         '200':
-          description: ''
+          description: Successfully retrieved granted scopes
           content:
             application/json:
               schema:
@@ -2761,7 +2763,7 @@ paths:
               $ref: '#/components/schemas/authorization_request'
       responses:
         '200':
-          description: ''
+          description: Authorization request processed successfully
           content:
             application/json:
               schema:
@@ -3775,7 +3777,7 @@ paths:
               $ref: '#/components/schemas/token_request'
       responses:
         '200':
-          description: ''
+          description: Token operation completed successfully
           content:
             application/json:
               schema:
@@ -4093,7 +4095,7 @@ paths:
               $ref: '#/components/schemas/token_issue_request'
       responses:
         '200':
-          description: ''
+          description: Token issued successfully
           content:
             application/json:
               schema:
@@ -4549,7 +4551,7 @@ paths:
               $ref: '#/components/schemas/standard_introspection_request'
       responses:
         '200':
-          description: ''
+          description: Token introspection completed successfully
           content:
             application/json:
               schema:
@@ -4757,7 +4759,7 @@ paths:
               $ref: '#/components/schemas/revocation_request'
       responses:
         '200':
-          description: ''
+          description: Token revoked successfully
           content:
             application/json:
               schema:
@@ -4971,7 +4973,7 @@ paths:
               $ref: '#/components/schemas/userinfo_request'
       responses:
         '200':
-          description: ''
+          description: User info retrieved successfully
           content:
             application/json:
               schema:
@@ -5199,7 +5201,7 @@ paths:
               $ref: '#/components/schemas/userinfo_issue_request'
       responses:
         '200':
-          description: ''
+          description: User info issued successfully
           content:
             application/json:
               schema:
@@ -5272,7 +5274,7 @@ paths:
               $ref: '#/components/schemas/idtoken_reissue_request'
       responses:
         '200':
-          description: ''
+          description: ID token reissued successfully
           content:
             application/json:
               schema:
@@ -5316,7 +5318,7 @@ paths:
               gmAction: REVOKE
       responses:
         '200':
-          description: ''
+          description: Grant management completed successfully
           content:
             application/json:
               schema:
@@ -5478,7 +5480,7 @@ paths:
           description: Get the JSON Patch [RFC 6902 JavaScript Object Notation (JSON) Patch](https://www.rfc-editor.org/rfc/rfc6902) to be applied.
       responses:
         '200':
-          description: ''
+          description: Service configuration retrieved successfully
           content:
             application/json:
               schema:
@@ -5904,7 +5906,7 @@ paths:
               json: '{ "client_name": "My Dynamic Client" }'
       responses:
         '200':
-          description: ''
+          description: Client registration completed successfully
           content:
             application/json:
               schema:
@@ -7112,7 +7114,7 @@ paths:
               $ref: '#/components/schemas/backchannel_authentication_issue_request'
       responses:
         '200':
-          description: ''
+          description: Backchannel authentication issued successfully
           content:
             application/json:
               schema:
@@ -7409,7 +7411,7 @@ paths:
               $ref: '#/components/schemas/backchannel_authentication_complete_request'
       responses:
         '200':
-          description: ''
+          description: Backchannel authentication completed successfully
           content:
             application/json:
               schema:
@@ -7733,7 +7735,7 @@ paths:
               $ref: '#/components/schemas/device_verification_request'
       responses:
         '200':
-          description: ''
+          description: Device verification completed successfully
           content:
             application/json:
               schema:
@@ -8110,7 +8112,7 @@ paths:
               $ref: '#/components/schemas/token_create_request'
       responses:
         '200':
-          description: ''
+          description: Token created successfully
           content:
             application/json:
               schema:
@@ -8203,7 +8205,7 @@ paths:
               $ref: '#/components/schemas/token_update_request'
       responses:
         '200':
-          description: ''
+          description: Token updated successfully
           content:
             application/json:
               schema:
@@ -8345,7 +8347,7 @@ paths:
               $ref: '#/components/schemas/token_revoke_request'
       responses:
         '200':
-          description: ''
+          description: Token revoked successfully
           content:
             application/json:
               schema:
@@ -8587,7 +8589,7 @@ paths:
               type: object
       responses:
         '200':
-          description: ''
+          description: Federation configuration retrieved successfully
           content:
             application/json:
               schema:
@@ -8707,7 +8709,7 @@ paths:
         get the server version and enabled features
       responses:
         '200':
-          description: ''
+          description: API information retrieved successfully
           content:
             application/json:
               schema:
@@ -8803,7 +8805,7 @@ paths:
               $ref: '#/components/schemas/client_extension_requestable_scopes_update_request'
       responses:
         '200':
-          description: ''
+          description: Requestable scopes updated successfully
           content:
             application/json:
               schema:
@@ -8880,7 +8882,7 @@ paths:
               $ref: '#/components/schemas/hsk_create_request'
       responses:
         '200':
-          description: ''
+          description: HSK created successfully
           content:
             application/json:
               schema:
@@ -8918,7 +8920,7 @@ paths:
           required: true
       responses:
         '204':
-          description: ''
+          description: HSK deleted successfully
           content:
             application/json:
               schema:
@@ -8989,7 +8991,7 @@ paths:
             type: string
       responses:
         '200':
-          description: ''
+          description: HSK list retrieved successfully
           content:
             application/json:
               schema:
@@ -9024,7 +9026,7 @@ paths:
   /api/{serviceId}/vci/metadata:
     post:
       summary: /api/{serviceId}/vci/metadata API
-      description: Get metadata for Verifiable Credential Issuer (VCI) service
+      description: Get verifiable credential issuer metadata
       parameters:
         - in: path
           name: serviceId
@@ -9043,7 +9045,7 @@ paths:
               $ref: '#/components/schemas/vci_metadata_request'
       responses:
         '200':
-          description: ''
+          description: VCI metadata retrieved successfully
           content:
             application/json:
               schema:
@@ -9064,7 +9066,7 @@ paths:
   /api/{serviceId}/vci/jwtissuer:
     post:
       summary: /api/{serviceId}/vci/jwtissuer API
-      description: Get JWT issuer information for Verifiable Credential Issuer (VCI) service
+      description: Get JWT issuer information for VCI
       parameters:
         - in: path
           name: serviceId
@@ -9104,7 +9106,7 @@ paths:
   /api/{serviceId}/vci/jwks:
     post:
       summary: /api/{serviceId}/vci/jwks API
-      description: Get JSON Web Key Set (JWKS) for Verifiable Credential Issuer (VCI) service
+      description: Get JSON Web Key Set for VCI
       parameters:
         - in: path
           name: serviceId
@@ -9144,7 +9146,7 @@ paths:
   /api/{serviceId}/vci/offer/create:
     post:
       summary: /api/{serviceId}/vci/offer/create API
-      description: Create offer for Verifiable Credential Issuer (VCI) service
+      description: Create a verifiable credential offer
       parameters:
         - in: path
           name: serviceId
@@ -9184,7 +9186,7 @@ paths:
   /api/{serviceId}/vci/offer/info:
     post:
       summary: /api/{serviceId}/vci/offer/info API
-      description: Get offer information for Verifiable Credential Issuer (VCI) service
+      description: Get information about a verifiable credential offer
       parameters:
         - in: path
           name: serviceId
@@ -9203,7 +9205,7 @@ paths:
               $ref: '#/components/schemas/vci_offer_info_request'
       responses:
         '200':
-          description: ''
+          description: Credential offer info retrieved successfully
           content:
             application/json:
               schema:
@@ -9224,7 +9226,7 @@ paths:
   /api/{serviceId}/vci/single/parse:
     post:
       summary: /api/{serviceId}/vci/single/parse API
-      description: Parse single credential request for Verifiable Credential Issuer (VCI) service
+      description: Parse a single verifiable credential
       parameters:
         - in: path
           name: serviceId
@@ -9264,7 +9266,7 @@ paths:
   /api/{serviceId}/vci/single/issue:
     post:
       summary: /api/{serviceId}/vci/single/issue API
-      description: Issue single credential for Verifiable Credential Issuer (VCI) service
+      description: Issue a single verifiable credential
       parameters:
         - in: path
           name: serviceId
@@ -9301,7 +9303,7 @@ paths:
   /api/{serviceId}/vci/batch/parse:
     post:
       summary: /api/{serviceId}/vci/batch/parse API
-      description: Parse batch credential requests for Verifiable Credential Issuer (VCI) service
+      description: Parse multiple verifiable credentials in batch
       parameters:
         - in: path
           name: serviceId
@@ -9320,7 +9322,7 @@ paths:
               $ref: '#/components/schemas/vci_batch_parse_request'
       responses:
         '200':
-          description: ''
+          description: Batch credential parsing completed successfully
           content:
             application/json:
               schema:
@@ -9341,7 +9343,7 @@ paths:
   /api/{serviceId}/vci/batch/issue:
     post:
       summary: /api/{serviceId}/vci/batch/issue API
-      description: Issue batch credentials for Verifiable Credential Issuer (VCI) service
+      description: Issue multiple verifiable credentials in batch
       parameters:
         - in: path
           name: serviceId
@@ -9357,7 +9359,7 @@ paths:
               $ref: '#/components/schemas/vci_batch_issue_request'
       responses:
         '200':
-          description: ''
+          description: Batch credential issuance completed successfully
           content:
             application/json:
               schema:
@@ -9378,7 +9380,7 @@ paths:
   /api/{serviceId}/vci/deferred/parse:
     post:
       summary: /api/{serviceId}/vci/deferred/parse API
-      description: Parse deferred credential request for Verifiable Credential Issuer (VCI) service
+      description: Parse a deferred verifiable credential
       parameters:
         - in: path
           name: serviceId
@@ -9418,7 +9420,7 @@ paths:
   /api/{serviceId}/vci/deferred/issue:
     post:
       summary: /api/{serviceId}/vci/deferred/issue API
-      description: Issue deferred credential for Verifiable Credential Issuer (VCI) service
+      description: Issue a deferred verifiable credential
       parameters:
         - in: path
           name: serviceId
@@ -9454,7 +9456,7 @@ paths:
       x-speakeasy-name-override: deferredIssue
   /api/{serviceId}/auth/authorization/ticket/info:
     get:
-      operationId: get_authorization_ticket_info
+      operationId: getAuthorizationTicketInfo
       summary: Get Ticket Information
       parameters:
         - in: path
@@ -9493,7 +9495,7 @@ paths:
       x-speakeasy-name-override: getTicketInfo
   /api/{serviceId}/auth/authorization/ticket/update:
     post:
-      operationId: update_authorization_ticket
+      operationId: updateAuthorizationTicket
       summary: Update Ticket Information
       parameters:
         - in: path
@@ -9513,7 +9515,7 @@ paths:
               $ref: '#/components/schemas/authorization_ticket_update_request'
       responses:
         '200':
-          description: ''
+          description: Authorization ticket updated successfully
           content:
             application/json:
               schema:
@@ -9591,6 +9593,7 @@ paths:
           required: true
           schema:
             type: string
+          example: '715948317'
       requestBody:
         required: true
         content:
@@ -9604,7 +9607,7 @@ paths:
               claims: '{"given_name":"John","family_name":"Brown","email":"test@example.com"}'
       responses:
         '200':
-          description: ''
+          description: Native SSO processing completed successfully
           content:
             application/json:
               schema:
@@ -9983,8 +9986,20 @@ components:
             Get the flag indicating whether the client is explicitly given a
             permission to make token exchange requests ([RFC 8693][https://www.rfc-editor.org/rfc/rfc8693.html])
     client:
-      title: client
       type: object
+      example:
+        number: 1140735077
+        serviceNumber: 715948317
+        clientName: My Test Client
+        clientId: '1140735077'
+        clientSecret: gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ
+        clientType: PUBLIC
+        redirectUris:
+          - https://example.com/callback
+        responseTypes:
+          - CODE
+        grantTypes:
+          - AUTHORIZATION_CODE
       properties:
         number:
           type: integer
@@ -10669,7 +10684,15 @@ components:
         responseModes:
           type: array
           items:
-            $ref: '#/components/schemas/clientResponseModesItems'
+            type: string
+            enum:
+              - QUERY
+              - FRAGMENT
+              - FORM_POST
+              - JWT
+              - QUERY_JWT
+              - FRAGMENT_JWT
+              - FORM_POST_JWT
           description: The response modes that this client may use.
         credentialResponseEncryptionRequired:
           type: boolean
@@ -10879,8 +10902,20 @@ components:
         - FAPI
         - OPEN_BANKING
     service:
-      title: service
       type: object
+      example:
+        number: 715948317
+        serviceName: My Test Service
+        issuer: https://example.com
+        supportedScopes:
+          - profile
+          - email
+          - openid
+        supportedResponseTypes:
+          - CODE
+        supportedGrantTypes:
+          - AUTHORIZATION_CODE
+          - REFRESH_TOKEN
       properties:
         number:
           type: integer
@@ -12668,16 +12703,6 @@ components:
       enum:
         - PUBLIC
         - CONFIDENTIAL
-    clientResponseModesItems:
-      type: string
-      enum:
-        - QUERY
-        - FRAGMENT
-        - FORM_POST
-        - JWT
-        - QUERY_JWT
-        - FRAGMENT_JWT
-        - FORM_POST_JWT
     client_get_list_response:
       type: object
       properties:
@@ -12951,16 +12976,6 @@ components:
             by the `/auth/authorization/ticket/update` API.
 
             The text will be compressed and encrypted when it is saved in the Authlete database.
-    authorization_responseAction:
-      type: string
-      enum:
-        - INTERNAL_SERVER_ERROR
-        - BAD_REQUEST
-        - LOCATION
-        - FORM
-        - NO_INTERACTION
-        - INTERACTION
-      description: The next action that the authorization server implementation should take.
     client_limited_authorization:
       type: object
       properties:
@@ -13102,7 +13117,15 @@ components:
           type: string
           description: A short message which explains the result of the API call.
         action:
-          $ref: '#/components/schemas/authorization_responseAction'
+          type: string
+          enum:
+            - INTERNAL_SERVER_ERROR
+            - BAD_REQUEST
+            - LOCATION
+            - FORM
+            - NO_INTERACTION
+            - INTERACTION
+          description: The next action that the authorization server implementation should take.
         client:
           $ref: '#/components/schemas/client_limited_authorization'
         display:
@@ -15719,18 +15742,6 @@ components:
           type: string
           description: |
             The client's identifier. Used for GET, UPDATE, and DELETE requests
-    client_registration_responseAction:
-      type: string
-      enum:
-        - BAD_REQUEST
-        - CREATED
-        - DELETED
-        - INTERNAL_SERVER_ERROR
-        - OK
-        - UNAUTHORIZED
-        - UPDATED
-      description: |
-        The next action that the authorization server implementation should take.
     client_registration_response:
       type: object
       properties:
@@ -15741,7 +15752,17 @@ components:
           type: string
           description: A short message which explains the result of the API call.
         action:
-          $ref: '#/components/schemas/client_registration_responseAction'
+          type: string
+          enum:
+            - BAD_REQUEST
+            - CREATED
+            - DELETED
+            - INTERNAL_SERVER_ERROR
+            - OK
+            - UNAUTHORIZED
+            - UPDATED
+          description: |
+            The next action that the authorization server implementation should take.
         responseContent:
           type: string
           description: |
@@ -17461,14 +17482,6 @@ components:
           type: string
           description: |
             The trust chain of a relying party.
-    federation_registration_responseAction:
-      type: string
-      enum:
-        - OK
-        - BAD_REQUEST
-        - NOT_FOUND
-        - INTERNAL_SERVER_ERROR
-      description: The next action that the authorization server implementation should take.
     federation_registration_response:
       type: object
       properties:
@@ -17479,7 +17492,13 @@ components:
           type: string
           description: A short message which explains the result of the API call.
         action:
-          $ref: '#/components/schemas/federation_registration_responseAction'
+          type: string
+          enum:
+            - OK
+            - BAD_REQUEST
+            - NOT_FOUND
+            - INTERNAL_SERVER_ERROR
+          description: The next action that the authorization server implementation should take.
         responseContent:
           type: string
           description: |

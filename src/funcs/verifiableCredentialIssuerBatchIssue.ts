@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * /api/{serviceId}/vci/batch/issue API
  *
  * @remarks
- * Issue batch credentials for Verifiable Credential Issuer (VCI) service
+ * Issue multiple verifiable credentials in batch
  */
 export function verifiableCredentialIssuerBatchIssue(
   client: AuthleteCore,
@@ -112,7 +112,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "vci_batch_issue_api",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

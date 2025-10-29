@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * /api/{serviceId}/vci/jwtissuer API
  *
  * @remarks
- * Get JWT issuer information for Verifiable Credential Issuer (VCI) service
+ * Get JWT issuer information for VCI
  */
 export function verifiableCredentialIssuerGetJwtIssuer(
   client: AuthleteCore,
@@ -112,7 +112,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "vci_jwtissuer_api",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

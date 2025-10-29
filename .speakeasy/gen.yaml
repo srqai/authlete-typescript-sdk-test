@@ -19,15 +19,16 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
   sdkHooksConfigAccess: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
   tests:
     generateTests: false
     generateNewTests: true
     skipResponseBodyAssertions: false
-  schemas:
-    allOfMergeStrategy: shallowMerge
 typescript:
-  version: 0.6.0
+  version: 0.7.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}

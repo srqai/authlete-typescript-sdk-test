@@ -1,11 +1,11 @@
-# ClientResponseModesItems
+# ResponseMode
 
 ## Example Usage
 
 ```typescript
-import { ClientResponseModesItems } from "authlete/models";
+import { ResponseMode } from "authlete/models";
 
-let value: ClientResponseModesItems = "FRAGMENT_JWT";
+let value: ResponseMode = "QUERY_JWT";
 ```
 
 ## Values

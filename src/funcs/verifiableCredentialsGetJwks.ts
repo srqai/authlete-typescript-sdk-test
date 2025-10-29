@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * /api/{serviceId}/vci/jwks API
  *
  * @remarks
- * Get JSON Web Key Set (JWKS) for Verifiable Credential Issuer (VCI) service
+ * Get JSON Web Key Set for VCI
  */
 export function verifiableCredentialsGetJwks(
   client: AuthleteCore,
@@ -110,7 +110,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "vci_jwks_api",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

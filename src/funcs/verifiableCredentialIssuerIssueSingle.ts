@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * /api/{serviceId}/vci/single/issue API
  *
  * @remarks
- * Issue single credential for Verifiable Credential Issuer (VCI) service
+ * Issue a single verifiable credential
  */
 export function verifiableCredentialIssuerIssueSingle(
   client: AuthleteCore,
@@ -112,7 +112,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "vci_single_issue_api",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 
