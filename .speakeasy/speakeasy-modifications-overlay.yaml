@@ -580,50 +580,50 @@ actions:
       type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/token/get/list"]["get"]
     update:
-      x-speakeasy-group: tokens
+      x-speakeasy-group: token
       x-speakeasy-name-override: list
     x-speakeasy-metadata:
-      after: sdk.tokens.list()
+      after: sdk.token.list()
       before: ""
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/token/create"]["post"]
     update:
-      x-speakeasy-group: tokens
+      x-speakeasy-group: token
       x-speakeasy-name-override: create
     x-speakeasy-metadata:
-      after: sdk.tokens.create()
+      after: sdk.token.create()
       before: ""
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/token/update"]["post"]
     update:
-      x-speakeasy-group: tokens
+      x-speakeasy-group: token
       x-speakeasy-name-override: update
     x-speakeasy-metadata:
-      after: sdk.tokens.update()
+      after: sdk.token.update()
       before: ""
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/token/revoke"]["post"]
     update:
-      x-speakeasy-group: tokens
+      x-speakeasy-group: token
       x-speakeasy-name-override: revoke
     x-speakeasy-metadata:
-      after: sdk.tokens.revoke()
+      after: sdk.token.revoke()
       before: ""
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/token/delete/{accessTokenIdentifier}"]["delete"]
     update:
-      x-speakeasy-group: tokens
+      x-speakeasy-group: token
       x-speakeasy-name-override: delete
     x-speakeasy-metadata:
-      after: sdk.tokens.delete()
+      after: sdk.token.delete()
       before: ""
       created_at: 1761727785993
       reviewed_at: 1761727785993
