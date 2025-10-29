@@ -580,50 +580,50 @@ actions:
       type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/token/get/list"]["get"]
     update:
-      x-speakeasy-group: token
+      x-speakeasy-group: token.management
       x-speakeasy-name-override: list
     x-speakeasy-metadata:
-      after: sdk.token.list()
+      after: sdk.token.management.list()
       before: ""
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/token/create"]["post"]
     update:
-      x-speakeasy-group: token
+      x-speakeasy-group: token.management
       x-speakeasy-name-override: create
     x-speakeasy-metadata:
-      after: sdk.token.create()
+      after: sdk.token.management.create()
       before: ""
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/token/update"]["post"]
     update:
-      x-speakeasy-group: token
+      x-speakeasy-group: token.management
       x-speakeasy-name-override: update
     x-speakeasy-metadata:
-      after: sdk.token.update()
+      after: sdk.token.management.update()
       before: ""
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/token/revoke"]["post"]
     update:
-      x-speakeasy-group: token
+      x-speakeasy-group: token.management
       x-speakeasy-name-override: revoke
     x-speakeasy-metadata:
-      after: sdk.token.revoke()
+      after: sdk.token.management.revoke()
       before: ""
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/token/delete/{accessTokenIdentifier}"]["delete"]
     update:
-      x-speakeasy-group: token
+      x-speakeasy-group: token.management
       x-speakeasy-name-override: delete
     x-speakeasy-metadata:
-      after: sdk.token.delete()
+      after: sdk.token.management.delete()
       before: ""
       created_at: 1761727785993
       reviewed_at: 1761727785993
