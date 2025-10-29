@@ -4,77 +4,52 @@
 
 import { ClientSDK } from "../lib/sdks.js";
 import { Authorization } from "./authorization.js";
-import { AuthorizationEndpoint } from "./authorizationendpoint.js";
 import { Ciba } from "./ciba.js";
-import { ClientManagement } from "./clientmanagement.js";
-import { ClientRegistration } from "./clientregistration.js";
-import { Clients } from "./clients.js";
+import { Client } from "./client.js";
 import { DeviceFlow } from "./deviceflow.js";
 import { DynamicClientRegistration } from "./dynamicclientregistration.js";
-import { FederationEndpoint } from "./federationendpoint.js";
-import { GrantManagementEndpoint } from "./grantmanagementendpoint.js";
-import { HardwareSecurityKey } from "./hardwaresecuritykey.js";
+import { Federation } from "./federation.js";
+import { GrantManagement } from "./grantmanagement.js";
 import { HardwareSecurityKeys } from "./hardwaresecuritykeys.js";
 import { Introspection } from "./introspection.js";
-import { IntrospectionEndpoint } from "./introspectionendpoint.js";
-import { JoseObject } from "./joseobject.js";
-import { JwksSet } from "./jwksset.js";
+import { Jose } from "./jose.js";
+import { Jwks } from "./jwks.js";
 import { NativeSso } from "./nativesso.js";
-import { PushedAuthorizationEndpoint } from "./pushedauthorizationendpoint.js";
-import { RevocationEndpoint } from "./revocationendpoint.js";
-import { ServiceManagement } from "./servicemanagement.js";
-import { Services } from "./services.js";
-import { TokenEndpoint } from "./tokenendpoint.js";
-import { TokenOperations } from "./tokenoperations.js";
+import { PushedAuthorization } from "./pushedauthorization.js";
+import { Revocation } from "./revocation.js";
+import { Service } from "./service.js";
+import { Token } from "./token.js";
 import { Tokens } from "./tokens.js";
-import { UserinfoEndpoint1 } from "./userinfoendpoint1.js";
-import { UserInfoEndpoint2 } from "./userinfoendpoint2.js";
-import { UtilityEndpoints } from "./utilityendpoints.js";
-import { VerifiableCredentialIssuer } from "./verifiablecredentialissuer.js";
+import { Userinfo } from "./userinfo.js";
+import { Utility } from "./utility.js";
 import { VerifiableCredentials } from "./verifiablecredentials.js";
 
 export class Authlete extends ClientSDK {
-  private _services?: Services;
-  get services(): Services {
-    return (this._services ??= new Services(this._options));
+  private _service?: Service;
+  get service(): Service {
+    return (this._service ??= new Service(this._options));
   }
 
-  private _serviceManagement?: ServiceManagement;
-  get serviceManagement(): ServiceManagement {
-    return (this._serviceManagement ??= new ServiceManagement(this._options));
+  private _client?: Client;
+  get client(): Client {
+    return (this._client ??= new Client(this._options));
   }
 
-  private _clientManagement?: ClientManagement;
-  get clientManagement(): ClientManagement {
-    return (this._clientManagement ??= new ClientManagement(this._options));
+  private _authorization?: Authorization;
+  get authorization(): Authorization {
+    return (this._authorization ??= new Authorization(this._options));
   }
 
-  private _clients?: Clients;
-  get clients(): Clients {
-    return (this._clients ??= new Clients(this._options));
-  }
-
-  private _authorizationEndpoint?: AuthorizationEndpoint;
-  get authorizationEndpoint(): AuthorizationEndpoint {
-    return (this._authorizationEndpoint ??= new AuthorizationEndpoint(
+  private _pushedAuthorization?: PushedAuthorization;
+  get pushedAuthorization(): PushedAuthorization {
+    return (this._pushedAuthorization ??= new PushedAuthorization(
       this._options,
     ));
   }
 
-  private _pushedAuthorizationEndpoint?: PushedAuthorizationEndpoint;
-  get pushedAuthorizationEndpoint(): PushedAuthorizationEndpoint {
-    return (this._pushedAuthorizationEndpoint ??=
-      new PushedAuthorizationEndpoint(this._options));
-  }
-
-  private _tokenEndpoint?: TokenEndpoint;
-  get tokenEndpoint(): TokenEndpoint {
-    return (this._tokenEndpoint ??= new TokenEndpoint(this._options));
-  }
-
-  private _tokens?: Tokens;
-  get tokens(): Tokens {
-    return (this._tokens ??= new Tokens(this._options));
+  private _token?: Token;
+  get token(): Token {
+    return (this._token ??= new Token(this._options));
   }
 
   private _introspection?: Introspection;
@@ -82,43 +57,24 @@ export class Authlete extends ClientSDK {
     return (this._introspection ??= new Introspection(this._options));
   }
 
-  private _introspectionEndpoint?: IntrospectionEndpoint;
-  get introspectionEndpoint(): IntrospectionEndpoint {
-    return (this._introspectionEndpoint ??= new IntrospectionEndpoint(
-      this._options,
-    ));
+  private _revocation?: Revocation;
+  get revocation(): Revocation {
+    return (this._revocation ??= new Revocation(this._options));
   }
 
-  private _revocationEndpoint?: RevocationEndpoint;
-  get revocationEndpoint(): RevocationEndpoint {
-    return (this._revocationEndpoint ??= new RevocationEndpoint(this._options));
+  private _userinfo?: Userinfo;
+  get userinfo(): Userinfo {
+    return (this._userinfo ??= new Userinfo(this._options));
   }
 
-  private _userinfoEndpoint1?: UserinfoEndpoint1;
-  get userinfoEndpoint1(): UserinfoEndpoint1 {
-    return (this._userinfoEndpoint1 ??= new UserinfoEndpoint1(this._options));
+  private _grantManagement?: GrantManagement;
+  get grantManagement(): GrantManagement {
+    return (this._grantManagement ??= new GrantManagement(this._options));
   }
 
-  private _userInfoEndpoint2?: UserInfoEndpoint2;
-  get userInfoEndpoint2(): UserInfoEndpoint2 {
-    return (this._userInfoEndpoint2 ??= new UserInfoEndpoint2(this._options));
-  }
-
-  private _grantManagementEndpoint?: GrantManagementEndpoint;
-  get grantManagementEndpoint(): GrantManagementEndpoint {
-    return (this._grantManagementEndpoint ??= new GrantManagementEndpoint(
-      this._options,
-    ));
-  }
-
-  private _jwksSet?: JwksSet;
-  get jwksSet(): JwksSet {
-    return (this._jwksSet ??= new JwksSet(this._options));
-  }
-
-  private _clientRegistration?: ClientRegistration;
-  get clientRegistration(): ClientRegistration {
-    return (this._clientRegistration ??= new ClientRegistration(this._options));
+  private _jwks?: Jwks;
+  get jwks(): Jwks {
+    return (this._jwks ??= new Jwks(this._options));
   }
 
   private _dynamicClientRegistration?: DynamicClientRegistration;
@@ -138,24 +94,24 @@ export class Authlete extends ClientSDK {
     return (this._deviceFlow ??= new DeviceFlow(this._options));
   }
 
-  private _tokenOperations?: TokenOperations;
-  get tokenOperations(): TokenOperations {
-    return (this._tokenOperations ??= new TokenOperations(this._options));
+  private _tokens?: Tokens;
+  get tokens(): Tokens {
+    return (this._tokens ??= new Tokens(this._options));
   }
 
-  private _joseObject?: JoseObject;
-  get joseObject(): JoseObject {
-    return (this._joseObject ??= new JoseObject(this._options));
+  private _jose?: Jose;
+  get jose(): Jose {
+    return (this._jose ??= new Jose(this._options));
   }
 
-  private _federationEndpoint?: FederationEndpoint;
-  get federationEndpoint(): FederationEndpoint {
-    return (this._federationEndpoint ??= new FederationEndpoint(this._options));
+  private _federation?: Federation;
+  get federation(): Federation {
+    return (this._federation ??= new Federation(this._options));
   }
 
-  private _utilityEndpoints?: UtilityEndpoints;
-  get utilityEndpoints(): UtilityEndpoints {
-    return (this._utilityEndpoints ??= new UtilityEndpoints(this._options));
+  private _utility?: Utility;
+  get utility(): Utility {
+    return (this._utility ??= new Utility(this._options));
   }
 
   private _hardwareSecurityKeys?: HardwareSecurityKeys;
@@ -165,30 +121,11 @@ export class Authlete extends ClientSDK {
     ));
   }
 
-  private _hardwareSecurityKey?: HardwareSecurityKey;
-  get hardwareSecurityKey(): HardwareSecurityKey {
-    return (this._hardwareSecurityKey ??= new HardwareSecurityKey(
-      this._options,
-    ));
-  }
-
   private _verifiableCredentials?: VerifiableCredentials;
   get verifiableCredentials(): VerifiableCredentials {
     return (this._verifiableCredentials ??= new VerifiableCredentials(
       this._options,
     ));
-  }
-
-  private _verifiableCredentialIssuer?: VerifiableCredentialIssuer;
-  get verifiableCredentialIssuer(): VerifiableCredentialIssuer {
-    return (this._verifiableCredentialIssuer ??= new VerifiableCredentialIssuer(
-      this._options,
-    ));
-  }
-
-  private _authorization?: Authorization;
-  get authorization(): Authorization {
-    return (this._authorization ??= new Authorization(this._options));
   }
 
   private _nativeSso?: NativeSso;

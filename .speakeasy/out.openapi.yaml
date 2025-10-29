@@ -243,7 +243,7 @@ paths:
             api.getService(serviceId)
       tags:
         - Service Management
-      x-speakeasy-group: services
+      x-speakeasy-group: service
       x-speakeasy-name-override: get
   /api/service/get/list:
     get:
@@ -424,8 +424,8 @@ paths:
             api.getServiceList(start, end)
       tags:
         - Service Management
-      x-speakeasy-group: serviceManagement
-      x-speakeasy-name-override: listServices
+      x-speakeasy-group: service
+      x-speakeasy-name-override: list
   /api/service/create:
     post:
       summary: Create Service
@@ -614,7 +614,7 @@ paths:
             api.createService(service)
       tags:
         - Service Management
-      x-speakeasy-group: serviceManagement
+      x-speakeasy-group: service
       x-speakeasy-name-override: create
   /api/{serviceId}/service/update:
     post:
@@ -865,7 +865,7 @@ paths:
             api.updateService(service)
       tags:
         - Service Management
-      x-speakeasy-group: services
+      x-speakeasy-group: service
       x-speakeasy-name-override: update
   /api/{serviceId}/service/delete:
     delete:
@@ -916,7 +916,7 @@ paths:
             api.deleteService(serviceId)
       tags:
         - Service Management
-      x-speakeasy-group: services
+      x-speakeasy-group: service
       x-speakeasy-name-override: delete
   /api/{serviceId}/client/get/{clientId}:
     get:
@@ -1018,8 +1018,8 @@ paths:
             api.getClient(clientId)
       tags:
         - Client Management
-      x-speakeasy-group: clientManagement
-      x-speakeasy-name-override: getClient
+      x-speakeasy-group: client
+      x-speakeasy-name-override: get
   /api/{serviceId}/client/get/list:
     get:
       summary: List Clients
@@ -1165,7 +1165,7 @@ paths:
             api.getClientList(developer, start, end)
       tags:
         - Client Management
-      x-speakeasy-group: clients
+      x-speakeasy-group: client
       x-speakeasy-name-override: list
   /api/{serviceId}/client/create:
     post:
@@ -1297,7 +1297,7 @@ paths:
             api.createClient(client)
       tags:
         - Client Management
-      x-speakeasy-group: clients
+      x-speakeasy-group: client
       x-speakeasy-name-override: create
   /api/{serviceId}/client/update/{clientId}:
     post:
@@ -1455,7 +1455,7 @@ paths:
             api.updatedClient(client)
       tags:
         - Client Management
-      x-speakeasy-group: clients
+      x-speakeasy-group: client
       x-speakeasy-name-override: update
   /api/{serviceId}/client/delete/{clientId}:
     delete:
@@ -1512,8 +1512,8 @@ paths:
             api.deleteClient(clientId)
       tags:
         - Client Management
-      x-speakeasy-group: clientManagement
-      x-speakeasy-name-override: deleteClient
+      x-speakeasy-group: client
+      x-speakeasy-name-override: delete
   /api/{serviceId}/client/lock_flag/update/{clientIdentifier}:
     post:
       summary: Update Client Lock
@@ -1561,7 +1561,7 @@ paths:
       operationId: client_flag_update_api
       tags:
         - Client Management
-      x-speakeasy-group: clients
+      x-speakeasy-group: client
       x-speakeasy-name-override: updateLockFlag
   /api/{serviceId}/client/secret/refresh/{clientIdentifier}:
     get:
@@ -1631,7 +1631,7 @@ paths:
             api.refreshClientSecret(clientIdentifier)
       tags:
         - Client Management
-      x-speakeasy-group: clients
+      x-speakeasy-group: client
       x-speakeasy-name-override: refreshSecret
   /api/{serviceId}/client/secret/update/{clientIdentifier}:
     post:
@@ -1716,7 +1716,7 @@ paths:
             api.updateClientSecret(clientIdentifier, clientSecret)
       tags:
         - Client Management
-      x-speakeasy-group: clientManagement
+      x-speakeasy-group: client
       x-speakeasy-name-override: updateSecret
   /api/{serviceId}/client/authorization/get/list/{subject}:
     get:
@@ -1827,8 +1827,8 @@ paths:
             api.getClientAuthorizationList(req)
       tags:
         - Client Management
-      x-speakeasy-group: clientManagement
-      x-speakeasy-name-override: listAuthorizedApplications
+      x-speakeasy-group: client
+      x-speakeasy-name-override: listAuthorizations
   /api/{serviceId}/client/authorization/update/{clientId}:
     post:
       summary: Update Client Tokens
@@ -1915,8 +1915,8 @@ paths:
             api.updateClientAuthorization(clientId, req)
       tags:
         - Client Management
-      x-speakeasy-group: clientManagement
-      x-speakeasy-name-override: updateAuthorization
+      x-speakeasy-group: client
+      x-speakeasy-name-override: updateAuthorizations
   /api/{serviceId}/client/authorization/delete/{clientId}/{subject}:
     delete:
       summary: Delete Client Tokens
@@ -1998,7 +1998,7 @@ paths:
             api.deleteClientAuthorization(clientId, subject)
       tags:
         - Client Management
-      x-speakeasy-group: clientManagement
+      x-speakeasy-group: client
       x-speakeasy-name-override: deleteAuthorizations
   /api/{serviceId}/client/granted_scopes/get/{clientId}/{subject}:
     get:
@@ -2113,7 +2113,7 @@ paths:
             api.getGrantedScopes(clientId, subject)
       tags:
         - Client Management
-      x-speakeasy-group: clients
+      x-speakeasy-group: client
       x-speakeasy-name-override: getGrantedScopes
   /api/{serviceId}/client/granted_scopes/delete/{clientId}/{subject}:
     delete:
@@ -2201,7 +2201,7 @@ paths:
             api.deleteGrantedScopes(clientId, subject)
       tags:
         - Client Management
-      x-speakeasy-group: clients
+      x-speakeasy-group: client
       x-speakeasy-name-override: deleteGrantedScopes
   /api/{serviceId}/auth/authorization:
     post:
@@ -2834,8 +2834,8 @@ paths:
             api.authorization(req)
       tags:
         - Authorization Endpoint
-      x-speakeasy-group: authorizationEndpoint
-      x-speakeasy-name-override: processAuthorization
+      x-speakeasy-group: authorization
+      x-speakeasy-name-override: processRequest
   /api/{serviceId}/auth/authorization/fail:
     post:
       summary: Fail Authorization Request
@@ -3024,8 +3024,8 @@ paths:
             api.authorizationFail(req)
       tags:
         - Authorization Endpoint
-      x-speakeasy-group: authorizationEndpoint
-      x-speakeasy-name-override: failAuthorization
+      x-speakeasy-group: authorization
+      x-speakeasy-name-override: fail
   /api/{serviceId}/auth/authorization/issue:
     post:
       summary: Issue Authorization Response
@@ -3220,8 +3220,8 @@ paths:
             api.authorizationIssue(req)
       tags:
         - Authorization Endpoint
-      x-speakeasy-group: authorizationEndpoint
-      x-speakeasy-name-override: issueAuthorization
+      x-speakeasy-group: authorization
+      x-speakeasy-name-override: issue
   /api/{serviceId}/pushed_auth_req:
     post:
       summary: Process Pushed Authorization Request
@@ -3306,7 +3306,7 @@ paths:
             api.token(req)
       tags:
         - Pushed Authorization Endpoint
-      x-speakeasy-group: pushedAuthorizationEndpoint
+      x-speakeasy-group: pushedAuthorization
       x-speakeasy-name-override: create
   /api/{serviceId}/auth/token:
     post:
@@ -3853,8 +3853,8 @@ paths:
             api.token(req)
       tags:
         - Token Endpoint
-      x-speakeasy-group: tokenEndpoint
-      x-speakeasy-name-override: processToken
+      x-speakeasy-group: token
+      x-speakeasy-name-override: process
   /api/{serviceId}/auth/token/fail:
     post:
       summary: Fail Token Request
@@ -3999,7 +3999,7 @@ paths:
             api.tokenFail(req)
       tags:
         - Token Endpoint
-      x-speakeasy-group: tokens
+      x-speakeasy-group: token
       x-speakeasy-name-override: fail
   /api/{serviceId}/auth/token/issue:
     post:
@@ -4163,8 +4163,8 @@ paths:
             api.tokenIssue(req)
       tags:
         - Token Endpoint
-      x-speakeasy-group: tokenEndpoint
-      x-speakeasy-name-override: issueToken
+      x-speakeasy-group: token
+      x-speakeasy-name-override: issue
   /api/{serviceId}/auth/introspection:
     post:
       summary: Process Introspection Request
@@ -4599,8 +4599,8 @@ paths:
             api.standardIntrospection(req)
       tags:
         - Introspection Endpoint
-      x-speakeasy-group: introspectionEndpoint
-      x-speakeasy-name-override: processIntrospection
+      x-speakeasy-group: introspection
+      x-speakeasy-name-override: standardProcess
   /api/{serviceId}/auth/revocation:
     post:
       summary: Process Revocation Request
@@ -4806,8 +4806,8 @@ paths:
             api.revocation(req)
       tags:
         - Revocation Endpoint
-      x-speakeasy-group: revocationEndpoint
-      x-speakeasy-name-override: processRevocation
+      x-speakeasy-group: revocation
+      x-speakeasy-name-override: process
   /api/{serviceId}/auth/userinfo:
     post:
       summary: Process UserInfo Request
@@ -5026,8 +5026,8 @@ paths:
             api.userinfo(req)
       tags:
         - UserInfo Endpoint
-      x-speakeasy-group: userinfoEndpoint
-      x-speakeasy-name-override: processUserInfo
+      x-speakeasy-group: userinfo
+      x-speakeasy-name-override: process
   /api/{serviceId}/auth/userinfo/issue:
     post:
       summary: Issue UserInfo Response
@@ -5249,8 +5249,8 @@ paths:
             api.userinfoIssue(req)
       tags:
         - UserInfo Endpoint
-      x-speakeasy-group: userInfoEndpoint
-      x-speakeasy-name-override: issueIdToken
+      x-speakeasy-group: userinfo
+      x-speakeasy-name-override: issue
   /api/{serviceId}/idtoken/reissue:
     post:
       summary: Reissue ID Token
@@ -5290,7 +5290,7 @@ paths:
       operationId: idtoken_reissue_api
       tags:
         - Token Endpoint
-      x-speakeasy-group: tokenEndpoint
+      x-speakeasy-group: token
       x-speakeasy-name-override: reissueIdToken
   /api/{serviceId}/gm:
     post:
@@ -5334,8 +5334,8 @@ paths:
       operationId: grant_m_api
       tags:
         - Grant Management Endpoint
-      x-speakeasy-group: grantManagementEndpoint
-      x-speakeasy-name-override: processGrantManagement
+      x-speakeasy-group: grantManagement
+      x-speakeasy-name-override: processRequest
   /api/{serviceId}/service/jwks/get:
     get:
       summary: Get JWK Set
@@ -5440,7 +5440,7 @@ paths:
             api.getServiceJwks(pretty, includePrivateKey)
       tags:
         - JWK Set Endpoint
-      x-speakeasy-group: jwksSet
+      x-speakeasy-group: jwks
       x-speakeasy-name-override: get
   /api/{serviceId}/service/configuration:
     get:
@@ -5796,8 +5796,8 @@ paths:
             api.getServiceConfiguration(True)
       tags:
         - Service Management
-      x-speakeasy-group: serviceManagement
-      x-speakeasy-name-override: getServiceConfiguration
+      x-speakeasy-group: service
+      x-speakeasy-name-override: getConfiguration
   /api/{serviceId}/client/registration:
     post:
       summary: Register Client
@@ -5978,7 +5978,7 @@ paths:
             api.dynamicClientRegister(req)
       tags:
         - Dynamic Client Registration
-      x-speakeasy-group: clientRegistration
+      x-speakeasy-group: dynamicClientRegistration
       x-speakeasy-name-override: register
   /api/{serviceId}/client/registration/get:
     post:
@@ -6191,7 +6191,7 @@ paths:
             api.dynamicClientGet(req)
       tags:
         - Dynamic Client Registration
-      x-speakeasy-group: clientRegistration
+      x-speakeasy-group: dynamicClientRegistration
       x-speakeasy-name-override: get
   /api/{serviceId}/client/registration/update:
     post:
@@ -7276,7 +7276,7 @@ paths:
       tags:
         - CIBA
       x-speakeasy-group: ciba
-      x-speakeasy-name-override: failBackchannelAuthentication
+      x-speakeasy-name-override: fail
   /api/{serviceId}/backchannel/authentication/complete:
     post:
       summary: Complete Backchannel Authentication
@@ -7476,7 +7476,7 @@ paths:
       tags:
         - CIBA
       x-speakeasy-group: ciba
-      x-speakeasy-name-override: completeBackchannelAuthentication
+      x-speakeasy-name-override: complete
   /api/{serviceId}/device/authorization:
     post:
       summary: Process Device Authorization Request
@@ -8080,8 +8080,8 @@ paths:
             api.getTokenList(clientIdentifier, subject, start, end)
       tags:
         - Token Operations
-      x-speakeasy-group: tokenOperations
-      x-speakeasy-name-override: listTokens
+      x-speakeasy-group: tokens
+      x-speakeasy-name-override: list
   /api/{serviceId}/auth/token/create:
     post:
       summary: Create Access Token
@@ -8176,7 +8176,7 @@ paths:
             api.tokenCreate(req)
       tags:
         - Token Operations
-      x-speakeasy-group: tokenOperations
+      x-speakeasy-group: tokens
       x-speakeasy-name-override: create
   /api/{serviceId}/auth/token/update:
     post:
@@ -8259,7 +8259,7 @@ paths:
             api.tokenUpdate(req)
       tags:
         - Token Operations
-      x-speakeasy-group: tokenOperations
+      x-speakeasy-group: tokens
       x-speakeasy-name-override: update
   /api/{serviceId}/auth/token/delete/{accessTokenIdentifier}:
     delete:
@@ -8487,7 +8487,7 @@ paths:
             api.verifyJose(req)
       tags:
         - Jose Object
-      x-speakeasy-group: joseObject
+      x-speakeasy-group: jose
       x-speakeasy-name-override: verify
   /api/{serviceId}/federation/configuration:
     post:
@@ -8624,7 +8624,7 @@ paths:
             api.getFederationConfiguration(True)
       tags:
         - Federation Endpoint
-      x-speakeasy-group: federationEndpoint
+      x-speakeasy-group: federation
       x-speakeasy-name-override: processConfiguration
   /api/{serviceId}/federation/registration:
     post:
@@ -8700,7 +8700,7 @@ paths:
       operationId: federation_registration_api
       tags:
         - Federation Endpoint
-      x-speakeasy-group: federationEndpoint
+      x-speakeasy-group: federation
       x-speakeasy-name-override: processRegistration
   /api/info:
     get:
@@ -8737,7 +8737,7 @@ paths:
       operationId: info_api
       tags:
         - Utility Endpoints
-      x-speakeasy-group: utilityEndpoints
+      x-speakeasy-group: utility
       x-speakeasy-name-override: getServerMetadata
   /api/{serviceId}/client/extension/requestable_scopes/get/{clientId}:
     get:
@@ -8776,7 +8776,7 @@ paths:
       operationId: client_extension_requestables_scopes_get_api
       tags:
         - Client Management
-      x-speakeasy-group: clientManagement
+      x-speakeasy-group: client
       x-speakeasy-name-override: getRequestableScopes
   /api/{serviceId}/client/extension/requestable_scopes/update/{clientId}:
     put:
@@ -8821,7 +8821,7 @@ paths:
       operationId: client_extension_requestables_scopes_update_api
       tags:
         - Client Management
-      x-speakeasy-group: clients
+      x-speakeasy-group: client
       x-speakeasy-name-override: updateRequestableScopes
   /api/{serviceId}/client/extension/requestable_scopes/delete/{clientId}:
     delete:
@@ -8856,7 +8856,7 @@ paths:
       operationId: client_extension_requestables_scopes_delete_api
       tags:
         - Client Management
-      x-speakeasy-group: clientManagement
+      x-speakeasy-group: client
       x-speakeasy-name-override: deleteRequestableScopes
   /api/{serviceId}/hsk/create:
     post:
@@ -8936,7 +8936,7 @@ paths:
       operationId: hsk_delete_api
       tags:
         - Hardware Security Key
-      x-speakeasy-group: hardwareSecurityKey
+      x-speakeasy-group: hardwareSecurityKeys
       x-speakeasy-name-override: delete
   /api/{serviceId}/hsk/get/{handle}:
     get:
@@ -8974,7 +8974,7 @@ paths:
       operationId: hsk_get_api
       tags:
         - Hardware Security Key
-      x-speakeasy-group: hardwareSecurityKey
+      x-speakeasy-group: hardwareSecurityKeys
       x-speakeasy-name-override: get
   /api/{serviceId}/hsk/get/list:
     get:
@@ -9021,7 +9021,7 @@ paths:
       operationId: misc_echo_api
       tags:
         - Utility Endpoints
-      x-speakeasy-group: utilityEndpoints
+      x-speakeasy-group: utility
       x-speakeasy-name-override: echo
   /api/{serviceId}/vci/metadata:
     post:
@@ -9101,7 +9101,7 @@ paths:
       operationId: vci_jwtissuer_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentialIssuer
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: getJwtIssuer
   /api/{serviceId}/vci/jwks:
     post:
@@ -9221,7 +9221,7 @@ paths:
       operationId: vci_offer_info_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentialIssuer
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: getOfferInfo
   /api/{serviceId}/vci/single/parse:
     post:
@@ -9298,8 +9298,8 @@ paths:
       operationId: vci_single_issue_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentialIssuer
-      x-speakeasy-name-override: issueSingle
+      x-speakeasy-group: verifiableCredentials
+      x-speakeasy-name-override: issue
   /api/{serviceId}/vci/batch/parse:
     post:
       summary: /api/{serviceId}/vci/batch/parse API
@@ -9338,8 +9338,8 @@ paths:
       operationId: vci_batch_parse_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentialIssuer
-      x-speakeasy-name-override: parseBatch
+      x-speakeasy-group: verifiableCredentials
+      x-speakeasy-name-override: batchParse
   /api/{serviceId}/vci/batch/issue:
     post:
       summary: /api/{serviceId}/vci/batch/issue API
@@ -9375,7 +9375,7 @@ paths:
       operationId: vci_batch_issue_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentialIssuer
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: batchIssue
   /api/{serviceId}/vci/deferred/parse:
     post:
@@ -9415,8 +9415,8 @@ paths:
       operationId: vci_deferred_parse_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentialIssuer
-      x-speakeasy-name-override: parseDeferred
+      x-speakeasy-group: verifiableCredentials
+      x-speakeasy-name-override: deferredParse
   /api/{serviceId}/vci/deferred/issue:
     post:
       summary: /api/{serviceId}/vci/deferred/issue API
@@ -9452,7 +9452,7 @@ paths:
       operationId: vci_deferred_issue_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentialIssuer
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: deferredIssue
   /api/{serviceId}/auth/authorization/ticket/info:
     get:
@@ -9491,7 +9491,7 @@ paths:
           $ref: '#/components/responses/500'
       tags:
         - Authorization Endpoint
-      x-speakeasy-group: authorizationEndpoint
+      x-speakeasy-group: authorization
       x-speakeasy-name-override: getTicketInfo
   /api/{serviceId}/auth/authorization/ticket/update:
     post:
@@ -9531,7 +9531,7 @@ paths:
       tags:
         - Authorization Endpoint
       x-speakeasy-group: authorization
-      x-speakeasy-name-override: ticketUpdate
+      x-speakeasy-name-override: updateTicket
   /api/{serviceId}/nativesso:
     post:
       summary: Native SSO Processing
@@ -9733,7 +9733,7 @@ paths:
             api.nativeSsoLogout(req);
       tags:
         - Native SSO
-      x-speakeasy-group: nativeSSO
+      x-speakeasy-group: nativeSso
       x-speakeasy-name-override: logout
 components:
   securitySchemes:

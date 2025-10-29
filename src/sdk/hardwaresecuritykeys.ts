@@ -3,6 +3,8 @@
  */
 
 import { hardwareSecurityKeysCreate } from "../funcs/hardwareSecurityKeysCreate.js";
+import { hardwareSecurityKeysDelete } from "../funcs/hardwareSecurityKeysDelete.js";
+import { hardwareSecurityKeysGet } from "../funcs/hardwareSecurityKeysGet.js";
 import { hardwareSecurityKeysList } from "../funcs/hardwareSecurityKeysList.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
@@ -18,6 +20,34 @@ export class HardwareSecurityKeys extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.HskCreateResponse> {
     return unwrapAsync(hardwareSecurityKeysCreate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Delete Security Key
+   */
+  async delete(
+    request: operations.HskDeleteApiRequest,
+    options?: RequestOptions,
+  ): Promise<models.HskDeleteResponse> {
+    return unwrapAsync(hardwareSecurityKeysDelete(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Security Key
+   */
+  async get(
+    request: operations.HskGetApiRequest,
+    options?: RequestOptions,
+  ): Promise<models.HskGetResponse> {
+    return unwrapAsync(hardwareSecurityKeysGet(
       this,
       request,
       options,
