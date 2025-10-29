@@ -185,7 +185,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.services.get({
+  const result = await authlete.service.get({
     serviceId: "<id>",
   });
 
@@ -220,7 +220,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.services.get({
+  const result = await authlete.service.get({
     serviceId: "<id>",
   });
 
@@ -240,47 +240,36 @@ run();
 
 ### [authorization](docs/sdks/authorization/README.md)
 
-* [ticketUpdate](docs/sdks/authorization/README.md#ticketupdate) - Update Ticket Information
-
-### [authorizationEndpoint](docs/sdks/authorizationendpoint/README.md)
-
-* [processAuthorization](docs/sdks/authorizationendpoint/README.md#processauthorization) - Process Authorization Request
-* [failAuthorization](docs/sdks/authorizationendpoint/README.md#failauthorization) - Fail Authorization Request
-* [issueAuthorization](docs/sdks/authorizationendpoint/README.md#issueauthorization) - Issue Authorization Response
+* [processRequest](docs/sdks/authorization/README.md#processrequest) - Process Authorization Request
+* [fail](docs/sdks/authorization/README.md#fail) - Fail Authorization Request
+* [issue](docs/sdks/authorization/README.md#issue) - Issue Authorization Response
+* [updateTicket](docs/sdks/authorization/README.md#updateticket) - Update Ticket Information
 
 ### [ciba](docs/sdks/ciba/README.md)
 
 * [processAuthentication](docs/sdks/ciba/README.md#processauthentication) - Process Backchannel Authentication Request
 * [issue](docs/sdks/ciba/README.md#issue) - Issue Backchannel Authentication Response
-* [failBackchannelAuthentication](docs/sdks/ciba/README.md#failbackchannelauthentication) - Fail Backchannel Authentication Request
-* [completeBackchannelAuthentication](docs/sdks/ciba/README.md#completebackchannelauthentication) - Complete Backchannel Authentication
+* [fail](docs/sdks/ciba/README.md#fail) - Fail Backchannel Authentication Request
+* [complete](docs/sdks/ciba/README.md#complete) - Complete Backchannel Authentication
 
-### [clientManagement](docs/sdks/clientmanagement/README.md)
+### [client](docs/sdks/client/README.md)
 
-* [getClient](docs/sdks/clientmanagement/README.md#getclient) - Get Client
-* [deleteClient](docs/sdks/clientmanagement/README.md#deleteclient) - Delete Client ⚡
-* [updateSecret](docs/sdks/clientmanagement/README.md#updatesecret) - Update Client Secret
-* [listAuthorizedApplications](docs/sdks/clientmanagement/README.md#listauthorizedapplications) - Get Authorized Applications
-* [updateAuthorization](docs/sdks/clientmanagement/README.md#updateauthorization) - Update Client Tokens
-* [deleteAuthorizations](docs/sdks/clientmanagement/README.md#deleteauthorizations) - Delete Client Tokens
-* [getRequestableScopes](docs/sdks/clientmanagement/README.md#getrequestablescopes) - Get Requestable Scopes
-* [deleteRequestableScopes](docs/sdks/clientmanagement/README.md#deleterequestablescopes) - Delete Requestable Scopes
-
-### [clientRegistration](docs/sdks/clientregistration/README.md)
-
-* [register](docs/sdks/clientregistration/README.md#register) - Register Client
-* [get](docs/sdks/clientregistration/README.md#get) - Get Client
-
-### [clients](docs/sdks/clients/README.md)
-
-* [list](docs/sdks/clients/README.md#list) - List Clients
-* [create](docs/sdks/clients/README.md#create) - Create Client
-* [update](docs/sdks/clients/README.md#update) - Update Client
-* [updateLockFlag](docs/sdks/clients/README.md#updatelockflag) - Update Client Lock
-* [refreshSecret](docs/sdks/clients/README.md#refreshsecret) - Rotate Client Secret
-* [getGrantedScopes](docs/sdks/clients/README.md#getgrantedscopes) - Get Granted Scopes
-* [deleteGrantedScopes](docs/sdks/clients/README.md#deletegrantedscopes) - Delete Granted Scopes
-* [updateRequestableScopes](docs/sdks/clients/README.md#updaterequestablescopes) - Update Requestable Scopes
+* [get](docs/sdks/client/README.md#get) - Get Client
+* [list](docs/sdks/client/README.md#list) - List Clients
+* [create](docs/sdks/client/README.md#create) - Create Client
+* [update](docs/sdks/client/README.md#update) - Update Client
+* [delete](docs/sdks/client/README.md#delete) - Delete Client ⚡
+* [updateLockFlag](docs/sdks/client/README.md#updatelockflag) - Update Client Lock
+* [refreshSecret](docs/sdks/client/README.md#refreshsecret) - Rotate Client Secret
+* [updateSecret](docs/sdks/client/README.md#updatesecret) - Update Client Secret
+* [listAuthorizations](docs/sdks/client/README.md#listauthorizations) - Get Authorized Applications
+* [updateAuthorizations](docs/sdks/client/README.md#updateauthorizations) - Update Client Tokens
+* [deleteAuthorizations](docs/sdks/client/README.md#deleteauthorizations) - Delete Client Tokens
+* [getGrantedScopes](docs/sdks/client/README.md#getgrantedscopes) - Get Granted Scopes
+* [deleteGrantedScopes](docs/sdks/client/README.md#deletegrantedscopes) - Delete Granted Scopes
+* [getRequestableScopes](docs/sdks/client/README.md#getrequestablescopes) - Get Requestable Scopes
+* [updateRequestableScopes](docs/sdks/client/README.md#updaterequestablescopes) - Update Requestable Scopes
+* [deleteRequestableScopes](docs/sdks/client/README.md#deleterequestablescopes) - Delete Requestable Scopes
 
 ### [deviceFlow](docs/sdks/deviceflow/README.md)
 
@@ -290,116 +279,100 @@ run();
 
 ### [dynamicClientRegistration](docs/sdks/dynamicclientregistration/README.md)
 
+* [register](docs/sdks/dynamicclientregistration/README.md#register) - Register Client
+* [get](docs/sdks/dynamicclientregistration/README.md#get) - Get Client
 * [update](docs/sdks/dynamicclientregistration/README.md#update) - Update Client
 * [delete](docs/sdks/dynamicclientregistration/README.md#delete) - Delete Client
 
-### [federationEndpoint](docs/sdks/federationendpoint/README.md)
+### [federation](docs/sdks/federation/README.md)
 
-* [processConfiguration](docs/sdks/federationendpoint/README.md#processconfiguration) - Process Entity Configuration Request
-* [processRegistration](docs/sdks/federationendpoint/README.md#processregistration) - Process Federation Registration Request
+* [processConfiguration](docs/sdks/federation/README.md#processconfiguration) - Process Entity Configuration Request
+* [processRegistration](docs/sdks/federation/README.md#processregistration) - Process Federation Registration Request
 
-### [grantManagementEndpoint](docs/sdks/grantmanagementendpoint/README.md)
+### [grantManagement](docs/sdks/grantmanagement/README.md)
 
-* [processGrantManagement](docs/sdks/grantmanagementendpoint/README.md#processgrantmanagement) - Process Grant Management Request
-
-### [hardwareSecurityKey](docs/sdks/hardwaresecuritykey/README.md)
-
-* [delete](docs/sdks/hardwaresecuritykey/README.md#delete) - Delete Security Key
-* [get](docs/sdks/hardwaresecuritykey/README.md#get) - Get Security Key
+* [processRequest](docs/sdks/grantmanagement/README.md#processrequest) - Process Grant Management Request
 
 ### [hardwareSecurityKeys](docs/sdks/hardwaresecuritykeys/README.md)
 
 * [create](docs/sdks/hardwaresecuritykeys/README.md#create) - Create Security Key
+* [delete](docs/sdks/hardwaresecuritykeys/README.md#delete) - Delete Security Key
+* [get](docs/sdks/hardwaresecuritykeys/README.md#get) - Get Security Key
 * [list](docs/sdks/hardwaresecuritykeys/README.md#list) - List Security Keys
 
 ### [introspection](docs/sdks/introspection/README.md)
 
 * [process](docs/sdks/introspection/README.md#process) - Process Introspection Request
+* [standardProcess](docs/sdks/introspection/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
 
-### [introspectionEndpoint](docs/sdks/introspectionendpoint/README.md)
+### [jose](docs/sdks/jose/README.md)
 
-* [processIntrospection](docs/sdks/introspectionendpoint/README.md#processintrospection) - Process OAuth 2.0 Introspection Request
+* [verify](docs/sdks/jose/README.md#verify) - Verify JOSE
 
-### [joseObject](docs/sdks/joseobject/README.md)
+### [jwks](docs/sdks/jwks/README.md)
 
-* [verify](docs/sdks/joseobject/README.md#verify) - Verify JOSE
-
-### [jwksSet](docs/sdks/jwksset/README.md)
-
-* [get](docs/sdks/jwksset/README.md#get) - Get JWK Set
+* [get](docs/sdks/jwks/README.md#get) - Get JWK Set
 
 ### [nativeSso](docs/sdks/nativesso/README.md)
 
 * [process](docs/sdks/nativesso/README.md#process) - Native SSO Processing
 * [logout](docs/sdks/nativesso/README.md#logout) - Native SSO Logout Processing
 
-### [pushedAuthorizationEndpoint](docs/sdks/pushedauthorizationendpoint/README.md)
+### [pushedAuthorization](docs/sdks/pushedauthorization/README.md)
 
-* [create](docs/sdks/pushedauthorizationendpoint/README.md#create) - Process Pushed Authorization Request
+* [create](docs/sdks/pushedauthorization/README.md#create) - Process Pushed Authorization Request
 
-### [revocationEndpoint](docs/sdks/revocationendpoint/README.md)
+### [revocation](docs/sdks/revocation/README.md)
 
-* [processRevocation](docs/sdks/revocationendpoint/README.md#processrevocation) - Process Revocation Request
+* [process](docs/sdks/revocation/README.md#process) - Process Revocation Request
 
-### [serviceManagement](docs/sdks/servicemanagement/README.md)
+### [service](docs/sdks/service/README.md)
 
-* [listServices](docs/sdks/servicemanagement/README.md#listservices) - List Services
-* [create](docs/sdks/servicemanagement/README.md#create) - Create Service
-* [getServiceConfiguration](docs/sdks/servicemanagement/README.md#getserviceconfiguration) - Get Service Configuration
+* [get](docs/sdks/service/README.md#get) - Get Service
+* [list](docs/sdks/service/README.md#list) - List Services
+* [create](docs/sdks/service/README.md#create) - Create Service
+* [update](docs/sdks/service/README.md#update) - Update Service
+* [delete](docs/sdks/service/README.md#delete) - Delete Service ⚡
+* [getConfiguration](docs/sdks/service/README.md#getconfiguration) - Get Service Configuration
 
-### [services](docs/sdks/services/README.md)
+### [token](docs/sdks/token/README.md)
 
-* [get](docs/sdks/services/README.md#get) - Get Service
-* [update](docs/sdks/services/README.md#update) - Update Service
-* [delete](docs/sdks/services/README.md#delete) - Delete Service ⚡
-
-### [tokenEndpoint](docs/sdks/tokenendpoint/README.md)
-
-* [processToken](docs/sdks/tokenendpoint/README.md#processtoken) - Process Token Request
-* [issueToken](docs/sdks/tokenendpoint/README.md#issuetoken) - Issue Token Response
-* [reissueIdToken](docs/sdks/tokenendpoint/README.md#reissueidtoken) - Reissue ID Token
-
-### [tokenOperations](docs/sdks/tokenoperations/README.md)
-
-* [listTokens](docs/sdks/tokenoperations/README.md#listtokens) - List Issued Tokens
-* [create](docs/sdks/tokenoperations/README.md#create) - Create Access Token
-* [update](docs/sdks/tokenoperations/README.md#update) - Update Access Token
+* [process](docs/sdks/token/README.md#process) - Process Token Request
+* [fail](docs/sdks/token/README.md#fail) - Fail Token Request
+* [issue](docs/sdks/token/README.md#issue) - Issue Token Response
+* [reissueIdToken](docs/sdks/token/README.md#reissueidtoken) - Reissue ID Token
 
 ### [tokens](docs/sdks/tokens/README.md)
 
-* [fail](docs/sdks/tokens/README.md#fail) - Fail Token Request
+* [list](docs/sdks/tokens/README.md#list) - List Issued Tokens
+* [create](docs/sdks/tokens/README.md#create) - Create Access Token
+* [update](docs/sdks/tokens/README.md#update) - Update Access Token
 * [delete](docs/sdks/tokens/README.md#delete) - Delete Access Token
 * [revoke](docs/sdks/tokens/README.md#revoke) - Revoke Access Token
 
-### [userinfoEndpoint](docs/sdks/userinfoendpoint1/README.md)
+### [userinfo](docs/sdks/userinfo/README.md)
 
-* [processUserInfo](docs/sdks/userinfoendpoint1/README.md#processuserinfo) - Process UserInfo Request
+* [process](docs/sdks/userinfo/README.md#process) - Process UserInfo Request
+* [issue](docs/sdks/userinfo/README.md#issue) - Issue UserInfo Response
 
-### [userInfoEndpoint](docs/sdks/userinfoendpoint2/README.md)
+### [utility](docs/sdks/utility/README.md)
 
-* [issueIdToken](docs/sdks/userinfoendpoint2/README.md#issueidtoken) - Issue UserInfo Response
-
-### [utilityEndpoints](docs/sdks/utilityendpoints/README.md)
-
-* [getServerMetadata](docs/sdks/utilityendpoints/README.md#getservermetadata) - Get Server Metadata
-* [echo](docs/sdks/utilityendpoints/README.md#echo) - Echo
-
-### [verifiableCredentialIssuer](docs/sdks/verifiablecredentialissuer/README.md)
-
-* [getJwtIssuer](docs/sdks/verifiablecredentialissuer/README.md#getjwtissuer) - /api/{serviceId}/vci/jwtissuer API
-* [getOfferInfo](docs/sdks/verifiablecredentialissuer/README.md#getofferinfo) - /api/{serviceId}/vci/offer/info API
-* [issueSingle](docs/sdks/verifiablecredentialissuer/README.md#issuesingle) - /api/{serviceId}/vci/single/issue API
-* [parseBatch](docs/sdks/verifiablecredentialissuer/README.md#parsebatch) - /api/{serviceId}/vci/batch/parse API
-* [batchIssue](docs/sdks/verifiablecredentialissuer/README.md#batchissue) - /api/{serviceId}/vci/batch/issue API
-* [parseDeferred](docs/sdks/verifiablecredentialissuer/README.md#parsedeferred) - /api/{serviceId}/vci/deferred/parse API
-* [deferredIssue](docs/sdks/verifiablecredentialissuer/README.md#deferredissue) - /api/{serviceId}/vci/deferred/issue API
+* [getServerMetadata](docs/sdks/utility/README.md#getservermetadata) - Get Server Metadata
+* [echo](docs/sdks/utility/README.md#echo) - Echo
 
 ### [verifiableCredentials](docs/sdks/verifiablecredentials/README.md)
 
 * [getMetadata](docs/sdks/verifiablecredentials/README.md#getmetadata) - /api/{serviceId}/vci/metadata API
+* [getJwtIssuer](docs/sdks/verifiablecredentials/README.md#getjwtissuer) - /api/{serviceId}/vci/jwtissuer API
 * [getJwks](docs/sdks/verifiablecredentials/README.md#getjwks) - /api/{serviceId}/vci/jwks API
 * [createOffer](docs/sdks/verifiablecredentials/README.md#createoffer) - /api/{serviceId}/vci/offer/create API
+* [getOfferInfo](docs/sdks/verifiablecredentials/README.md#getofferinfo) - /api/{serviceId}/vci/offer/info API
 * [parse](docs/sdks/verifiablecredentials/README.md#parse) - /api/{serviceId}/vci/single/parse API
+* [issue](docs/sdks/verifiablecredentials/README.md#issue) - /api/{serviceId}/vci/single/issue API
+* [batchParse](docs/sdks/verifiablecredentials/README.md#batchparse) - /api/{serviceId}/vci/batch/parse API
+* [batchIssue](docs/sdks/verifiablecredentials/README.md#batchissue) - /api/{serviceId}/vci/batch/issue API
+* [deferredParse](docs/sdks/verifiablecredentials/README.md#deferredparse) - /api/{serviceId}/vci/deferred/parse API
+* [deferredIssue](docs/sdks/verifiablecredentials/README.md#deferredissue) - /api/{serviceId}/vci/deferred/issue API
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -419,81 +392,81 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`authorizationEndpointFailAuthorization`](docs/sdks/authorizationendpoint/README.md#failauthorization) - Fail Authorization Request
-- [`authorizationEndpointIssueAuthorization`](docs/sdks/authorizationendpoint/README.md#issueauthorization) - Issue Authorization Response
-- [`authorizationEndpointProcessAuthorization`](docs/sdks/authorizationendpoint/README.md#processauthorization) - Process Authorization Request
-- [`authorizationTicketUpdate`](docs/sdks/authorization/README.md#ticketupdate) - Update Ticket Information
-- [`cibaCompleteBackchannelAuthentication`](docs/sdks/ciba/README.md#completebackchannelauthentication) - Complete Backchannel Authentication
-- [`cibaFailBackchannelAuthentication`](docs/sdks/ciba/README.md#failbackchannelauthentication) - Fail Backchannel Authentication Request
+- [`authorizationFail`](docs/sdks/authorization/README.md#fail) - Fail Authorization Request
+- [`authorizationIssue`](docs/sdks/authorization/README.md#issue) - Issue Authorization Response
+- [`authorizationProcessRequest`](docs/sdks/authorization/README.md#processrequest) - Process Authorization Request
+- [`authorizationUpdateTicket`](docs/sdks/authorization/README.md#updateticket) - Update Ticket Information
+- [`cibaComplete`](docs/sdks/ciba/README.md#complete) - Complete Backchannel Authentication
+- [`cibaFail`](docs/sdks/ciba/README.md#fail) - Fail Backchannel Authentication Request
 - [`cibaIssue`](docs/sdks/ciba/README.md#issue) - Issue Backchannel Authentication Response
 - [`cibaProcessAuthentication`](docs/sdks/ciba/README.md#processauthentication) - Process Backchannel Authentication Request
-- [`clientManagementDeleteAuthorizations`](docs/sdks/clientmanagement/README.md#deleteauthorizations) - Delete Client Tokens
-- [`clientManagementDeleteClient`](docs/sdks/clientmanagement/README.md#deleteclient) - Delete Client ⚡
-- [`clientManagementDeleteRequestableScopes`](docs/sdks/clientmanagement/README.md#deleterequestablescopes) - Delete Requestable Scopes
-- [`clientManagementGetClient`](docs/sdks/clientmanagement/README.md#getclient) - Get Client
-- [`clientManagementGetRequestableScopes`](docs/sdks/clientmanagement/README.md#getrequestablescopes) - Get Requestable Scopes
-- [`clientManagementListAuthorizedApplications`](docs/sdks/clientmanagement/README.md#listauthorizedapplications) - Get Authorized Applications
-- [`clientManagementUpdateAuthorization`](docs/sdks/clientmanagement/README.md#updateauthorization) - Update Client Tokens
-- [`clientManagementUpdateSecret`](docs/sdks/clientmanagement/README.md#updatesecret) - Update Client Secret
-- [`clientRegistrationGet`](docs/sdks/clientregistration/README.md#get) - Get Client
-- [`clientRegistrationRegister`](docs/sdks/clientregistration/README.md#register) - Register Client
-- [`clientsCreate`](docs/sdks/clients/README.md#create) - Create Client
-- [`clientsDeleteGrantedScopes`](docs/sdks/clients/README.md#deletegrantedscopes) - Delete Granted Scopes
-- [`clientsGetGrantedScopes`](docs/sdks/clients/README.md#getgrantedscopes) - Get Granted Scopes
-- [`clientsList`](docs/sdks/clients/README.md#list) - List Clients
-- [`clientsRefreshSecret`](docs/sdks/clients/README.md#refreshsecret) - Rotate Client Secret
-- [`clientsUpdate`](docs/sdks/clients/README.md#update) - Update Client
-- [`clientsUpdateLockFlag`](docs/sdks/clients/README.md#updatelockflag) - Update Client Lock
-- [`clientsUpdateRequestableScopes`](docs/sdks/clients/README.md#updaterequestablescopes) - Update Requestable Scopes
+- [`clientCreate`](docs/sdks/client/README.md#create) - Create Client
+- [`clientDelete`](docs/sdks/client/README.md#delete) - Delete Client ⚡
+- [`clientDeleteAuthorizations`](docs/sdks/client/README.md#deleteauthorizations) - Delete Client Tokens
+- [`clientDeleteGrantedScopes`](docs/sdks/client/README.md#deletegrantedscopes) - Delete Granted Scopes
+- [`clientDeleteRequestableScopes`](docs/sdks/client/README.md#deleterequestablescopes) - Delete Requestable Scopes
+- [`clientGet`](docs/sdks/client/README.md#get) - Get Client
+- [`clientGetGrantedScopes`](docs/sdks/client/README.md#getgrantedscopes) - Get Granted Scopes
+- [`clientGetRequestableScopes`](docs/sdks/client/README.md#getrequestablescopes) - Get Requestable Scopes
+- [`clientList`](docs/sdks/client/README.md#list) - List Clients
+- [`clientListAuthorizations`](docs/sdks/client/README.md#listauthorizations) - Get Authorized Applications
+- [`clientRefreshSecret`](docs/sdks/client/README.md#refreshsecret) - Rotate Client Secret
+- [`clientUpdate`](docs/sdks/client/README.md#update) - Update Client
+- [`clientUpdateAuthorizations`](docs/sdks/client/README.md#updateauthorizations) - Update Client Tokens
+- [`clientUpdateLockFlag`](docs/sdks/client/README.md#updatelockflag) - Update Client Lock
+- [`clientUpdateRequestableScopes`](docs/sdks/client/README.md#updaterequestablescopes) - Update Requestable Scopes
+- [`clientUpdateSecret`](docs/sdks/client/README.md#updatesecret) - Update Client Secret
 - [`deviceFlowComplete`](docs/sdks/deviceflow/README.md#complete) - Complete Device Authorization
 - [`deviceFlowProcessAuthorization`](docs/sdks/deviceflow/README.md#processauthorization) - Process Device Authorization Request
 - [`deviceFlowProcessVerification`](docs/sdks/deviceflow/README.md#processverification) - Process Device Verification Request
 - [`dynamicClientRegistrationDelete`](docs/sdks/dynamicclientregistration/README.md#delete) - Delete Client
+- [`dynamicClientRegistrationGet`](docs/sdks/dynamicclientregistration/README.md#get) - Get Client
+- [`dynamicClientRegistrationRegister`](docs/sdks/dynamicclientregistration/README.md#register) - Register Client
 - [`dynamicClientRegistrationUpdate`](docs/sdks/dynamicclientregistration/README.md#update) - Update Client
-- [`federationEndpointProcessConfiguration`](docs/sdks/federationendpoint/README.md#processconfiguration) - Process Entity Configuration Request
-- [`federationEndpointProcessRegistration`](docs/sdks/federationendpoint/README.md#processregistration) - Process Federation Registration Request
-- [`grantManagementEndpointProcessGrantManagement`](docs/sdks/grantmanagementendpoint/README.md#processgrantmanagement) - Process Grant Management Request
-- [`hardwareSecurityKeyDelete`](docs/sdks/hardwaresecuritykey/README.md#delete) - Delete Security Key
-- [`hardwareSecurityKeyGet`](docs/sdks/hardwaresecuritykey/README.md#get) - Get Security Key
+- [`federationProcessConfiguration`](docs/sdks/federation/README.md#processconfiguration) - Process Entity Configuration Request
+- [`federationProcessRegistration`](docs/sdks/federation/README.md#processregistration) - Process Federation Registration Request
+- [`grantManagementProcessRequest`](docs/sdks/grantmanagement/README.md#processrequest) - Process Grant Management Request
 - [`hardwareSecurityKeysCreate`](docs/sdks/hardwaresecuritykeys/README.md#create) - Create Security Key
+- [`hardwareSecurityKeysDelete`](docs/sdks/hardwaresecuritykeys/README.md#delete) - Delete Security Key
+- [`hardwareSecurityKeysGet`](docs/sdks/hardwaresecuritykeys/README.md#get) - Get Security Key
 - [`hardwareSecurityKeysList`](docs/sdks/hardwaresecuritykeys/README.md#list) - List Security Keys
-- [`introspectionEndpointProcessIntrospection`](docs/sdks/introspectionendpoint/README.md#processintrospection) - Process OAuth 2.0 Introspection Request
 - [`introspectionProcess`](docs/sdks/introspection/README.md#process) - Process Introspection Request
-- [`joseObjectVerify`](docs/sdks/joseobject/README.md#verify) - Verify JOSE
-- [`jwksSetGet`](docs/sdks/jwksset/README.md#get) - Get JWK Set
+- [`introspectionStandardProcess`](docs/sdks/introspection/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
+- [`joseVerify`](docs/sdks/jose/README.md#verify) - Verify JOSE
+- [`jwksGet`](docs/sdks/jwks/README.md#get) - Get JWK Set
 - [`nativeSsoLogout`](docs/sdks/nativesso/README.md#logout) - Native SSO Logout Processing
 - [`nativeSsoProcess`](docs/sdks/nativesso/README.md#process) - Native SSO Processing
-- [`pushedAuthorizationEndpointCreate`](docs/sdks/pushedauthorizationendpoint/README.md#create) - Process Pushed Authorization Request
-- [`revocationEndpointProcessRevocation`](docs/sdks/revocationendpoint/README.md#processrevocation) - Process Revocation Request
-- [`serviceManagementCreate`](docs/sdks/servicemanagement/README.md#create) - Create Service
-- [`serviceManagementGetServiceConfiguration`](docs/sdks/servicemanagement/README.md#getserviceconfiguration) - Get Service Configuration
-- [`serviceManagementListServices`](docs/sdks/servicemanagement/README.md#listservices) - List Services
-- [`servicesDelete`](docs/sdks/services/README.md#delete) - Delete Service ⚡
-- [`servicesGet`](docs/sdks/services/README.md#get) - Get Service
-- [`servicesUpdate`](docs/sdks/services/README.md#update) - Update Service
-- [`tokenEndpointIssueToken`](docs/sdks/tokenendpoint/README.md#issuetoken) - Issue Token Response
-- [`tokenEndpointProcessToken`](docs/sdks/tokenendpoint/README.md#processtoken) - Process Token Request
-- [`tokenEndpointReissueIdToken`](docs/sdks/tokenendpoint/README.md#reissueidtoken) - Reissue ID Token
-- [`tokenOperationsCreate`](docs/sdks/tokenoperations/README.md#create) - Create Access Token
-- [`tokenOperationsListTokens`](docs/sdks/tokenoperations/README.md#listtokens) - List Issued Tokens
-- [`tokenOperationsUpdate`](docs/sdks/tokenoperations/README.md#update) - Update Access Token
+- [`pushedAuthorizationCreate`](docs/sdks/pushedauthorization/README.md#create) - Process Pushed Authorization Request
+- [`revocationProcess`](docs/sdks/revocation/README.md#process) - Process Revocation Request
+- [`serviceCreate`](docs/sdks/service/README.md#create) - Create Service
+- [`serviceDelete`](docs/sdks/service/README.md#delete) - Delete Service ⚡
+- [`serviceGet`](docs/sdks/service/README.md#get) - Get Service
+- [`serviceGetConfiguration`](docs/sdks/service/README.md#getconfiguration) - Get Service Configuration
+- [`serviceList`](docs/sdks/service/README.md#list) - List Services
+- [`serviceUpdate`](docs/sdks/service/README.md#update) - Update Service
+- [`tokenFail`](docs/sdks/token/README.md#fail) - Fail Token Request
+- [`tokenIssue`](docs/sdks/token/README.md#issue) - Issue Token Response
+- [`tokenProcess`](docs/sdks/token/README.md#process) - Process Token Request
+- [`tokenReissueIdToken`](docs/sdks/token/README.md#reissueidtoken) - Reissue ID Token
+- [`tokensCreate`](docs/sdks/tokens/README.md#create) - Create Access Token
 - [`tokensDelete`](docs/sdks/tokens/README.md#delete) - Delete Access Token
-- [`tokensFail`](docs/sdks/tokens/README.md#fail) - Fail Token Request
+- [`tokensList`](docs/sdks/tokens/README.md#list) - List Issued Tokens
 - [`tokensRevoke`](docs/sdks/tokens/README.md#revoke) - Revoke Access Token
-- [`userInfoEndpointIssueIdToken`](docs/sdks/userinfoendpoint2/README.md#issueidtoken) - Issue UserInfo Response
-- [`userinfoEndpointProcessUserInfo`](docs/sdks/userinfoendpoint1/README.md#processuserinfo) - Process UserInfo Request
-- [`utilityEndpointsEcho`](docs/sdks/utilityendpoints/README.md#echo) - Echo
-- [`utilityEndpointsGetServerMetadata`](docs/sdks/utilityendpoints/README.md#getservermetadata) - Get Server Metadata
-- [`verifiableCredentialIssuerBatchIssue`](docs/sdks/verifiablecredentialissuer/README.md#batchissue) - /api/{serviceId}/vci/batch/issue API
-- [`verifiableCredentialIssuerDeferredIssue`](docs/sdks/verifiablecredentialissuer/README.md#deferredissue) - /api/{serviceId}/vci/deferred/issue API
-- [`verifiableCredentialIssuerGetJwtIssuer`](docs/sdks/verifiablecredentialissuer/README.md#getjwtissuer) - /api/{serviceId}/vci/jwtissuer API
-- [`verifiableCredentialIssuerGetOfferInfo`](docs/sdks/verifiablecredentialissuer/README.md#getofferinfo) - /api/{serviceId}/vci/offer/info API
-- [`verifiableCredentialIssuerIssueSingle`](docs/sdks/verifiablecredentialissuer/README.md#issuesingle) - /api/{serviceId}/vci/single/issue API
-- [`verifiableCredentialIssuerParseBatch`](docs/sdks/verifiablecredentialissuer/README.md#parsebatch) - /api/{serviceId}/vci/batch/parse API
-- [`verifiableCredentialIssuerParseDeferred`](docs/sdks/verifiablecredentialissuer/README.md#parsedeferred) - /api/{serviceId}/vci/deferred/parse API
+- [`tokensUpdate`](docs/sdks/tokens/README.md#update) - Update Access Token
+- [`userinfoIssue`](docs/sdks/userinfo/README.md#issue) - Issue UserInfo Response
+- [`userinfoProcess`](docs/sdks/userinfo/README.md#process) - Process UserInfo Request
+- [`utilityEcho`](docs/sdks/utility/README.md#echo) - Echo
+- [`utilityGetServerMetadata`](docs/sdks/utility/README.md#getservermetadata) - Get Server Metadata
+- [`verifiableCredentialsBatchIssue`](docs/sdks/verifiablecredentials/README.md#batchissue) - /api/{serviceId}/vci/batch/issue API
+- [`verifiableCredentialsBatchParse`](docs/sdks/verifiablecredentials/README.md#batchparse) - /api/{serviceId}/vci/batch/parse API
 - [`verifiableCredentialsCreateOffer`](docs/sdks/verifiablecredentials/README.md#createoffer) - /api/{serviceId}/vci/offer/create API
+- [`verifiableCredentialsDeferredIssue`](docs/sdks/verifiablecredentials/README.md#deferredissue) - /api/{serviceId}/vci/deferred/issue API
+- [`verifiableCredentialsDeferredParse`](docs/sdks/verifiablecredentials/README.md#deferredparse) - /api/{serviceId}/vci/deferred/parse API
 - [`verifiableCredentialsGetJwks`](docs/sdks/verifiablecredentials/README.md#getjwks) - /api/{serviceId}/vci/jwks API
+- [`verifiableCredentialsGetJwtIssuer`](docs/sdks/verifiablecredentials/README.md#getjwtissuer) - /api/{serviceId}/vci/jwtissuer API
 - [`verifiableCredentialsGetMetadata`](docs/sdks/verifiablecredentials/README.md#getmetadata) - /api/{serviceId}/vci/metadata API
+- [`verifiableCredentialsGetOfferInfo`](docs/sdks/verifiablecredentials/README.md#getofferinfo) - /api/{serviceId}/vci/offer/info API
+- [`verifiableCredentialsIssue`](docs/sdks/verifiablecredentials/README.md#issue) - /api/{serviceId}/vci/single/issue API
 - [`verifiableCredentialsParse`](docs/sdks/verifiablecredentials/README.md#parse) - /api/{serviceId}/vci/single/parse API
 
 </details>
@@ -515,7 +488,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.services.get({
+  const result = await authlete.service.get({
     serviceId: "<id>",
   }, {
     retries: {
@@ -558,7 +531,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.services.get({
+  const result = await authlete.service.get({
     serviceId: "<id>",
   });
 
@@ -597,7 +570,7 @@ const authlete = new Authlete({
 
 async function run() {
   try {
-    const result = await authlete.services.get({
+    const result = await authlete.service.get({
       serviceId: "<id>",
     });
 
@@ -675,7 +648,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.services.get({
+  const result = await authlete.service.get({
     serviceId: "<id>",
   });
 
@@ -700,7 +673,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.services.get({
+  const result = await authlete.service.get({
     serviceId: "<id>",
   });
 

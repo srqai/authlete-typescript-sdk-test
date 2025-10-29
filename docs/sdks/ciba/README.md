@@ -7,8 +7,8 @@
 
 * [processAuthentication](#processauthentication) - Process Backchannel Authentication Request
 * [issue](#issue) - Issue Backchannel Authentication Response
-* [failBackchannelAuthentication](#failbackchannelauthentication) - Fail Backchannel Authentication Request
-* [completeBackchannelAuthentication](#completebackchannelauthentication) - Complete Backchannel Authentication
+* [fail](#fail) - Fail Backchannel Authentication Request
+* [complete](#complete) - Complete Backchannel Authentication
 
 ## processAuthentication
 
@@ -583,7 +583,7 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## failBackchannelAuthentication
+## fail
 
 The API prepares JSON that contains an error. The JSON should be used as the response body of the
 response which is returned to the client from the [backchannel authentication endpoint](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_backchannel_endpoint).
@@ -636,7 +636,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.ciba.failBackchannelAuthentication({
+  const result = await authlete.ciba.fail({
     serviceId: "<id>",
     backchannelAuthenticationFailRequest: {
       ticket: "<value>",
@@ -656,7 +656,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { cibaFailBackchannelAuthentication } from "authlete/funcs/cibaFailBackchannelAuthentication.js";
+import { cibaFail } from "authlete/funcs/cibaFail.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -667,7 +667,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await cibaFailBackchannelAuthentication(authlete, {
+  const res = await cibaFail(authlete, {
     serviceId: "<id>",
     backchannelAuthenticationFailRequest: {
       ticket: "<value>",
@@ -678,7 +678,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("cibaFailBackchannelAuthentication failed:", res.error);
+    console.log("cibaFail failed:", res.error);
   }
 }
 
@@ -706,7 +706,7 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## completeBackchannelAuthentication
+## complete
 
 This API returns information about what action the authorization server should take after it receives
 the result of end-user's decision about whether the end-user has approved or rejected a client application's
@@ -831,7 +831,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.ciba.completeBackchannelAuthentication({
+  const result = await authlete.ciba.complete({
     serviceId: "<id>",
     backchannelAuthenticationCompleteRequest: {
       ticket: "NFIHGx_btVrWmtAD093D-87JxvT4DAtuijEkLVHbS4Q",
@@ -852,7 +852,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { cibaCompleteBackchannelAuthentication } from "authlete/funcs/cibaCompleteBackchannelAuthentication.js";
+import { cibaComplete } from "authlete/funcs/cibaComplete.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -863,7 +863,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await cibaCompleteBackchannelAuthentication(authlete, {
+  const res = await cibaComplete(authlete, {
     serviceId: "<id>",
     backchannelAuthenticationCompleteRequest: {
       ticket: "NFIHGx_btVrWmtAD093D-87JxvT4DAtuijEkLVHbS4Q",
@@ -875,7 +875,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("cibaCompleteBackchannelAuthentication failed:", res.error);
+    console.log("cibaComplete failed:", res.error);
   }
 }
 

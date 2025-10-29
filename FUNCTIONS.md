@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { servicesGet } from "authlete/funcs/servicesGet.js";
+import { serviceGet } from "authlete/funcs/serviceGet.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -31,14 +31,14 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await servicesGet(authlete, {
+  const res = await serviceGet(authlete, {
     serviceId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("servicesGet failed:", res.error);
+    console.log("serviceGet failed:", res.error);
   }
 }
 
