@@ -5439,6 +5439,7 @@ paths:
         '500':
           $ref: '#/components/responses/500'
       operationId: service_jwks_get_api
+      x-speakeasy-internal: true
       x-code-samples:
         - lang: shell
           label: curl
@@ -8440,6 +8441,7 @@ paths:
         '500':
           $ref: '#/components/responses/500'
       operationId: jose_verify_api
+      x-speakeasy-internal: true
       x-code-samples:
         - lang: shell
           label: curl
