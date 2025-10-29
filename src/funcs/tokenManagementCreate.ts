@@ -27,18 +27,18 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Update Access Token
+ * Create Access Token
  *
  * @remarks
- * Update an access token.
+ * Create an access token.
  */
-export function tokensUpdate(
+export function tokenManagementCreate(
   client: AuthleteCore,
-  request: operations.AuthTokenUpdateApiRequest,
+  request: operations.AuthTokenCreateApiRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.TokenUpdateResponse,
+    models.TokenCreateResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -59,12 +59,12 @@ export function tokensUpdate(
 
 async function $do(
   client: AuthleteCore,
-  request: operations.AuthTokenUpdateApiRequest,
+  request: operations.AuthTokenCreateApiRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.TokenUpdateResponse,
+      models.TokenCreateResponse,
       | errors.ResultError
       | AuthleteError
       | ResponseValidationError
@@ -80,14 +80,14 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.AuthTokenUpdateApiRequest$outboundSchema.parse(value),
+    (value) => operations.AuthTokenCreateApiRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.token_update_request, {
+  const body = encodeJSON("body", payload.token_create_request, {
     explode: true,
   });
 
@@ -98,7 +98,7 @@ async function $do(
     }),
   };
 
-  const path = pathToFunc("/api/{serviceId}/auth/token/update")(pathParams);
+  const path = pathToFunc("/api/{serviceId}/auth/token/create")(pathParams);
 
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
@@ -111,7 +111,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "auth_token_update_api",
+    operationID: "auth_token_create_api",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -154,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.TokenUpdateResponse,
+    models.TokenCreateResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -165,7 +165,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.TokenUpdateResponse$inboundSchema),
+    M.json(200, models.TokenCreateResponse$inboundSchema),
     M.jsonErr([400, 401, 403], errors.ResultError$inboundSchema),
     M.jsonErr(500, errors.ResultError$inboundSchema),
     M.fail("4XX"),

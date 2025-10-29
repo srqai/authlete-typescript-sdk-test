@@ -1,5 +1,5 @@
-# Tokens
-(*tokens*)
+# Management
+(*token.management*)
 
 ## Overview
 
@@ -29,7 +29,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.tokens.list({
+  const result = await authlete.token.management.list({
     serviceId: "<id>",
   });
 
@@ -45,7 +45,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { tokensList } from "authlete/funcs/tokensList.js";
+import { tokenManagementList } from "authlete/funcs/tokenManagementList.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -56,14 +56,14 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await tokensList(authlete, {
+  const res = await tokenManagementList(authlete, {
     serviceId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("tokensList failed:", res.error);
+    console.log("tokenManagementList failed:", res.error);
   }
 }
 
@@ -109,7 +109,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.tokens.create({
+  const result = await authlete.token.management.create({
     serviceId: "<id>",
     tokenCreateRequest: {
       grantType: "AUTHORIZATION_CODE",
@@ -134,7 +134,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { tokensCreate } from "authlete/funcs/tokensCreate.js";
+import { tokenManagementCreate } from "authlete/funcs/tokenManagementCreate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -145,7 +145,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await tokensCreate(authlete, {
+  const res = await tokenManagementCreate(authlete, {
     serviceId: "<id>",
     tokenCreateRequest: {
       grantType: "AUTHORIZATION_CODE",
@@ -161,7 +161,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("tokensCreate failed:", res.error);
+    console.log("tokenManagementCreate failed:", res.error);
   }
 }
 
@@ -207,7 +207,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.tokens.update({
+  const result = await authlete.token.management.update({
     serviceId: "<id>",
     tokenUpdateRequest: {
       accessToken: "Z5a40U6dWvw2gMoCOAFbZcM85q4HC0Z--0YKD9-Nf6Q",
@@ -229,7 +229,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { tokensUpdate } from "authlete/funcs/tokensUpdate.js";
+import { tokenManagementUpdate } from "authlete/funcs/tokenManagementUpdate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -240,7 +240,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await tokensUpdate(authlete, {
+  const res = await tokenManagementUpdate(authlete, {
     serviceId: "<id>",
     tokenUpdateRequest: {
       accessToken: "Z5a40U6dWvw2gMoCOAFbZcM85q4HC0Z--0YKD9-Nf6Q",
@@ -253,7 +253,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("tokensUpdate failed:", res.error);
+    console.log("tokenManagementUpdate failed:", res.error);
   }
 }
 
@@ -299,7 +299,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  await authlete.tokens.delete({
+  await authlete.token.management.delete({
     serviceId: "<id>",
     accessTokenIdentifier: "<value>",
   });
@@ -316,7 +316,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { tokensDelete } from "authlete/funcs/tokensDelete.js";
+import { tokenManagementDelete } from "authlete/funcs/tokenManagementDelete.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -327,7 +327,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await tokensDelete(authlete, {
+  const res = await tokenManagementDelete(authlete, {
     serviceId: "<id>",
     accessTokenIdentifier: "<value>",
   });
@@ -335,7 +335,7 @@ async function run() {
     const { value: result } = res;
     
   } else {
-    console.log("tokensDelete failed:", res.error);
+    console.log("tokenManagementDelete failed:", res.error);
   }
 }
 
@@ -381,7 +381,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.tokens.revoke({
+  const result = await authlete.token.management.revoke({
     serviceId: "<id>",
     tokenRevokeRequest: {
       accessTokenIdentifier: "Z5a40U6dWvw2gMoCOAFbZcM85q4HC0Z--0YKD9-Nf6Q",
@@ -400,7 +400,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { tokensRevoke } from "authlete/funcs/tokensRevoke.js";
+import { tokenManagementRevoke } from "authlete/funcs/tokenManagementRevoke.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -411,7 +411,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await tokensRevoke(authlete, {
+  const res = await tokenManagementRevoke(authlete, {
     serviceId: "<id>",
     tokenRevokeRequest: {
       accessTokenIdentifier: "Z5a40U6dWvw2gMoCOAFbZcM85q4HC0Z--0YKD9-Nf6Q",
@@ -421,7 +421,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("tokensRevoke failed:", res.error);
+    console.log("tokenManagementRevoke failed:", res.error);
   }
 }
 

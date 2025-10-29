@@ -10,8 +10,14 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { Management } from "./management.js";
 
 export class Token extends ClientSDK {
+  private _management?: Management;
+  get management(): Management {
+    return (this._management ??= new Management(this._options));
+  }
+
   /**
    * Process Token Request
    *

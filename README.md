@@ -342,13 +342,13 @@ run();
 * [issue](docs/sdks/token/README.md#issue) - Issue Token Response
 * [reissueIdToken](docs/sdks/token/README.md#reissueidtoken) - Reissue ID Token
 
-### [tokens](docs/sdks/tokens/README.md)
+#### [token.management](docs/sdks/management/README.md)
 
-* [list](docs/sdks/tokens/README.md#list) - List Issued Tokens
-* [create](docs/sdks/tokens/README.md#create) - Create Access Token
-* [update](docs/sdks/tokens/README.md#update) - Update Access Token
-* [delete](docs/sdks/tokens/README.md#delete) - Delete Access Token
-* [revoke](docs/sdks/tokens/README.md#revoke) - Revoke Access Token
+* [list](docs/sdks/management/README.md#list) - List Issued Tokens
+* [create](docs/sdks/management/README.md#create) - Create Access Token
+* [update](docs/sdks/management/README.md#update) - Update Access Token
+* [delete](docs/sdks/management/README.md#delete) - Delete Access Token
+* [revoke](docs/sdks/management/README.md#revoke) - Revoke Access Token
 
 ### [userinfo](docs/sdks/userinfo/README.md)
 
@@ -446,13 +446,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`serviceUpdate`](docs/sdks/service/README.md#update) - Update Service
 - [`tokenFail`](docs/sdks/token/README.md#fail) - Fail Token Request
 - [`tokenIssue`](docs/sdks/token/README.md#issue) - Issue Token Response
+- [`tokenManagementCreate`](docs/sdks/management/README.md#create) - Create Access Token
+- [`tokenManagementDelete`](docs/sdks/management/README.md#delete) - Delete Access Token
+- [`tokenManagementList`](docs/sdks/management/README.md#list) - List Issued Tokens
+- [`tokenManagementRevoke`](docs/sdks/management/README.md#revoke) - Revoke Access Token
+- [`tokenManagementUpdate`](docs/sdks/management/README.md#update) - Update Access Token
 - [`tokenProcess`](docs/sdks/token/README.md#process) - Process Token Request
 - [`tokenReissueIdToken`](docs/sdks/token/README.md#reissueidtoken) - Reissue ID Token
-- [`tokensCreate`](docs/sdks/tokens/README.md#create) - Create Access Token
-- [`tokensDelete`](docs/sdks/tokens/README.md#delete) - Delete Access Token
-- [`tokensList`](docs/sdks/tokens/README.md#list) - List Issued Tokens
-- [`tokensRevoke`](docs/sdks/tokens/README.md#revoke) - Revoke Access Token
-- [`tokensUpdate`](docs/sdks/tokens/README.md#update) - Update Access Token
 - [`userinfoIssue`](docs/sdks/userinfo/README.md#issue) - Issue UserInfo Response
 - [`userinfoProcess`](docs/sdks/userinfo/README.md#process) - Process UserInfo Request
 - [`utilityEcho`](docs/sdks/utility/README.md#echo) - Echo
