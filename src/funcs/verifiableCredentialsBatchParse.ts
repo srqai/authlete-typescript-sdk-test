@@ -27,7 +27,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * /api/{serviceId}/vci/batch/parse API
+ * Parse Batch Credentials
  *
  * @remarks
  * Parse multiple verifiable credentials in batch

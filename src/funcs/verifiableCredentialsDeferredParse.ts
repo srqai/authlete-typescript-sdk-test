@@ -27,7 +27,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * /api/{serviceId}/vci/deferred/parse API
+ * Parse Deferred Credential
  *
  * @remarks
  * Parse a deferred verifiable credential

@@ -27,7 +27,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * /api/{serviceId}/vci/jwtissuer API
+ * Get JWT Issuer Information
  *
  * @remarks
  * Get JWT issuer information for VCI

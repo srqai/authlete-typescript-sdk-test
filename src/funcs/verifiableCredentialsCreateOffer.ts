@@ -27,7 +27,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * /api/{serviceId}/vci/offer/create API
+ * Create Credential Offer
  *
  * @remarks
  * Create a verifiable credential offer

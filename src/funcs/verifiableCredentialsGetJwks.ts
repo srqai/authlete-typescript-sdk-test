@@ -27,7 +27,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * /api/{serviceId}/vci/jwks API
+ * Get JSON Web Key Set
  *
  * @remarks
  * Get JSON Web Key Set for VCI

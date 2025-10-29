@@ -27,7 +27,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * /api/{serviceId}/vci/metadata API
+ * Get Verifiable Credential Issuer Metadata
  *
  * @remarks
  * Get verifiable credential issuer metadata

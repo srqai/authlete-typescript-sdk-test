@@ -27,7 +27,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * /api/{serviceId}/vci/single/issue API
+ * Issue Single Credential
  *
  * @remarks
  * Issue a single verifiable credential

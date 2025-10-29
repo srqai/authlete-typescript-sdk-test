@@ -27,7 +27,7 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * /api/{serviceId}/vci/single/parse API
+ * Parse Single Credential
  *
  * @remarks
  * Parse a single verifiable credential
