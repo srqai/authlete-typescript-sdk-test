@@ -3,13 +3,15 @@
 
 ## Overview
 
+API endpoints for implementing OAuth 2.0 Device Flow
+
 ### Available Operations
 
-* [processAuthorization](#processauthorization) - Process Device Authorization Request
-* [processVerification](#processverification) - Process Device Verification Request
-* [complete](#complete) - Complete Device Authorization
+* [deviceAuthorizationApi](#deviceauthorizationapi) - Process Device Authorization Request
+* [deviceVerificationApi](#deviceverificationapi) - Process Device Verification Request
+* [deviceCompleteApi](#devicecompleteapi) - Complete Device Authorization
 
-## processAuthorization
+## deviceAuthorizationApi
 
 This API parses request parameters of a [device authorization request](https://datatracker.ietf.org/doc/html/rfc8628#section-3.1)
 and returns necessary data for the authorization server implementation to process the device authorization
@@ -122,7 +124,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.deviceFlow.processAuthorization({
+  const result = await authleteTest.deviceFlow.deviceAuthorizationApi({
     serviceId: "<id>",
     deviceAuthorizationRequest: {
       parameters: "client_id=26888344961664&scope=history.read",
@@ -143,7 +145,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { deviceFlowProcessAuthorization } from "authlete-test/funcs/deviceFlowProcessAuthorization.js";
+import { deviceFlowDeviceAuthorizationApi } from "authlete-test/funcs/deviceFlowDeviceAuthorizationApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -154,7 +156,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await deviceFlowProcessAuthorization(authleteTest, {
+  const res = await deviceFlowDeviceAuthorizationApi(authleteTest, {
     serviceId: "<id>",
     deviceAuthorizationRequest: {
       parameters: "client_id=26888344961664&scope=history.read",
@@ -166,7 +168,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("deviceFlowProcessAuthorization failed:", res.error);
+    console.log("deviceFlowDeviceAuthorizationApi failed:", res.error);
   }
 }
 
@@ -194,7 +196,7 @@ run();
 | errors.ResultError              | 500                             | application/json                |
 | errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
 
-## processVerification
+## deviceVerificationApi
 
 The API returns information associated with a user code.
 
@@ -252,7 +254,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.deviceFlow.processVerification({
+  const result = await authleteTest.deviceFlow.deviceVerificationApi({
     serviceId: "<id>",
     deviceVerificationRequest: {
       userCode: "XWWKPBWVXQ",
@@ -271,7 +273,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { deviceFlowProcessVerification } from "authlete-test/funcs/deviceFlowProcessVerification.js";
+import { deviceFlowDeviceVerificationApi } from "authlete-test/funcs/deviceFlowDeviceVerificationApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -282,7 +284,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await deviceFlowProcessVerification(authleteTest, {
+  const res = await deviceFlowDeviceVerificationApi(authleteTest, {
     serviceId: "<id>",
     deviceVerificationRequest: {
       userCode: "XWWKPBWVXQ",
@@ -292,7 +294,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("deviceFlowProcessVerification failed:", res.error);
+    console.log("deviceFlowDeviceVerificationApi failed:", res.error);
   }
 }
 
@@ -320,7 +322,7 @@ run();
 | errors.ResultError              | 500                             | application/json                |
 | errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
 
-## complete
+## deviceCompleteApi
 
 This API returns information about what action the authorization server should take after it receives
 the result of end-user's decision about whether the end-user has approved or rejected a client
@@ -407,7 +409,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.deviceFlow.complete({
+  const result = await authleteTest.deviceFlow.deviceCompleteApi({
     serviceId: "<id>",
     deviceCompleteRequest: {
       userCode: "XWWKPBWVXQ",
@@ -428,7 +430,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { deviceFlowComplete } from "authlete-test/funcs/deviceFlowComplete.js";
+import { deviceFlowDeviceCompleteApi } from "authlete-test/funcs/deviceFlowDeviceCompleteApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -439,7 +441,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await deviceFlowComplete(authleteTest, {
+  const res = await deviceFlowDeviceCompleteApi(authleteTest, {
     serviceId: "<id>",
     deviceCompleteRequest: {
       userCode: "XWWKPBWVXQ",
@@ -451,7 +453,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("deviceFlowComplete failed:", res.error);
+    console.log("deviceFlowDeviceCompleteApi failed:", res.error);
   }
 }
 

@@ -3,11 +3,13 @@
 
 ## Overview
 
+API endpoints for JOSE objects.
+
 ### Available Operations
 
-* [verify](#verify) - Verify JOSE
+* [joseVerifyApi](#joseverifyapi) - Verify JOSE
 
-## verify
+## joseVerifyApi
 
 This API verifies a JOSE object.
 
@@ -25,7 +27,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.joseObject.verify({
+  const result = await authleteTest.joseObject.joseVerifyApi({
     serviceId: "<id>",
     joseVerifyRequest: {
       jose: "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE1NTk4MTE3NTAsImlzcyI6IjU3Mjk3NDA4ODY3In0K.csmdholMVcmjqHe59YWgLGNvm7I5Whp4phQCoGxyrlRGMnTgsfxtwyxBgMXQqEPD5q5k9FaEWNk37K8uAtSwrA",
@@ -47,7 +49,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { joseObjectVerify } from "authlete-test/funcs/joseObjectVerify.js";
+import { joseObjectJoseVerifyApi } from "authlete-test/funcs/joseObjectJoseVerifyApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -58,7 +60,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await joseObjectVerify(authleteTest, {
+  const res = await joseObjectJoseVerifyApi(authleteTest, {
     serviceId: "<id>",
     joseVerifyRequest: {
       jose: "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE1NTk4MTE3NTAsImlzcyI6IjU3Mjk3NDA4ODY3In0K.csmdholMVcmjqHe59YWgLGNvm7I5Whp4phQCoGxyrlRGMnTgsfxtwyxBgMXQqEPD5q5k9FaEWNk37K8uAtSwrA",
@@ -71,7 +73,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("joseObjectVerify failed:", res.error);
+    console.log("joseObjectJoseVerifyApi failed:", res.error);
   }
 }
 

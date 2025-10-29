@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { servicesGet } from "authlete-test/funcs/servicesGet.js";
+import { serviceManagementServiceGetApi } from "authlete-test/funcs/serviceManagementServiceGetApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -31,14 +31,14 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await servicesGet(authleteTest, {
+  const res = await serviceManagementServiceGetApi(authleteTest, {
     serviceId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("servicesGet failed:", res.error);
+    console.log("serviceManagementServiceGetApi failed:", res.error);
   }
 }
 

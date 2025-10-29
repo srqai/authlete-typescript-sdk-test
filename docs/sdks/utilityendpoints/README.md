@@ -3,12 +3,14 @@
 
 ## Overview
 
+API endpoints for various utility operations.
+
 ### Available Operations
 
-* [getServerMetadata](#getservermetadata) - Get Server Metadata
-* [echo](#echo) - Echo
+* [infoApi](#infoapi) - Get Server Metadata
+* [miscEchoApi](#miscechoapi) - Echo
 
-## getServerMetadata
+## infoApi
 
 get the server version and enabled features
 
@@ -26,7 +28,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.utilityEndpoints.getServerMetadata();
+  const result = await authleteTest.utilityEndpoints.infoApi();
 
   console.log(result);
 }
@@ -40,7 +42,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { utilityEndpointsGetServerMetadata } from "authlete-test/funcs/utilityEndpointsGetServerMetadata.js";
+import { utilityEndpointsInfoApi } from "authlete-test/funcs/utilityEndpointsInfoApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -51,12 +53,12 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await utilityEndpointsGetServerMetadata(authleteTest);
+  const res = await utilityEndpointsInfoApi(authleteTest);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("utilityEndpointsGetServerMetadata failed:", res.error);
+    console.log("utilityEndpointsInfoApi failed:", res.error);
   }
 }
 
@@ -83,7 +85,7 @@ run();
 | errors.ResultError              | 500                             | application/json                |
 | errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
 
-## echo
+## miscEchoApi
 
 Echo test endpoint. Will return all path parameters in the request
 
@@ -101,7 +103,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  await authleteTest.utilityEndpoints.echo();
+  await authleteTest.utilityEndpoints.miscEchoApi();
 
 
 }
@@ -115,7 +117,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { utilityEndpointsEcho } from "authlete-test/funcs/utilityEndpointsEcho.js";
+import { utilityEndpointsMiscEchoApi } from "authlete-test/funcs/utilityEndpointsMiscEchoApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -126,12 +128,12 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await utilityEndpointsEcho(authleteTest);
+  const res = await utilityEndpointsMiscEchoApi(authleteTest);
   if (res.ok) {
     const { value: result } = res;
     
   } else {
-    console.log("utilityEndpointsEcho failed:", res.error);
+    console.log("utilityEndpointsMiscEchoApi failed:", res.error);
   }
 }
 

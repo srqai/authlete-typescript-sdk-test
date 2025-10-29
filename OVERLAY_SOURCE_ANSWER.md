@@ -7,7 +7,7 @@ The overlay was **NOT manually created in your repo**. It was **auto-synced from
 ### Evidence:
 
 1. **Registry Source**: Look at `.speakeasy/workflow.yaml`:
-   ```yaml
+   ```yamlspeakeasy overlay generate
    registry:
        location: registry.speakeasyapi.dev/authlete/sdk-workspace/authlete-api-explorer
    ```

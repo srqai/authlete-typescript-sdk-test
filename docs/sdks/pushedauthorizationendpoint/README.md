@@ -3,11 +3,13 @@
 
 ## Overview
 
+API endpoints for implementing OAuth 2.0 Pushed Authorization Requests (PAR).
+
 ### Available Operations
 
-* [create](#create) - Process Pushed Authorization Request
+* [pushedAuthReqApi](#pushedauthreqapi) - Process Pushed Authorization Request
 
-## create
+## pushedAuthReqApi
 
 This API creates a pushed request authorization. It authenticates the client and creates a authorization_uri to be returned by the authorization server.
 
@@ -25,7 +27,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.pushedAuthorizationEndpoint.create({
+  const result = await authleteTest.pushedAuthorizationEndpoint.pushedAuthReqApi({
     serviceId: "<id>",
     pushedAuthorizationRequest: {
       parameters: "response_type=code%20id_token&client_id=5921531358155430&redirect_uri=https%3A%2F%2Fserver.example.com%2Fcb&state=SOME_VALUE_ABLE_TO_PREVENT_CSRF&scope=openid&nonce=SOME_VALUE_ABLE_TO_PREVENT_REPLAY_ATTACK&code_challenge=5ZWDQJiryK3eaLtSeFV8y1XySMCWtyITxICLaTwvK8g&code_challenge_method=S256",
@@ -46,7 +48,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { pushedAuthorizationEndpointCreate } from "authlete-test/funcs/pushedAuthorizationEndpointCreate.js";
+import { pushedAuthorizationEndpointPushedAuthReqApi } from "authlete-test/funcs/pushedAuthorizationEndpointPushedAuthReqApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -57,7 +59,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await pushedAuthorizationEndpointCreate(authleteTest, {
+  const res = await pushedAuthorizationEndpointPushedAuthReqApi(authleteTest, {
     serviceId: "<id>",
     pushedAuthorizationRequest: {
       parameters: "response_type=code%20id_token&client_id=5921531358155430&redirect_uri=https%3A%2F%2Fserver.example.com%2Fcb&state=SOME_VALUE_ABLE_TO_PREVENT_CSRF&scope=openid&nonce=SOME_VALUE_ABLE_TO_PREVENT_REPLAY_ATTACK&code_challenge=5ZWDQJiryK3eaLtSeFV8y1XySMCWtyITxICLaTwvK8g&code_challenge_method=S256",
@@ -69,7 +71,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("pushedAuthorizationEndpointCreate failed:", res.error);
+    console.log("pushedAuthorizationEndpointPushedAuthReqApi failed:", res.error);
   }
 }
 

@@ -3,7 +3,6 @@
  */
 
 export * from "./authletetestdefaulterror.js";
-export * from "./authletetesterror.js";
 export * from "./httpclienterrors.js";
 export * from "./responsevalidationerror.js";
 export * from "./resulterror.js";

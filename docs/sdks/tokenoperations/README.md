@@ -3,13 +3,17 @@
 
 ## Overview
 
+API endpoints for various token related operations, including creating, revoking and deleting access_tokens with specified scopes.
+
 ### Available Operations
 
-* [listTokens](#listtokens) - List Issued Tokens
-* [create](#create) - Create Access Token
-* [update](#update) - Update Access Token
+* [authTokenGetListApi](#authtokengetlistapi) - List Issued Tokens
+* [authTokenCreateApi](#authtokencreateapi) - Create Access Token
+* [authTokenUpdateApi](#authtokenupdateapi) - Update Access Token
+* [authTokenDeleteApi](#authtokendeleteapi) - Delete Access Token
+* [authTokenRevokeApi](#authtokenrevokeapi) - Revoke Access Token
 
-## listTokens
+## authTokenGetListApi
 
 Get the list of access tokens that are associated with the service.
 
@@ -27,7 +31,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.tokenOperations.listTokens({
+  const result = await authleteTest.tokenOperations.authTokenGetListApi({
     serviceId: "<id>",
   });
 
@@ -43,7 +47,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { tokenOperationsListTokens } from "authlete-test/funcs/tokenOperationsListTokens.js";
+import { tokenOperationsAuthTokenGetListApi } from "authlete-test/funcs/tokenOperationsAuthTokenGetListApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -54,14 +58,14 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await tokenOperationsListTokens(authleteTest, {
+  const res = await tokenOperationsAuthTokenGetListApi(authleteTest, {
     serviceId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("tokenOperationsListTokens failed:", res.error);
+    console.log("tokenOperationsAuthTokenGetListApi failed:", res.error);
   }
 }
 
@@ -89,7 +93,7 @@ run();
 | errors.ResultError              | 500                             | application/json                |
 | errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
 
-## create
+## authTokenCreateApi
 
 Create an access token.
 
@@ -107,7 +111,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.tokenOperations.create({
+  const result = await authleteTest.tokenOperations.authTokenCreateApi({
     serviceId: "<id>",
     tokenCreateRequest: {
       grantType: "AUTHORIZATION_CODE",
@@ -132,7 +136,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { tokenOperationsCreate } from "authlete-test/funcs/tokenOperationsCreate.js";
+import { tokenOperationsAuthTokenCreateApi } from "authlete-test/funcs/tokenOperationsAuthTokenCreateApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -143,7 +147,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await tokenOperationsCreate(authleteTest, {
+  const res = await tokenOperationsAuthTokenCreateApi(authleteTest, {
     serviceId: "<id>",
     tokenCreateRequest: {
       grantType: "AUTHORIZATION_CODE",
@@ -159,7 +163,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("tokenOperationsCreate failed:", res.error);
+    console.log("tokenOperationsAuthTokenCreateApi failed:", res.error);
   }
 }
 
@@ -187,7 +191,7 @@ run();
 | errors.ResultError              | 500                             | application/json                |
 | errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
 
-## update
+## authTokenUpdateApi
 
 Update an access token.
 
@@ -205,7 +209,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.tokenOperations.update({
+  const result = await authleteTest.tokenOperations.authTokenUpdateApi({
     serviceId: "<id>",
     tokenUpdateRequest: {
       accessToken: "Z5a40U6dWvw2gMoCOAFbZcM85q4HC0Z--0YKD9-Nf6Q",
@@ -227,7 +231,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { tokenOperationsUpdate } from "authlete-test/funcs/tokenOperationsUpdate.js";
+import { tokenOperationsAuthTokenUpdateApi } from "authlete-test/funcs/tokenOperationsAuthTokenUpdateApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -238,7 +242,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await tokenOperationsUpdate(authleteTest, {
+  const res = await tokenOperationsAuthTokenUpdateApi(authleteTest, {
     serviceId: "<id>",
     tokenUpdateRequest: {
       accessToken: "Z5a40U6dWvw2gMoCOAFbZcM85q4HC0Z--0YKD9-Nf6Q",
@@ -251,7 +255,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("tokenOperationsUpdate failed:", res.error);
+    console.log("tokenOperationsAuthTokenUpdateApi failed:", res.error);
   }
 }
 
@@ -270,6 +274,174 @@ run();
 ### Response
 
 **Promise\<[models.TokenUpdateResponse](../../models/tokenupdateresponse.md)\>**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ResultError              | 400, 401, 403                   | application/json                |
+| errors.ResultError              | 500                             | application/json                |
+| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+
+## authTokenDeleteApi
+
+Delete an access token.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="auth_token_delete_api" method="delete" path="/api/{serviceId}/auth/token/delete/{accessTokenIdentifier}" -->
+```typescript
+import { AuthleteTest } from "authlete-test";
+
+const authleteTest = new AuthleteTest({
+  security: {
+    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+  },
+});
+
+async function run() {
+  await authleteTest.tokenOperations.authTokenDeleteApi({
+    serviceId: "<id>",
+    accessTokenIdentifier: "<value>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { AuthleteTestCore } from "authlete-test/core.js";
+import { tokenOperationsAuthTokenDeleteApi } from "authlete-test/funcs/tokenOperationsAuthTokenDeleteApi.js";
+
+// Use `AuthleteTestCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const authleteTest = new AuthleteTestCore({
+  security: {
+    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await tokenOperationsAuthTokenDeleteApi(authleteTest, {
+    serviceId: "<id>",
+    accessTokenIdentifier: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("tokenOperationsAuthTokenDeleteApi failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.AuthTokenDeleteApiRequest](../../models/operations/authtokendeleteapirequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type                      | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ResultError              | 400, 401, 403                   | application/json                |
+| errors.ResultError              | 500                             | application/json                |
+| errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
+
+## authTokenRevokeApi
+
+Revoke an access token.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="auth_token_revoke_api" method="post" path="/api/{serviceId}/auth/token/revoke" -->
+```typescript
+import { AuthleteTest } from "authlete-test";
+
+const authleteTest = new AuthleteTest({
+  security: {
+    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+  },
+});
+
+async function run() {
+  const result = await authleteTest.tokenOperations.authTokenRevokeApi({
+    serviceId: "<id>",
+    tokenRevokeRequest: {
+      accessTokenIdentifier: "Z5a40U6dWvw2gMoCOAFbZcM85q4HC0Z--0YKD9-Nf6Q",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { AuthleteTestCore } from "authlete-test/core.js";
+import { tokenOperationsAuthTokenRevokeApi } from "authlete-test/funcs/tokenOperationsAuthTokenRevokeApi.js";
+
+// Use `AuthleteTestCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const authleteTest = new AuthleteTestCore({
+  security: {
+    authlete: process.env["AUTHLETETEST_AUTHLETE"] ?? "",
+  },
+});
+
+async function run() {
+  const res = await tokenOperationsAuthTokenRevokeApi(authleteTest, {
+    serviceId: "<id>",
+    tokenRevokeRequest: {
+      accessTokenIdentifier: "Z5a40U6dWvw2gMoCOAFbZcM85q4HC0Z--0YKD9-Nf6Q",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("tokenOperationsAuthTokenRevokeApi failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.AuthTokenRevokeApiRequest](../../models/operations/authtokenrevokeapirequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.TokenRevokeResponse](../../models/tokenrevokeresponse.md)\>**
 
 ### Errors
 

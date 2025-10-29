@@ -5,7 +5,23 @@
 ```typescript
 import { Service } from "authlete-test/models";
 
-let value: Service = {};
+let value: Service = {
+  number: 715948317,
+  serviceName: "My Test Service",
+  issuer: "https://example.com",
+  supportedGrantTypes: [
+    "AUTHORIZATION_CODE",
+    "REFRESH_TOKEN",
+  ],
+  supportedResponseTypes: [
+    "CODE",
+  ],
+  supportedScopes: [
+    {},
+    {},
+    {},
+  ],
+};
 ```
 
 ## Fields

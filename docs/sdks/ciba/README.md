@@ -3,14 +3,16 @@
 
 ## Overview
 
+API endpoints for implementing Client-Initiated Backchannel Authentication (CIBA).
+
 ### Available Operations
 
-* [processAuthentication](#processauthentication) - Process Backchannel Authentication Request
-* [issue](#issue) - Issue Backchannel Authentication Response
-* [failBackchannelAuthentication](#failbackchannelauthentication) - Fail Backchannel Authentication Request
-* [completeBackchannelAuthentication](#completebackchannelauthentication) - Complete Backchannel Authentication
+* [backchannelAuthenticationApi](#backchannelauthenticationapi) - Process Backchannel Authentication Request
+* [backchannelAuthenticationIssueApi](#backchannelauthenticationissueapi) - Issue Backchannel Authentication Response
+* [backchannelAuthenticationFailApi](#backchannelauthenticationfailapi) - Fail Backchannel Authentication Request
+* [backchannelAuthenticationCompleteApi](#backchannelauthenticationcompleteapi) - Complete Backchannel Authentication
 
-## processAuthentication
+## backchannelAuthenticationApi
 
 This API parses request parameters of a [backchannel authentication request](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_request)
 and returns necessary data for the authorization server implementation to process the backchannel
@@ -337,7 +339,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.ciba.processAuthentication({
+  const result = await authleteTest.ciba.backchannelAuthenticationApi({
     serviceId: "<id>",
     backchannelAuthenticationRequest: {
       parameters: "login_hint=john&scope=openid&client_notification_token=my-client-notification-token&user_code=my-user-code",
@@ -358,7 +360,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { cibaProcessAuthentication } from "authlete-test/funcs/cibaProcessAuthentication.js";
+import { cibaBackchannelAuthenticationApi } from "authlete-test/funcs/cibaBackchannelAuthenticationApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -369,7 +371,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await cibaProcessAuthentication(authleteTest, {
+  const res = await cibaBackchannelAuthenticationApi(authleteTest, {
     serviceId: "<id>",
     backchannelAuthenticationRequest: {
       parameters: "login_hint=john&scope=openid&client_notification_token=my-client-notification-token&user_code=my-user-code",
@@ -381,7 +383,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("cibaProcessAuthentication failed:", res.error);
+    console.log("cibaBackchannelAuthenticationApi failed:", res.error);
   }
 }
 
@@ -409,7 +411,7 @@ run();
 | errors.ResultError              | 500                             | application/json                |
 | errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
 
-## issue
+## backchannelAuthenticationIssueApi
 
 This API prepares JSON that contains an `auth_req_id`. The JSON should be used as the response body
 of the response which is returned to the client from the [backchannel authentication endpoint](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_backchannel_endpoint)
@@ -515,7 +517,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.ciba.issue({
+  const result = await authleteTest.ciba.backchannelAuthenticationIssueApi({
     serviceId: "<id>",
     backchannelAuthenticationIssueRequest: {
       ticket: "NFIHGx_btVrWmtAD093D-87JxvT4DAtuijEkLVHbS4Q",
@@ -534,7 +536,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { cibaIssue } from "authlete-test/funcs/cibaIssue.js";
+import { cibaBackchannelAuthenticationIssueApi } from "authlete-test/funcs/cibaBackchannelAuthenticationIssueApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -545,7 +547,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await cibaIssue(authleteTest, {
+  const res = await cibaBackchannelAuthenticationIssueApi(authleteTest, {
     serviceId: "<id>",
     backchannelAuthenticationIssueRequest: {
       ticket: "NFIHGx_btVrWmtAD093D-87JxvT4DAtuijEkLVHbS4Q",
@@ -555,7 +557,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("cibaIssue failed:", res.error);
+    console.log("cibaBackchannelAuthenticationIssueApi failed:", res.error);
   }
 }
 
@@ -583,7 +585,7 @@ run();
 | errors.ResultError              | 500                             | application/json                |
 | errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
 
-## failBackchannelAuthentication
+## backchannelAuthenticationFailApi
 
 The API prepares JSON that contains an error. The JSON should be used as the response body of the
 response which is returned to the client from the [backchannel authentication endpoint](https://openid.net/specs/openid-client-initiated-backchannel-authentication-core-1_0.html#auth_backchannel_endpoint).
@@ -636,7 +638,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.ciba.failBackchannelAuthentication({
+  const result = await authleteTest.ciba.backchannelAuthenticationFailApi({
     serviceId: "<id>",
     backchannelAuthenticationFailRequest: {
       ticket: "<value>",
@@ -656,7 +658,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { cibaFailBackchannelAuthentication } from "authlete-test/funcs/cibaFailBackchannelAuthentication.js";
+import { cibaBackchannelAuthenticationFailApi } from "authlete-test/funcs/cibaBackchannelAuthenticationFailApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -667,7 +669,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await cibaFailBackchannelAuthentication(authleteTest, {
+  const res = await cibaBackchannelAuthenticationFailApi(authleteTest, {
     serviceId: "<id>",
     backchannelAuthenticationFailRequest: {
       ticket: "<value>",
@@ -678,7 +680,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("cibaFailBackchannelAuthentication failed:", res.error);
+    console.log("cibaBackchannelAuthenticationFailApi failed:", res.error);
   }
 }
 
@@ -706,7 +708,7 @@ run();
 | errors.ResultError              | 500                             | application/json                |
 | errors.AuthleteTestDefaultError | 4XX, 5XX                        | \*/\*                           |
 
-## completeBackchannelAuthentication
+## backchannelAuthenticationCompleteApi
 
 This API returns information about what action the authorization server should take after it receives
 the result of end-user's decision about whether the end-user has approved or rejected a client application's
@@ -831,7 +833,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.ciba.completeBackchannelAuthentication({
+  const result = await authleteTest.ciba.backchannelAuthenticationCompleteApi({
     serviceId: "<id>",
     backchannelAuthenticationCompleteRequest: {
       ticket: "NFIHGx_btVrWmtAD093D-87JxvT4DAtuijEkLVHbS4Q",
@@ -852,7 +854,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { cibaCompleteBackchannelAuthentication } from "authlete-test/funcs/cibaCompleteBackchannelAuthentication.js";
+import { cibaBackchannelAuthenticationCompleteApi } from "authlete-test/funcs/cibaBackchannelAuthenticationCompleteApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -863,7 +865,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await cibaCompleteBackchannelAuthentication(authleteTest, {
+  const res = await cibaBackchannelAuthenticationCompleteApi(authleteTest, {
     serviceId: "<id>",
     backchannelAuthenticationCompleteRequest: {
       ticket: "NFIHGx_btVrWmtAD093D-87JxvT4DAtuijEkLVHbS4Q",
@@ -875,7 +877,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("cibaCompleteBackchannelAuthentication failed:", res.error);
+    console.log("cibaBackchannelAuthenticationCompleteApi failed:", res.error);
   }
 }
 

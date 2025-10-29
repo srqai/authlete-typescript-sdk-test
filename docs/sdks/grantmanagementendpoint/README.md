@@ -3,11 +3,13 @@
 
 ## Overview
 
+API endpoint for implementing OAuth 2.0 grants, including grant management actions like updating and revoking grants.
+
 ### Available Operations
 
-* [processGrantManagement](#processgrantmanagement) - Process Grant Management Request
+* [grantMApi](#grantmapi) - Process Grant Management Request
 
-## processGrantManagement
+## grantMApi
 
 The API is for the implementation of the grant management endpoint which is
 defined in "<a href="https://openid.net/specs/fapi-grant-management.html">Grant Management for OAuth 2.0</a>".
@@ -26,7 +28,7 @@ const authleteTest = new AuthleteTest({
 });
 
 async function run() {
-  const result = await authleteTest.grantManagementEndpoint.processGrantManagement({
+  const result = await authleteTest.grantManagementEndpoint.grantMApi({
     serviceId: "<id>",
     gMRequest: {
       accessToken: "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE1NTk4MTE3NTAsImlzcyI6IjU3Mjk3NDA4ODY3In0K.csmdholMVcmjqHe59YWgLGNvm7I5Whp4phQCoGxyrlRGMnTgsfxtwyxBgMXQqEPD5q5k9FaEWNk37K8uAtSwrA",
@@ -47,7 +49,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteTestCore } from "authlete-test/core.js";
-import { grantManagementEndpointProcessGrantManagement } from "authlete-test/funcs/grantManagementEndpointProcessGrantManagement.js";
+import { grantManagementEndpointGrantMApi } from "authlete-test/funcs/grantManagementEndpointGrantMApi.js";
 
 // Use `AuthleteTestCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -58,7 +60,7 @@ const authleteTest = new AuthleteTestCore({
 });
 
 async function run() {
-  const res = await grantManagementEndpointProcessGrantManagement(authleteTest, {
+  const res = await grantManagementEndpointGrantMApi(authleteTest, {
     serviceId: "<id>",
     gMRequest: {
       accessToken: "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE1NTk4MTE3NTAsImlzcyI6IjU3Mjk3NDA4ODY3In0K.csmdholMVcmjqHe59YWgLGNvm7I5Whp4phQCoGxyrlRGMnTgsfxtwyxBgMXQqEPD5q5k9FaEWNk37K8uAtSwrA",
@@ -70,7 +72,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("grantManagementEndpointProcessGrantManagement failed:", res.error);
+    console.log("grantManagementEndpointGrantMApi failed:", res.error);
   }
 }
 

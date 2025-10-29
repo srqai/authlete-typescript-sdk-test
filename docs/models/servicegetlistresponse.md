@@ -5,7 +5,27 @@
 ```typescript
 import { ServiceGetListResponse } from "authlete-test/models";
 
-let value: ServiceGetListResponse = {};
+let value: ServiceGetListResponse = {
+  services: [
+    {
+      number: 715948317,
+      serviceName: "My Test Service",
+      issuer: "https://example.com",
+      supportedGrantTypes: [
+        "AUTHORIZATION_CODE",
+        "REFRESH_TOKEN",
+      ],
+      supportedResponseTypes: [
+        "CODE",
+      ],
+      supportedScopes: [
+        {},
+        {},
+        {},
+      ],
+    },
+  ],
+};
 ```
 
 ## Fields
