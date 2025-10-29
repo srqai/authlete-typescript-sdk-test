@@ -8080,7 +8080,7 @@ paths:
             api.getTokenList(clientIdentifier, subject, start, end)
       tags:
         - Token Operations
-      x-speakeasy-group: tokens
+      x-speakeasy-group: token.management
       x-speakeasy-name-override: list
   /api/{serviceId}/auth/token/create:
     post:
@@ -8176,7 +8176,7 @@ paths:
             api.tokenCreate(req)
       tags:
         - Token Operations
-      x-speakeasy-group: tokens
+      x-speakeasy-group: token.management
       x-speakeasy-name-override: create
   /api/{serviceId}/auth/token/update:
     post:
@@ -8259,7 +8259,7 @@ paths:
             api.tokenUpdate(req)
       tags:
         - Token Operations
-      x-speakeasy-group: tokens
+      x-speakeasy-group: token.management
       x-speakeasy-name-override: update
   /api/{serviceId}/auth/token/delete/{accessTokenIdentifier}:
     delete:
@@ -8320,7 +8320,7 @@ paths:
             api.tokenDelete(accessToken)
       tags:
         - Token Operations
-      x-speakeasy-group: tokens
+      x-speakeasy-group: token.management
       x-speakeasy-name-override: delete
   /api/{serviceId}/auth/token/revoke:
     post:
@@ -8401,7 +8401,7 @@ paths:
             api.tokenUpdate(req)
       tags:
         - Token Operations
-      x-speakeasy-group: tokens
+      x-speakeasy-group: token.management
       x-speakeasy-name-override: revoke
   /api/{serviceId}/jose/verify:
     post:

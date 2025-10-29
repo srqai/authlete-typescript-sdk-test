@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Get the list of access tokens that are associated with the service.
  */
-export function tokensList(
+export function tokenManagementList(
   client: AuthleteCore,
   request: operations.AuthTokenGetListApiRequest,
   options?: RequestOptions,

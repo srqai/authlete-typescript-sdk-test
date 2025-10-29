@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6bef56a0-baee-4c65-b71e-495533b2af98
 management:
-  docChecksum: b947a9e697999de7b86ade4968f90173
+  docChecksum: 32fa7c6d447aafa0caf8497a67156fe6
   docVersion: 3.0.15
-  speakeasyVersion: 1.642.1
-  generationVersion: 2.731.4
-  releaseVersion: 0.7.2
-  configChecksum: 6cbc36b38b8e21449ce2d7dbdfe847a2
+  speakeasyVersion: 1.642.2
+  generationVersion: 2.731.6
+  releaseVersion: 0.7.3
+  configChecksum: f549990672b5ba286ed460b9dbd64ebb
   repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
   installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
@@ -333,12 +333,12 @@ generatedFiles:
   - docs/sdks/introspection/README.md
   - docs/sdks/jose/README.md
   - docs/sdks/jwks/README.md
+  - docs/sdks/management/README.md
   - docs/sdks/nativesso/README.md
   - docs/sdks/pushedauthorization/README.md
   - docs/sdks/revocation/README.md
   - docs/sdks/service/README.md
   - docs/sdks/token/README.md
-  - docs/sdks/tokens/README.md
   - docs/sdks/userinfo/README.md
   - docs/sdks/utility/README.md
   - docs/sdks/verifiablecredentials/README.md
@@ -404,13 +404,13 @@ generatedFiles:
   - src/funcs/serviceUpdate.ts
   - src/funcs/tokenFail.ts
   - src/funcs/tokenIssue.ts
+  - src/funcs/tokenManagementCreate.ts
+  - src/funcs/tokenManagementDelete.ts
+  - src/funcs/tokenManagementList.ts
+  - src/funcs/tokenManagementRevoke.ts
+  - src/funcs/tokenManagementUpdate.ts
   - src/funcs/tokenProcess.ts
   - src/funcs/tokenReissueIdToken.ts
-  - src/funcs/tokensCreate.ts
-  - src/funcs/tokensDelete.ts
-  - src/funcs/tokensList.ts
-  - src/funcs/tokensRevoke.ts
-  - src/funcs/tokensUpdate.ts
   - src/funcs/userinfoIssue.ts
   - src/funcs/userinfoProcess.ts
   - src/funcs/utilityEcho.ts
@@ -691,13 +691,13 @@ generatedFiles:
   - src/sdk/introspection.ts
   - src/sdk/jose.ts
   - src/sdk/jwks.ts
+  - src/sdk/management.ts
   - src/sdk/nativesso.ts
   - src/sdk/pushedauthorization.ts
   - src/sdk/revocation.ts
   - src/sdk/sdk.ts
   - src/sdk/service.ts
   - src/sdk/token.ts
-  - src/sdk/tokens.ts
   - src/sdk/userinfo.ts
   - src/sdk/utility.ts
   - src/sdk/verifiablecredentials.ts
@@ -1811,3 +1811,15 @@ examples:
         "500":
           application/json: {}
 examplesVersion: 1.0.2
+releaseNotes: |
+  ## Typescript SDK Changes Detected:
+  * `authlete.token.management.list()`: **Added**
+  * `authlete.token.management.create()`: **Added**
+  * `authlete.token.management.update()`: **Added**
+  * `authlete.token.management.delete()`: **Added**
+  * `authlete.token.management.revoke()`: **Added**
+  * `authlete.tokens.list()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokens.create()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokens.update()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokens.delete()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokens.revoke()`: **Deleted** **Breaking** :warning:
