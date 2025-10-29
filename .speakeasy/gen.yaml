@@ -37,6 +37,8 @@ typescript:
   additionalPackageJSON: {}
   author: Speakeasy
   baseErrorName: AuthleteError
+  client:
+    hide_internal_methods: true
   clientServerStatusCodesAsErrors: true
   constFieldsAlwaysOptional: false
   defaultErrorName: AuthleteDefaultError
