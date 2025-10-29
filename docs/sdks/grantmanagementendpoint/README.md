@@ -3,13 +3,11 @@
 
 ## Overview
 
-API endpoint for implementing OAuth 2.0 grants, including grant management actions like updating and revoking grants.
-
 ### Available Operations
 
-* [grantMApi](#grantmapi) - Process Grant Management Request
+* [processGrantManagement](#processgrantmanagement) - Process Grant Management Request
 
-## grantMApi
+## processGrantManagement
 
 The API is for the implementation of the grant management endpoint which is
 defined in "<a href="https://openid.net/specs/fapi-grant-management.html">Grant Management for OAuth 2.0</a>".
@@ -28,7 +26,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.grantManagementEndpoint.grantMApi({
+  const result = await authlete.grantManagementEndpoint.processGrantManagement({
     serviceId: "<id>",
     gMRequest: {
       accessToken: "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE1NTk4MTE3NTAsImlzcyI6IjU3Mjk3NDA4ODY3In0K.csmdholMVcmjqHe59YWgLGNvm7I5Whp4phQCoGxyrlRGMnTgsfxtwyxBgMXQqEPD5q5k9FaEWNk37K8uAtSwrA",
@@ -49,7 +47,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { grantManagementEndpointGrantMApi } from "authlete/funcs/grantManagementEndpointGrantMApi.js";
+import { grantManagementEndpointProcessGrantManagement } from "authlete/funcs/grantManagementEndpointProcessGrantManagement.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -60,7 +58,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await grantManagementEndpointGrantMApi(authlete, {
+  const res = await grantManagementEndpointProcessGrantManagement(authlete, {
     serviceId: "<id>",
     gMRequest: {
       accessToken: "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE1NTk4MTE3NTAsImlzcyI6IjU3Mjk3NDA4ODY3In0K.csmdholMVcmjqHe59YWgLGNvm7I5Whp4phQCoGxyrlRGMnTgsfxtwyxBgMXQqEPD5q5k9FaEWNk37K8uAtSwrA",
@@ -72,7 +70,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("grantManagementEndpointGrantMApi failed:", res.error);
+    console.log("grantManagementEndpointProcessGrantManagement failed:", res.error);
   }
 }
 

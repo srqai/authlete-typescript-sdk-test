@@ -1,16 +1,14 @@
-# NativeSSO
-(*nativeSSO*)
+# NativeSso
+(*nativeSso*)
 
 ## Overview
 
-API endpoints for Native SSO
-
 ### Available Operations
 
-* [nativeSsoApi](#nativessoapi) - Native SSO Processing
-* [nativeSsoLogoutApi](#nativessologoutapi) - Native SSO Logout Processing
+* [process](#process) - Native SSO Processing
+* [logout](#logout) - Native SSO Logout Processing
 
-## nativeSsoApi
+## process
 
 This API should be called by the implementation of a token endpoint to generate the ID token and
 token response that comply with [OpenID Connect Native SSO for Mobile Apps 1.0](https://openid.net/specs/openid-connect-native-sso-1_0.html)
@@ -77,7 +75,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.nativeSSO.nativeSsoApi({
+  const result = await authlete.nativeSso.process({
     serviceId: "715948317",
     nativeSsoRequest: {
       accessToken: "_kh1aygxZ5NKLYKCJRM8M_AYvDg2wCWoprQDjfO87ZWq",
@@ -99,7 +97,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { nativeSSONativeSSOApi } from "authlete/funcs/nativeSSONativeSSOApi.js";
+import { nativeSsoProcess } from "authlete/funcs/nativeSsoProcess.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -110,7 +108,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await nativeSSONativeSSOApi(authlete, {
+  const res = await nativeSsoProcess(authlete, {
     serviceId: "715948317",
     nativeSsoRequest: {
       accessToken: "_kh1aygxZ5NKLYKCJRM8M_AYvDg2wCWoprQDjfO87ZWq",
@@ -123,7 +121,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("nativeSSONativeSSOApi failed:", res.error);
+    console.log("nativeSsoProcess failed:", res.error);
   }
 }
 
@@ -151,7 +149,7 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## nativeSsoLogoutApi
+## logout
 
 The `/nativesso/logout` API is supposed to be used to support the concept of "logout from all applications"
 in the context of [OpenID Connect Native SSO for Mobile Apps 1.0](https://openid.net/specs/openid-connect-native-sso-1_0.html)
@@ -189,7 +187,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.nativeSSO.nativeSsoLogoutApi({
+  const result = await authlete.nativeSso.logout({
     serviceId: "<id>",
     nativeSsoLogoutRequest: {
       sessionId: "my-sid",
@@ -208,7 +206,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { nativeSSONativeSSOLogoutApi } from "authlete/funcs/nativeSSONativeSSOLogoutApi.js";
+import { nativeSsoLogout } from "authlete/funcs/nativeSsoLogout.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -219,7 +217,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await nativeSSONativeSSOLogoutApi(authlete, {
+  const res = await nativeSsoLogout(authlete, {
     serviceId: "<id>",
     nativeSsoLogoutRequest: {
       sessionId: "my-sid",
@@ -229,7 +227,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("nativeSSONativeSSOLogoutApi failed:", res.error);
+    console.log("nativeSsoLogout failed:", res.error);
   }
 }
 

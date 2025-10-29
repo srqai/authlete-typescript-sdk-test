@@ -3,13 +3,11 @@
 
 ## Overview
 
-API endpoints for implementing OAuth 2.0 Pushed Authorization Requests (PAR).
-
 ### Available Operations
 
-* [pushedAuthReqApi](#pushedauthreqapi) - Process Pushed Authorization Request
+* [create](#create) - Process Pushed Authorization Request
 
-## pushedAuthReqApi
+## create
 
 This API creates a pushed request authorization. It authenticates the client and creates a authorization_uri to be returned by the authorization server.
 
@@ -27,7 +25,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.pushedAuthorizationEndpoint.pushedAuthReqApi({
+  const result = await authlete.pushedAuthorizationEndpoint.create({
     serviceId: "<id>",
     pushedAuthorizationRequest: {
       parameters: "response_type=code%20id_token&client_id=5921531358155430&redirect_uri=https%3A%2F%2Fserver.example.com%2Fcb&state=SOME_VALUE_ABLE_TO_PREVENT_CSRF&scope=openid&nonce=SOME_VALUE_ABLE_TO_PREVENT_REPLAY_ATTACK&code_challenge=5ZWDQJiryK3eaLtSeFV8y1XySMCWtyITxICLaTwvK8g&code_challenge_method=S256",
@@ -48,7 +46,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { pushedAuthorizationEndpointPushedAuthReqApi } from "authlete/funcs/pushedAuthorizationEndpointPushedAuthReqApi.js";
+import { pushedAuthorizationEndpointCreate } from "authlete/funcs/pushedAuthorizationEndpointCreate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -59,7 +57,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await pushedAuthorizationEndpointPushedAuthReqApi(authlete, {
+  const res = await pushedAuthorizationEndpointCreate(authlete, {
     serviceId: "<id>",
     pushedAuthorizationRequest: {
       parameters: "response_type=code%20id_token&client_id=5921531358155430&redirect_uri=https%3A%2F%2Fserver.example.com%2Fcb&state=SOME_VALUE_ABLE_TO_PREVENT_CSRF&scope=openid&nonce=SOME_VALUE_ABLE_TO_PREVENT_REPLAY_ATTACK&code_challenge=5ZWDQJiryK3eaLtSeFV8y1XySMCWtyITxICLaTwvK8g&code_challenge_method=S256",
@@ -71,7 +69,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("pushedAuthorizationEndpointPushedAuthReqApi failed:", res.error);
+    console.log("pushedAuthorizationEndpointCreate failed:", res.error);
   }
 }
 

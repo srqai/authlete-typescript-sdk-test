@@ -4,7 +4,6 @@
 
 import * as z from "zod";
 import { safeParse } from "../lib/schemas.js";
-import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import {
   Client,
@@ -13,22 +12,11 @@ import {
   Client$outboundSchema,
 } from "./client.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-
-/**
- * The next action that the authorization server implementation should take.
- */
-export const FederationRegistrationResponseAction = {
-  Ok: "OK",
-  BadRequest: "BAD_REQUEST",
-  NotFound: "NOT_FOUND",
-  InternalServerError: "INTERNAL_SERVER_ERROR",
-} as const;
-/**
- * The next action that the authorization server implementation should take.
- */
-export type FederationRegistrationResponseAction = ClosedEnum<
-  typeof FederationRegistrationResponseAction
->;
+import {
+  FederationRegistrationResponseAction,
+  FederationRegistrationResponseAction$inboundSchema,
+  FederationRegistrationResponseAction$outboundSchema,
+} from "./federationregistrationresponseaction.js";
 
 export type FederationRegistrationResponse = {
   /**
@@ -52,30 +40,6 @@ export type FederationRegistrationResponse = {
   responseContent?: string | undefined;
   client?: Client | undefined;
 };
-
-/** @internal */
-export const FederationRegistrationResponseAction$inboundSchema:
-  z.ZodNativeEnum<typeof FederationRegistrationResponseAction> = z.nativeEnum(
-    FederationRegistrationResponseAction,
-  );
-
-/** @internal */
-export const FederationRegistrationResponseAction$outboundSchema:
-  z.ZodNativeEnum<typeof FederationRegistrationResponseAction> =
-    FederationRegistrationResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FederationRegistrationResponseAction$ {
-  /** @deprecated use `FederationRegistrationResponseAction$inboundSchema` instead. */
-  export const inboundSchema =
-    FederationRegistrationResponseAction$inboundSchema;
-  /** @deprecated use `FederationRegistrationResponseAction$outboundSchema` instead. */
-  export const outboundSchema =
-    FederationRegistrationResponseAction$outboundSchema;
-}
 
 /** @internal */
 export const FederationRegistrationResponse$inboundSchema: z.ZodType<

@@ -3,13 +3,11 @@
 
 ## Overview
 
-API endpoint for implementing OAuth 2.0 Revocation Endpoint.
-
 ### Available Operations
 
-* [authRevocationApi](#authrevocationapi) - Process Revocation Request
+* [processRevocation](#processrevocation) - Process Revocation Request
 
-## authRevocationApi
+## processRevocation
 
 This API revokes access tokens and refresh tokens.
 
@@ -158,7 +156,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.revocationEndpoint.authRevocationApi({
+  const result = await authlete.revocationEndpoint.processRevocation({
     serviceId: "<id>",
     revocationRequest: {
       parameters: "VFGsNK-5sXiqterdaR7b5QbRX9VTwVCQB87jbr2_xAI&token_type_hint=access_token",
@@ -179,7 +177,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { revocationEndpointAuthRevocationApi } from "authlete/funcs/revocationEndpointAuthRevocationApi.js";
+import { revocationEndpointProcessRevocation } from "authlete/funcs/revocationEndpointProcessRevocation.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -190,7 +188,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await revocationEndpointAuthRevocationApi(authlete, {
+  const res = await revocationEndpointProcessRevocation(authlete, {
     serviceId: "<id>",
     revocationRequest: {
       parameters: "VFGsNK-5sXiqterdaR7b5QbRX9VTwVCQB87jbr2_xAI&token_type_hint=access_token",
@@ -202,7 +200,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("revocationEndpointAuthRevocationApi failed:", res.error);
+    console.log("revocationEndpointProcessRevocation failed:", res.error);
   }
 }
 

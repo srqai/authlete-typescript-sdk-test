@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6bef56a0-baee-4c65-b71e-495533b2af98
 management:
-  docChecksum: 20c4c7c9ecd6e47740c90de017864638
+  docChecksum: 304d222e12a9ae79583c1a91547cf846
   docVersion: 3.0.15
   speakeasyVersion: 1.603.2
   generationVersion: 2.681.8
-  releaseVersion: 0.3.7
-  configChecksum: dc7e2e641c380dac28a3280209c18eb9
+  releaseVersion: 0.4.0
+  configChecksum: e325c49c075233faf80c09c82e8e258f
   repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
   installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
@@ -21,8 +21,10 @@ features:
     globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.5
+    groups: 2.81.2
     inputOutputModels: 2.82.0
     methodArguments: 0.1.2
+    nameOverrides: 2.81.2
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.3.0
@@ -89,6 +91,7 @@ generatedFiles:
   - docs/models/clientregistrationresponse.md
   - docs/models/clientregistrationresponseaction.md
   - docs/models/clientregistrationtype.md
+  - docs/models/clientresponsemodesitems.md
   - docs/models/clientsecretrefreshresponse.md
   - docs/models/clientsecretupdaterequest.md
   - docs/models/clientsecretupdateresponse.md
@@ -240,7 +243,6 @@ generatedFiles:
   - docs/models/pushedauthorizationresponse.md
   - docs/models/pushedauthorizationresponseaction.md
   - docs/models/pushedauthorizationresponseclientauthmethod.md
-  - docs/models/responsemode.md
   - docs/models/responsetype.md
   - docs/models/revocationrequest.md
   - docs/models/revocationresponse.md
@@ -321,110 +323,119 @@ generatedFiles:
   - docs/models/vcisingleparseresponseaction.md
   - docs/models/verifiedclaimsvalidationschema.md
   - docs/sdks/authlete/README.md
+  - docs/sdks/authorization/README.md
   - docs/sdks/authorizationendpoint/README.md
   - docs/sdks/ciba/README.md
   - docs/sdks/clientmanagement/README.md
+  - docs/sdks/clientregistration/README.md
+  - docs/sdks/clients/README.md
   - docs/sdks/deviceflow/README.md
   - docs/sdks/dynamicclientregistration/README.md
   - docs/sdks/federationendpoint/README.md
   - docs/sdks/grantmanagementendpoint/README.md
   - docs/sdks/hardwaresecuritykey/README.md
+  - docs/sdks/hardwaresecuritykeys/README.md
+  - docs/sdks/introspection/README.md
   - docs/sdks/introspectionendpoint/README.md
   - docs/sdks/joseobject/README.md
-  - docs/sdks/jwksetendpoint/README.md
+  - docs/sdks/jwksset/README.md
   - docs/sdks/nativesso/README.md
   - docs/sdks/pushedauthorizationendpoint/README.md
   - docs/sdks/revocationendpoint/README.md
   - docs/sdks/servicemanagement/README.md
+  - docs/sdks/services/README.md
   - docs/sdks/tokenendpoint/README.md
   - docs/sdks/tokenoperations/README.md
-  - docs/sdks/userinfoendpoint/README.md
+  - docs/sdks/tokens/README.md
+  - docs/sdks/userinfoendpoint1/README.md
+  - docs/sdks/userinfoendpoint2/README.md
   - docs/sdks/utilityendpoints/README.md
   - docs/sdks/verifiablecredentialissuer/README.md
+  - docs/sdks/verifiablecredentials/README.md
   - eslint.config.mjs
   - examples/.env.template
   - examples/README.md
   - examples/package.json
-  - examples/serviceManagementServiceGetApi.example.ts
+  - examples/servicesGet.example.ts
   - jsr.json
   - package.json
   - src/core.ts
-  - src/funcs/authorizationEndpointAuthAuthorizationApi.ts
-  - src/funcs/authorizationEndpointAuthAuthorizationFailApi.ts
-  - src/funcs/authorizationEndpointAuthAuthorizationIssueApi.ts
-  - src/funcs/authorizationEndpointUpdateAuthorizationTicket.ts
-  - src/funcs/cibaBackchannelAuthenticationApi.ts
-  - src/funcs/cibaBackchannelAuthenticationCompleteApi.ts
-  - src/funcs/cibaBackchannelAuthenticationFailApi.ts
-  - src/funcs/cibaBackchannelAuthenticationIssueApi.ts
-  - src/funcs/clientManagementClientAuthorizationDeleteApi.ts
-  - src/funcs/clientManagementClientAuthorizationGetListApi.ts
-  - src/funcs/clientManagementClientAuthorizationUpdateApi.ts
-  - src/funcs/clientManagementClientCreateApi.ts
-  - src/funcs/clientManagementClientDeleteApi.ts
-  - src/funcs/clientManagementClientExtensionRequestablesScopesDeleteApi.ts
-  - src/funcs/clientManagementClientExtensionRequestablesScopesGetApi.ts
-  - src/funcs/clientManagementClientExtensionRequestablesScopesUpdateApi.ts
-  - src/funcs/clientManagementClientFlagUpdateApi.ts
-  - src/funcs/clientManagementClientGetApi.ts
-  - src/funcs/clientManagementClientGetListApi.ts
-  - src/funcs/clientManagementClientGrantedScopesDeleteApi.ts
-  - src/funcs/clientManagementClientGrantedScopesGetApi.ts
-  - src/funcs/clientManagementClientSecretRefreshApi.ts
-  - src/funcs/clientManagementClientSecretUpdateApi.ts
-  - src/funcs/clientManagementClientUpdateApi.ts
-  - src/funcs/deviceFlowDeviceAuthorizationApi.ts
-  - src/funcs/deviceFlowDeviceCompleteApi.ts
-  - src/funcs/deviceFlowDeviceVerificationApi.ts
-  - src/funcs/dynamicClientRegistrationClientRegistrationApi.ts
-  - src/funcs/dynamicClientRegistrationClientRegistrationDeleteApi.ts
-  - src/funcs/dynamicClientRegistrationClientRegistrationGetApi.ts
-  - src/funcs/dynamicClientRegistrationClientRegistrationUpdateApi.ts
-  - src/funcs/federationEndpointFederationConfigurationApi.ts
-  - src/funcs/federationEndpointFederationRegistrationApi.ts
-  - src/funcs/grantManagementEndpointGrantMApi.ts
-  - src/funcs/hardwareSecurityKeyHskCreateApi.ts
-  - src/funcs/hardwareSecurityKeyHskDeleteApi.ts
-  - src/funcs/hardwareSecurityKeyHskGetApi.ts
-  - src/funcs/hardwareSecurityKeyHskGetListApi.ts
-  - src/funcs/introspectionEndpointAuthIntrospectionApi.ts
-  - src/funcs/introspectionEndpointAuthIntrospectionStandardApi.ts
-  - src/funcs/joseObjectJoseVerifyApi.ts
-  - src/funcs/jwkSetEndpointServiceJwksGetApi.ts
-  - src/funcs/nativeSSONativeSSOApi.ts
-  - src/funcs/nativeSSONativeSSOLogoutApi.ts
-  - src/funcs/pushedAuthorizationEndpointPushedAuthReqApi.ts
-  - src/funcs/revocationEndpointAuthRevocationApi.ts
-  - src/funcs/serviceManagementServiceConfigurationApi.ts
-  - src/funcs/serviceManagementServiceCreateApi.ts
-  - src/funcs/serviceManagementServiceDeleteApi.ts
-  - src/funcs/serviceManagementServiceGetApi.ts
-  - src/funcs/serviceManagementServiceGetListApi.ts
-  - src/funcs/serviceManagementServiceUpdateApi.ts
-  - src/funcs/tokenEndpointAuthTokenApi.ts
-  - src/funcs/tokenEndpointAuthTokenFailApi.ts
-  - src/funcs/tokenEndpointAuthTokenIssueApi.ts
-  - src/funcs/tokenEndpointIdtokenReissueApi.ts
-  - src/funcs/tokenOperationsAuthTokenCreateApi.ts
-  - src/funcs/tokenOperationsAuthTokenDeleteApi.ts
-  - src/funcs/tokenOperationsAuthTokenGetListApi.ts
-  - src/funcs/tokenOperationsAuthTokenRevokeApi.ts
-  - src/funcs/tokenOperationsAuthTokenUpdateApi.ts
-  - src/funcs/userInfoEndpointAuthUserinfoApi.ts
-  - src/funcs/userInfoEndpointAuthUserinfoIssueApi.ts
-  - src/funcs/utilityEndpointsInfoApi.ts
-  - src/funcs/utilityEndpointsMiscEchoApi.ts
-  - src/funcs/verifiableCredentialIssuerVciBatchIssueApi.ts
-  - src/funcs/verifiableCredentialIssuerVciBatchParseApi.ts
-  - src/funcs/verifiableCredentialIssuerVciDeferredIssueApi.ts
-  - src/funcs/verifiableCredentialIssuerVciDeferredParseApi.ts
-  - src/funcs/verifiableCredentialIssuerVciJwksApi.ts
-  - src/funcs/verifiableCredentialIssuerVciJwtissuerApi.ts
-  - src/funcs/verifiableCredentialIssuerVciMetadataApi.ts
-  - src/funcs/verifiableCredentialIssuerVciOfferCreateApi.ts
-  - src/funcs/verifiableCredentialIssuerVciOfferInfoApi.ts
-  - src/funcs/verifiableCredentialIssuerVciSingleIssueApi.ts
-  - src/funcs/verifiableCredentialIssuerVciSingleParseApi.ts
+  - src/funcs/authorizationEndpointFailAuthorization.ts
+  - src/funcs/authorizationEndpointIssueAuthorization.ts
+  - src/funcs/authorizationEndpointProcessAuthorization.ts
+  - src/funcs/authorizationTicketUpdate.ts
+  - src/funcs/cibaCompleteBackchannelAuthentication.ts
+  - src/funcs/cibaFailBackchannelAuthentication.ts
+  - src/funcs/cibaIssue.ts
+  - src/funcs/cibaProcessAuthentication.ts
+  - src/funcs/clientManagementDeleteAuthorizations.ts
+  - src/funcs/clientManagementDeleteClient.ts
+  - src/funcs/clientManagementDeleteRequestableScopes.ts
+  - src/funcs/clientManagementGetClient.ts
+  - src/funcs/clientManagementGetRequestableScopes.ts
+  - src/funcs/clientManagementListAuthorizedApplications.ts
+  - src/funcs/clientManagementUpdateAuthorization.ts
+  - src/funcs/clientManagementUpdateSecret.ts
+  - src/funcs/clientRegistrationGet.ts
+  - src/funcs/clientRegistrationRegister.ts
+  - src/funcs/clientsCreate.ts
+  - src/funcs/clientsDeleteGrantedScopes.ts
+  - src/funcs/clientsGetGrantedScopes.ts
+  - src/funcs/clientsList.ts
+  - src/funcs/clientsRefreshSecret.ts
+  - src/funcs/clientsUpdate.ts
+  - src/funcs/clientsUpdateLockFlag.ts
+  - src/funcs/clientsUpdateRequestableScopes.ts
+  - src/funcs/deviceFlowComplete.ts
+  - src/funcs/deviceFlowProcessAuthorization.ts
+  - src/funcs/deviceFlowProcessVerification.ts
+  - src/funcs/dynamicClientRegistrationDelete.ts
+  - src/funcs/dynamicClientRegistrationUpdate.ts
+  - src/funcs/federationEndpointProcessConfiguration.ts
+  - src/funcs/federationEndpointProcessRegistration.ts
+  - src/funcs/grantManagementEndpointProcessGrantManagement.ts
+  - src/funcs/hardwareSecurityKeyDelete.ts
+  - src/funcs/hardwareSecurityKeyGet.ts
+  - src/funcs/hardwareSecurityKeysCreate.ts
+  - src/funcs/hardwareSecurityKeysList.ts
+  - src/funcs/introspectionEndpointProcessIntrospection.ts
+  - src/funcs/introspectionProcess.ts
+  - src/funcs/joseObjectVerify.ts
+  - src/funcs/jwksSetGet.ts
+  - src/funcs/nativeSsoLogout.ts
+  - src/funcs/nativeSsoProcess.ts
+  - src/funcs/pushedAuthorizationEndpointCreate.ts
+  - src/funcs/revocationEndpointProcessRevocation.ts
+  - src/funcs/serviceManagementCreate.ts
+  - src/funcs/serviceManagementGetServiceConfiguration.ts
+  - src/funcs/serviceManagementListServices.ts
+  - src/funcs/servicesDelete.ts
+  - src/funcs/servicesGet.ts
+  - src/funcs/servicesUpdate.ts
+  - src/funcs/tokenEndpointIssueToken.ts
+  - src/funcs/tokenEndpointProcessToken.ts
+  - src/funcs/tokenEndpointReissueIdToken.ts
+  - src/funcs/tokenOperationsCreate.ts
+  - src/funcs/tokenOperationsListTokens.ts
+  - src/funcs/tokenOperationsUpdate.ts
+  - src/funcs/tokensDelete.ts
+  - src/funcs/tokensFail.ts
+  - src/funcs/tokensRevoke.ts
+  - src/funcs/userInfoEndpointIssueIdToken.ts
+  - src/funcs/userinfoEndpointProcessUserInfo.ts
+  - src/funcs/utilityEndpointsEcho.ts
+  - src/funcs/utilityEndpointsGetServerMetadata.ts
+  - src/funcs/verifiableCredentialIssuerBatchIssue.ts
+  - src/funcs/verifiableCredentialIssuerDeferredIssue.ts
+  - src/funcs/verifiableCredentialIssuerGetJwtIssuer.ts
+  - src/funcs/verifiableCredentialIssuerGetOfferInfo.ts
+  - src/funcs/verifiableCredentialIssuerIssueSingle.ts
+  - src/funcs/verifiableCredentialIssuerParseBatch.ts
+  - src/funcs/verifiableCredentialIssuerParseDeferred.ts
+  - src/funcs/verifiableCredentialsCreateOffer.ts
+  - src/funcs/verifiableCredentialsGetJwks.ts
+  - src/funcs/verifiableCredentialsGetMetadata.ts
+  - src/funcs/verifiableCredentialsParse.ts
   - src/hooks/hooks.ts
   - src/hooks/index.ts
   - src/hooks/types.ts
@@ -455,6 +466,7 @@ generatedFiles:
   - src/models/authorizationissueresponse.ts
   - src/models/authorizationrequest.ts
   - src/models/authorizationresponse.ts
+  - src/models/authorizationresponseaction.ts
   - src/models/authorizationticketupdaterequest.ts
   - src/models/authorizationticketupdateresponse.ts
   - src/models/authzdetails.ts
@@ -481,10 +493,13 @@ generatedFiles:
   - src/models/clientflagupdateresponse.ts
   - src/models/clientgetlistresponse.ts
   - src/models/clientgrantedscopesdeleteresponse.ts
+  - src/models/clientinput.ts
   - src/models/clientlimited.ts
   - src/models/clientlimitedauthorization.ts
   - src/models/clientregistrationresponse.ts
+  - src/models/clientregistrationresponseaction.ts
   - src/models/clientregistrationtype.ts
+  - src/models/clientresponsemodesitems.ts
   - src/models/clientsecretrefreshresponse.ts
   - src/models/clientsecretupdaterequest.ts
   - src/models/clientsecretupdateresponse.ts
@@ -513,6 +528,7 @@ generatedFiles:
   - src/models/federationconfigurationresponse.ts
   - src/models/federationregistrationrequest.ts
   - src/models/federationregistrationresponse.ts
+  - src/models/federationregistrationresponseaction.ts
   - src/models/gmrequest.ts
   - src/models/gmresponse.ts
   - src/models/grant.ts
@@ -678,28 +694,37 @@ generatedFiles:
   - src/models/vcisingleparserequest.ts
   - src/models/vcisingleparseresponse.ts
   - src/models/verifiedclaimsvalidationschema.ts
+  - src/sdk/authorization.ts
   - src/sdk/authorizationendpoint.ts
   - src/sdk/ciba.ts
   - src/sdk/clientmanagement.ts
+  - src/sdk/clientregistration.ts
+  - src/sdk/clients.ts
   - src/sdk/deviceflow.ts
   - src/sdk/dynamicclientregistration.ts
   - src/sdk/federationendpoint.ts
   - src/sdk/grantmanagementendpoint.ts
   - src/sdk/hardwaresecuritykey.ts
+  - src/sdk/hardwaresecuritykeys.ts
   - src/sdk/index.ts
+  - src/sdk/introspection.ts
   - src/sdk/introspectionendpoint.ts
   - src/sdk/joseobject.ts
-  - src/sdk/jwksetendpoint.ts
+  - src/sdk/jwksset.ts
   - src/sdk/nativesso.ts
   - src/sdk/pushedauthorizationendpoint.ts
   - src/sdk/revocationendpoint.ts
   - src/sdk/sdk.ts
   - src/sdk/servicemanagement.ts
+  - src/sdk/services.ts
   - src/sdk/tokenendpoint.ts
   - src/sdk/tokenoperations.ts
-  - src/sdk/userinfoendpoint.ts
+  - src/sdk/tokens.ts
+  - src/sdk/userinfoendpoint1.ts
+  - src/sdk/userinfoendpoint2.ts
   - src/sdk/utilityendpoints.ts
   - src/sdk/verifiablecredentialissuer.ts
+  - src/sdk/verifiablecredentials.ts
   - src/types/async.ts
   - src/types/blobs.ts
   - src/types/constdatetime.ts
@@ -732,7 +757,7 @@ examples:
           serviceId: "<id>"
       responses:
         "200":
-          application/json: {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -749,7 +774,7 @@ examples:
     speakeasy-default-service-get-list-api:
       responses:
         "200":
-          application/json: {"services": [{"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}]}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -761,7 +786,7 @@ examples:
         application/x-www-form-urlencoded: {"serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
       responses:
         "200":
-          application/json: {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -776,7 +801,7 @@ examples:
         application/x-www-form-urlencoded: {"serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
       responses:
         "200":
-          application/json: {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -811,7 +836,7 @@ examples:
           clientId: "<id>"
       responses:
         "200":
-          application/json: {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -837,7 +862,7 @@ examples:
           serviceId: "<id>"
       responses:
         "200":
-          application/json: {"clients": [{"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}]}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -851,7 +876,7 @@ examples:
         application/json: {"clientName": "My Test Client", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
       responses:
         "200":
-          application/json: {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -867,7 +892,7 @@ examples:
         application/x-www-form-urlencoded: {"clientName": "My Test Client", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
       responses:
         "200":
-          application/json: {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -1050,7 +1075,7 @@ examples:
         application/x-www-form-urlencoded: {"parameters": "<value>"}
       responses:
         "200":
-          application/json: {"service": {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -1282,7 +1307,7 @@ examples:
         application/json: {"json": "{key: 6995014930124193, key1: null, key2: \"<value>\"}"}
       responses:
         "200":
-          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -1296,7 +1321,7 @@ examples:
         application/json: {"token": "<value>", "clientId": "<id>"}
       responses:
         "200":
-          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -1310,7 +1335,7 @@ examples:
         application/json: {"json": "{key: 7278695057340839, key1: null, key2: \"<value>\"}", "token": "<value>", "clientId": "<id>"}
       responses:
         "200":
-          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -1324,7 +1349,7 @@ examples:
         application/json: {"token": "<value>", "clientId": "<id>"}
       responses:
         "200":
-          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
+          application/json: {}
         "400":
           application/json: {}
         "500":
@@ -1536,7 +1561,7 @@ examples:
         application/x-www-form-urlencoded: {}
       responses:
         "200":
-          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
+          application/json: {}
         "400":
           application/json: {}
         "500":

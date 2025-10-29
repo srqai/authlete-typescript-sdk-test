@@ -3,16 +3,13 @@
 
 ## Overview
 
-API endpoints for implementing OAuth 2.0 Authorization Endpoint.
-
 ### Available Operations
 
-* [authAuthorizationApi](#authauthorizationapi) - Process Authorization Request
-* [authAuthorizationFailApi](#authauthorizationfailapi) - Fail Authorization Request
-* [authAuthorizationIssueApi](#authauthorizationissueapi) - Issue Authorization Response
-* [updateAuthorizationTicket](#updateauthorizationticket) - Update Ticket Information
+* [processAuthorization](#processauthorization) - Process Authorization Request
+* [failAuthorization](#failauthorization) - Fail Authorization Request
+* [issueAuthorization](#issueauthorization) - Issue Authorization Response
 
-## authAuthorizationApi
+## processAuthorization
 
 This API parses request parameters of an authorization request and returns necessary data for the authorization server
 implementation to process the authorization request further.
@@ -562,7 +559,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.authorizationEndpoint.authAuthorizationApi({
+  const result = await authlete.authorizationEndpoint.processAuthorization({
     serviceId: "<id>",
     authorizationRequest: {
       parameters: "response_type=code&client_id=26478243745571&redirect_uri=https%3A%2F%2Fmy-client.example.com%2Fcb1&scope=timeline.read+history.read&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256",
@@ -581,7 +578,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { authorizationEndpointAuthAuthorizationApi } from "authlete/funcs/authorizationEndpointAuthAuthorizationApi.js";
+import { authorizationEndpointProcessAuthorization } from "authlete/funcs/authorizationEndpointProcessAuthorization.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -592,7 +589,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await authorizationEndpointAuthAuthorizationApi(authlete, {
+  const res = await authorizationEndpointProcessAuthorization(authlete, {
     serviceId: "<id>",
     authorizationRequest: {
       parameters: "response_type=code&client_id=26478243745571&redirect_uri=https%3A%2F%2Fmy-client.example.com%2Fcb1&scope=timeline.read+history.read&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256",
@@ -602,7 +599,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("authorizationEndpointAuthAuthorizationApi failed:", res.error);
+    console.log("authorizationEndpointProcessAuthorization failed:", res.error);
   }
 }
 
@@ -630,7 +627,7 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## authAuthorizationFailApi
+## failAuthorization
 
 This API generates a content of an error authorization response that the authorization server implementation
 returns to the client application.
@@ -757,7 +754,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.authorizationEndpoint.authAuthorizationFailApi({
+  const result = await authlete.authorizationEndpoint.failAuthorization({
     serviceId: "<id>",
     authorizationFailRequest: {
       ticket: "qA7wGybwArICpbUSutrf5Xc9-i1fHE0ySOHxR1eBoBQ",
@@ -777,7 +774,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { authorizationEndpointAuthAuthorizationFailApi } from "authlete/funcs/authorizationEndpointAuthAuthorizationFailApi.js";
+import { authorizationEndpointFailAuthorization } from "authlete/funcs/authorizationEndpointFailAuthorization.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -788,7 +785,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await authorizationEndpointAuthAuthorizationFailApi(authlete, {
+  const res = await authorizationEndpointFailAuthorization(authlete, {
     serviceId: "<id>",
     authorizationFailRequest: {
       ticket: "qA7wGybwArICpbUSutrf5Xc9-i1fHE0ySOHxR1eBoBQ",
@@ -799,7 +796,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("authorizationEndpointAuthAuthorizationFailApi failed:", res.error);
+    console.log("authorizationEndpointFailAuthorization failed:", res.error);
   }
 }
 
@@ -827,7 +824,7 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## authAuthorizationIssueApi
+## issueAuthorization
 
 This API parses request parameters of an authorization request and returns necessary data for the
 authorization server implementation to process the authorization request further.
@@ -957,7 +954,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.authorizationEndpoint.authAuthorizationIssueApi({
+  const result = await authlete.authorizationEndpoint.issueAuthorization({
     serviceId: "<id>",
     authorizationIssueRequest: {
       ticket: "FFgB9gwb_WXh6g1u-UQ8ZI-d_k4B-o-cm7RkVzI8Vnc",
@@ -977,7 +974,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { authorizationEndpointAuthAuthorizationIssueApi } from "authlete/funcs/authorizationEndpointAuthAuthorizationIssueApi.js";
+import { authorizationEndpointIssueAuthorization } from "authlete/funcs/authorizationEndpointIssueAuthorization.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -988,7 +985,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await authorizationEndpointAuthAuthorizationIssueApi(authlete, {
+  const res = await authorizationEndpointIssueAuthorization(authlete, {
     serviceId: "<id>",
     authorizationIssueRequest: {
       ticket: "FFgB9gwb_WXh6g1u-UQ8ZI-d_k4B-o-cm7RkVzI8Vnc",
@@ -999,7 +996,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("authorizationEndpointAuthAuthorizationIssueApi failed:", res.error);
+    console.log("authorizationEndpointIssueAuthorization failed:", res.error);
   }
 }
 
@@ -1018,93 +1015,6 @@ run();
 ### Response
 
 **Promise\<[models.AuthorizationIssueResponse](../../models/authorizationissueresponse.md)\>**
-
-### Errors
-
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ResultError          | 400, 401, 403               | application/json            |
-| errors.ResultError          | 500                         | application/json            |
-| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
-
-## updateAuthorizationTicket
-
-Update Ticket Information
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="updateAuthorizationTicket" method="post" path="/api/{serviceId}/auth/authorization/ticket/update" -->
-```typescript
-import { Authlete } from "authlete";
-
-const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
-});
-
-async function run() {
-  const result = await authlete.authorizationEndpoint.updateAuthorizationTicket({
-    serviceId: "<id>",
-    authorizationTicketUpdateRequest: {
-      ticket: "<value>",
-      info: "<value>",
-    },
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { authorizationEndpointUpdateAuthorizationTicket } from "authlete/funcs/authorizationEndpointUpdateAuthorizationTicket.js";
-
-// Use `AuthleteCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
-});
-
-async function run() {
-  const res = await authorizationEndpointUpdateAuthorizationTicket(authlete, {
-    serviceId: "<id>",
-    authorizationTicketUpdateRequest: {
-      ticket: "<value>",
-      info: "<value>",
-    },
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("authorizationEndpointUpdateAuthorizationTicket failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateAuthorizationTicketRequest](../../models/operations/updateauthorizationticketrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[models.AuthorizationTicketUpdateResponse](../../models/authorizationticketupdateresponse.md)\>**
 
 ### Errors
 

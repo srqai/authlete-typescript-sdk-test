@@ -3,14 +3,12 @@
 
 ## Overview
 
-API endpoints for implementing OpenID Federation using Authlete.
-
 ### Available Operations
 
-* [federationConfigurationApi](#federationconfigurationapi) - Process Entity Configuration Request
-* [federationRegistrationApi](#federationregistrationapi) - Process Federation Registration Request
+* [processConfiguration](#processconfiguration) - Process Entity Configuration Request
+* [processRegistration](#processregistration) - Process Federation Registration Request
 
-## federationConfigurationApi
+## processConfiguration
 
 This API gathers the federation configuration about a service.
 
@@ -109,7 +107,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.federationEndpoint.federationConfigurationApi({
+  const result = await authlete.federationEndpoint.processConfiguration({
     serviceId: "<id>",
   });
 
@@ -125,7 +123,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { federationEndpointFederationConfigurationApi } from "authlete/funcs/federationEndpointFederationConfigurationApi.js";
+import { federationEndpointProcessConfiguration } from "authlete/funcs/federationEndpointProcessConfiguration.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -136,14 +134,14 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await federationEndpointFederationConfigurationApi(authlete, {
+  const res = await federationEndpointProcessConfiguration(authlete, {
     serviceId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("federationEndpointFederationConfigurationApi failed:", res.error);
+    console.log("federationEndpointProcessConfiguration failed:", res.error);
   }
 }
 
@@ -171,7 +169,7 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## federationRegistrationApi
+## processRegistration
 
 The Authlete API is for implementations of the <b>federation registration
 endpoint</b> that accepts "explicit client registration". Its details are
@@ -224,7 +222,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.federationEndpoint.federationRegistrationApi({
+  const result = await authlete.federationEndpoint.processRegistration({
     serviceId: "<id>",
     federationRegistrationRequest: {},
   });
@@ -241,7 +239,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { federationEndpointFederationRegistrationApi } from "authlete/funcs/federationEndpointFederationRegistrationApi.js";
+import { federationEndpointProcessRegistration } from "authlete/funcs/federationEndpointProcessRegistration.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -252,7 +250,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await federationEndpointFederationRegistrationApi(authlete, {
+  const res = await federationEndpointProcessRegistration(authlete, {
     serviceId: "<id>",
     federationRegistrationRequest: {},
   });
@@ -260,7 +258,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("federationEndpointFederationRegistrationApi failed:", res.error);
+    console.log("federationEndpointProcessRegistration failed:", res.error);
   }
 }
 

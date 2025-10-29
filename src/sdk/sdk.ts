@@ -3,28 +3,42 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
+import { Authorization } from "./authorization.js";
 import { AuthorizationEndpoint } from "./authorizationendpoint.js";
 import { Ciba } from "./ciba.js";
 import { ClientManagement } from "./clientmanagement.js";
+import { ClientRegistration } from "./clientregistration.js";
+import { Clients } from "./clients.js";
 import { DeviceFlow } from "./deviceflow.js";
 import { DynamicClientRegistration } from "./dynamicclientregistration.js";
 import { FederationEndpoint } from "./federationendpoint.js";
 import { GrantManagementEndpoint } from "./grantmanagementendpoint.js";
 import { HardwareSecurityKey } from "./hardwaresecuritykey.js";
+import { HardwareSecurityKeys } from "./hardwaresecuritykeys.js";
+import { Introspection } from "./introspection.js";
 import { IntrospectionEndpoint } from "./introspectionendpoint.js";
 import { JoseObject } from "./joseobject.js";
-import { JWKSetEndpoint } from "./jwksetendpoint.js";
-import { NativeSSO } from "./nativesso.js";
+import { JwksSet } from "./jwksset.js";
+import { NativeSso } from "./nativesso.js";
 import { PushedAuthorizationEndpoint } from "./pushedauthorizationendpoint.js";
 import { RevocationEndpoint } from "./revocationendpoint.js";
 import { ServiceManagement } from "./servicemanagement.js";
+import { Services } from "./services.js";
 import { TokenEndpoint } from "./tokenendpoint.js";
 import { TokenOperations } from "./tokenoperations.js";
-import { UserInfoEndpoint } from "./userinfoendpoint.js";
+import { Tokens } from "./tokens.js";
+import { UserinfoEndpoint1 } from "./userinfoendpoint1.js";
+import { UserInfoEndpoint2 } from "./userinfoendpoint2.js";
 import { UtilityEndpoints } from "./utilityendpoints.js";
 import { VerifiableCredentialIssuer } from "./verifiablecredentialissuer.js";
+import { VerifiableCredentials } from "./verifiablecredentials.js";
 
 export class Authlete extends ClientSDK {
+  private _services?: Services;
+  get services(): Services {
+    return (this._services ??= new Services(this._options));
+  }
+
   private _serviceManagement?: ServiceManagement;
   get serviceManagement(): ServiceManagement {
     return (this._serviceManagement ??= new ServiceManagement(this._options));
@@ -33,6 +47,11 @@ export class Authlete extends ClientSDK {
   private _clientManagement?: ClientManagement;
   get clientManagement(): ClientManagement {
     return (this._clientManagement ??= new ClientManagement(this._options));
+  }
+
+  private _clients?: Clients;
+  get clients(): Clients {
+    return (this._clients ??= new Clients(this._options));
   }
 
   private _authorizationEndpoint?: AuthorizationEndpoint;
@@ -53,6 +72,16 @@ export class Authlete extends ClientSDK {
     return (this._tokenEndpoint ??= new TokenEndpoint(this._options));
   }
 
+  private _tokens?: Tokens;
+  get tokens(): Tokens {
+    return (this._tokens ??= new Tokens(this._options));
+  }
+
+  private _introspection?: Introspection;
+  get introspection(): Introspection {
+    return (this._introspection ??= new Introspection(this._options));
+  }
+
   private _introspectionEndpoint?: IntrospectionEndpoint;
   get introspectionEndpoint(): IntrospectionEndpoint {
     return (this._introspectionEndpoint ??= new IntrospectionEndpoint(
@@ -65,9 +94,14 @@ export class Authlete extends ClientSDK {
     return (this._revocationEndpoint ??= new RevocationEndpoint(this._options));
   }
 
-  private _userInfoEndpoint?: UserInfoEndpoint;
-  get userInfoEndpoint(): UserInfoEndpoint {
-    return (this._userInfoEndpoint ??= new UserInfoEndpoint(this._options));
+  private _userinfoEndpoint1?: UserinfoEndpoint1;
+  get userinfoEndpoint1(): UserinfoEndpoint1 {
+    return (this._userinfoEndpoint1 ??= new UserinfoEndpoint1(this._options));
+  }
+
+  private _userInfoEndpoint2?: UserInfoEndpoint2;
+  get userInfoEndpoint2(): UserInfoEndpoint2 {
+    return (this._userInfoEndpoint2 ??= new UserInfoEndpoint2(this._options));
   }
 
   private _grantManagementEndpoint?: GrantManagementEndpoint;
@@ -77,9 +111,14 @@ export class Authlete extends ClientSDK {
     ));
   }
 
-  private _jwkSetEndpoint?: JWKSetEndpoint;
-  get jwkSetEndpoint(): JWKSetEndpoint {
-    return (this._jwkSetEndpoint ??= new JWKSetEndpoint(this._options));
+  private _jwksSet?: JwksSet;
+  get jwksSet(): JwksSet {
+    return (this._jwksSet ??= new JwksSet(this._options));
+  }
+
+  private _clientRegistration?: ClientRegistration;
+  get clientRegistration(): ClientRegistration {
+    return (this._clientRegistration ??= new ClientRegistration(this._options));
   }
 
   private _dynamicClientRegistration?: DynamicClientRegistration;
@@ -119,9 +158,23 @@ export class Authlete extends ClientSDK {
     return (this._utilityEndpoints ??= new UtilityEndpoints(this._options));
   }
 
+  private _hardwareSecurityKeys?: HardwareSecurityKeys;
+  get hardwareSecurityKeys(): HardwareSecurityKeys {
+    return (this._hardwareSecurityKeys ??= new HardwareSecurityKeys(
+      this._options,
+    ));
+  }
+
   private _hardwareSecurityKey?: HardwareSecurityKey;
   get hardwareSecurityKey(): HardwareSecurityKey {
     return (this._hardwareSecurityKey ??= new HardwareSecurityKey(
+      this._options,
+    ));
+  }
+
+  private _verifiableCredentials?: VerifiableCredentials;
+  get verifiableCredentials(): VerifiableCredentials {
+    return (this._verifiableCredentials ??= new VerifiableCredentials(
       this._options,
     ));
   }
@@ -133,8 +186,13 @@ export class Authlete extends ClientSDK {
     ));
   }
 
-  private _nativeSSO?: NativeSSO;
-  get nativeSSO(): NativeSSO {
-    return (this._nativeSSO ??= new NativeSSO(this._options));
+  private _authorization?: Authorization;
+  get authorization(): Authorization {
+    return (this._authorization ??= new Authorization(this._options));
+  }
+
+  private _nativeSso?: NativeSso;
+  get nativeSso(): NativeSso {
+    return (this._nativeSso ??= new NativeSso(this._options));
   }
 }

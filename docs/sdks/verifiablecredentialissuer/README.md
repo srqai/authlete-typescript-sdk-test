@@ -3,110 +3,19 @@
 
 ## Overview
 
-API endpoints for implementing and running a Verifiable Credential Issuer (VCI).
-
 ### Available Operations
 
-* [vciMetadataApi](#vcimetadataapi) - /api/{serviceId}/vci/metadata API
-* [vciJwtissuerApi](#vcijwtissuerapi) - /api/{serviceId}/vci/jwtissuer API
-* [vciJwksApi](#vcijwksapi) - /api/{serviceId}/vci/jwks API
-* [vciOfferCreateApi](#vcioffercreateapi) - /api/{serviceId}/vci/offer/create API
-* [vciOfferInfoApi](#vciofferinfoapi) - /api/{serviceId}/vci/offer/info API
-* [vciSingleParseApi](#vcisingleparseapi) - /api/{serviceId}/vci/single/parse API
-* [vciSingleIssueApi](#vcisingleissueapi) - /api/{serviceId}/vci/single/issue API
-* [vciBatchParseApi](#vcibatchparseapi) - /api/{serviceId}/vci/batch/parse API
-* [vciBatchIssueApi](#vcibatchissueapi) - /api/{serviceId}/vci/batch/issue API
-* [vciDeferredParseApi](#vcideferredparseapi) - /api/{serviceId}/vci/deferred/parse API
-* [vciDeferredIssueApi](#vcideferredissueapi) - /api/{serviceId}/vci/deferred/issue API
+* [getJwtIssuer](#getjwtissuer) - /api/{serviceId}/vci/jwtissuer API
+* [getOfferInfo](#getofferinfo) - /api/{serviceId}/vci/offer/info API
+* [issueSingle](#issuesingle) - /api/{serviceId}/vci/single/issue API
+* [parseBatch](#parsebatch) - /api/{serviceId}/vci/batch/parse API
+* [batchIssue](#batchissue) - /api/{serviceId}/vci/batch/issue API
+* [parseDeferred](#parsedeferred) - /api/{serviceId}/vci/deferred/parse API
+* [deferredIssue](#deferredissue) - /api/{serviceId}/vci/deferred/issue API
 
-## vciMetadataApi
+## getJwtIssuer
 
-Get verifiable credential issuer metadata
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="vci_metadata_api" method="post" path="/api/{serviceId}/vci/metadata" -->
-```typescript
-import { Authlete } from "authlete";
-
-const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
-});
-
-async function run() {
-  const result = await authlete.verifiableCredentialIssuer.vciMetadataApi({
-    serviceId: "<id>",
-    vciMetadataRequest: {
-      pretty: true,
-    },
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { verifiableCredentialIssuerVciMetadataApi } from "authlete/funcs/verifiableCredentialIssuerVciMetadataApi.js";
-
-// Use `AuthleteCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
-});
-
-async function run() {
-  const res = await verifiableCredentialIssuerVciMetadataApi(authlete, {
-    serviceId: "<id>",
-    vciMetadataRequest: {
-      pretty: true,
-    },
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("verifiableCredentialIssuerVciMetadataApi failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.VciMetadataApiRequest](../../models/operations/vcimetadataapirequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[models.VciMetadataResponse](../../models/vcimetadataresponse.md)\>**
-
-### Errors
-
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ResultError          | 400, 401, 403               | application/json            |
-| errors.ResultError          | 500                         | application/json            |
-| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
-
-## vciJwtissuerApi
-
-Get JWT issuer information for VCI
+Get JWT issuer information for Verifiable Credential Issuer (VCI) service
 
 ### Example Usage
 
@@ -121,7 +30,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.verifiableCredentialIssuer.vciJwtissuerApi({
+  const result = await authlete.verifiableCredentialIssuer.getJwtIssuer({
     serviceId: "<id>",
     vciJwtissuerRequest: {
       pretty: true,
@@ -140,7 +49,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { verifiableCredentialIssuerVciJwtissuerApi } from "authlete/funcs/verifiableCredentialIssuerVciJwtissuerApi.js";
+import { verifiableCredentialIssuerGetJwtIssuer } from "authlete/funcs/verifiableCredentialIssuerGetJwtIssuer.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -151,7 +60,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciJwtissuerApi(authlete, {
+  const res = await verifiableCredentialIssuerGetJwtIssuer(authlete, {
     serviceId: "<id>",
     vciJwtissuerRequest: {
       pretty: true,
@@ -161,7 +70,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("verifiableCredentialIssuerVciJwtissuerApi failed:", res.error);
+    console.log("verifiableCredentialIssuerGetJwtIssuer failed:", res.error);
   }
 }
 
@@ -189,175 +98,9 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## vciJwksApi
+## getOfferInfo
 
-Get JSON Web Key Set for VCI
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="vci_jwks_api" method="post" path="/api/{serviceId}/vci/jwks" -->
-```typescript
-import { Authlete } from "authlete";
-
-const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
-});
-
-async function run() {
-  const result = await authlete.verifiableCredentialIssuer.vciJwksApi({
-    serviceId: "<id>",
-    vciJwksRequest: {
-      pretty: false,
-    },
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { verifiableCredentialIssuerVciJwksApi } from "authlete/funcs/verifiableCredentialIssuerVciJwksApi.js";
-
-// Use `AuthleteCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
-});
-
-async function run() {
-  const res = await verifiableCredentialIssuerVciJwksApi(authlete, {
-    serviceId: "<id>",
-    vciJwksRequest: {
-      pretty: false,
-    },
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("verifiableCredentialIssuerVciJwksApi failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.VciJwksApiRequest](../../models/operations/vcijwksapirequest.md)                                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[models.VciJwksResponse](../../models/vcijwksresponse.md)\>**
-
-### Errors
-
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ResultError          | 400, 401, 403               | application/json            |
-| errors.ResultError          | 500                         | application/json            |
-| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
-
-## vciOfferCreateApi
-
-Create a verifiable credential offer
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="vci_offer_create_api" method="post" path="/api/{serviceId}/vci/offer/create" -->
-```typescript
-import { Authlete } from "authlete";
-
-const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
-});
-
-async function run() {
-  const result = await authlete.verifiableCredentialIssuer.vciOfferCreateApi({
-    serviceId: "<id>",
-    vciOfferCreateRequest: {},
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { verifiableCredentialIssuerVciOfferCreateApi } from "authlete/funcs/verifiableCredentialIssuerVciOfferCreateApi.js";
-
-// Use `AuthleteCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
-});
-
-async function run() {
-  const res = await verifiableCredentialIssuerVciOfferCreateApi(authlete, {
-    serviceId: "<id>",
-    vciOfferCreateRequest: {},
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("verifiableCredentialIssuerVciOfferCreateApi failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.VciOfferCreateApiRequest](../../models/operations/vcioffercreateapirequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[models.VciOfferCreateResponse](../../models/vcioffercreateresponse.md)\>**
-
-### Errors
-
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ResultError          | 400, 401, 403               | application/json            |
-| errors.ResultError          | 500                         | application/json            |
-| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
-
-## vciOfferInfoApi
-
-Get information about a verifiable credential offer
+Get offer information for Verifiable Credential Issuer (VCI) service
 
 ### Example Usage
 
@@ -372,7 +115,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.verifiableCredentialIssuer.vciOfferInfoApi({
+  const result = await authlete.verifiableCredentialIssuer.getOfferInfo({
     serviceId: "<id>",
     vciOfferInfoRequest: {},
   });
@@ -389,7 +132,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { verifiableCredentialIssuerVciOfferInfoApi } from "authlete/funcs/verifiableCredentialIssuerVciOfferInfoApi.js";
+import { verifiableCredentialIssuerGetOfferInfo } from "authlete/funcs/verifiableCredentialIssuerGetOfferInfo.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -400,7 +143,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciOfferInfoApi(authlete, {
+  const res = await verifiableCredentialIssuerGetOfferInfo(authlete, {
     serviceId: "<id>",
     vciOfferInfoRequest: {},
   });
@@ -408,7 +151,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("verifiableCredentialIssuerVciOfferInfoApi failed:", res.error);
+    console.log("verifiableCredentialIssuerGetOfferInfo failed:", res.error);
   }
 }
 
@@ -436,90 +179,9 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## vciSingleParseApi
+## issueSingle
 
-Parse a single verifiable credential
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="vci_single_parse_api" method="post" path="/api/{serviceId}/vci/single/parse" -->
-```typescript
-import { Authlete } from "authlete";
-
-const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
-});
-
-async function run() {
-  const result = await authlete.verifiableCredentialIssuer.vciSingleParseApi({
-    serviceId: "<id>",
-    vciSingleParseRequest: {},
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { verifiableCredentialIssuerVciSingleParseApi } from "authlete/funcs/verifiableCredentialIssuerVciSingleParseApi.js";
-
-// Use `AuthleteCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
-});
-
-async function run() {
-  const res = await verifiableCredentialIssuerVciSingleParseApi(authlete, {
-    serviceId: "<id>",
-    vciSingleParseRequest: {},
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("verifiableCredentialIssuerVciSingleParseApi failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.VciSingleParseApiRequest](../../models/operations/vcisingleparseapirequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[models.VciSingleParseResponse](../../models/vcisingleparseresponse.md)\>**
-
-### Errors
-
-| Error Type                  | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ResultError          | 400, 401, 403               | application/json            |
-| errors.ResultError          | 500                         | application/json            |
-| errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
-
-## vciSingleIssueApi
-
-Issue a single verifiable credential
+Issue single credential for Verifiable Credential Issuer (VCI) service
 
 ### Example Usage
 
@@ -534,7 +196,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.verifiableCredentialIssuer.vciSingleIssueApi({
+  const result = await authlete.verifiableCredentialIssuer.issueSingle({
     serviceId: "<id>",
     vciSingleIssueRequest: {},
   });
@@ -551,7 +213,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { verifiableCredentialIssuerVciSingleIssueApi } from "authlete/funcs/verifiableCredentialIssuerVciSingleIssueApi.js";
+import { verifiableCredentialIssuerIssueSingle } from "authlete/funcs/verifiableCredentialIssuerIssueSingle.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -562,7 +224,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciSingleIssueApi(authlete, {
+  const res = await verifiableCredentialIssuerIssueSingle(authlete, {
     serviceId: "<id>",
     vciSingleIssueRequest: {},
   });
@@ -570,7 +232,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("verifiableCredentialIssuerVciSingleIssueApi failed:", res.error);
+    console.log("verifiableCredentialIssuerIssueSingle failed:", res.error);
   }
 }
 
@@ -598,9 +260,9 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## vciBatchParseApi
+## parseBatch
 
-Parse multiple verifiable credentials in batch
+Parse batch credential requests for Verifiable Credential Issuer (VCI) service
 
 ### Example Usage
 
@@ -615,7 +277,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.verifiableCredentialIssuer.vciBatchParseApi({
+  const result = await authlete.verifiableCredentialIssuer.parseBatch({
     serviceId: "<id>",
     vciBatchParseRequest: {},
   });
@@ -632,7 +294,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { verifiableCredentialIssuerVciBatchParseApi } from "authlete/funcs/verifiableCredentialIssuerVciBatchParseApi.js";
+import { verifiableCredentialIssuerParseBatch } from "authlete/funcs/verifiableCredentialIssuerParseBatch.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -643,7 +305,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciBatchParseApi(authlete, {
+  const res = await verifiableCredentialIssuerParseBatch(authlete, {
     serviceId: "<id>",
     vciBatchParseRequest: {},
   });
@@ -651,7 +313,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("verifiableCredentialIssuerVciBatchParseApi failed:", res.error);
+    console.log("verifiableCredentialIssuerParseBatch failed:", res.error);
   }
 }
 
@@ -679,9 +341,9 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## vciBatchIssueApi
+## batchIssue
 
-Issue multiple verifiable credentials in batch
+Issue batch credentials for Verifiable Credential Issuer (VCI) service
 
 ### Example Usage
 
@@ -696,7 +358,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.verifiableCredentialIssuer.vciBatchIssueApi({
+  const result = await authlete.verifiableCredentialIssuer.batchIssue({
     serviceId: "<id>",
     vciBatchIssueRequest: {},
   });
@@ -713,7 +375,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { verifiableCredentialIssuerVciBatchIssueApi } from "authlete/funcs/verifiableCredentialIssuerVciBatchIssueApi.js";
+import { verifiableCredentialIssuerBatchIssue } from "authlete/funcs/verifiableCredentialIssuerBatchIssue.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -724,7 +386,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciBatchIssueApi(authlete, {
+  const res = await verifiableCredentialIssuerBatchIssue(authlete, {
     serviceId: "<id>",
     vciBatchIssueRequest: {},
   });
@@ -732,7 +394,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("verifiableCredentialIssuerVciBatchIssueApi failed:", res.error);
+    console.log("verifiableCredentialIssuerBatchIssue failed:", res.error);
   }
 }
 
@@ -760,9 +422,9 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## vciDeferredParseApi
+## parseDeferred
 
-Parse a deferred verifiable credential
+Parse deferred credential request for Verifiable Credential Issuer (VCI) service
 
 ### Example Usage
 
@@ -777,7 +439,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.verifiableCredentialIssuer.vciDeferredParseApi({
+  const result = await authlete.verifiableCredentialIssuer.parseDeferred({
     serviceId: "<id>",
     vciDeferredParseRequest: {},
   });
@@ -794,7 +456,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { verifiableCredentialIssuerVciDeferredParseApi } from "authlete/funcs/verifiableCredentialIssuerVciDeferredParseApi.js";
+import { verifiableCredentialIssuerParseDeferred } from "authlete/funcs/verifiableCredentialIssuerParseDeferred.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -805,7 +467,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciDeferredParseApi(authlete, {
+  const res = await verifiableCredentialIssuerParseDeferred(authlete, {
     serviceId: "<id>",
     vciDeferredParseRequest: {},
   });
@@ -813,7 +475,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("verifiableCredentialIssuerVciDeferredParseApi failed:", res.error);
+    console.log("verifiableCredentialIssuerParseDeferred failed:", res.error);
   }
 }
 
@@ -841,9 +503,9 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## vciDeferredIssueApi
+## deferredIssue
 
-Issue a deferred verifiable credential
+Issue deferred credential for Verifiable Credential Issuer (VCI) service
 
 ### Example Usage
 
@@ -858,7 +520,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.verifiableCredentialIssuer.vciDeferredIssueApi({
+  const result = await authlete.verifiableCredentialIssuer.deferredIssue({
     serviceId: "<id>",
     vciDeferredIssueRequest: {},
   });
@@ -875,7 +537,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { verifiableCredentialIssuerVciDeferredIssueApi } from "authlete/funcs/verifiableCredentialIssuerVciDeferredIssueApi.js";
+import { verifiableCredentialIssuerDeferredIssue } from "authlete/funcs/verifiableCredentialIssuerDeferredIssue.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -886,7 +548,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await verifiableCredentialIssuerVciDeferredIssueApi(authlete, {
+  const res = await verifiableCredentialIssuerDeferredIssue(authlete, {
     serviceId: "<id>",
     vciDeferredIssueRequest: {},
   });
@@ -894,7 +556,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("verifiableCredentialIssuerVciDeferredIssueApi failed:", res.error);
+    console.log("verifiableCredentialIssuerDeferredIssue failed:", res.error);
   }
 }
 
