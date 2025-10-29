@@ -112,7 +112,7 @@ Authlete API Explorer: <div class="min-h-screen bg-gray-100 dark:bg-gray-900 tex
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [authlete-test](#authlete-test)
+* [authlete](#authlete)
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [SDK Example Usage](#sdk-example-usage)
