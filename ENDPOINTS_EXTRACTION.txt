@@ -1,0 +1,142 @@
+Total endpoints: 77
+
+Total unique tags: 20
+
+================================================================================
+
+### Tag: Authorization Endpoint
+--------------------------------------------------------------------------------
+  GET    /api/{serviceId}/auth/authorization/ticket/info    -> getAuthorizationTicketInfo
+  POST   /api/{serviceId}/auth/authorization                -> auth_authorization_api
+  POST   /api/{serviceId}/auth/authorization/fail           -> auth_authorization_fail_api
+  POST   /api/{serviceId}/auth/authorization/issue          -> auth_authorization_issue_api
+  POST   /api/{serviceId}/auth/authorization/ticket/update  -> updateAuthorizationTicket
+
+### Tag: CIBA
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/backchannel/authentication        -> backchannel_authentication_api
+  POST   /api/{serviceId}/backchannel/authentication/complete -> backchannel_authentication_complete_api
+  POST   /api/{serviceId}/backchannel/authentication/fail   -> backchannel_authentication_fail_api
+  POST   /api/{serviceId}/backchannel/authentication/issue  -> backchannel_authentication_issue_api
+
+### Tag: Client Management
+--------------------------------------------------------------------------------
+  DELETE /api/{serviceId}/client/authorization/delete/{clientId}/{subject} -> client_authorization_delete_api
+  DELETE /api/{serviceId}/client/delete/{clientId}          -> client_delete_api
+  DELETE /api/{serviceId}/client/extension/requestable_scopes/delete/{clientId} -> client_extension_requestables_scopes_delete_api
+  DELETE /api/{serviceId}/client/granted_scopes/delete/{clientId}/{subject} -> client_granted_scopes_delete_api
+  GET    /api/{serviceId}/client/authorization/get/list/{subject} -> client_authorization_get_list_api
+  GET    /api/{serviceId}/client/extension/requestable_scopes/get/{clientId} -> client_extension_requestables_scopes_get_api
+  GET    /api/{serviceId}/client/get/list                   -> client_get_list_api
+  GET    /api/{serviceId}/client/get/{clientId}             -> client_get_api
+  GET    /api/{serviceId}/client/granted_scopes/get/{clientId}/{subject} -> client_granted_scopes_get_api
+  GET    /api/{serviceId}/client/secret/refresh/{clientIdentifier} -> client_secret_refresh_api
+  POST   /api/{serviceId}/client/authorization/update/{clientId} -> client_authorization_update_api
+  POST   /api/{serviceId}/client/create                     -> client_create_api
+  POST   /api/{serviceId}/client/lock_flag/update/{clientIdentifier} -> client_flag_update_api
+  POST   /api/{serviceId}/client/secret/update/{clientIdentifier} -> client_secret_update_api
+  POST   /api/{serviceId}/client/update/{clientId}          -> client_update_api
+  PUT    /api/{serviceId}/client/extension/requestable_scopes/update/{clientId} -> client_extension_requestables_scopes_update_api
+
+### Tag: Device Flow
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/device/authorization              -> device_authorization_api
+  POST   /api/{serviceId}/device/complete                   -> device_complete_api
+  POST   /api/{serviceId}/device/verification               -> device_verification_api
+
+### Tag: Dynamic Client Registration
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/client/registration               -> client_registration_api
+  POST   /api/{serviceId}/client/registration/delete        -> client_registration_delete_api
+  POST   /api/{serviceId}/client/registration/get           -> client_registration_get_api
+  POST   /api/{serviceId}/client/registration/update        -> client_registration_update_api
+
+### Tag: Federation Endpoint
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/federation/configuration          -> federation_configuration_api
+  POST   /api/{serviceId}/federation/registration           -> federation_registration_api
+
+### Tag: Grant Management Endpoint
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/gm                                -> grant_m_api
+
+### Tag: Hardware Security Key
+--------------------------------------------------------------------------------
+  DELETE /api/{serviceId}/hsk/delete/{handle}               -> hsk_delete_api
+  GET    /api/{serviceId}/hsk/get/list                      -> hsk_get_list_api
+  GET    /api/{serviceId}/hsk/get/{handle}                  -> hsk_get_api
+  POST   /api/{serviceId}/hsk/create                        -> hsk_create_api
+
+### Tag: Introspection Endpoint
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/auth/introspection                -> auth_introspection_api
+  POST   /api/{serviceId}/auth/introspection/standard       -> auth_introspection_standard_api
+
+### Tag: JWK Set Endpoint
+--------------------------------------------------------------------------------
+  GET    /api/{serviceId}/service/jwks/get                  -> service_jwks_get_api
+
+### Tag: Jose Object
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/jose/verify                       -> jose_verify_api
+
+### Tag: Native SSO
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/nativesso                         -> native_sso_api
+  POST   /api/{serviceId}/nativesso/logout                  -> native_sso_logout_api
+
+### Tag: Pushed Authorization Endpoint
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/pushed_auth_req                   -> pushed_auth_req_api
+
+### Tag: Revocation Endpoint
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/auth/revocation                   -> auth_revocation_api
+
+### Tag: Service Management
+--------------------------------------------------------------------------------
+  DELETE /api/{serviceId}/service/delete                    -> service_delete_api
+  GET    /api/service/get/list                              -> service_get_list_api
+  GET    /api/{serviceId}/service/configuration             -> service_configuration_api
+  GET    /api/{serviceId}/service/get                       -> service_get_api
+  POST   /api/service/create                                -> service_create_api
+  POST   /api/{serviceId}/service/update                    -> service_update_api
+
+### Tag: Token Endpoint
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/auth/token                        -> auth_token_api
+  POST   /api/{serviceId}/auth/token/fail                   -> auth_token_fail_api
+  POST   /api/{serviceId}/auth/token/issue                  -> auth_token_issue_api
+  POST   /api/{serviceId}/idtoken/reissue                   -> idtoken_reissue_api
+
+### Tag: Token Operations
+--------------------------------------------------------------------------------
+  DELETE /api/{serviceId}/auth/token/delete/{accessTokenIdentifier} -> auth_token_delete_api
+  GET    /api/{serviceId}/auth/token/get/list               -> auth_token_get_list_api
+  POST   /api/{serviceId}/auth/token/create                 -> auth_token_create_api
+  POST   /api/{serviceId}/auth/token/revoke                 -> auth_token_revoke_api
+  POST   /api/{serviceId}/auth/token/update                 -> auth_token_update_api
+
+### Tag: UserInfo Endpoint
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/auth/userinfo                     -> auth_userinfo_api
+  POST   /api/{serviceId}/auth/userinfo/issue               -> auth_userinfo_issue_api
+
+### Tag: Utility Endpoints
+--------------------------------------------------------------------------------
+  GET    /api/info                                          -> info_api
+  GET    /api/misc/echo                                     -> misc_echo_api
+
+### Tag: Verifiable Credential Issuer
+--------------------------------------------------------------------------------
+  POST   /api/{serviceId}/vci/batch/issue                   -> vci_batch_issue_api
+  POST   /api/{serviceId}/vci/batch/parse                   -> vci_batch_parse_api
+  POST   /api/{serviceId}/vci/deferred/issue                -> vci_deferred_issue_api
+  POST   /api/{serviceId}/vci/deferred/parse                -> vci_deferred_parse_api
+  POST   /api/{serviceId}/vci/jwks                          -> vci_jwks_api
+  POST   /api/{serviceId}/vci/jwtissuer                     -> vci_jwtissuer_api
+  POST   /api/{serviceId}/vci/metadata                      -> vci_metadata_api
+  POST   /api/{serviceId}/vci/offer/create                  -> vci_offer_create_api
+  POST   /api/{serviceId}/vci/offer/info                    -> vci_offer_info_api
+  POST   /api/{serviceId}/vci/single/issue                  -> vci_single_issue_api
+  POST   /api/{serviceId}/vci/single/parse                  -> vci_single_parse_api
