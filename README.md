@@ -157,10 +157,7 @@ bun add authlete
 ### Yarn
 
 ```bash
-yarn add authlete zod
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
+yarn add authlete
 ```
 
 > [!NOTE]
@@ -240,7 +237,6 @@ run();
 
 <details open>
 <summary>Available methods</summary>
-
 
 ### [authorization](docs/sdks/authorization/README.md)
 
@@ -761,7 +757,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new Authlete({ httpClient });
+const sdk = new Authlete({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 

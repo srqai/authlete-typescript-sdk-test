@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * /api/{serviceId}/vci/offer/create API
  *
  * @remarks
- * Create offer for Verifiable Credential Issuer (VCI) service
+ * Create a verifiable credential offer
  */
 export function verifiableCredentialsCreateOffer(
   client: AuthleteCore,
@@ -112,7 +112,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "vci_offer_create_api",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

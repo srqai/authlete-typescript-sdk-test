@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * /api/{serviceId}/vci/batch/parse API
  *
  * @remarks
- * Parse batch credential requests for Verifiable Credential Issuer (VCI) service
+ * Parse multiple verifiable credentials in batch
  */
 export function verifiableCredentialIssuerParseBatch(
   client: AuthleteCore,
@@ -112,7 +112,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "vci_batch_parse_api",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

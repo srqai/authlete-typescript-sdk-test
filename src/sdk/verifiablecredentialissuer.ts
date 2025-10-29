@@ -19,7 +19,7 @@ export class VerifiableCredentialIssuer extends ClientSDK {
    * /api/{serviceId}/vci/jwtissuer API
    *
    * @remarks
-   * Get JWT issuer information for Verifiable Credential Issuer (VCI) service
+   * Get JWT issuer information for VCI
    */
   async getJwtIssuer(
     request: operations.VciJwtissuerApiRequest,
@@ -36,7 +36,7 @@ export class VerifiableCredentialIssuer extends ClientSDK {
    * /api/{serviceId}/vci/offer/info API
    *
    * @remarks
-   * Get offer information for Verifiable Credential Issuer (VCI) service
+   * Get information about a verifiable credential offer
    */
   async getOfferInfo(
     request: operations.VciOfferInfoApiRequest,
@@ -53,7 +53,7 @@ export class VerifiableCredentialIssuer extends ClientSDK {
    * /api/{serviceId}/vci/single/issue API
    *
    * @remarks
-   * Issue single credential for Verifiable Credential Issuer (VCI) service
+   * Issue a single verifiable credential
    */
   async issueSingle(
     request: operations.VciSingleIssueApiRequest,
@@ -70,7 +70,7 @@ export class VerifiableCredentialIssuer extends ClientSDK {
    * /api/{serviceId}/vci/batch/parse API
    *
    * @remarks
-   * Parse batch credential requests for Verifiable Credential Issuer (VCI) service
+   * Parse multiple verifiable credentials in batch
    */
   async parseBatch(
     request: operations.VciBatchParseApiRequest,
@@ -87,7 +87,7 @@ export class VerifiableCredentialIssuer extends ClientSDK {
    * /api/{serviceId}/vci/batch/issue API
    *
    * @remarks
-   * Issue batch credentials for Verifiable Credential Issuer (VCI) service
+   * Issue multiple verifiable credentials in batch
    */
   async batchIssue(
     request: operations.VciBatchIssueApiRequest,
@@ -104,7 +104,7 @@ export class VerifiableCredentialIssuer extends ClientSDK {
    * /api/{serviceId}/vci/deferred/parse API
    *
    * @remarks
-   * Parse deferred credential request for Verifiable Credential Issuer (VCI) service
+   * Parse a deferred verifiable credential
    */
   async parseDeferred(
     request: operations.VciDeferredParseApiRequest,
@@ -121,7 +121,7 @@ export class VerifiableCredentialIssuer extends ClientSDK {
    * /api/{serviceId}/vci/deferred/issue API
    *
    * @remarks
-   * Issue deferred credential for Verifiable Credential Issuer (VCI) service
+   * Issue a deferred verifiable credential
    */
   async deferredIssue(
     request: operations.VciDeferredIssueApiRequest,

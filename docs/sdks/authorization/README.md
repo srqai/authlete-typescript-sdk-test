@@ -13,7 +13,7 @@ Update Ticket Information
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="update_authorization_ticket" method="post" path="/api/{serviceId}/auth/authorization/ticket/update" -->
+<!-- UsageSnippet language="typescript" operationID="updateAuthorizationTicket" method="post" path="/api/{serviceId}/auth/authorization/ticket/update" -->
 ```typescript
 import { Authlete } from "authlete";
 

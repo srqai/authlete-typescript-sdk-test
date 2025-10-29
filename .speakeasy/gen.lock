@@ -1,27 +1,27 @@
 lockVersion: 2.0.0
 id: 6bef56a0-baee-4c65-b71e-495533b2af98
 management:
-  docChecksum: 304d222e12a9ae79583c1a91547cf846
+  docChecksum: 8bb1ae96a8aa6c0388dd2feb69b82876
   docVersion: 3.0.15
-  speakeasyVersion: 1.603.2
-  generationVersion: 2.681.8
-  releaseVersion: 0.6.0
-  configChecksum: 58118e314627315d06de657c0a141b0f
+  speakeasyVersion: 1.642.1
+  generationVersion: 2.731.4
+  releaseVersion: 0.7.0
+  configChecksum: 83dfe1ae43831a40b3e4148175bd09cb
   repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
   installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.21.20
+    core: 3.24.1
     defaultEnabledRetries: 0.1.0
-    devContainers: 2.90.0
+    devContainers: 2.90.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    globalSecurity: 2.82.13
+    globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.5
-    groups: 2.81.2
+    groups: 2.81.3
     inputOutputModels: 2.82.0
     methodArguments: 0.1.2
     nameOverrides: 2.81.2
@@ -91,7 +91,6 @@ generatedFiles:
   - docs/models/clientregistrationresponse.md
   - docs/models/clientregistrationresponseaction.md
   - docs/models/clientregistrationtype.md
-  - docs/models/clientresponsemodesitems.md
   - docs/models/clientsecretrefreshresponse.md
   - docs/models/clientsecretupdaterequest.md
   - docs/models/clientsecretupdateresponse.md
@@ -243,6 +242,7 @@ generatedFiles:
   - docs/models/pushedauthorizationresponse.md
   - docs/models/pushedauthorizationresponseaction.md
   - docs/models/pushedauthorizationresponseclientauthmethod.md
+  - docs/models/responsemode.md
   - docs/models/responsetype.md
   - docs/models/revocationrequest.md
   - docs/models/revocationresponse.md
@@ -322,7 +322,6 @@ generatedFiles:
   - docs/models/vcisingleparseresponse.md
   - docs/models/vcisingleparseresponseaction.md
   - docs/models/verifiedclaimsvalidationschema.md
-  - docs/sdks/authlete/README.md
   - docs/sdks/authorization/README.md
   - docs/sdks/authorizationendpoint/README.md
   - docs/sdks/ciba/README.md
@@ -466,7 +465,6 @@ generatedFiles:
   - src/models/authorizationissueresponse.ts
   - src/models/authorizationrequest.ts
   - src/models/authorizationresponse.ts
-  - src/models/authorizationresponseaction.ts
   - src/models/authorizationticketupdaterequest.ts
   - src/models/authorizationticketupdateresponse.ts
   - src/models/authzdetails.ts
@@ -493,13 +491,10 @@ generatedFiles:
   - src/models/clientflagupdateresponse.ts
   - src/models/clientgetlistresponse.ts
   - src/models/clientgrantedscopesdeleteresponse.ts
-  - src/models/clientinput.ts
   - src/models/clientlimited.ts
   - src/models/clientlimitedauthorization.ts
   - src/models/clientregistrationresponse.ts
-  - src/models/clientregistrationresponseaction.ts
   - src/models/clientregistrationtype.ts
-  - src/models/clientresponsemodesitems.ts
   - src/models/clientsecretrefreshresponse.ts
   - src/models/clientsecretupdaterequest.ts
   - src/models/clientsecretupdateresponse.ts
@@ -528,7 +523,6 @@ generatedFiles:
   - src/models/federationconfigurationresponse.ts
   - src/models/federationregistrationrequest.ts
   - src/models/federationregistrationresponse.ts
-  - src/models/federationregistrationresponseaction.ts
   - src/models/gmrequest.ts
   - src/models/gmresponse.ts
   - src/models/grant.ts
@@ -757,7 +751,7 @@ examples:
           serviceId: "<id>"
       responses:
         "200":
-          application/json: {}
+          application/json: {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
         "400":
           application/json: {}
         "500":
@@ -774,7 +768,7 @@ examples:
     speakeasy-default-service-get-list-api:
       responses:
         "200":
-          application/json: {}
+          application/json: {"services": [{"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}]}
         "400":
           application/json: {}
         "500":
@@ -786,7 +780,7 @@ examples:
         application/x-www-form-urlencoded: {"serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
       responses:
         "200":
-          application/json: {}
+          application/json: {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
         "400":
           application/json: {}
         "500":
@@ -801,7 +795,7 @@ examples:
         application/x-www-form-urlencoded: {"serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
       responses:
         "200":
-          application/json: {}
+          application/json: {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
         "400":
           application/json: {}
         "500":
@@ -836,7 +830,7 @@ examples:
           clientId: "<id>"
       responses:
         "200":
-          application/json: {}
+          application/json: {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
         "400":
           application/json: {}
         "500":
@@ -862,7 +856,7 @@ examples:
           serviceId: "<id>"
       responses:
         "200":
-          application/json: {}
+          application/json: {"clients": [{"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}]}
         "400":
           application/json: {}
         "500":
@@ -876,7 +870,7 @@ examples:
         application/json: {"clientName": "My Test Client", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
       responses:
         "200":
-          application/json: {}
+          application/json: {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
         "400":
           application/json: {}
         "500":
@@ -892,7 +886,7 @@ examples:
         application/x-www-form-urlencoded: {"clientName": "My Test Client", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
       responses:
         "200":
-          application/json: {}
+          application/json: {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
         "400":
           application/json: {}
         "500":
@@ -1075,7 +1069,7 @@ examples:
         application/x-www-form-urlencoded: {"parameters": "<value>"}
       responses:
         "200":
-          application/json: {}
+          application/json: {"service": {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}}
         "400":
           application/json: {}
         "500":
@@ -1307,7 +1301,7 @@ examples:
         application/json: {"json": "{key: 6995014930124193, key1: null, key2: \"<value>\"}"}
       responses:
         "200":
-          application/json: {}
+          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
         "400":
           application/json: {}
         "500":
@@ -1321,7 +1315,7 @@ examples:
         application/json: {"token": "<value>", "clientId": "<id>"}
       responses:
         "200":
-          application/json: {}
+          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
         "400":
           application/json: {}
         "500":
@@ -1335,7 +1329,7 @@ examples:
         application/json: {"json": "{key: 7278695057340839, key1: null, key2: \"<value>\"}", "token": "<value>", "clientId": "<id>"}
       responses:
         "200":
-          application/json: {}
+          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
         "400":
           application/json: {}
         "500":
@@ -1349,7 +1343,7 @@ examples:
         application/json: {"token": "<value>", "clientId": "<id>"}
       responses:
         "200":
-          application/json: {}
+          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
         "400":
           application/json: {}
         "500":
@@ -1561,7 +1555,7 @@ examples:
         application/x-www-form-urlencoded: {}
       responses:
         "200":
-          application/json: {}
+          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
         "400":
           application/json: {}
         "500":

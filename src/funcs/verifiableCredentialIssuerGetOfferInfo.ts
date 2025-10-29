@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * /api/{serviceId}/vci/offer/info API
  *
  * @remarks
- * Get offer information for Verifiable Credential Issuer (VCI) service
+ * Get information about a verifiable credential offer
  */
 export function verifiableCredentialIssuerGetOfferInfo(
   client: AuthleteCore,
@@ -112,7 +112,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "vci_offer_info_api",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

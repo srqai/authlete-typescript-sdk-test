@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * /api/{serviceId}/vci/single/parse API
  *
  * @remarks
- * Parse single credential request for Verifiable Credential Issuer (VCI) service
+ * Parse a single verifiable credential
  */
 export function verifiableCredentialsParse(
   client: AuthleteCore,
@@ -112,7 +112,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "vci_single_parse_api",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

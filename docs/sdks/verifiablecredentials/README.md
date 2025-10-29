@@ -12,7 +12,7 @@
 
 ## getMetadata
 
-Get metadata for Verifiable Credential Issuer (VCI) service
+Get verifiable credential issuer metadata
 
 ### Example Usage
 
@@ -97,7 +97,7 @@ run();
 
 ## getJwks
 
-Get JSON Web Key Set (JWKS) for Verifiable Credential Issuer (VCI) service
+Get JSON Web Key Set for VCI
 
 ### Example Usage
 
@@ -182,7 +182,7 @@ run();
 
 ## createOffer
 
-Create offer for Verifiable Credential Issuer (VCI) service
+Create a verifiable credential offer
 
 ### Example Usage
 
@@ -263,7 +263,7 @@ run();
 
 ## parse
 
-Parse single credential request for Verifiable Credential Issuer (VCI) service
+Parse a single verifiable credential
 
 ### Example Usage
 

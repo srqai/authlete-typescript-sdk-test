@@ -15,7 +15,7 @@
 
 ## getJwtIssuer
 
-Get JWT issuer information for Verifiable Credential Issuer (VCI) service
+Get JWT issuer information for VCI
 
 ### Example Usage
 
@@ -100,7 +100,7 @@ run();
 
 ## getOfferInfo
 
-Get offer information for Verifiable Credential Issuer (VCI) service
+Get information about a verifiable credential offer
 
 ### Example Usage
 
@@ -181,7 +181,7 @@ run();
 
 ## issueSingle
 
-Issue single credential for Verifiable Credential Issuer (VCI) service
+Issue a single verifiable credential
 
 ### Example Usage
 
@@ -262,7 +262,7 @@ run();
 
 ## parseBatch
 
-Parse batch credential requests for Verifiable Credential Issuer (VCI) service
+Parse multiple verifiable credentials in batch
 
 ### Example Usage
 
@@ -343,7 +343,7 @@ run();
 
 ## batchIssue
 
-Issue batch credentials for Verifiable Credential Issuer (VCI) service
+Issue multiple verifiable credentials in batch
 
 ### Example Usage
 
@@ -424,7 +424,7 @@ run();
 
 ## parseDeferred
 
-Parse deferred credential request for Verifiable Credential Issuer (VCI) service
+Parse a deferred verifiable credential
 
 ### Example Usage
 
@@ -505,7 +505,7 @@ run();
 
 ## deferredIssue
 
-Issue deferred credential for Verifiable Credential Issuer (VCI) service
+Issue a deferred verifiable credential
 
 ### Example Usage
 

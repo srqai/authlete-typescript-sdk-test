@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * /api/{serviceId}/vci/deferred/parse API
  *
  * @remarks
- * Parse deferred credential request for Verifiable Credential Issuer (VCI) service
+ * Parse a deferred verifiable credential
  */
 export function verifiableCredentialIssuerParseDeferred(
   client: AuthleteCore,
@@ -113,7 +113,7 @@ async function $do(
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "vci_deferred_parse_api",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 

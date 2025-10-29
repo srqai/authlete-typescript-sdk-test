@@ -20,7 +20,7 @@ const authlete = new Authlete({
 });
 
 async function main() {
-  const result = await authlete.get({
+  const result = await authlete.services.get({
     serviceId: "<id>",
   });
 
