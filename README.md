@@ -362,17 +362,17 @@ run();
 
 ### [verifiableCredentials](docs/sdks/verifiablecredentials/README.md)
 
-* [getMetadata](docs/sdks/verifiablecredentials/README.md#getmetadata) - /api/{serviceId}/vci/metadata API
-* [getJwtIssuer](docs/sdks/verifiablecredentials/README.md#getjwtissuer) - /api/{serviceId}/vci/jwtissuer API
-* [getJwks](docs/sdks/verifiablecredentials/README.md#getjwks) - /api/{serviceId}/vci/jwks API
-* [createOffer](docs/sdks/verifiablecredentials/README.md#createoffer) - /api/{serviceId}/vci/offer/create API
-* [getOfferInfo](docs/sdks/verifiablecredentials/README.md#getofferinfo) - /api/{serviceId}/vci/offer/info API
-* [parse](docs/sdks/verifiablecredentials/README.md#parse) - /api/{serviceId}/vci/single/parse API
-* [issue](docs/sdks/verifiablecredentials/README.md#issue) - /api/{serviceId}/vci/single/issue API
-* [batchParse](docs/sdks/verifiablecredentials/README.md#batchparse) - /api/{serviceId}/vci/batch/parse API
-* [batchIssue](docs/sdks/verifiablecredentials/README.md#batchissue) - /api/{serviceId}/vci/batch/issue API
-* [deferredParse](docs/sdks/verifiablecredentials/README.md#deferredparse) - /api/{serviceId}/vci/deferred/parse API
-* [deferredIssue](docs/sdks/verifiablecredentials/README.md#deferredissue) - /api/{serviceId}/vci/deferred/issue API
+* [getMetadata](docs/sdks/verifiablecredentials/README.md#getmetadata) - Get Verifiable Credential Issuer Metadata
+* [getJwtIssuer](docs/sdks/verifiablecredentials/README.md#getjwtissuer) - Get JWT Issuer Information
+* [getJwks](docs/sdks/verifiablecredentials/README.md#getjwks) - Get JSON Web Key Set
+* [createOffer](docs/sdks/verifiablecredentials/README.md#createoffer) - Create Credential Offer
+* [getOfferInfo](docs/sdks/verifiablecredentials/README.md#getofferinfo) - Get Credential Offer Information
+* [parse](docs/sdks/verifiablecredentials/README.md#parse) - Parse Single Credential
+* [issue](docs/sdks/verifiablecredentials/README.md#issue) - Issue Single Credential
+* [batchParse](docs/sdks/verifiablecredentials/README.md#batchparse) - Parse Batch Credentials
+* [batchIssue](docs/sdks/verifiablecredentials/README.md#batchissue) - Issue Batch Credentials
+* [deferredParse](docs/sdks/verifiablecredentials/README.md#deferredparse) - Parse Deferred Credential
+* [deferredIssue](docs/sdks/verifiablecredentials/README.md#deferredissue) - Issue Deferred Credential
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -457,17 +457,17 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`userinfoProcess`](docs/sdks/userinfo/README.md#process) - Process UserInfo Request
 - [`utilityEcho`](docs/sdks/utility/README.md#echo) - Echo
 - [`utilityGetServerMetadata`](docs/sdks/utility/README.md#getservermetadata) - Get Server Metadata
-- [`verifiableCredentialsBatchIssue`](docs/sdks/verifiablecredentials/README.md#batchissue) - /api/{serviceId}/vci/batch/issue API
-- [`verifiableCredentialsBatchParse`](docs/sdks/verifiablecredentials/README.md#batchparse) - /api/{serviceId}/vci/batch/parse API
-- [`verifiableCredentialsCreateOffer`](docs/sdks/verifiablecredentials/README.md#createoffer) - /api/{serviceId}/vci/offer/create API
-- [`verifiableCredentialsDeferredIssue`](docs/sdks/verifiablecredentials/README.md#deferredissue) - /api/{serviceId}/vci/deferred/issue API
-- [`verifiableCredentialsDeferredParse`](docs/sdks/verifiablecredentials/README.md#deferredparse) - /api/{serviceId}/vci/deferred/parse API
-- [`verifiableCredentialsGetJwks`](docs/sdks/verifiablecredentials/README.md#getjwks) - /api/{serviceId}/vci/jwks API
-- [`verifiableCredentialsGetJwtIssuer`](docs/sdks/verifiablecredentials/README.md#getjwtissuer) - /api/{serviceId}/vci/jwtissuer API
-- [`verifiableCredentialsGetMetadata`](docs/sdks/verifiablecredentials/README.md#getmetadata) - /api/{serviceId}/vci/metadata API
-- [`verifiableCredentialsGetOfferInfo`](docs/sdks/verifiablecredentials/README.md#getofferinfo) - /api/{serviceId}/vci/offer/info API
-- [`verifiableCredentialsIssue`](docs/sdks/verifiablecredentials/README.md#issue) - /api/{serviceId}/vci/single/issue API
-- [`verifiableCredentialsParse`](docs/sdks/verifiablecredentials/README.md#parse) - /api/{serviceId}/vci/single/parse API
+- [`verifiableCredentialsBatchIssue`](docs/sdks/verifiablecredentials/README.md#batchissue) - Issue Batch Credentials
+- [`verifiableCredentialsBatchParse`](docs/sdks/verifiablecredentials/README.md#batchparse) - Parse Batch Credentials
+- [`verifiableCredentialsCreateOffer`](docs/sdks/verifiablecredentials/README.md#createoffer) - Create Credential Offer
+- [`verifiableCredentialsDeferredIssue`](docs/sdks/verifiablecredentials/README.md#deferredissue) - Issue Deferred Credential
+- [`verifiableCredentialsDeferredParse`](docs/sdks/verifiablecredentials/README.md#deferredparse) - Parse Deferred Credential
+- [`verifiableCredentialsGetJwks`](docs/sdks/verifiablecredentials/README.md#getjwks) - Get JSON Web Key Set
+- [`verifiableCredentialsGetJwtIssuer`](docs/sdks/verifiablecredentials/README.md#getjwtissuer) - Get JWT Issuer Information
+- [`verifiableCredentialsGetMetadata`](docs/sdks/verifiablecredentials/README.md#getmetadata) - Get Verifiable Credential Issuer Metadata
+- [`verifiableCredentialsGetOfferInfo`](docs/sdks/verifiablecredentials/README.md#getofferinfo) - Get Credential Offer Information
+- [`verifiableCredentialsIssue`](docs/sdks/verifiablecredentials/README.md#issue) - Issue Single Credential
+- [`verifiableCredentialsParse`](docs/sdks/verifiablecredentials/README.md#parse) - Parse Single Credential
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
