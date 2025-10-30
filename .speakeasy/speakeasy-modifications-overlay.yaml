@@ -758,55 +758,52 @@ actions:
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
-  # Hide GET-with-body version of ticket info
-  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]
-    update:
-      x-speakeasy-internal: true
+  # Un-internalize GET ticket info and model it as query param
+  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]["x-speakeasy-internal"]
+    remove: true
     x-speakeasy-metadata:
-      after: internal
-      before: public
-      created_at: 1761809100000
-      reviewed_at: 1761809100000
-      type: internalize
-  # Add POST alias so generator will emit getTicketInfo()
-  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["post"]
+      after: removed x-speakeasy-internal
+      before: true
+      created_at: 1761809300000
+      reviewed_at: 1761809300000
+      type: remove
+  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]["requestBody"]
+    remove: true
+    x-speakeasy-metadata:
+      after: removed requestBody (GET-with-body)
+      before: present
+      created_at: 1761809300000
+      reviewed_at: 1761809300000
+      type: remove
+  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]["parameters"]
     update:
-      summary: Get Ticket Information
-      operationId: authorization_ticket_info_post_api
-      tags:
-        - Authorization Endpoint
-      requestBody:
+      - in: path
+        name: serviceId
+        description: A service ID.
         required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authorization_ticket_info_request'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/authorization_ticket_info_request'
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/authorization_ticket_info_response'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '500':
-          $ref: '#/components/responses/500'
-      x-speakeasy-group: authorization.management
-      x-speakeasy-name-override: getTicketInfo
+        schema:
+          type: string
+      - in: query
+        name: ticket
+        description: Authorization ticket value.
+        required: true
+        schema:
+          type: string
     x-speakeasy-metadata:
-      after: sdk.authorization.management.getTicketInfo()
-      before: none
-      created_at: 1761809100000
-      reviewed_at: 1761809100000
-      type: method-name
+      after: add query param 'ticket'
+      before: path-only params
+      created_at: 1761809300000
+      reviewed_at: 1761809300000
+      type: params
+  # Remove the temporary POST alias for ticket info
+  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["post"]
+    remove: true
+    x-speakeasy-metadata:
+      after: removed POST alias
+      before: present
+      created_at: 1761809300000
+      reviewed_at: 1761809300000
+      type: remove
   - target: $["paths"]["/api/{serviceId}/jose/verify"]
     remove: true
     x-speakeasy-metadata:
