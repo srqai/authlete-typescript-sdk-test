@@ -77,7 +77,6 @@ export * from "./hskgetlistresponse.js";
 export * from "./hskgetresponse.js";
 export * from "./idtokenreissuerequest.js";
 export * from "./idtokenreissueresponse.js";
-export * from "./inforesponse.js";
 export * from "./introspectionrequest.js";
 export * from "./introspectionresponse.js";
 export * from "./jwealg.js";
