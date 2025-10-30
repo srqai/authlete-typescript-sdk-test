@@ -765,61 +765,15 @@ actions:
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
-  # Un-internalize GET ticket info and model it as query param
-  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]["x-speakeasy-internal"]
+  # Remove GET ticket info; keep POST only per backend guidance
+  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]
     remove: true
     x-speakeasy-metadata:
-      after: removed x-speakeasy-internal
-      before: true
-      created_at: 1761809300000
-      reviewed_at: 1761809300000
-      type: remove
-  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]["requestBody"]
-    remove: true
-    x-speakeasy-metadata:
-      after: removed requestBody (GET-with-body)
+      after: removed GET
       before: present
-      created_at: 1761809300000
-      reviewed_at: 1761809300000
+      created_at: 1761810800000
+      reviewed_at: 1761810800000
       type: remove
-  # Ensure we fully replace parameters to avoid duplicates
-  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]["parameters"]
-    remove: true
-    x-speakeasy-metadata:
-      after: removed old parameters (to replace)
-      before: present
-      created_at: 1761810300000
-      reviewed_at: 1761810300000
-      type: remove
-  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]["parameters"]
-    update:
-      - in: query
-        name: ticket
-        description: Authorization ticket value.
-        required: true
-        schema:
-          type: string
-    x-speakeasy-metadata:
-      after: set op-level query param 'ticket' only
-      before: removed
-      created_at: 1761809300000
-      reviewed_at: 1761809300000
-      type: params
-  # Ensure path-level serviceId param exists for templated path
-  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["parameters"]
-    update:
-      - in: path
-        name: serviceId
-        description: A service ID.
-        required: true
-        schema:
-          type: string
-    x-speakeasy-metadata:
-      after: set path-level serviceId param
-      before: absent
-      created_at: 1761810400000
-      reviewed_at: 1761810400000
-      type: params
   # Add POST support for ticket info (JSON and form)
   - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["post"]
     update:
