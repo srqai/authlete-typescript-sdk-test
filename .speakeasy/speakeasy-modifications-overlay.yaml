@@ -648,6 +648,23 @@ actions:
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
+  # Remove utility endpoints from public SDK
+  - target: $["paths"]["/api/info"]
+    remove: true
+    x-speakeasy-metadata:
+      after: removed
+      before: present
+      created_at: 1761810000000
+      reviewed_at: 1761810000000
+      type: remove
+  - target: $["paths"]["/api/misc/echo"]
+    remove: true
+    x-speakeasy-metadata:
+      after: removed
+      before: present
+      created_at: 1761810000000
+      reviewed_at: 1761810000000
+      type: remove
   - target: $["paths"]["/api/{serviceId}/vci/metadata"]["post"]
     update:
       x-speakeasy-group: verifiableCredentials.management
