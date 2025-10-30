@@ -820,6 +820,45 @@ actions:
       created_at: 1761810400000
       reviewed_at: 1761810400000
       type: params
+  # Add POST support for ticket info (JSON and form)
+  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["post"]
+    update:
+      summary: Get Ticket Information
+      operationId: authorization_ticket_info_post_api
+      tags:
+        - Authorization Endpoint
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/authorization_ticket_info_request'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/authorization_ticket_info_request'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/authorization_ticket_info_response'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+      x-speakeasy-group: authorization.management
+      x-speakeasy-name-override: getTicketInfo
+    x-speakeasy-metadata:
+      after: sdk.authorization.management.getTicketInfo()
+      before: none
+      created_at: 1761810600000
+      reviewed_at: 1761810600000
+      type: method-name
   # Remove the temporary POST alias for ticket info
   - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["post"]
     remove: true
