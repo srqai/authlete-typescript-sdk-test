@@ -314,14 +314,6 @@ run();
 
 * [standardProcess](docs/sdks/introspectionmanagement/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
 
-### [joseObject](docs/sdks/joseobject/README.md)
-
-* [joseVerifyApi](docs/sdks/joseobject/README.md#joseverifyapi) - Verify JOSE
-
-### [jwkSetEndpoint](docs/sdks/jwksetendpoint/README.md)
-
-* [serviceJwksGetApi](docs/sdks/jwksetendpoint/README.md#servicejwksgetapi) - Get JWK Set
-
 ### [nativeSso](docs/sdks/nativesso/README.md)
 
 * [process](docs/sdks/nativesso/README.md#process) - Native SSO Processing
@@ -447,8 +439,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`hardwareSecurityKeysList`](docs/sdks/hardwaresecuritykeys/README.md#list) - List Security Keys
 - [`introspectionManagementStandardProcess`](docs/sdks/introspectionmanagement/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
 - [`introspectionProcess`](docs/sdks/introspection/README.md#process) - Process Introspection Request
-- [`joseObjectJoseVerifyApi`](docs/sdks/joseobject/README.md#joseverifyapi) - Verify JOSE
-- [`jwkSetEndpointServiceJwksGetApi`](docs/sdks/jwksetendpoint/README.md#servicejwksgetapi) - Get JWK Set
 - [`nativeSsoLogout`](docs/sdks/nativesso/README.md#logout) - Native SSO Logout Processing
 - [`nativeSsoProcess`](docs/sdks/nativesso/README.md#process) - Native SSO Processing
 - [`pushedAuthorizationCreate`](docs/sdks/pushedauthorization/README.md#create) - Process Pushed Authorization Request

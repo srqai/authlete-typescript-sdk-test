@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6bef56a0-baee-4c65-b71e-495533b2af98
 management:
-  docChecksum: e953bc92668be6451c6686fd85259744
+  docChecksum: 6d0d20defc4ca7d5cfdc50566cf9d641
   docVersion: 3.0.15
   speakeasyVersion: 1.642.2
   generationVersion: 2.731.6
-  releaseVersion: 0.7.4
-  configChecksum: 1b1a3820a19e8a8cf6e25668e41e8c6d
+  releaseVersion: 0.7.5
+  configChecksum: 2ef6c1e435cdec6e228c0a6a9f0b7006
   repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
   installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
@@ -143,12 +143,9 @@ generatedFiles:
   - docs/models/introspectionrequest.md
   - docs/models/introspectionresponse.md
   - docs/models/introspectionresponseaction.md
-  - docs/models/joseverifyrequest.md
-  - docs/models/joseverifyresponse.md
   - docs/models/jwealg.md
   - docs/models/jweenc.md
   - docs/models/jwsalg.md
-  - docs/models/key.md
   - docs/models/nameduri.md
   - docs/models/nativessologoutrequest.md
   - docs/models/nativessologoutresponse.md
@@ -212,7 +209,6 @@ generatedFiles:
   - docs/models/operations/hskgetapirequest.md
   - docs/models/operations/hskgetlistapirequest.md
   - docs/models/operations/idtokenreissueapirequest.md
-  - docs/models/operations/joseverifyapirequest.md
   - docs/models/operations/nativessoapirequest.md
   - docs/models/operations/nativessologoutapirequest.md
   - docs/models/operations/pushedauthreqapirequest.md
@@ -221,7 +217,6 @@ generatedFiles:
   - docs/models/operations/servicedeleteapirequest.md
   - docs/models/operations/servicegetapirequest.md
   - docs/models/operations/servicegetlistapirequest.md
-  - docs/models/operations/servicejwksgetapirequest.md
   - docs/models/operations/serviceupdateapirequest.md
   - docs/models/operations/updateauthorizationticketrequest.md
   - docs/models/operations/vcibatchissueapirequest.md
@@ -252,7 +247,6 @@ generatedFiles:
   - docs/models/service.md
   - docs/models/servicegetlistresponse.md
   - docs/models/serviceinput.md
-  - docs/models/servicejwksgetresponse.md
   - docs/models/serviceprofile.md
   - docs/models/standardintrospectionrequest.md
   - docs/models/standardintrospectionresponse.md
@@ -334,8 +328,6 @@ generatedFiles:
   - docs/sdks/hardwaresecuritykeys/README.md
   - docs/sdks/introspection/README.md
   - docs/sdks/introspectionmanagement/README.md
-  - docs/sdks/joseobject/README.md
-  - docs/sdks/jwksetendpoint/README.md
   - docs/sdks/nativesso/README.md
   - docs/sdks/pushedauthorization/README.md
   - docs/sdks/revocation/README.md
@@ -395,8 +387,6 @@ generatedFiles:
   - src/funcs/hardwareSecurityKeysList.ts
   - src/funcs/introspectionManagementStandardProcess.ts
   - src/funcs/introspectionProcess.ts
-  - src/funcs/joseObjectJoseVerifyApi.ts
-  - src/funcs/jwkSetEndpointServiceJwksGetApi.ts
   - src/funcs/nativeSsoLogout.ts
   - src/funcs/nativeSsoProcess.ts
   - src/funcs/pushedAuthorizationCreate.ts
@@ -537,8 +527,6 @@ generatedFiles:
   - src/models/inforesponse.ts
   - src/models/introspectionrequest.ts
   - src/models/introspectionresponse.ts
-  - src/models/joseverifyrequest.ts
-  - src/models/joseverifyresponse.ts
   - src/models/jwealg.ts
   - src/models/jweenc.ts
   - src/models/jwsalg.ts
@@ -599,7 +587,6 @@ generatedFiles:
   - src/models/operations/hskgetlistapi.ts
   - src/models/operations/idtokenreissueapi.ts
   - src/models/operations/index.ts
-  - src/models/operations/joseverifyapi.ts
   - src/models/operations/nativessoapi.ts
   - src/models/operations/nativessologoutapi.ts
   - src/models/operations/pushedauthreqapi.ts
@@ -607,7 +594,6 @@ generatedFiles:
   - src/models/operations/servicedeleteapi.ts
   - src/models/operations/servicegetapi.ts
   - src/models/operations/servicegetlistapi.ts
-  - src/models/operations/servicejwksgetapi.ts
   - src/models/operations/serviceupdateapi.ts
   - src/models/operations/updateauthorizationticket.ts
   - src/models/operations/vcibatchissueapi.ts
@@ -634,7 +620,6 @@ generatedFiles:
   - src/models/service.ts
   - src/models/servicegetlistresponse.ts
   - src/models/serviceinput.ts
-  - src/models/servicejwksgetresponse.ts
   - src/models/serviceprofile.ts
   - src/models/standardintrospectionrequest.ts
   - src/models/standardintrospectionresponse.ts
@@ -697,8 +682,6 @@ generatedFiles:
   - src/sdk/index.ts
   - src/sdk/introspection.ts
   - src/sdk/introspectionmanagement.ts
-  - src/sdk/joseobject.ts
-  - src/sdk/jwksetendpoint.ts
   - src/sdk/nativesso.ts
   - src/sdk/pushedauthorization.ts
   - src/sdk/revocation.ts
@@ -1823,61 +1806,5 @@ examples:
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes Detected:
-  * `authlete.service.management.getConfiguration()`: **Added**
-  * `authlete.client.management.updateLockFlag()`: **Added**
-  * `authlete.client.management.refreshSecret()`: **Added**
-  * `authlete.client.management.updateSecret()`: **Added**
-  * `authlete.client.management.listAuthorizations()`: **Added**
-  * `authlete.client.management.updateAuthorizations()`: **Added**
-  * `authlete.client.management.deleteAuthorizations()`: **Added**
-  * `authlete.client.management.getGrantedScopes()`: **Added**
-  * `authlete.client.management.deleteGrantedScopes()`: **Added**
-  * `authlete.client.management.getRequestableScopes()`: **Added**
-  * `authlete.client.management.updateRequestableScopes()`: **Added**
-  * `authlete.client.management.deleteRequestableScopes()`: **Added**
-  * `authlete.authorization.management.updateTicket()`: **Added**
-  * `authlete.token.management.reissueIdToken()`: **Added**
-  * `authlete.introspection.management.standardProcess()`: **Added**
-  * `authlete.jwkSetEndpoint.serviceJwksGetApi()`: **Added**
-  * `authlete.deviceFlow.authorization()`: **Added**
-  * `authlete.deviceFlow.verification()`: **Added**
-  * `authlete.joseObject.joseVerifyApi()`: **Added**
-  * `authlete.federation.configuration()`: **Added**
-  * `authlete.federation.registration()`: **Added**
-  * `authlete.utility.info()`: **Added**
-  * `authlete.verifiableCredentials.management.getMetadata()`: **Added**
-  * `authlete.verifiableCredentials.management.getJwtIssuer()`: **Added**
-  * `authlete.verifiableCredentials.management.getJwks()`: **Added**
-  * `authlete.verifiableCredentials.management.batchParse()`: **Added**
-  * `authlete.verifiableCredentials.management.batchIssue()`: **Added**
-  * `authlete.verifiableCredentials.management.deferredParse()`: **Added**
-  * `authlete.verifiableCredentials.management.deferredIssue()`: **Added**
-  * `authlete.service.getConfiguration()`: **Deleted** **Breaking** :warning:
-  * `authlete.client.updateLockFlag()`: **Deleted** **Breaking** :warning:
-  * `authlete.client.refreshSecret()`: **Deleted** **Breaking** :warning:
-  * `authlete.client.updateSecret()`: **Deleted** **Breaking** :warning:
-  * `authlete.client.listAuthorizations()`: **Deleted** **Breaking** :warning:
-  * `authlete.client.updateAuthorizations()`: **Deleted** **Breaking** :warning:
-  * `authlete.client.deleteAuthorizations()`: **Deleted** **Breaking** :warning:
-  * `authlete.client.getGrantedScopes()`: **Deleted** **Breaking** :warning:
-  * `authlete.client.deleteGrantedScopes()`: **Deleted** **Breaking** :warning:
-  * `authlete.client.getRequestableScopes()`: **Deleted** **Breaking** :warning:
-  * `authlete.client.updateRequestableScopes()`: **Deleted** **Breaking** :warning:
-  * `authlete.client.deleteRequestableScopes()`: **Deleted** **Breaking** :warning:
-  * `authlete.authorization.updateTicket()`: **Deleted** **Breaking** :warning:
-  * `authlete.token.reissueIdToken()`: **Deleted** **Breaking** :warning:
-  * `authlete.introspection.standardProcess()`: **Deleted** **Breaking** :warning:
-  * `authlete.jwks.get()`: **Deleted** **Breaking** :warning:
-  * `authlete.deviceFlow.processAuthorization()`: **Deleted** **Breaking** :warning:
-  * `authlete.deviceFlow.processVerification()`: **Deleted** **Breaking** :warning:
-  * `authlete.jose.verify()`: **Deleted** **Breaking** :warning:
-  * `authlete.federation.processConfiguration()`: **Deleted** **Breaking** :warning:
-  * `authlete.federation.processRegistration()`: **Deleted** **Breaking** :warning:
-  * `authlete.utility.getServerMetadata()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.getMetadata()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.getJwtIssuer()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.getJwks()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.batchParse()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.batchIssue()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.deferredParse()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.deferredIssue()`: **Deleted** **Breaking** :warning:
+  * `authlete.jwkSetEndpoint.serviceJwksGetApi()`: **Deleted** **Breaking** :warning:
+  * `authlete.joseObject.joseVerifyApi()`: **Deleted** **Breaking** :warning:
