@@ -782,6 +782,15 @@ actions:
       created_at: 1761809300000
       reviewed_at: 1761809300000
       type: remove
+  # Ensure we fully replace parameters to avoid duplicates
+  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]["parameters"]
+    remove: true
+    x-speakeasy-metadata:
+      after: removed old parameters (to replace)
+      before: present
+      created_at: 1761810300000
+      reviewed_at: 1761810300000
+      type: remove
   - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]["parameters"]
     update:
       - in: path
