@@ -3,10 +3,10 @@ id: 6bef56a0-baee-4c65-b71e-495533b2af98
 management:
   docChecksum: 8b243f164c008133e3e8ac9771fa356f
   docVersion: 3.0.15
-  speakeasyVersion: 1.642.2
+  speakeasyVersion: 1.643.2
   generationVersion: 2.731.6
-  releaseVersion: 0.7.7
-  configChecksum: 3982b733105c20c2c3f22c0f85abce20
+  releaseVersion: 0.7.8
+  configChecksum: 5b4f4a1afbd8dbcbead7699817b3891e
   repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
   installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
@@ -1798,7 +1798,3 @@ examples:
         "500":
           application/json: {}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Typescript SDK Changes Detected:
-  * `authlete.utility.info()`: **Deleted** **Breaking** :warning:
-  * `authlete.utility.echo()`: **Deleted** **Breaking** :warning:
