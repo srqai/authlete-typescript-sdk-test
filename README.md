@@ -359,11 +359,6 @@ run();
 * [process](docs/sdks/userinfo/README.md#process) - Process UserInfo Request
 * [issue](docs/sdks/userinfo/README.md#issue) - Issue UserInfo Response
 
-### [utility](docs/sdks/utility/README.md)
-
-* [info](docs/sdks/utility/README.md#info) - Get Server Metadata
-* [echo](docs/sdks/utility/README.md#echo) - Echo
-
 ### [verifiableCredentials](docs/sdks/verifiablecredentials/README.md)
 
 * [createOffer](docs/sdks/verifiablecredentials/README.md#createoffer) - Create Credential Offer
@@ -460,8 +455,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`tokenProcess`](docs/sdks/token/README.md#process) - Process Token Request
 - [`userinfoIssue`](docs/sdks/userinfo/README.md#issue) - Issue UserInfo Response
 - [`userinfoProcess`](docs/sdks/userinfo/README.md#process) - Process UserInfo Request
-- [`utilityEcho`](docs/sdks/utility/README.md#echo) - Echo
-- [`utilityInfo`](docs/sdks/utility/README.md#info) - Get Server Metadata
 - [`verifiableCredentialsCreateOffer`](docs/sdks/verifiablecredentials/README.md#createoffer) - Create Credential Offer
 - [`verifiableCredentialsGetOfferInfo`](docs/sdks/verifiablecredentials/README.md#getofferinfo) - Get Credential Offer Information
 - [`verifiableCredentialsIssue`](docs/sdks/verifiablecredentials/README.md#issue) - Issue Single Credential
@@ -604,7 +597,7 @@ run();
 ### Error Classes
 **Primary errors:**
 * [`AuthleteError`](./src/models/errors/authleteerror.ts): The base class for HTTP error responses.
-  * [`ResultError`](./src/models/errors/resulterror.ts): . *
+  * [`ResultError`](./src/models/errors/resulterror.ts): .
 
 <details><summary>Less common errors (6)</summary>
 
@@ -622,8 +615,6 @@ run();
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
-
-\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->

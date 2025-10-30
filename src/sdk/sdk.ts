@@ -18,7 +18,6 @@ import { Revocation } from "./revocation.js";
 import { Service } from "./service.js";
 import { Token } from "./token.js";
 import { Userinfo } from "./userinfo.js";
-import { Utility } from "./utility.js";
 import { VerifiableCredentials } from "./verifiablecredentials.js";
 
 export class Authlete extends ClientSDK {
@@ -89,11 +88,6 @@ export class Authlete extends ClientSDK {
   private _federation?: Federation;
   get federation(): Federation {
     return (this._federation ??= new Federation(this._options));
-  }
-
-  private _utility?: Utility;
-  get utility(): Utility {
-    return (this._utility ??= new Utility(this._options));
   }
 
   private _hardwareSecurityKeys?: HardwareSecurityKeys;

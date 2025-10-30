@@ -8510,43 +8510,6 @@ paths:
         - Federation Endpoint
       x-speakeasy-group: federation
       x-speakeasy-name-override: registration
-  /api/info:
-    get:
-      summary: Get Server Metadata
-      description: |
-        get the server version and enabled features
-      responses:
-        '200':
-          description: API information retrieved successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/info_response'
-              example:
-                version: 2.3.0
-                features:
-                  - ciba
-                  - dcr
-                  - deviceflow
-                  - fapi
-                  - openbanking
-                  - hsm
-                  - gm
-                  - tc
-                  - oidc_federation
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '500':
-          $ref: '#/components/responses/500'
-      operationId: info_api
-      tags:
-        - Utility Endpoints
-      x-speakeasy-group: utility
-      x-speakeasy-name-override: info
   /api/{serviceId}/client/extension/requestable_scopes/get/{clientId}:
     get:
       summary: Get Requestable Scopes
@@ -8817,20 +8780,6 @@ paths:
         - Hardware Security Key
       x-speakeasy-group: hardwareSecurityKeys
       x-speakeasy-name-override: list
-  /api/misc/echo:
-    get:
-      summary: Echo
-      description: |
-        Echo test endpoint. Will return all path parameters in the request
-      responses:
-        '200':
-          description: |
-            Successfully echoed the request parameters
-      operationId: misc_echo_api
-      tags:
-        - Utility Endpoints
-      x-speakeasy-group: utility
-      x-speakeasy-name-override: echo
   /api/{serviceId}/vci/metadata:
     post:
       summary: Get Verifiable Credential Issuer Metadata
@@ -9262,46 +9211,7 @@ paths:
         - Verifiable Credential Issuer
       x-speakeasy-group: verifiableCredentials.management
       x-speakeasy-name-override: deferredIssue
-  /api/{serviceId}/auth/authorization/ticket/info:
-    get:
-      operationId: getAuthorizationTicketInfo
-      summary: Get Ticket Information
-      parameters:
-        - in: path
-          name: serviceId
-          description: A service ID.
-          required: true
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/authorization_ticket_info_request'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/authorization_ticket_info_request'
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/authorization_ticket_info_response'
-        '400':
-          $ref: '#/components/responses/400'
-        '401':
-          $ref: '#/components/responses/401'
-        '403':
-          $ref: '#/components/responses/403'
-        '500':
-          $ref: '#/components/responses/500'
-      tags:
-        - Authorization Endpoint
-      x-speakeasy-group: authorization.management
-      x-speakeasy-name-override: getTicketInfo
-      x-speakeasy-internal: true
+  /api/{serviceId}/auth/authorization/ticket/info: {}
   /api/{serviceId}/auth/authorization/ticket/update:
     post:
       operationId: updateAuthorizationTicket
