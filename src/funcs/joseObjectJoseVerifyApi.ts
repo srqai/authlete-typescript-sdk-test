@@ -3,7 +3,7 @@
  */
 
 import { AuthleteCore } from "../core.js";
-import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -27,31 +27,18 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get JWK Set
+ * Verify JOSE
  *
  * @remarks
- * This API gathers JWK Set information for a service so that its client applications can verify
- * signatures by the service and encrypt their requests to the service.
- *
- * <br>
- * <details>
- * <summary>Description</summary>
- *
- * This API is supposed to be called from within the implementation of the jwk set endpoint of the
- * service where the service that supports OpenID Connect must expose its JWK Set information so that
- * client applications can verify signatures by the service and encrypt their requests to the service.
- * The URI of the endpoint can be found as the value of `jwks_uri` in [OpenID Provider Metadata](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata)
- * if the service supports [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html).
- *
- * </details>
+ * This API verifies a JOSE object.
  */
-export function jwksGet(
+export function joseObjectJoseVerifyApi(
   client: AuthleteCore,
-  request: operations.ServiceJwksGetApiRequest,
+  request: operations.JoseVerifyApiRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.ServiceJwksGetResponse,
+    models.JoseVerifyResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -72,12 +59,12 @@ export function jwksGet(
 
 async function $do(
   client: AuthleteCore,
-  request: operations.ServiceJwksGetApiRequest,
+  request: operations.JoseVerifyApiRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.ServiceJwksGetResponse,
+      models.JoseVerifyResponse,
       | errors.ResultError
       | AuthleteError
       | ResponseValidationError
@@ -93,14 +80,16 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.ServiceJwksGetApiRequest$outboundSchema.parse(value),
+    (value) => operations.JoseVerifyApiRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload.jose_verify_request, {
+    explode: true,
+  });
 
   const pathParams = {
     serviceId: encodeSimple("serviceId", payload.serviceId, {
@@ -109,14 +98,10 @@ async function $do(
     }),
   };
 
-  const path = pathToFunc("/api/{serviceId}/service/jwks/get")(pathParams);
-
-  const query = encodeFormQuery({
-    "includePrivateKeys": payload.includePrivateKeys,
-    "pretty": payload.pretty,
-  });
+  const path = pathToFunc("/api/{serviceId}/jose/verify")(pathParams);
 
   const headers = new Headers(compactMap({
+    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -126,7 +111,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "service_jwks_get_api",
+    operationID: "jose_verify_api",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -140,11 +125,10 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "GET",
+    method: "POST",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
-    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
@@ -170,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.ServiceJwksGetResponse,
+    models.JoseVerifyResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -181,7 +165,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.ServiceJwksGetResponse$inboundSchema),
+    M.json(200, models.JoseVerifyResponse$inboundSchema),
     M.jsonErr([400, 401, 403], errors.ResultError$inboundSchema),
     M.jsonErr(500, errors.ResultError$inboundSchema),
     M.fail("4XX"),

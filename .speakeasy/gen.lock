@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6bef56a0-baee-4c65-b71e-495533b2af98
 management:
-  docChecksum: 32fa7c6d447aafa0caf8497a67156fe6
+  docChecksum: c1d42add296d107e1aa1fc852dcfd3ea
   docVersion: 3.0.15
   speakeasyVersion: 1.642.2
   generationVersion: 2.731.6
-  releaseVersion: 0.7.3
-  configChecksum: f549990672b5ba286ed460b9dbd64ebb
+  releaseVersion: 0.7.4
+  configChecksum: 1b1a3820a19e8a8cf6e25668e41e8c6d
   repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
   installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
@@ -331,8 +331,8 @@ generatedFiles:
   - docs/sdks/grantmanagement/README.md
   - docs/sdks/hardwaresecuritykeys/README.md
   - docs/sdks/introspection/README.md
-  - docs/sdks/jose/README.md
-  - docs/sdks/jwks/README.md
+  - docs/sdks/joseobject/README.md
+  - docs/sdks/jwksetendpoint/README.md
   - docs/sdks/management/README.md
   - docs/sdks/nativesso/README.md
   - docs/sdks/pushedauthorization/README.md
@@ -390,8 +390,8 @@ generatedFiles:
   - src/funcs/hardwareSecurityKeysList.ts
   - src/funcs/introspectionProcess.ts
   - src/funcs/introspectionStandardProcess.ts
-  - src/funcs/joseVerify.ts
-  - src/funcs/jwksGet.ts
+  - src/funcs/joseObjectJoseVerifyApi.ts
+  - src/funcs/jwkSetEndpointServiceJwksGetApi.ts
   - src/funcs/nativeSsoLogout.ts
   - src/funcs/nativeSsoProcess.ts
   - src/funcs/pushedAuthorizationCreate.ts
@@ -689,8 +689,8 @@ generatedFiles:
   - src/sdk/hardwaresecuritykeys.ts
   - src/sdk/index.ts
   - src/sdk/introspection.ts
-  - src/sdk/jose.ts
-  - src/sdk/jwks.ts
+  - src/sdk/joseobject.ts
+  - src/sdk/jwksetendpoint.ts
   - src/sdk/management.ts
   - src/sdk/nativesso.ts
   - src/sdk/pushedauthorization.ts
@@ -1813,13 +1813,7 @@ examples:
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes Detected:
-  * `authlete.token.management.list()`: **Added**
-  * `authlete.token.management.create()`: **Added**
-  * `authlete.token.management.update()`: **Added**
-  * `authlete.token.management.delete()`: **Added**
-  * `authlete.token.management.revoke()`: **Added**
-  * `authlete.tokens.list()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokens.create()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokens.update()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokens.delete()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokens.revoke()`: **Deleted** **Breaking** :warning:
+  * `authlete.jwkSetEndpoint.serviceJwksGetApi()`: **Added**
+  * `authlete.joseObject.joseVerifyApi()`: **Added**
+  * `authlete.jwks.get()`: **Deleted** **Breaking** :warning:
+  * `authlete.jose.verify()`: **Deleted** **Breaking** :warning:
