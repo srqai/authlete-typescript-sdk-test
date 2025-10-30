@@ -5,8 +5,8 @@ management:
   docVersion: 3.0.15
   speakeasyVersion: 1.642.2
   generationVersion: 2.731.6
-  releaseVersion: 0.7.5
-  configChecksum: 2ef6c1e435cdec6e228c0a6a9f0b7006
+  releaseVersion: 0.7.6
+  configChecksum: 4de408ba143686c0913e4088b2375c2c
   repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
   installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
@@ -1804,7 +1804,3 @@ examples:
         "500":
           application/json: {}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Typescript SDK Changes Detected:
-  * `authlete.jwkSetEndpoint.serviceJwksGetApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.joseObject.joseVerifyApi()`: **Deleted** **Breaking** :warning:
