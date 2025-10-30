@@ -758,3 +758,19 @@ actions:
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
+  - target: $["paths"]["/api/{serviceId}/jose/verify"]
+    remove: true
+    x-speakeasy-metadata:
+      after: removed
+      before: present
+      created_at: 1761809000000
+      reviewed_at: 1761809000000
+      type: remove
+  - target: $["paths"]["/api/{serviceId}/service/jwks/get"]
+    remove: true
+    x-speakeasy-metadata:
+      after: removed
+      before: present
+      created_at: 1761809000000
+      reviewed_at: 1761809000000
+      type: remove
