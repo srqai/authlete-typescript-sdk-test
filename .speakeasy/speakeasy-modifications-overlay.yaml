@@ -813,15 +813,6 @@ actions:
       created_at: 1761810600000
       reviewed_at: 1761810600000
       type: method-name
-  # Remove the temporary POST alias for ticket info
-  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["post"]
-    remove: true
-    x-speakeasy-metadata:
-      after: removed POST alias
-      before: present
-      created_at: 1761809300000
-      reviewed_at: 1761809300000
-      type: remove
   - target: $["paths"]["/api/{serviceId}/jose/verify"]
     remove: true
     x-speakeasy-metadata:
