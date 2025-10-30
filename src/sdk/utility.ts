@@ -3,7 +3,7 @@
  */
 
 import { utilityEcho } from "../funcs/utilityEcho.js";
-import { utilityGetServerMetadata } from "../funcs/utilityGetServerMetadata.js";
+import { utilityInfo } from "../funcs/utilityInfo.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import { unwrapAsync } from "../types/fp.js";
@@ -15,10 +15,10 @@ export class Utility extends ClientSDK {
    * @remarks
    * get the server version and enabled features
    */
-  async getServerMetadata(
+  async info(
     options?: RequestOptions,
   ): Promise<models.InfoResponse> {
-    return unwrapAsync(utilityGetServerMetadata(
+    return unwrapAsync(utilityInfo(
       this,
       options,
     ));

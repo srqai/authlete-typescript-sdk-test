@@ -5,10 +5,10 @@
 
 ### Available Operations
 
-* [processConfiguration](#processconfiguration) - Process Entity Configuration Request
-* [processRegistration](#processregistration) - Process Federation Registration Request
+* [configuration](#configuration) - Process Entity Configuration Request
+* [registration](#registration) - Process Federation Registration Request
 
-## processConfiguration
+## configuration
 
 This API gathers the federation configuration about a service.
 
@@ -107,7 +107,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.federation.processConfiguration({
+  const result = await authlete.federation.configuration({
     serviceId: "<id>",
   });
 
@@ -123,7 +123,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { federationProcessConfiguration } from "authlete/funcs/federationProcessConfiguration.js";
+import { federationConfiguration } from "authlete/funcs/federationConfiguration.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -134,14 +134,14 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await federationProcessConfiguration(authlete, {
+  const res = await federationConfiguration(authlete, {
     serviceId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("federationProcessConfiguration failed:", res.error);
+    console.log("federationConfiguration failed:", res.error);
   }
 }
 
@@ -169,7 +169,7 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## processRegistration
+## registration
 
 The Authlete API is for implementations of the <b>federation registration
 endpoint</b> that accepts "explicit client registration". Its details are
@@ -222,7 +222,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.federation.processRegistration({
+  const result = await authlete.federation.registration({
     serviceId: "<id>",
     federationRegistrationRequest: {},
   });
@@ -239,7 +239,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { federationProcessRegistration } from "authlete/funcs/federationProcessRegistration.js";
+import { federationRegistration } from "authlete/funcs/federationRegistration.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -250,7 +250,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await federationProcessRegistration(authlete, {
+  const res = await federationRegistration(authlete, {
     serviceId: "<id>",
     federationRegistrationRequest: {},
   });
@@ -258,7 +258,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("federationProcessRegistration failed:", res.error);
+    console.log("federationRegistration failed:", res.error);
   }
 }
 

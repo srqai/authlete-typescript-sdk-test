@@ -5,17 +5,16 @@
 import { tokenFail } from "../funcs/tokenFail.js";
 import { tokenIssue } from "../funcs/tokenIssue.js";
 import { tokenProcess } from "../funcs/tokenProcess.js";
-import { tokenReissueIdToken } from "../funcs/tokenReissueIdToken.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
-import { Management } from "./management.js";
+import { TokenManagement } from "./tokenmanagement.js";
 
 export class Token extends ClientSDK {
-  private _management?: Management;
-  get management(): Management {
-    return (this._management ??= new Management(this._options));
+  private _management?: TokenManagement;
+  get management(): TokenManagement {
+    return (this._management ??= new TokenManagement(this._options));
   }
 
   /**
@@ -634,27 +633,6 @@ export class Token extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.TokenIssueResponse> {
     return unwrapAsync(tokenIssue(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Reissue ID Token
-   *
-   * @remarks
-   * The API is expected to be called only when the value of the `action`
-   * parameter in a response from the `/auth/token` API is [ID_TOKEN_REISSUABLE](https://authlete.github.io/authlete-java-common/com/authlete/common/dto/TokenResponse.Action.html#ID_TOKEN_REISSUABLE). The purpose
-   * of the `/idtoken/reissue` API is to generate a token response that
-   * includes a new ID token together with a new access token and a refresh
-   * token.
-   */
-  async reissueIdToken(
-    request: operations.IdtokenReissueApiRequest,
-    options?: RequestOptions,
-  ): Promise<models.IdtokenReissueResponse> {
-    return unwrapAsync(tokenReissueIdToken(
       this,
       request,
       options,

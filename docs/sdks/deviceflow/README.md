@@ -5,11 +5,11 @@
 
 ### Available Operations
 
-* [processAuthorization](#processauthorization) - Process Device Authorization Request
-* [processVerification](#processverification) - Process Device Verification Request
+* [authorization](#authorization) - Process Device Authorization Request
+* [verification](#verification) - Process Device Verification Request
 * [complete](#complete) - Complete Device Authorization
 
-## processAuthorization
+## authorization
 
 This API parses request parameters of a [device authorization request](https://datatracker.ietf.org/doc/html/rfc8628#section-3.1)
 and returns necessary data for the authorization server implementation to process the device authorization
@@ -122,7 +122,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.deviceFlow.processAuthorization({
+  const result = await authlete.deviceFlow.authorization({
     serviceId: "<id>",
     deviceAuthorizationRequest: {
       parameters: "client_id=26888344961664&scope=history.read",
@@ -143,7 +143,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { deviceFlowProcessAuthorization } from "authlete/funcs/deviceFlowProcessAuthorization.js";
+import { deviceFlowAuthorization } from "authlete/funcs/deviceFlowAuthorization.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -154,7 +154,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await deviceFlowProcessAuthorization(authlete, {
+  const res = await deviceFlowAuthorization(authlete, {
     serviceId: "<id>",
     deviceAuthorizationRequest: {
       parameters: "client_id=26888344961664&scope=history.read",
@@ -166,7 +166,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("deviceFlowProcessAuthorization failed:", res.error);
+    console.log("deviceFlowAuthorization failed:", res.error);
   }
 }
 
@@ -194,7 +194,7 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## processVerification
+## verification
 
 The API returns information associated with a user code.
 
@@ -252,7 +252,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.deviceFlow.processVerification({
+  const result = await authlete.deviceFlow.verification({
     serviceId: "<id>",
     deviceVerificationRequest: {
       userCode: "XWWKPBWVXQ",
@@ -271,7 +271,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { deviceFlowProcessVerification } from "authlete/funcs/deviceFlowProcessVerification.js";
+import { deviceFlowVerification } from "authlete/funcs/deviceFlowVerification.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -282,7 +282,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await deviceFlowProcessVerification(authlete, {
+  const res = await deviceFlowVerification(authlete, {
     serviceId: "<id>",
     deviceVerificationRequest: {
       userCode: "XWWKPBWVXQ",
@@ -292,7 +292,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("deviceFlowProcessVerification failed:", res.error);
+    console.log("deviceFlowVerification failed:", res.error);
   }
 }
 
