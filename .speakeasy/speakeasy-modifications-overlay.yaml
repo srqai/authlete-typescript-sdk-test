@@ -38,16 +38,6 @@ actions:
       created_at: 1761727785993
       reviewed_at: 1761727785993
       type: method-name
-  - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/info"]["get"]
-    update:
-      x-speakeasy-group: authorization.management
-      x-speakeasy-name-override: getTicketInfo
-    x-speakeasy-metadata:
-      after: sdk.authorization.getTicketInfo()
-      before: ""
-      created_at: 1761727785993
-      reviewed_at: 1761727785993
-      type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/authorization/ticket/update"]["post"]
     update:
       x-speakeasy-group: authorization.management
