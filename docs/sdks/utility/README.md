@@ -5,10 +5,10 @@
 
 ### Available Operations
 
-* [getServerMetadata](#getservermetadata) - Get Server Metadata
+* [info](#info) - Get Server Metadata
 * [echo](#echo) - Echo
 
-## getServerMetadata
+## info
 
 get the server version and enabled features
 
@@ -26,7 +26,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.utility.getServerMetadata();
+  const result = await authlete.utility.info();
 
   console.log(result);
 }
@@ -40,7 +40,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { utilityGetServerMetadata } from "authlete/funcs/utilityGetServerMetadata.js";
+import { utilityInfo } from "authlete/funcs/utilityInfo.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -51,12 +51,12 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await utilityGetServerMetadata(authlete);
+  const res = await utilityInfo(authlete);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("utilityGetServerMetadata failed:", res.error);
+    console.log("utilityInfo failed:", res.error);
   }
 }
 

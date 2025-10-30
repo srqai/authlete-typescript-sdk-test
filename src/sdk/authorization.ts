@@ -5,13 +5,18 @@
 import { authorizationFail } from "../funcs/authorizationFail.js";
 import { authorizationIssue } from "../funcs/authorizationIssue.js";
 import { authorizationProcessRequest } from "../funcs/authorizationProcessRequest.js";
-import { authorizationUpdateTicket } from "../funcs/authorizationUpdateTicket.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { AuthorizationManagement } from "./authorizationmanagement.js";
 
 export class Authorization extends ClientSDK {
+  private _management?: AuthorizationManagement;
+  get management(): AuthorizationManagement {
+    return (this._management ??= new AuthorizationManagement(this._options));
+  }
+
   /**
    * Process Authorization Request
    *
@@ -810,20 +815,6 @@ export class Authorization extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.AuthorizationIssueResponse> {
     return unwrapAsync(authorizationIssue(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Update Ticket Information
-   */
-  async updateTicket(
-    request: operations.UpdateAuthorizationTicketRequest,
-    options?: RequestOptions,
-  ): Promise<models.AuthorizationTicketUpdateResponse> {
-    return unwrapAsync(authorizationUpdateTicket(
       this,
       request,
       options,

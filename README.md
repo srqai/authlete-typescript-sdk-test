@@ -243,7 +243,10 @@ run();
 * [processRequest](docs/sdks/authorization/README.md#processrequest) - Process Authorization Request
 * [fail](docs/sdks/authorization/README.md#fail) - Fail Authorization Request
 * [issue](docs/sdks/authorization/README.md#issue) - Issue Authorization Response
-* [updateTicket](docs/sdks/authorization/README.md#updateticket) - Update Ticket Information
+
+#### [authorization.management](docs/sdks/authorizationmanagement/README.md)
+
+* [updateTicket](docs/sdks/authorizationmanagement/README.md#updateticket) - Update Ticket Information
 
 ### [ciba](docs/sdks/ciba/README.md)
 
@@ -259,22 +262,25 @@ run();
 * [create](docs/sdks/client/README.md#create) - Create Client
 * [update](docs/sdks/client/README.md#update) - Update Client
 * [delete](docs/sdks/client/README.md#delete) - Delete Client ⚡
-* [updateLockFlag](docs/sdks/client/README.md#updatelockflag) - Update Client Lock
-* [refreshSecret](docs/sdks/client/README.md#refreshsecret) - Rotate Client Secret
-* [updateSecret](docs/sdks/client/README.md#updatesecret) - Update Client Secret
-* [listAuthorizations](docs/sdks/client/README.md#listauthorizations) - Get Authorized Applications
-* [updateAuthorizations](docs/sdks/client/README.md#updateauthorizations) - Update Client Tokens
-* [deleteAuthorizations](docs/sdks/client/README.md#deleteauthorizations) - Delete Client Tokens
-* [getGrantedScopes](docs/sdks/client/README.md#getgrantedscopes) - Get Granted Scopes
-* [deleteGrantedScopes](docs/sdks/client/README.md#deletegrantedscopes) - Delete Granted Scopes
-* [getRequestableScopes](docs/sdks/client/README.md#getrequestablescopes) - Get Requestable Scopes
-* [updateRequestableScopes](docs/sdks/client/README.md#updaterequestablescopes) - Update Requestable Scopes
-* [deleteRequestableScopes](docs/sdks/client/README.md#deleterequestablescopes) - Delete Requestable Scopes
+
+#### [client.management](docs/sdks/clientmanagement/README.md)
+
+* [updateLockFlag](docs/sdks/clientmanagement/README.md#updatelockflag) - Update Client Lock
+* [refreshSecret](docs/sdks/clientmanagement/README.md#refreshsecret) - Rotate Client Secret
+* [updateSecret](docs/sdks/clientmanagement/README.md#updatesecret) - Update Client Secret
+* [listAuthorizations](docs/sdks/clientmanagement/README.md#listauthorizations) - Get Authorized Applications
+* [updateAuthorizations](docs/sdks/clientmanagement/README.md#updateauthorizations) - Update Client Tokens
+* [deleteAuthorizations](docs/sdks/clientmanagement/README.md#deleteauthorizations) - Delete Client Tokens
+* [getGrantedScopes](docs/sdks/clientmanagement/README.md#getgrantedscopes) - Get Granted Scopes
+* [deleteGrantedScopes](docs/sdks/clientmanagement/README.md#deletegrantedscopes) - Delete Granted Scopes
+* [getRequestableScopes](docs/sdks/clientmanagement/README.md#getrequestablescopes) - Get Requestable Scopes
+* [updateRequestableScopes](docs/sdks/clientmanagement/README.md#updaterequestablescopes) - Update Requestable Scopes
+* [deleteRequestableScopes](docs/sdks/clientmanagement/README.md#deleterequestablescopes) - Delete Requestable Scopes
 
 ### [deviceFlow](docs/sdks/deviceflow/README.md)
 
-* [processAuthorization](docs/sdks/deviceflow/README.md#processauthorization) - Process Device Authorization Request
-* [processVerification](docs/sdks/deviceflow/README.md#processverification) - Process Device Verification Request
+* [authorization](docs/sdks/deviceflow/README.md#authorization) - Process Device Authorization Request
+* [verification](docs/sdks/deviceflow/README.md#verification) - Process Device Verification Request
 * [complete](docs/sdks/deviceflow/README.md#complete) - Complete Device Authorization
 
 ### [dynamicClientRegistration](docs/sdks/dynamicclientregistration/README.md)
@@ -286,8 +292,8 @@ run();
 
 ### [federation](docs/sdks/federation/README.md)
 
-* [processConfiguration](docs/sdks/federation/README.md#processconfiguration) - Process Entity Configuration Request
-* [processRegistration](docs/sdks/federation/README.md#processregistration) - Process Federation Registration Request
+* [configuration](docs/sdks/federation/README.md#configuration) - Process Entity Configuration Request
+* [registration](docs/sdks/federation/README.md#registration) - Process Federation Registration Request
 
 ### [grantManagement](docs/sdks/grantmanagement/README.md)
 
@@ -303,15 +309,18 @@ run();
 ### [introspection](docs/sdks/introspection/README.md)
 
 * [process](docs/sdks/introspection/README.md#process) - Process Introspection Request
-* [standardProcess](docs/sdks/introspection/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
 
-### [jose](docs/sdks/jose/README.md)
+#### [introspection.management](docs/sdks/introspectionmanagement/README.md)
 
-* [verify](docs/sdks/jose/README.md#verify) - Verify JOSE
+* [standardProcess](docs/sdks/introspectionmanagement/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
 
-### [jwks](docs/sdks/jwks/README.md)
+### [joseObject](docs/sdks/joseobject/README.md)
 
-* [get](docs/sdks/jwks/README.md#get) - Get JWK Set
+* [joseVerifyApi](docs/sdks/joseobject/README.md#joseverifyapi) - Verify JOSE
+
+### [jwkSetEndpoint](docs/sdks/jwksetendpoint/README.md)
+
+* [serviceJwksGetApi](docs/sdks/jwksetendpoint/README.md#servicejwksgetapi) - Get JWK Set
 
 ### [nativeSso](docs/sdks/nativesso/README.md)
 
@@ -333,22 +342,25 @@ run();
 * [create](docs/sdks/service/README.md#create) - Create Service
 * [update](docs/sdks/service/README.md#update) - Update Service
 * [delete](docs/sdks/service/README.md#delete) - Delete Service ⚡
-* [getConfiguration](docs/sdks/service/README.md#getconfiguration) - Get Service Configuration
+
+#### [service.management](docs/sdks/servicemanagement/README.md)
+
+* [getConfiguration](docs/sdks/servicemanagement/README.md#getconfiguration) - Get Service Configuration
 
 ### [token](docs/sdks/token/README.md)
 
 * [process](docs/sdks/token/README.md#process) - Process Token Request
 * [fail](docs/sdks/token/README.md#fail) - Fail Token Request
 * [issue](docs/sdks/token/README.md#issue) - Issue Token Response
-* [reissueIdToken](docs/sdks/token/README.md#reissueidtoken) - Reissue ID Token
 
-#### [token.management](docs/sdks/management/README.md)
+#### [token.management](docs/sdks/tokenmanagement/README.md)
 
-* [list](docs/sdks/management/README.md#list) - List Issued Tokens
-* [create](docs/sdks/management/README.md#create) - Create Access Token
-* [update](docs/sdks/management/README.md#update) - Update Access Token
-* [delete](docs/sdks/management/README.md#delete) - Delete Access Token
-* [revoke](docs/sdks/management/README.md#revoke) - Revoke Access Token
+* [reissueIdToken](docs/sdks/tokenmanagement/README.md#reissueidtoken) - Reissue ID Token
+* [list](docs/sdks/tokenmanagement/README.md#list) - List Issued Tokens
+* [create](docs/sdks/tokenmanagement/README.md#create) - Create Access Token
+* [update](docs/sdks/tokenmanagement/README.md#update) - Update Access Token
+* [delete](docs/sdks/tokenmanagement/README.md#delete) - Delete Access Token
+* [revoke](docs/sdks/tokenmanagement/README.md#revoke) - Revoke Access Token
 
 ### [userinfo](docs/sdks/userinfo/README.md)
 
@@ -357,22 +369,25 @@ run();
 
 ### [utility](docs/sdks/utility/README.md)
 
-* [getServerMetadata](docs/sdks/utility/README.md#getservermetadata) - Get Server Metadata
+* [info](docs/sdks/utility/README.md#info) - Get Server Metadata
 * [echo](docs/sdks/utility/README.md#echo) - Echo
 
 ### [verifiableCredentials](docs/sdks/verifiablecredentials/README.md)
 
-* [getMetadata](docs/sdks/verifiablecredentials/README.md#getmetadata) - Get Verifiable Credential Issuer Metadata
-* [getJwtIssuer](docs/sdks/verifiablecredentials/README.md#getjwtissuer) - Get JWT Issuer Information
-* [getJwks](docs/sdks/verifiablecredentials/README.md#getjwks) - Get JSON Web Key Set
 * [createOffer](docs/sdks/verifiablecredentials/README.md#createoffer) - Create Credential Offer
 * [getOfferInfo](docs/sdks/verifiablecredentials/README.md#getofferinfo) - Get Credential Offer Information
 * [parse](docs/sdks/verifiablecredentials/README.md#parse) - Parse Single Credential
 * [issue](docs/sdks/verifiablecredentials/README.md#issue) - Issue Single Credential
-* [batchParse](docs/sdks/verifiablecredentials/README.md#batchparse) - Parse Batch Credentials
-* [batchIssue](docs/sdks/verifiablecredentials/README.md#batchissue) - Issue Batch Credentials
-* [deferredParse](docs/sdks/verifiablecredentials/README.md#deferredparse) - Parse Deferred Credential
-* [deferredIssue](docs/sdks/verifiablecredentials/README.md#deferredissue) - Issue Deferred Credential
+
+#### [verifiableCredentials.management](docs/sdks/verifiablecredentialsmanagement/README.md)
+
+* [getMetadata](docs/sdks/verifiablecredentialsmanagement/README.md#getmetadata) - Get Verifiable Credential Issuer Metadata
+* [getJwtIssuer](docs/sdks/verifiablecredentialsmanagement/README.md#getjwtissuer) - Get JWT Issuer Information
+* [getJwks](docs/sdks/verifiablecredentialsmanagement/README.md#getjwks) - Get JSON Web Key Set
+* [batchParse](docs/sdks/verifiablecredentialsmanagement/README.md#batchparse) - Parse Batch Credentials
+* [batchIssue](docs/sdks/verifiablecredentialsmanagement/README.md#batchissue) - Issue Batch Credentials
+* [deferredParse](docs/sdks/verifiablecredentialsmanagement/README.md#deferredparse) - Parse Deferred Credential
+* [deferredIssue](docs/sdks/verifiablecredentialsmanagement/README.md#deferredissue) - Issue Deferred Credential
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -394,46 +409,46 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 - [`authorizationFail`](docs/sdks/authorization/README.md#fail) - Fail Authorization Request
 - [`authorizationIssue`](docs/sdks/authorization/README.md#issue) - Issue Authorization Response
+- [`authorizationManagementUpdateTicket`](docs/sdks/authorizationmanagement/README.md#updateticket) - Update Ticket Information
 - [`authorizationProcessRequest`](docs/sdks/authorization/README.md#processrequest) - Process Authorization Request
-- [`authorizationUpdateTicket`](docs/sdks/authorization/README.md#updateticket) - Update Ticket Information
 - [`cibaComplete`](docs/sdks/ciba/README.md#complete) - Complete Backchannel Authentication
 - [`cibaFail`](docs/sdks/ciba/README.md#fail) - Fail Backchannel Authentication Request
 - [`cibaIssue`](docs/sdks/ciba/README.md#issue) - Issue Backchannel Authentication Response
 - [`cibaProcessAuthentication`](docs/sdks/ciba/README.md#processauthentication) - Process Backchannel Authentication Request
 - [`clientCreate`](docs/sdks/client/README.md#create) - Create Client
 - [`clientDelete`](docs/sdks/client/README.md#delete) - Delete Client ⚡
-- [`clientDeleteAuthorizations`](docs/sdks/client/README.md#deleteauthorizations) - Delete Client Tokens
-- [`clientDeleteGrantedScopes`](docs/sdks/client/README.md#deletegrantedscopes) - Delete Granted Scopes
-- [`clientDeleteRequestableScopes`](docs/sdks/client/README.md#deleterequestablescopes) - Delete Requestable Scopes
 - [`clientGet`](docs/sdks/client/README.md#get) - Get Client
-- [`clientGetGrantedScopes`](docs/sdks/client/README.md#getgrantedscopes) - Get Granted Scopes
-- [`clientGetRequestableScopes`](docs/sdks/client/README.md#getrequestablescopes) - Get Requestable Scopes
 - [`clientList`](docs/sdks/client/README.md#list) - List Clients
-- [`clientListAuthorizations`](docs/sdks/client/README.md#listauthorizations) - Get Authorized Applications
-- [`clientRefreshSecret`](docs/sdks/client/README.md#refreshsecret) - Rotate Client Secret
+- [`clientManagementDeleteAuthorizations`](docs/sdks/clientmanagement/README.md#deleteauthorizations) - Delete Client Tokens
+- [`clientManagementDeleteGrantedScopes`](docs/sdks/clientmanagement/README.md#deletegrantedscopes) - Delete Granted Scopes
+- [`clientManagementDeleteRequestableScopes`](docs/sdks/clientmanagement/README.md#deleterequestablescopes) - Delete Requestable Scopes
+- [`clientManagementGetGrantedScopes`](docs/sdks/clientmanagement/README.md#getgrantedscopes) - Get Granted Scopes
+- [`clientManagementGetRequestableScopes`](docs/sdks/clientmanagement/README.md#getrequestablescopes) - Get Requestable Scopes
+- [`clientManagementListAuthorizations`](docs/sdks/clientmanagement/README.md#listauthorizations) - Get Authorized Applications
+- [`clientManagementRefreshSecret`](docs/sdks/clientmanagement/README.md#refreshsecret) - Rotate Client Secret
+- [`clientManagementUpdateAuthorizations`](docs/sdks/clientmanagement/README.md#updateauthorizations) - Update Client Tokens
+- [`clientManagementUpdateLockFlag`](docs/sdks/clientmanagement/README.md#updatelockflag) - Update Client Lock
+- [`clientManagementUpdateRequestableScopes`](docs/sdks/clientmanagement/README.md#updaterequestablescopes) - Update Requestable Scopes
+- [`clientManagementUpdateSecret`](docs/sdks/clientmanagement/README.md#updatesecret) - Update Client Secret
 - [`clientUpdate`](docs/sdks/client/README.md#update) - Update Client
-- [`clientUpdateAuthorizations`](docs/sdks/client/README.md#updateauthorizations) - Update Client Tokens
-- [`clientUpdateLockFlag`](docs/sdks/client/README.md#updatelockflag) - Update Client Lock
-- [`clientUpdateRequestableScopes`](docs/sdks/client/README.md#updaterequestablescopes) - Update Requestable Scopes
-- [`clientUpdateSecret`](docs/sdks/client/README.md#updatesecret) - Update Client Secret
+- [`deviceFlowAuthorization`](docs/sdks/deviceflow/README.md#authorization) - Process Device Authorization Request
 - [`deviceFlowComplete`](docs/sdks/deviceflow/README.md#complete) - Complete Device Authorization
-- [`deviceFlowProcessAuthorization`](docs/sdks/deviceflow/README.md#processauthorization) - Process Device Authorization Request
-- [`deviceFlowProcessVerification`](docs/sdks/deviceflow/README.md#processverification) - Process Device Verification Request
+- [`deviceFlowVerification`](docs/sdks/deviceflow/README.md#verification) - Process Device Verification Request
 - [`dynamicClientRegistrationDelete`](docs/sdks/dynamicclientregistration/README.md#delete) - Delete Client
 - [`dynamicClientRegistrationGet`](docs/sdks/dynamicclientregistration/README.md#get) - Get Client
 - [`dynamicClientRegistrationRegister`](docs/sdks/dynamicclientregistration/README.md#register) - Register Client
 - [`dynamicClientRegistrationUpdate`](docs/sdks/dynamicclientregistration/README.md#update) - Update Client
-- [`federationProcessConfiguration`](docs/sdks/federation/README.md#processconfiguration) - Process Entity Configuration Request
-- [`federationProcessRegistration`](docs/sdks/federation/README.md#processregistration) - Process Federation Registration Request
+- [`federationConfiguration`](docs/sdks/federation/README.md#configuration) - Process Entity Configuration Request
+- [`federationRegistration`](docs/sdks/federation/README.md#registration) - Process Federation Registration Request
 - [`grantManagementProcessRequest`](docs/sdks/grantmanagement/README.md#processrequest) - Process Grant Management Request
 - [`hardwareSecurityKeysCreate`](docs/sdks/hardwaresecuritykeys/README.md#create) - Create Security Key
 - [`hardwareSecurityKeysDelete`](docs/sdks/hardwaresecuritykeys/README.md#delete) - Delete Security Key
 - [`hardwareSecurityKeysGet`](docs/sdks/hardwaresecuritykeys/README.md#get) - Get Security Key
 - [`hardwareSecurityKeysList`](docs/sdks/hardwaresecuritykeys/README.md#list) - List Security Keys
+- [`introspectionManagementStandardProcess`](docs/sdks/introspectionmanagement/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
 - [`introspectionProcess`](docs/sdks/introspection/README.md#process) - Process Introspection Request
-- [`introspectionStandardProcess`](docs/sdks/introspection/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
-- [`joseVerify`](docs/sdks/jose/README.md#verify) - Verify JOSE
-- [`jwksGet`](docs/sdks/jwks/README.md#get) - Get JWK Set
+- [`joseObjectJoseVerifyApi`](docs/sdks/joseobject/README.md#joseverifyapi) - Verify JOSE
+- [`jwkSetEndpointServiceJwksGetApi`](docs/sdks/jwksetendpoint/README.md#servicejwksgetapi) - Get JWK Set
 - [`nativeSsoLogout`](docs/sdks/nativesso/README.md#logout) - Native SSO Logout Processing
 - [`nativeSsoProcess`](docs/sdks/nativesso/README.md#process) - Native SSO Processing
 - [`pushedAuthorizationCreate`](docs/sdks/pushedauthorization/README.md#create) - Process Pushed Authorization Request
@@ -441,32 +456,32 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`serviceCreate`](docs/sdks/service/README.md#create) - Create Service
 - [`serviceDelete`](docs/sdks/service/README.md#delete) - Delete Service ⚡
 - [`serviceGet`](docs/sdks/service/README.md#get) - Get Service
-- [`serviceGetConfiguration`](docs/sdks/service/README.md#getconfiguration) - Get Service Configuration
 - [`serviceList`](docs/sdks/service/README.md#list) - List Services
+- [`serviceManagementGetConfiguration`](docs/sdks/servicemanagement/README.md#getconfiguration) - Get Service Configuration
 - [`serviceUpdate`](docs/sdks/service/README.md#update) - Update Service
 - [`tokenFail`](docs/sdks/token/README.md#fail) - Fail Token Request
 - [`tokenIssue`](docs/sdks/token/README.md#issue) - Issue Token Response
-- [`tokenManagementCreate`](docs/sdks/management/README.md#create) - Create Access Token
-- [`tokenManagementDelete`](docs/sdks/management/README.md#delete) - Delete Access Token
-- [`tokenManagementList`](docs/sdks/management/README.md#list) - List Issued Tokens
-- [`tokenManagementRevoke`](docs/sdks/management/README.md#revoke) - Revoke Access Token
-- [`tokenManagementUpdate`](docs/sdks/management/README.md#update) - Update Access Token
+- [`tokenManagementCreate`](docs/sdks/tokenmanagement/README.md#create) - Create Access Token
+- [`tokenManagementDelete`](docs/sdks/tokenmanagement/README.md#delete) - Delete Access Token
+- [`tokenManagementList`](docs/sdks/tokenmanagement/README.md#list) - List Issued Tokens
+- [`tokenManagementReissueIdToken`](docs/sdks/tokenmanagement/README.md#reissueidtoken) - Reissue ID Token
+- [`tokenManagementRevoke`](docs/sdks/tokenmanagement/README.md#revoke) - Revoke Access Token
+- [`tokenManagementUpdate`](docs/sdks/tokenmanagement/README.md#update) - Update Access Token
 - [`tokenProcess`](docs/sdks/token/README.md#process) - Process Token Request
-- [`tokenReissueIdToken`](docs/sdks/token/README.md#reissueidtoken) - Reissue ID Token
 - [`userinfoIssue`](docs/sdks/userinfo/README.md#issue) - Issue UserInfo Response
 - [`userinfoProcess`](docs/sdks/userinfo/README.md#process) - Process UserInfo Request
 - [`utilityEcho`](docs/sdks/utility/README.md#echo) - Echo
-- [`utilityGetServerMetadata`](docs/sdks/utility/README.md#getservermetadata) - Get Server Metadata
-- [`verifiableCredentialsBatchIssue`](docs/sdks/verifiablecredentials/README.md#batchissue) - Issue Batch Credentials
-- [`verifiableCredentialsBatchParse`](docs/sdks/verifiablecredentials/README.md#batchparse) - Parse Batch Credentials
+- [`utilityInfo`](docs/sdks/utility/README.md#info) - Get Server Metadata
 - [`verifiableCredentialsCreateOffer`](docs/sdks/verifiablecredentials/README.md#createoffer) - Create Credential Offer
-- [`verifiableCredentialsDeferredIssue`](docs/sdks/verifiablecredentials/README.md#deferredissue) - Issue Deferred Credential
-- [`verifiableCredentialsDeferredParse`](docs/sdks/verifiablecredentials/README.md#deferredparse) - Parse Deferred Credential
-- [`verifiableCredentialsGetJwks`](docs/sdks/verifiablecredentials/README.md#getjwks) - Get JSON Web Key Set
-- [`verifiableCredentialsGetJwtIssuer`](docs/sdks/verifiablecredentials/README.md#getjwtissuer) - Get JWT Issuer Information
-- [`verifiableCredentialsGetMetadata`](docs/sdks/verifiablecredentials/README.md#getmetadata) - Get Verifiable Credential Issuer Metadata
 - [`verifiableCredentialsGetOfferInfo`](docs/sdks/verifiablecredentials/README.md#getofferinfo) - Get Credential Offer Information
 - [`verifiableCredentialsIssue`](docs/sdks/verifiablecredentials/README.md#issue) - Issue Single Credential
+- [`verifiableCredentialsManagementBatchIssue`](docs/sdks/verifiablecredentialsmanagement/README.md#batchissue) - Issue Batch Credentials
+- [`verifiableCredentialsManagementBatchParse`](docs/sdks/verifiablecredentialsmanagement/README.md#batchparse) - Parse Batch Credentials
+- [`verifiableCredentialsManagementDeferredIssue`](docs/sdks/verifiablecredentialsmanagement/README.md#deferredissue) - Issue Deferred Credential
+- [`verifiableCredentialsManagementDeferredParse`](docs/sdks/verifiablecredentialsmanagement/README.md#deferredparse) - Parse Deferred Credential
+- [`verifiableCredentialsManagementGetJwks`](docs/sdks/verifiablecredentialsmanagement/README.md#getjwks) - Get JSON Web Key Set
+- [`verifiableCredentialsManagementGetJwtIssuer`](docs/sdks/verifiablecredentialsmanagement/README.md#getjwtissuer) - Get JWT Issuer Information
+- [`verifiableCredentialsManagementGetMetadata`](docs/sdks/verifiablecredentialsmanagement/README.md#getmetadata) - Get Verifiable Credential Issuer Metadata
 - [`verifiableCredentialsParse`](docs/sdks/verifiablecredentials/README.md#parse) - Parse Single Credential
 
 </details>
