@@ -400,7 +400,7 @@ actions:
       type: method-name
   - target: $["paths"]["/api/{serviceId}/auth/introspection/standard"]["post"]
     update:
-      x-speakeasy-group: introspection.management
+      x-speakeasy-group: introspection
       x-speakeasy-name-override: standardProcess
     x-speakeasy-metadata:
       after: sdk.introspection.standardProcess()
@@ -490,7 +490,7 @@ actions:
       type: method-name
   - target: $["paths"]["/api/{serviceId}/service/configuration"]["get"]
     update:
-      x-speakeasy-group: service.management
+      x-speakeasy-group: service
       x-speakeasy-name-override: getConfiguration
     x-speakeasy-metadata:
       after: sdk.service.getConfiguration()
