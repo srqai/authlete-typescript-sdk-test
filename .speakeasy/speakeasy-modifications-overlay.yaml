@@ -657,7 +657,7 @@ actions:
       type: remove
   - target: $["paths"]["/api/{serviceId}/vci/metadata"]["post"]
     update:
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: getMetadata
     x-speakeasy-metadata:
       after: sdk.verifiableCredentials.getMetadata()
@@ -667,7 +667,7 @@ actions:
       type: method-name
   - target: $["paths"]["/api/{serviceId}/vci/jwks"]["post"]
     update:
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: getJwks
     x-speakeasy-metadata:
       after: sdk.verifiableCredentials.getJwks()
@@ -677,7 +677,7 @@ actions:
       type: method-name
   - target: $["paths"]["/api/{serviceId}/vci/jwtissuer"]["post"]
     update:
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: getJwtIssuer
     x-speakeasy-metadata:
       after: sdk.verifiableCredentials.getJwtIssuer()
@@ -727,7 +727,7 @@ actions:
       type: method-name
   - target: $["paths"]["/api/{serviceId}/vci/batch/parse"]["post"]
     update:
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: batchParse
     x-speakeasy-metadata:
       after: sdk.verifiableCredentials.batchParse()
@@ -737,7 +737,7 @@ actions:
       type: method-name
   - target: $["paths"]["/api/{serviceId}/vci/batch/issue"]["post"]
     update:
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: batchIssue
     x-speakeasy-metadata:
       after: sdk.verifiableCredentials.batchIssue()
@@ -747,7 +747,7 @@ actions:
       type: method-name
   - target: $["paths"]["/api/{serviceId}/vci/deferred/parse"]["post"]
     update:
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: deferredParse
     x-speakeasy-metadata:
       after: sdk.verifiableCredentials.deferredParse()
@@ -757,7 +757,7 @@ actions:
       type: method-name
   - target: $["paths"]["/api/{serviceId}/vci/deferred/issue"]["post"]
     update:
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: deferredIssue
     x-speakeasy-metadata:
       after: sdk.verifiableCredentials.deferredIssue()
