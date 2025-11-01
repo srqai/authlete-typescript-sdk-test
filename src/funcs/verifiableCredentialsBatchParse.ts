@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Parse multiple verifiable credentials in batch
  */
-export function verifiableCredentialsManagementBatchParse(
+export function verifiableCredentialsBatchParse(
   client: AuthleteCore,
   request: operations.VciBatchParseApiRequest,
   options?: RequestOptions,
