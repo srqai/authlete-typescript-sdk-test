@@ -3,7 +3,7 @@
  */
 
 import { AuthleteCore } from "../core.js";
-import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -21,35 +21,24 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
+import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Service Configuration
+ * Get JSON Web Key Set
  *
  * @remarks
- * This API gathers configuration information about a service.
- *
- * <br>
- * <details>
- * <summary>Description</summary>
- *
- * This API is supposed to be called from within the implementation of the configuration endpoint of
- * the service where the service that supports OpenID Connect and [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
- * must expose its configuration information in a JSON format. Details about the format are described
- * in "[3. OpenID Provider Metadata](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata)"
- * in OpenID Connect Discovery 1.0.
- *
- * </details>
+ * Get JSON Web Key Set for VCI
  */
-export function serviceManagementGetConfiguration(
+export function verifiableCredentialsGetJwks(
   client: AuthleteCore,
-  request: operations.ServiceConfigurationApiRequest,
+  request: operations.VciJwksApiRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.ServiceConfigurationApiResponse,
+    models.VciJwksResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -70,12 +59,12 @@ export function serviceManagementGetConfiguration(
 
 async function $do(
   client: AuthleteCore,
-  request: operations.ServiceConfigurationApiRequest,
+  request: operations.VciJwksApiRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.ServiceConfigurationApiResponse,
+      models.VciJwksResponse,
       | errors.ResultError
       | AuthleteError
       | ResponseValidationError
@@ -91,15 +80,14 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.ServiceConfigurationApiRequest$outboundSchema.parse(value),
+    (value) => operations.VciJwksApiRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload.vci_jwks_request, { explode: true });
 
   const pathParams = {
     serviceId: encodeSimple("serviceId", payload.serviceId, {
@@ -108,14 +96,10 @@ async function $do(
     }),
   };
 
-  const path = pathToFunc("/api/{serviceId}/service/configuration")(pathParams);
-
-  const query = encodeFormQuery({
-    "patch": payload.patch,
-    "pretty": payload.pretty,
-  });
+  const path = pathToFunc("/api/{serviceId}/vci/jwks")(pathParams);
 
   const headers = new Headers(compactMap({
+    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -125,7 +109,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "service_configuration_api",
+    operationID: "vci_jwks_api",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -139,11 +123,10 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "GET",
+    method: "POST",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
-    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
@@ -169,7 +152,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.ServiceConfigurationApiResponse,
+    models.VciJwksResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -180,7 +163,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.ServiceConfigurationApiResponse$inboundSchema),
+    M.json(200, models.VciJwksResponse$inboundSchema),
     M.jsonErr([400, 401, 403], errors.ResultError$inboundSchema),
     M.jsonErr(500, errors.ResultError$inboundSchema),
     M.fail("4XX"),

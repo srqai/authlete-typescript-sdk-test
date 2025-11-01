@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Issue a deferred verifiable credential
  */
-export function verifiableCredentialsManagementDeferredIssue(
+export function verifiableCredentialsDeferredIssue(
   client: AuthleteCore,
   request: operations.VciDeferredIssueApiRequest,
   options?: RequestOptions,

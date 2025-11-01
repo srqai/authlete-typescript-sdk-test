@@ -4599,7 +4599,7 @@ paths:
             api.standardIntrospection(req)
       tags:
         - Introspection Endpoint
-      x-speakeasy-group: introspection.management
+      x-speakeasy-group: introspection
       x-speakeasy-name-override: standardProcess
   /api/{serviceId}/auth/revocation:
     post:
@@ -5690,7 +5690,7 @@ paths:
             api.getServiceConfiguration(True)
       tags:
         - Service Management
-      x-speakeasy-group: service.management
+      x-speakeasy-group: service
       x-speakeasy-name-override: getConfiguration
   /api/{serviceId}/client/registration:
     post:
@@ -8818,7 +8818,7 @@ paths:
       operationId: vci_metadata_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: getMetadata
   /api/{serviceId}/vci/jwtissuer:
     post:
@@ -8858,7 +8858,7 @@ paths:
       operationId: vci_jwtissuer_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: getJwtIssuer
   /api/{serviceId}/vci/jwks:
     post:
@@ -8898,7 +8898,7 @@ paths:
       operationId: vci_jwks_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: getJwks
   /api/{serviceId}/vci/offer/create:
     post:
@@ -9095,7 +9095,7 @@ paths:
       operationId: vci_batch_parse_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: batchParse
   /api/{serviceId}/vci/batch/issue:
     post:
@@ -9132,7 +9132,7 @@ paths:
       operationId: vci_batch_issue_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: batchIssue
   /api/{serviceId}/vci/deferred/parse:
     post:
@@ -9172,7 +9172,7 @@ paths:
       operationId: vci_deferred_parse_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: deferredParse
   /api/{serviceId}/vci/deferred/issue:
     post:
@@ -9209,7 +9209,7 @@ paths:
       operationId: vci_deferred_issue_api
       tags:
         - Verifiable Credential Issuer
-      x-speakeasy-group: verifiableCredentials.management
+      x-speakeasy-group: verifiableCredentials
       x-speakeasy-name-override: deferredIssue
   /api/{serviceId}/auth/authorization/ticket/info: {}
   /api/{serviceId}/auth/authorization/ticket/update:

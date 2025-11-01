@@ -309,10 +309,7 @@ run();
 ### [introspection](docs/sdks/introspection/README.md)
 
 * [process](docs/sdks/introspection/README.md#process) - Process Introspection Request
-
-#### [introspection.management](docs/sdks/introspectionmanagement/README.md)
-
-* [standardProcess](docs/sdks/introspectionmanagement/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
+* [standardProcess](docs/sdks/introspection/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
 
 ### [nativeSso](docs/sdks/nativesso/README.md)
 
@@ -334,10 +331,7 @@ run();
 * [create](docs/sdks/service/README.md#create) - Create Service
 * [update](docs/sdks/service/README.md#update) - Update Service
 * [delete](docs/sdks/service/README.md#delete) - Delete Service ⚡
-
-#### [service.management](docs/sdks/servicemanagement/README.md)
-
-* [getConfiguration](docs/sdks/servicemanagement/README.md#getconfiguration) - Get Service Configuration
+* [getConfiguration](docs/sdks/service/README.md#getconfiguration) - Get Service Configuration
 
 ### [token](docs/sdks/token/README.md)
 
@@ -361,20 +355,17 @@ run();
 
 ### [verifiableCredentials](docs/sdks/verifiablecredentials/README.md)
 
+* [getMetadata](docs/sdks/verifiablecredentials/README.md#getmetadata) - Get Verifiable Credential Issuer Metadata
+* [getJwtIssuer](docs/sdks/verifiablecredentials/README.md#getjwtissuer) - Get JWT Issuer Information
+* [getJwks](docs/sdks/verifiablecredentials/README.md#getjwks) - Get JSON Web Key Set
 * [createOffer](docs/sdks/verifiablecredentials/README.md#createoffer) - Create Credential Offer
 * [getOfferInfo](docs/sdks/verifiablecredentials/README.md#getofferinfo) - Get Credential Offer Information
 * [parse](docs/sdks/verifiablecredentials/README.md#parse) - Parse Single Credential
 * [issue](docs/sdks/verifiablecredentials/README.md#issue) - Issue Single Credential
-
-#### [verifiableCredentials.management](docs/sdks/verifiablecredentialsmanagement/README.md)
-
-* [getMetadata](docs/sdks/verifiablecredentialsmanagement/README.md#getmetadata) - Get Verifiable Credential Issuer Metadata
-* [getJwtIssuer](docs/sdks/verifiablecredentialsmanagement/README.md#getjwtissuer) - Get JWT Issuer Information
-* [getJwks](docs/sdks/verifiablecredentialsmanagement/README.md#getjwks) - Get JSON Web Key Set
-* [batchParse](docs/sdks/verifiablecredentialsmanagement/README.md#batchparse) - Parse Batch Credentials
-* [batchIssue](docs/sdks/verifiablecredentialsmanagement/README.md#batchissue) - Issue Batch Credentials
-* [deferredParse](docs/sdks/verifiablecredentialsmanagement/README.md#deferredparse) - Parse Deferred Credential
-* [deferredIssue](docs/sdks/verifiablecredentialsmanagement/README.md#deferredissue) - Issue Deferred Credential
+* [batchParse](docs/sdks/verifiablecredentials/README.md#batchparse) - Parse Batch Credentials
+* [batchIssue](docs/sdks/verifiablecredentials/README.md#batchissue) - Issue Batch Credentials
+* [deferredParse](docs/sdks/verifiablecredentials/README.md#deferredparse) - Parse Deferred Credential
+* [deferredIssue](docs/sdks/verifiablecredentials/README.md#deferredissue) - Issue Deferred Credential
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -432,8 +423,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`hardwareSecurityKeysDelete`](docs/sdks/hardwaresecuritykeys/README.md#delete) - Delete Security Key
 - [`hardwareSecurityKeysGet`](docs/sdks/hardwaresecuritykeys/README.md#get) - Get Security Key
 - [`hardwareSecurityKeysList`](docs/sdks/hardwaresecuritykeys/README.md#list) - List Security Keys
-- [`introspectionManagementStandardProcess`](docs/sdks/introspectionmanagement/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
 - [`introspectionProcess`](docs/sdks/introspection/README.md#process) - Process Introspection Request
+- [`introspectionStandardProcess`](docs/sdks/introspection/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
 - [`nativeSsoLogout`](docs/sdks/nativesso/README.md#logout) - Native SSO Logout Processing
 - [`nativeSsoProcess`](docs/sdks/nativesso/README.md#process) - Native SSO Processing
 - [`pushedAuthorizationCreate`](docs/sdks/pushedauthorization/README.md#create) - Process Pushed Authorization Request
@@ -441,8 +432,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`serviceCreate`](docs/sdks/service/README.md#create) - Create Service
 - [`serviceDelete`](docs/sdks/service/README.md#delete) - Delete Service ⚡
 - [`serviceGet`](docs/sdks/service/README.md#get) - Get Service
+- [`serviceGetConfiguration`](docs/sdks/service/README.md#getconfiguration) - Get Service Configuration
 - [`serviceList`](docs/sdks/service/README.md#list) - List Services
-- [`serviceManagementGetConfiguration`](docs/sdks/servicemanagement/README.md#getconfiguration) - Get Service Configuration
 - [`serviceUpdate`](docs/sdks/service/README.md#update) - Update Service
 - [`tokenFail`](docs/sdks/token/README.md#fail) - Fail Token Request
 - [`tokenIssue`](docs/sdks/token/README.md#issue) - Issue Token Response
@@ -455,16 +446,16 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`tokenProcess`](docs/sdks/token/README.md#process) - Process Token Request
 - [`userinfoIssue`](docs/sdks/userinfo/README.md#issue) - Issue UserInfo Response
 - [`userinfoProcess`](docs/sdks/userinfo/README.md#process) - Process UserInfo Request
+- [`verifiableCredentialsBatchIssue`](docs/sdks/verifiablecredentials/README.md#batchissue) - Issue Batch Credentials
+- [`verifiableCredentialsBatchParse`](docs/sdks/verifiablecredentials/README.md#batchparse) - Parse Batch Credentials
 - [`verifiableCredentialsCreateOffer`](docs/sdks/verifiablecredentials/README.md#createoffer) - Create Credential Offer
+- [`verifiableCredentialsDeferredIssue`](docs/sdks/verifiablecredentials/README.md#deferredissue) - Issue Deferred Credential
+- [`verifiableCredentialsDeferredParse`](docs/sdks/verifiablecredentials/README.md#deferredparse) - Parse Deferred Credential
+- [`verifiableCredentialsGetJwks`](docs/sdks/verifiablecredentials/README.md#getjwks) - Get JSON Web Key Set
+- [`verifiableCredentialsGetJwtIssuer`](docs/sdks/verifiablecredentials/README.md#getjwtissuer) - Get JWT Issuer Information
+- [`verifiableCredentialsGetMetadata`](docs/sdks/verifiablecredentials/README.md#getmetadata) - Get Verifiable Credential Issuer Metadata
 - [`verifiableCredentialsGetOfferInfo`](docs/sdks/verifiablecredentials/README.md#getofferinfo) - Get Credential Offer Information
 - [`verifiableCredentialsIssue`](docs/sdks/verifiablecredentials/README.md#issue) - Issue Single Credential
-- [`verifiableCredentialsManagementBatchIssue`](docs/sdks/verifiablecredentialsmanagement/README.md#batchissue) - Issue Batch Credentials
-- [`verifiableCredentialsManagementBatchParse`](docs/sdks/verifiablecredentialsmanagement/README.md#batchparse) - Parse Batch Credentials
-- [`verifiableCredentialsManagementDeferredIssue`](docs/sdks/verifiablecredentialsmanagement/README.md#deferredissue) - Issue Deferred Credential
-- [`verifiableCredentialsManagementDeferredParse`](docs/sdks/verifiablecredentialsmanagement/README.md#deferredparse) - Parse Deferred Credential
-- [`verifiableCredentialsManagementGetJwks`](docs/sdks/verifiablecredentialsmanagement/README.md#getjwks) - Get JSON Web Key Set
-- [`verifiableCredentialsManagementGetJwtIssuer`](docs/sdks/verifiablecredentialsmanagement/README.md#getjwtissuer) - Get JWT Issuer Information
-- [`verifiableCredentialsManagementGetMetadata`](docs/sdks/verifiablecredentialsmanagement/README.md#getmetadata) - Get Verifiable Credential Issuer Metadata
 - [`verifiableCredentialsParse`](docs/sdks/verifiablecredentials/README.md#parse) - Parse Single Credential
 
 </details>
@@ -637,7 +628,7 @@ You can override the default server globally by passing a server index to the `s
 import { Authlete } from "authlete";
 
 const authlete = new Authlete({
-  serverIdx: 3,
+  serverIdx: 0,
   security: {
     authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
   },
