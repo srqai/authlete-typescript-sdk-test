@@ -27,18 +27,18 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get JWT Issuer Information
+ * Parse Deferred Credential
  *
  * @remarks
- * Get JWT issuer information for VCI
+ * Parse a deferred verifiable credential
  */
-export function verifiableCredentialsManagementGetJwtIssuer(
+export function verifiableCredentialsDeferredParse(
   client: AuthleteCore,
-  request: operations.VciJwtissuerApiRequest,
+  request: operations.VciDeferredParseApiRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.VciJwtissuerResponse,
+    models.VciDeferredParseResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -59,12 +59,12 @@ export function verifiableCredentialsManagementGetJwtIssuer(
 
 async function $do(
   client: AuthleteCore,
-  request: operations.VciJwtissuerApiRequest,
+  request: operations.VciDeferredParseApiRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.VciJwtissuerResponse,
+      models.VciDeferredParseResponse,
       | errors.ResultError
       | AuthleteError
       | ResponseValidationError
@@ -80,14 +80,15 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.VciJwtissuerApiRequest$outboundSchema.parse(value),
+    (value) =>
+      operations.VciDeferredParseApiRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.vci_jwtissuer_request, {
+  const body = encodeJSON("body", payload.vci_deferred_parse_request, {
     explode: true,
   });
 
@@ -98,7 +99,7 @@ async function $do(
     }),
   };
 
-  const path = pathToFunc("/api/{serviceId}/vci/jwtissuer")(pathParams);
+  const path = pathToFunc("/api/{serviceId}/vci/deferred/parse")(pathParams);
 
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
@@ -111,7 +112,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "vci_jwtissuer_api",
+    operationID: "vci_deferred_parse_api",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -154,7 +155,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.VciJwtissuerResponse,
+    models.VciDeferredParseResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -165,7 +166,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.VciJwtissuerResponse$inboundSchema),
+    M.json(200, models.VciDeferredParseResponse$inboundSchema),
     M.jsonErr([400, 401, 403], errors.ResultError$inboundSchema),
     M.jsonErr(500, errors.ResultError$inboundSchema),
     M.fail("4XX"),

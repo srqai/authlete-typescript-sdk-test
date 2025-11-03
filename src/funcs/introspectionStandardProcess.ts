@@ -126,7 +126,7 @@ import { Result } from "../types/fp.js";
  *
  * </details>
  */
-export function introspectionManagementStandardProcess(
+export function introspectionStandardProcess(
   client: AuthleteCore,
   request: operations.AuthIntrospectionStandardApiRequest,
   options?: RequestOptions,
