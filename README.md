@@ -1,4 +1,4 @@
-# authlete
+# Authlete Typescript SDK
 
 Developer-friendly & type-safe Typescript SDK specifically catered to leverage *authlete* API.
 
