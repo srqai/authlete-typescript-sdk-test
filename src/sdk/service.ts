@@ -5,20 +5,15 @@
 import { serviceCreate } from "../funcs/serviceCreate.js";
 import { serviceDelete } from "../funcs/serviceDelete.js";
 import { serviceGet } from "../funcs/serviceGet.js";
+import { serviceGetConfiguration } from "../funcs/serviceGetConfiguration.js";
 import { serviceList } from "../funcs/serviceList.js";
 import { serviceUpdate } from "../funcs/serviceUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
-import { ServiceManagement } from "./servicemanagement.js";
 
 export class Service extends ClientSDK {
-  private _management?: ServiceManagement;
-  get management(): ServiceManagement {
-    return (this._management ??= new ServiceManagement(this._options));
-  }
-
   /**
    * Get Service
    *
@@ -108,6 +103,35 @@ export class Service extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(serviceDelete(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Service Configuration
+   *
+   * @remarks
+   * This API gathers configuration information about a service.
+   *
+   * <br>
+   * <details>
+   * <summary>Description</summary>
+   *
+   * This API is supposed to be called from within the implementation of the configuration endpoint of
+   * the service where the service that supports OpenID Connect and [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
+   * must expose its configuration information in a JSON format. Details about the format are described
+   * in "[3. OpenID Provider Metadata](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata)"
+   * in OpenID Connect Discovery 1.0.
+   *
+   * </details>
+   */
+  async getConfiguration(
+    request: operations.ServiceConfigurationApiRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ServiceConfigurationApiResponse> {
+    return unwrapAsync(serviceGetConfiguration(
       this,
       request,
       options,

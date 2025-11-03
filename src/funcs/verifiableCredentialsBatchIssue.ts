@@ -27,18 +27,18 @@ import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Get Verifiable Credential Issuer Metadata
+ * Issue Batch Credentials
  *
  * @remarks
- * Get verifiable credential issuer metadata
+ * Issue multiple verifiable credentials in batch
  */
-export function verifiableCredentialsManagementGetMetadata(
+export function verifiableCredentialsBatchIssue(
   client: AuthleteCore,
-  request: operations.VciMetadataApiRequest,
+  request: operations.VciBatchIssueApiRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.VciMetadataResponse,
+    models.VciBatchIssueResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -59,12 +59,12 @@ export function verifiableCredentialsManagementGetMetadata(
 
 async function $do(
   client: AuthleteCore,
-  request: operations.VciMetadataApiRequest,
+  request: operations.VciBatchIssueApiRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.VciMetadataResponse,
+      models.VciBatchIssueResponse,
       | errors.ResultError
       | AuthleteError
       | ResponseValidationError
@@ -80,14 +80,14 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.VciMetadataApiRequest$outboundSchema.parse(value),
+    (value) => operations.VciBatchIssueApiRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.vci_metadata_request, {
+  const body = encodeJSON("body", payload.vci_batch_issue_request, {
     explode: true,
   });
 
@@ -98,7 +98,7 @@ async function $do(
     }),
   };
 
-  const path = pathToFunc("/api/{serviceId}/vci/metadata")(pathParams);
+  const path = pathToFunc("/api/{serviceId}/vci/batch/issue")(pathParams);
 
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
@@ -111,7 +111,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "vci_metadata_api",
+    operationID: "vci_batch_issue_api",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -154,7 +154,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.VciMetadataResponse,
+    models.VciBatchIssueResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -165,7 +165,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.VciMetadataResponse$inboundSchema),
+    M.json(200, models.VciBatchIssueResponse$inboundSchema),
     M.jsonErr([400, 401, 403], errors.ResultError$inboundSchema),
     M.jsonErr(500, errors.ResultError$inboundSchema),
     M.fail("4XX"),

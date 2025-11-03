@@ -1,26 +1,26 @@
 lockVersion: 2.0.0
 id: 6bef56a0-baee-4c65-b71e-495533b2af98
 management:
-  docChecksum: 8b243f164c008133e3e8ac9771fa356f
+  docChecksum: a443faf7dd75e2573b740cdc17558f79
   docVersion: 3.0.15
-  speakeasyVersion: 1.643.2
-  generationVersion: 2.731.6
-  releaseVersion: 0.7.8
-  configChecksum: 5b4f4a1afbd8dbcbead7699817b3891e
+  speakeasyVersion: 1.645.2
+  generationVersion: 2.735.1
+  releaseVersion: 0.8.0
+  configChecksum: 3075a6d8e427ea4b2addab9afabcd159
   repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
   installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.24.1
+    core: 3.24.2
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
     globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
-    globalServerURLs: 2.82.5
+    globalServerURLs: 2.83.0
     groups: 2.81.3
     inputOutputModels: 2.82.0
     methodArguments: 0.1.2
@@ -326,17 +326,14 @@ generatedFiles:
   - docs/sdks/grantmanagement/README.md
   - docs/sdks/hardwaresecuritykeys/README.md
   - docs/sdks/introspection/README.md
-  - docs/sdks/introspectionmanagement/README.md
   - docs/sdks/nativesso/README.md
   - docs/sdks/pushedauthorization/README.md
   - docs/sdks/revocation/README.md
   - docs/sdks/service/README.md
-  - docs/sdks/servicemanagement/README.md
   - docs/sdks/token/README.md
   - docs/sdks/tokenmanagement/README.md
   - docs/sdks/userinfo/README.md
   - docs/sdks/verifiablecredentials/README.md
-  - docs/sdks/verifiablecredentialsmanagement/README.md
   - eslint.config.mjs
   - examples/.env.template
   - examples/README.md
@@ -383,8 +380,8 @@ generatedFiles:
   - src/funcs/hardwareSecurityKeysDelete.ts
   - src/funcs/hardwareSecurityKeysGet.ts
   - src/funcs/hardwareSecurityKeysList.ts
-  - src/funcs/introspectionManagementStandardProcess.ts
   - src/funcs/introspectionProcess.ts
+  - src/funcs/introspectionStandardProcess.ts
   - src/funcs/nativeSsoLogout.ts
   - src/funcs/nativeSsoProcess.ts
   - src/funcs/pushedAuthorizationCreate.ts
@@ -392,8 +389,8 @@ generatedFiles:
   - src/funcs/serviceCreate.ts
   - src/funcs/serviceDelete.ts
   - src/funcs/serviceGet.ts
+  - src/funcs/serviceGetConfiguration.ts
   - src/funcs/serviceList.ts
-  - src/funcs/serviceManagementGetConfiguration.ts
   - src/funcs/serviceUpdate.ts
   - src/funcs/tokenFail.ts
   - src/funcs/tokenIssue.ts
@@ -406,16 +403,16 @@ generatedFiles:
   - src/funcs/tokenProcess.ts
   - src/funcs/userinfoIssue.ts
   - src/funcs/userinfoProcess.ts
+  - src/funcs/verifiableCredentialsBatchIssue.ts
+  - src/funcs/verifiableCredentialsBatchParse.ts
   - src/funcs/verifiableCredentialsCreateOffer.ts
+  - src/funcs/verifiableCredentialsDeferredIssue.ts
+  - src/funcs/verifiableCredentialsDeferredParse.ts
+  - src/funcs/verifiableCredentialsGetJwks.ts
+  - src/funcs/verifiableCredentialsGetJwtIssuer.ts
+  - src/funcs/verifiableCredentialsGetMetadata.ts
   - src/funcs/verifiableCredentialsGetOfferInfo.ts
   - src/funcs/verifiableCredentialsIssue.ts
-  - src/funcs/verifiableCredentialsManagementBatchIssue.ts
-  - src/funcs/verifiableCredentialsManagementBatchParse.ts
-  - src/funcs/verifiableCredentialsManagementDeferredIssue.ts
-  - src/funcs/verifiableCredentialsManagementDeferredParse.ts
-  - src/funcs/verifiableCredentialsManagementGetJwks.ts
-  - src/funcs/verifiableCredentialsManagementGetJwtIssuer.ts
-  - src/funcs/verifiableCredentialsManagementGetMetadata.ts
   - src/funcs/verifiableCredentialsParse.ts
   - src/hooks/hooks.ts
   - src/hooks/index.ts
@@ -676,18 +673,15 @@ generatedFiles:
   - src/sdk/hardwaresecuritykeys.ts
   - src/sdk/index.ts
   - src/sdk/introspection.ts
-  - src/sdk/introspectionmanagement.ts
   - src/sdk/nativesso.ts
   - src/sdk/pushedauthorization.ts
   - src/sdk/revocation.ts
   - src/sdk/sdk.ts
   - src/sdk/service.ts
-  - src/sdk/servicemanagement.ts
   - src/sdk/token.ts
   - src/sdk/tokenmanagement.ts
   - src/sdk/userinfo.ts
   - src/sdk/verifiablecredentials.ts
-  - src/sdk/verifiablecredentialsmanagement.ts
   - src/types/async.ts
   - src/types/blobs.ts
   - src/types/constdatetime.ts
@@ -1798,3 +1792,23 @@ examples:
         "500":
           application/json: {}
 examplesVersion: 1.0.2
+releaseNotes: |
+  ## Typescript SDK Changes Detected:
+  * `authlete.service.getConfiguration()`: **Added**
+  * `authlete.introspection.standardProcess()`: **Added**
+  * `authlete.verifiableCredentials.getMetadata()`: **Added**
+  * `authlete.verifiableCredentials.getJwtIssuer()`: **Added**
+  * `authlete.verifiableCredentials.getJwks()`: **Added**
+  * `authlete.verifiableCredentials.batchParse()`: **Added**
+  * `authlete.verifiableCredentials.batchIssue()`: **Added**
+  * `authlete.verifiableCredentials.deferredParse()`: **Added**
+  * `authlete.verifiableCredentials.deferredIssue()`: **Added**
+  * `authlete.service.management.getConfiguration()`: **Deleted** **Breaking** :warning:
+  * `authlete.introspection.management.standardProcess()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentials.management.getMetadata()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentials.management.getJwtIssuer()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentials.management.getJwks()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentials.management.batchParse()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentials.management.batchIssue()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentials.management.deferredParse()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentials.management.deferredIssue()`: **Deleted** **Breaking** :warning:

@@ -3,7 +3,7 @@
  */
 
 import { AuthleteCore } from "../core.js";
-import { encodeJSON, encodeSimple } from "../lib/encodings.js";
+import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -21,24 +21,35 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Parse Deferred Credential
+ * Get Service Configuration
  *
  * @remarks
- * Parse a deferred verifiable credential
+ * This API gathers configuration information about a service.
+ *
+ * <br>
+ * <details>
+ * <summary>Description</summary>
+ *
+ * This API is supposed to be called from within the implementation of the configuration endpoint of
+ * the service where the service that supports OpenID Connect and [OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html)
+ * must expose its configuration information in a JSON format. Details about the format are described
+ * in "[3. OpenID Provider Metadata](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata)"
+ * in OpenID Connect Discovery 1.0.
+ *
+ * </details>
  */
-export function verifiableCredentialsManagementDeferredParse(
+export function serviceGetConfiguration(
   client: AuthleteCore,
-  request: operations.VciDeferredParseApiRequest,
+  request: operations.ServiceConfigurationApiRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    models.VciDeferredParseResponse,
+    operations.ServiceConfigurationApiResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -59,12 +70,12 @@ export function verifiableCredentialsManagementDeferredParse(
 
 async function $do(
   client: AuthleteCore,
-  request: operations.VciDeferredParseApiRequest,
+  request: operations.ServiceConfigurationApiRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      models.VciDeferredParseResponse,
+      operations.ServiceConfigurationApiResponse,
       | errors.ResultError
       | AuthleteError
       | ResponseValidationError
@@ -81,16 +92,14 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      operations.VciDeferredParseApiRequest$outboundSchema.parse(value),
+      operations.ServiceConfigurationApiRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.vci_deferred_parse_request, {
-    explode: true,
-  });
+  const body = null;
 
   const pathParams = {
     serviceId: encodeSimple("serviceId", payload.serviceId, {
@@ -99,10 +108,14 @@ async function $do(
     }),
   };
 
-  const path = pathToFunc("/api/{serviceId}/vci/deferred/parse")(pathParams);
+  const path = pathToFunc("/api/{serviceId}/service/configuration")(pathParams);
+
+  const query = encodeFormQuery({
+    "patch": payload.patch,
+    "pretty": payload.pretty,
+  });
 
   const headers = new Headers(compactMap({
-    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -112,7 +125,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "vci_deferred_parse_api",
+    operationID: "service_configuration_api",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -126,10 +139,11 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "POST",
+    method: "GET",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
+    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
@@ -155,7 +169,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    models.VciDeferredParseResponse,
+    operations.ServiceConfigurationApiResponse,
     | errors.ResultError
     | AuthleteError
     | ResponseValidationError
@@ -166,7 +180,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, models.VciDeferredParseResponse$inboundSchema),
+    M.json(200, operations.ServiceConfigurationApiResponse$inboundSchema),
     M.jsonErr([400, 401, 403], errors.ResultError$inboundSchema),
     M.jsonErr(500, errors.ResultError$inboundSchema),
     M.fail("4XX"),
