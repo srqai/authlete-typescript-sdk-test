@@ -813,19 +813,21 @@ actions:
       created_at: 1761810600000
       reviewed_at: 1761810600000
       type: method-name
-  - target: $["paths"]["/api/{serviceId}/jose/verify"]
-    remove: true
+  - target: $["paths"]["/api/{serviceId}/jose/verify"]["post"]
+    update:
+      x-speakeasy-internal: true
     x-speakeasy-metadata:
-      after: removed
-      before: present
-      created_at: 1761809000000
-      reviewed_at: 1761809000000
-      type: remove
-  - target: $["paths"]["/api/{serviceId}/service/jwks/get"]
-    remove: true
+      after: marked internal
+      before: public
+      created_at: 1761811000000
+      reviewed_at: 1761811000000
+      type: internalize
+  - target: $["paths"]["/api/{serviceId}/service/jwks/get"]["get"]
+    update:
+      x-speakeasy-internal: true
     x-speakeasy-metadata:
-      after: removed
-      before: present
-      created_at: 1761809000000
-      reviewed_at: 1761809000000
-      type: remove
+      after: marked internal
+      before: public
+      created_at: 1761811000000
+      reviewed_at: 1761811000000
+      type: internalize
