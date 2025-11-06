@@ -1,109 +1,19 @@
 openapi: 3.0.3
 info:
   title: Authlete API Explorer
-  description: |
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6">
-      <div class="flex justify-end mb-4">
-        <label for="theme-toggle" class="flex items-center cursor-pointer">
-          <div class="relative">Dark mode:
-            <input type="checkbox" id="theme-toggle" class="sr-only" onchange="toggleTheme()">
-            <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
-            <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
-          </div>
-        </label>
-      </div>
-      <header class="bg-green-500 dark:bg-green-700 p-4 rounded-lg text-white text-center">
-        <p>
-          Welcome to the <strong>Authlete API documentation</strong>. Authlete is an <strong>API-first service</strong>
-          where every aspect of the platform is configurable via API. This explorer provides a convenient way to
-          authenticate and interact with the API, allowing you to see Authlete in action quickly. 🚀
-        </p>
-        <p>
-          At a high level, the Authlete API is grouped into two categories:
-        </p>
-        <ul class="list-disc list-inside">
-          <li><strong>Management APIs</strong>: Enable you to manage services and clients. 🔧</li>
-          <li><strong>Runtime APIs</strong>: Allow you to build your own Authorization Servers or Verifiable Credential (VC)
-            issuers. 🔐</li>
-        </ul>
-        <p>All API endpoints are secured using access tokens issued by Authlete's Identity Provider (IdP). If you already
-          have an Authlete account, simply use the <em>Get Token</em> option on the Authentication page to log in and obtain
-          an access token for API usage. If you don't have an account yet, <a href="https://console.authlete.com/register">sign up
-            here</a> to get started.</p>
-      </header>
-      <main>
-        <section id="api-servers" class="mb-10">
-          <h2 class="text-2xl font-semibold mb-4">🌐 API Servers</h2>
-          <p>Authlete is a global service with clusters available in multiple regions across the world.</p>
-          <p>Currently, our service is available in the following regions:</p>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
-              <p class="text-center font-semibold">🇺🇸 US</p>
-            </div>
-            <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
-              <p class="text-center font-semibold">🇯🇵 JP</p>
-            </div>
-            <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
-              <p class="text-center font-semibold">🇪🇺 EU</p>
-            </div>
-            <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
-              <p class="text-center font-semibold">🇧🇷 Brazil</p>
-            </div>
-          </div>
-          <p>Our customers can host their data in the region that best meets their requirements.</p>
-          <a href="#servers" class="block mt-4 text-green-500 dark:text-green-300 hover:underline text-center">Select your
-            preferred server</a>
-        </section>
-        <section id="authentication" class="mb-10">
-          <h2 class="text-2xl font-semibold mb-4">🔑 Authentication</h2>
-          <p>The API Explorer requires an access token to call the API.</p>
-          <p>You can create the access token from the <a href="https://console.authlete.com">Authlete Management Console</a> and set it in the HTTP Bearer section of Authentication page.</p>
-          <p>Alternatively, if you have an Authlete account, the API Explorer can log you in with your Authlete account and
-            automatically acquire the required access token.</p>
-          <div class="theme-admonition theme-admonition-warning admonition_o5H7 alert alert--warning">
-            <div class="admonitionContent_Knsx">
-              <p>⚠️ <strong>Important Note:</strong> When the API Explorer acquires the token after login, the access tokens
-                will have the same permissions as the user who logs in as part of this flow.</p>
-            </div>
-          </div>
-          <a href="#auth" class="block mt-4 text-green-500 dark:text-green-300 hover:underline text-center">Setup your
-            access token</a>
-        </section>
-        <section id="tutorials" class="mb-10">
-          <h2 class="text-2xl font-semibold mb-4">🎓 Tutorials</h2>
-          <p>If you have successfully tested the API from the API Console and want to take the next step of integrating the
-            API into your application, or if you want to see a sample using Authlete APIs, follow the links below. These
-            resources will help you understand key concepts and how to integrate Authlete API into your applications.</p>
-          <div class="mt-4">
-            <a href="https://www.authlete.com/developers/getting_started/"
-              class="block text-green-500 dark:text-green-300 font-bold hover:underline mb-2">🚀 Getting Started with
-              Authlete</a>
-              </br>
-            <a href="https://www.authlete.com/developers/tutorial/signup/"
-              class="block text-green-500 dark:text-green-300 font-bold hover:underline">🔑 From Sign-Up to the First API
-              Request</a>
-          </div>
-        </section>
-        <section id="support" class="mb-10">
-          <h2 class="text-2xl font-semibold mb-4">🛠 Contact Us</h2>
-          <p>If you have any questions or need assistance, our team is here to help.</p>
-          <a href="https://www.authlete.com/contact/"
-            class="block mt-4 text-green-500 dark:text-green-300 font-bold hover:underline">Contact Page</a>
-        </section>
-      </main>
-    </div>
+  description: "<div class=\"min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6\">\n  <div class=\"flex justify-end mb-4\">\n    <label for=\"theme-toggle\" class=\"flex items-center cursor-pointer\">\n      <div class=\"relative\">Dark mode:\n        <input type=\"checkbox\" id=\"theme-toggle\" class=\"sr-only\" onchange=\"toggleTheme()\">\n        <div class=\"block bg-gray-600 w-14 h-8 rounded-full\"></div>\n        <div class=\"dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition\"></div>\n      </div>\n    </label>\n  </div>\n  <header class=\"bg-green-500 dark:bg-green-700 p-4 rounded-lg text-white text-center\">\n    <p>\n      Welcome to the <strong>Authlete API documentation</strong>. Authlete is an <strong>API-first service</strong>\n      where every aspect of the platform is configurable via API. This explorer provides a convenient way to\n      authenticate and interact with the API, allowing you to see Authlete in action quickly. \U0001F680\n    </p>\n    <p>\n      At a high level, the Authlete API is grouped into two categories:\n    </p>\n    <ul class=\"list-disc list-inside\">\n      <li><strong>Management APIs</strong>: Enable you to manage services and clients. \U0001F527</li>\n      <li><strong>Runtime APIs</strong>: Allow you to build your own Authorization Servers or Verifiable Credential (VC)\n        issuers. \U0001F510</li>\n    </ul>\n    <p>All API endpoints are secured using access tokens issued by Authlete's Identity Provider (IdP). If you already\n      have an Authlete account, simply use the <em>Get Token</em> option on the Authentication page to log in and obtain\n      an access token for API usage. If you don't have an account yet, <a href=\"https://console.authlete.com/register\">sign up\n        here</a> to get started.</p>\n  </header>\n  <main>\n    <section id=\"api-servers\" class=\"mb-10\">\n      <h2 class=\"text-2xl font-semibold mb-4\">\U0001F310 API Servers</h2>\n      <p>Authlete is a global service with clusters available in multiple regions across the world.</p>\n      <p>Currently, our service is available in the following regions:</p>\n      <div class=\"grid grid-cols-2 gap-4\">\n        <div class=\"p-4 bg-white dark:bg-gray-800 rounded-lg shadow\">\n          <p class=\"text-center font-semibold\">\U0001F1FA\U0001F1F8 US</p>\n        </div>\n        <div class=\"p-4 bg-white dark:bg-gray-800 rounded-lg shadow\">\n          <p class=\"text-center font-semibold\">\U0001F1EF\U0001F1F5 JP</p>\n        </div>\n        <div class=\"p-4 bg-white dark:bg-gray-800 rounded-lg shadow\">\n          <p class=\"text-center font-semibold\">\U0001F1EA\U0001F1FA EU</p>\n        </div>\n        <div class=\"p-4 bg-white dark:bg-gray-800 rounded-lg shadow\">\n          <p class=\"text-center font-semibold\">\U0001F1E7\U0001F1F7 Brazil</p>\n        </div>\n      </div>\n      <p>Our customers can host their data in the region that best meets their requirements.</p>\n      <a href=\"#servers\" class=\"block mt-4 text-green-500 dark:text-green-300 hover:underline text-center\">Select your\n        preferred server</a>\n    </section>\n    <section id=\"authentication\" class=\"mb-10\">\n      <h2 class=\"text-2xl font-semibold mb-4\">\U0001F511 Authentication</h2>\n      <p>The API Explorer requires an access token to call the API.</p>\n      <p>You can create the access token from the <a href=\"https://console.authlete.com\">Authlete Management Console</a> and set it in the HTTP Bearer section of Authentication page.</p>\n      <p>Alternatively, if you have an Authlete account, the API Explorer can log you in with your Authlete account and\n        automatically acquire the required access token.</p>\n      <div class=\"theme-admonition theme-admonition-warning admonition_o5H7 alert alert--warning\">\n        <div class=\"admonitionContent_Knsx\">\n          <p>⚠️ <strong>Important Note:</strong> When the API Explorer acquires the token after login, the access tokens\n            will have the same permissions as the user who logs in as part of this flow.</p>\n        </div>\n      </div>\n      <a href=\"#auth\" class=\"block mt-4 text-green-500 dark:text-green-300 hover:underline text-center\">Setup your\n        access token</a>\n    </section>\n    <section id=\"tutorials\" class=\"mb-10\">\n      <h2 class=\"text-2xl font-semibold mb-4\">\U0001F393 Tutorials</h2>\n      <p>If you have successfully tested the API from the API Console and want to take the next step of integrating the\n        API into your application, or if you want to see a sample using Authlete APIs, follow the links below. These\n        resources will help you understand key concepts and how to integrate Authlete API into your applications.</p>\n      <div class=\"mt-4\">\n        <a href=\"https://www.authlete.com/developers/getting_started/\"\n          class=\"block text-green-500 dark:text-green-300 font-bold hover:underline mb-2\">\U0001F680 Getting Started with\n          Authlete</a>\n          </br>\n        <a href=\"https://www.authlete.com/developers/tutorial/signup/\"\n          class=\"block text-green-500 dark:text-green-300 font-bold hover:underline\">\U0001F511 From Sign-Up to the First API\n          Request</a>\n      </div>\n    </section>\n    <section id=\"support\" class=\"mb-10\">\n      <h2 class=\"text-2xl font-semibold mb-4\">\U0001F6E0 Contact Us</h2>\n      <p>If you have any questions or need assistance, our team is here to help.</p>\n      <a href=\"https://www.authlete.com/contact/\"\n        class=\"block mt-4 text-green-500 dark:text-green-300 font-bold hover:underline\">Contact Page</a>\n    </section>\n  </main>\n</div>\n"
   version: 3.0.16
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
 servers:
-  - description: 🇺🇸 US Cluster
+  - description: "\U0001F1FA\U0001F1F8 US Cluster"
     url: https://us.authlete.com
-  - description: 🇯🇵 Japan Cluster
+  - description: "\U0001F1EF\U0001F1F5 Japan Cluster"
     url: https://jp.authlete.com
-  - description: 🇪🇺 Europe Cluster
+  - description: "\U0001F1EA\U0001F1FA Europe Cluster"
     url: https://eu.authlete.com
-  - description: 🇧🇷 Brazil Cluster
+  - description: "\U0001F1E7\U0001F1F7 Brazil Cluster"
     url: https://br.authlete.com
 security:
   - authlete: []
@@ -340,6 +250,8 @@ paths:
             api.getService(serviceId)
       tags:
         - Service Management
+      x-speakeasy-group: serviceManagement
+      x-speakeasy-name-override: get
   /api/service/get/list:
     get:
       summary: List Services
@@ -522,6 +434,8 @@ paths:
             api.getServiceList(start, end)
       tags:
         - Service Management
+      x-speakeasy-group: services
+      x-speakeasy-name-override: list
   /api/service/create:
     post:
       summary: Create Service
@@ -710,6 +624,8 @@ paths:
             api.createService(service)
       tags:
         - Service Management
+      x-speakeasy-group: services
+      x-speakeasy-name-override: create
   /api/{serviceId}/service/update:
     post:
       summary: Update Service
@@ -959,6 +875,8 @@ paths:
             api.updateService(service)
       tags:
         - Service Management
+      x-speakeasy-group: serviceManagement
+      x-speakeasy-name-override: update
   /api/{serviceId}/service/delete:
     delete:
       summary: Delete Service ⚡
@@ -1008,6 +926,8 @@ paths:
             api.deleteService(serviceId)
       tags:
         - Service Management
+      x-speakeasy-group: services
+      x-speakeasy-name-override: delete
   /api/{serviceId}/client/get/{clientId}:
     get:
       summary: Get Client
@@ -1108,6 +1028,8 @@ paths:
             api.getClient(clientId)
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: get
   /api/{serviceId}/client/get/list:
     get:
       summary: List Clients
@@ -1253,6 +1175,8 @@ paths:
             api.getClientList(developer, start, end)
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: getList
   /api/{serviceId}/client/create:
     post:
       summary: Create Client
@@ -1383,6 +1307,8 @@ paths:
             api.createClient(client)
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: create
   /api/{serviceId}/client/update/{clientId}:
     post:
       summary: Update Client
@@ -1539,6 +1465,8 @@ paths:
             api.updatedClient(client)
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: update
   /api/{serviceId}/client/delete/{clientId}:
     delete:
       summary: Delete Client ⚡
@@ -1594,6 +1522,8 @@ paths:
             api.deleteClient(clientId)
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: delete
   /api/{serviceId}/client/lock_flag/update/{clientIdentifier}:
     post:
       summary: Update Client Lock
@@ -1641,6 +1571,8 @@ paths:
       operationId: client_flag_update_api
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: updateLockFlag
   /api/{serviceId}/client/secret/refresh/{clientIdentifier}:
     get:
       summary: Rotate Client Secret
@@ -1709,6 +1641,8 @@ paths:
             api.refreshClientSecret(clientIdentifier)
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: rotateSecret
   /api/{serviceId}/client/secret/update/{clientIdentifier}:
     post:
       summary: Update Client Secret
@@ -1792,6 +1726,8 @@ paths:
             api.updateClientSecret(clientIdentifier, clientSecret)
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: updateSecret
   /api/{serviceId}/client/authorization/get/list/{subject}:
     get:
       summary: Get Authorized Applications
@@ -1901,6 +1837,8 @@ paths:
             api.getClientAuthorizationList(req)
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: getAuthorizedApplications
   /api/{serviceId}/client/authorization/update/{clientId}:
     post:
       summary: Update Client Tokens
@@ -1987,6 +1925,8 @@ paths:
             api.updateClientAuthorization(clientId, req)
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: updateTokens
   /api/{serviceId}/client/authorization/delete/{clientId}/{subject}:
     delete:
       summary: Delete Client Tokens
@@ -2068,6 +2008,8 @@ paths:
             api.deleteClientAuthorization(clientId, subject)
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: deleteTokens
   /api/{serviceId}/client/granted_scopes/get/{clientId}/{subject}:
     get:
       summary: Get Granted Scopes
@@ -2169,6 +2111,8 @@ paths:
             api.getGrantedScopes(clientId, subject)
       tags:
         - Client Management
+      x-speakeasy-group: clientManagement
+      x-speakeasy-name-override: getGrantedScopes
   /api/{serviceId}/client/granted_scopes/delete/{clientId}/{subject}:
     delete:
       summary: Delete Granted Scopes
@@ -2249,6 +2193,8 @@ paths:
             api.deleteGrantedScopes(clientId, subject)
       tags:
         - Client Management
+      x-speakeasy-group: clientManagement
+      x-speakeasy-name-override: deleteGrantedScopes
   /api/{serviceId}/auth/authorization:
     post:
       summary: Process Authorization Request
@@ -2756,6 +2702,8 @@ paths:
             api.authorization(req)
       tags:
         - Authorization Endpoint
+      x-speakeasy-group: authorization
+      x-speakeasy-name-override: process
   /api/{serviceId}/auth/authorization/fail:
     post:
       summary: Fail Authorization Request
@@ -2910,6 +2858,8 @@ paths:
             api.authorizationFail(req)
       tags:
         - Authorization Endpoint
+      x-speakeasy-group: authorizationEndpoint
+      x-speakeasy-name-override: fail
   /api/{serviceId}/auth/authorization/issue:
     post:
       summary: Issue Authorization Response
@@ -3071,6 +3021,8 @@ paths:
             api.authorizationIssue(req)
       tags:
         - Authorization Endpoint
+      x-speakeasy-group: authorization
+      x-speakeasy-name-override: issue
   /api/{serviceId}/pushed_auth_req:
     post:
       summary: Process Pushed Authorization Request
@@ -3155,6 +3107,8 @@ paths:
             api.token(req)
       tags:
         - Pushed Authorization Endpoint
+      x-speakeasy-group: pushedAuthorization
+      x-speakeasy-name-override: request
   /api/{serviceId}/auth/token:
     post:
       summary: Process Token Request
@@ -3612,6 +3566,8 @@ paths:
             api.token(req)
       tags:
         - Token Endpoint
+      x-speakeasy-group: tokens
+      x-speakeasy-name-override: request
   /api/{serviceId}/auth/token/fail:
     post:
       summary: Fail Token Request
@@ -3733,6 +3689,8 @@ paths:
             api.tokenFail(req)
       tags:
         - Token Endpoint
+      x-speakeasy-group: tokens
+      x-speakeasy-name-override: failRequest
   /api/{serviceId}/auth/token/issue:
     post:
       summary: Issue Token Response
@@ -3872,6 +3830,8 @@ paths:
             api.tokenIssue(req)
       tags:
         - Token Endpoint
+      x-speakeasy-group: tokens
+      x-speakeasy-name-override: issue
   /api/{serviceId}/auth/introspection:
     post:
       summary: Process Introspection Request
@@ -4096,6 +4056,8 @@ paths:
             api.introspection(req)
       tags:
         - Introspection Endpoint
+      x-speakeasy-group: introspection
+      x-speakeasy-name-override: request
   /api/{serviceId}/auth/introspection/standard:
     post:
       summary: Process OAuth 2.0 Introspection Request
@@ -4233,6 +4195,8 @@ paths:
             api.standardIntrospection(req)
       tags:
         - Introspection Endpoint
+      x-speakeasy-group: introspectionEndpoint
+      x-speakeasy-name-override: processStandard
   /api/{serviceId}/auth/revocation:
     post:
       summary: Process Revocation Request
@@ -4400,6 +4364,8 @@ paths:
             api.revocation(req)
       tags:
         - Revocation Endpoint
+      x-speakeasy-group: revocations
+      x-speakeasy-name-override: process
   /api/{serviceId}/auth/userinfo:
     post:
       summary: Process UserInfo Request
@@ -4584,6 +4550,8 @@ paths:
             api.userinfo(req)
       tags:
         - UserInfo Endpoint
+      x-speakeasy-group: userInfoEndpoint
+      x-speakeasy-name-override: process
   /api/{serviceId}/auth/userinfo/issue:
     post:
       summary: Issue UserInfo Response
@@ -4766,6 +4734,8 @@ paths:
             api.userinfoIssue(req)
       tags:
         - UserInfo Endpoint
+      x-speakeasy-group: userInfoEndpoint
+      x-speakeasy-name-override: issue
   /api/{serviceId}/idtoken/reissue:
     post:
       summary: Reissue ID Token
@@ -4805,6 +4775,8 @@ paths:
       operationId: idtoken_reissue_api
       tags:
         - Token Endpoint
+      x-speakeasy-group: tokenEndpoint
+      x-speakeasy-name-override: reissueIdToken
   /api/{serviceId}/gm:
     post:
       summary: Process Grant Management Request
@@ -4847,6 +4819,8 @@ paths:
       operationId: grant_m_api
       tags:
         - Grant Management Endpoint
+      x-speakeasy-group: grantManagementEndpoint
+      x-speakeasy-name-override: processRequest
   /api/{serviceId}/service/jwks/get:
     get:
       summary: Get JWK Set
@@ -4945,6 +4919,8 @@ paths:
             api.getServiceJwks(pretty, includePrivateKey)
       tags:
         - JWK Set Endpoint
+      x-speakeasy-group: jwkSets
+      x-speakeasy-name-override: get
   /api/{serviceId}/service/configuration:
     get:
       summary: Get Service Configuration
@@ -5293,6 +5269,8 @@ paths:
             api.getServiceConfiguration(True)
       tags:
         - Service Management
+      x-speakeasy-group: services
+      x-speakeasy-name-override: configuration
   /api/{serviceId}/client/registration:
     post:
       summary: Register Client
@@ -5446,6 +5424,8 @@ paths:
             api.dynamicClientRegister(req)
       tags:
         - Dynamic Client Registration
+      x-speakeasy-group: dynamicClientRegistrations
+      x-speakeasy-name-override: register
   /api/{serviceId}/client/registration/get:
     post:
       summary: Get Client
@@ -5622,6 +5602,8 @@ paths:
             api.dynamicClientGet(req)
       tags:
         - Dynamic Client Registration
+      x-speakeasy-group: dynamicClientRegistration
+      x-speakeasy-name-override: get
   /api/{serviceId}/client/registration/update:
     post:
       summary: Update Client
@@ -5802,6 +5784,8 @@ paths:
             api.dynamicClientUpdate(req)
       tags:
         - Dynamic Client Registration
+      x-speakeasy-group: dynamicClientRegistration
+      x-speakeasy-name-override: update
   /api/{serviceId}/client/registration/delete:
     post:
       summary: Delete Client
@@ -5950,6 +5934,8 @@ paths:
             api.DynamicClientDelete(req)
       tags:
         - Dynamic Client Registration
+      x-speakeasy-group: dynamicClientRegistrations
+      x-speakeasy-name-override: delete
   /api/{serviceId}/backchannel/authentication:
     post:
       summary: Process Backchannel Authentication Request
@@ -6280,6 +6266,8 @@ paths:
             api.backchannelAuthentication(req)
       tags:
         - CIBA
+      x-speakeasy-group: ciba
+      x-speakeasy-name-override: processRequest
   /api/{serviceId}/backchannel/authentication/issue:
     post:
       summary: Issue Backchannel Authentication Response
@@ -6419,6 +6407,8 @@ paths:
             api.backchannelAuthenticationIssue(req)
       tags:
         - CIBA
+      x-speakeasy-group: ciba
+      x-speakeasy-name-override: issueAuthenticationResponse
   /api/{serviceId}/backchannel/authentication/fail:
     post:
       summary: Fail Backchannel Authentication Request
@@ -6514,6 +6504,8 @@ paths:
             api.backchannelAuthenticationFail(req)
       tags:
         - CIBA
+      x-speakeasy-group: ciba
+      x-speakeasy-name-override: fail
   /api/{serviceId}/backchannel/authentication/complete:
     post:
       summary: Complete Backchannel Authentication
@@ -6686,6 +6678,8 @@ paths:
             api.backchannelAuthenticationComplete(req)
       tags:
         - CIBA
+      x-speakeasy-group: ciba
+      x-speakeasy-name-override: complete
   /api/{serviceId}/device/authorization:
     post:
       summary: Process Device Authorization Request
@@ -6851,6 +6845,8 @@ paths:
             api.deviceAuthorization(req)
       tags:
         - Device Flow
+      x-speakeasy-group: deviceFlow
+      x-speakeasy-name-override: authorize
   /api/{serviceId}/device/verification:
     post:
       summary: Process Device Verification Request
@@ -6961,6 +6957,8 @@ paths:
             api.deviceVerification(req)
       tags:
         - Device Flow
+      x-speakeasy-group: deviceFlow
+      x-speakeasy-name-override: verify
   /api/{serviceId}/device/complete:
     post:
       summary: Complete Device Authorization
@@ -7087,6 +7085,8 @@ paths:
             api.deviceComplete(req)
       tags:
         - Device Flow
+      x-speakeasy-group: deviceFlow
+      x-speakeasy-name-override: complete
   /api/{serviceId}/auth/token/get/list:
     get:
       summary: List Issued Tokens
@@ -7222,6 +7222,8 @@ paths:
             api.getTokenList(clientIdentifier, subject, start, end)
       tags:
         - Token Operations
+      x-speakeasy-group: tokenOperations
+      x-speakeasy-name-override: list
   /api/{serviceId}/auth/token/create:
     post:
       summary: Create Access Token
@@ -7316,6 +7318,8 @@ paths:
             api.tokenCreate(req)
       tags:
         - Token Operations
+      x-speakeasy-group: tokenOperations
+      x-speakeasy-name-override: create
   /api/{serviceId}/auth/token/update:
     post:
       summary: Update Access Token
@@ -7400,6 +7404,8 @@ paths:
             api.tokenUpdate(req)
       tags:
         - Token Operations
+      x-speakeasy-group: tokens
+      x-speakeasy-name-override: update
   /api/{serviceId}/auth/token/delete/{accessTokenIdentifier}:
     delete:
       summary: Delete Access Token
@@ -7459,6 +7465,8 @@ paths:
             api.tokenDelete(accessToken)
       tags:
         - Token Operations
+      x-speakeasy-group: tokenOperations
+      x-speakeasy-name-override: delete
   /api/{serviceId}/auth/token/revoke:
     post:
       summary: Revoke Access Token
@@ -7538,6 +7546,8 @@ paths:
             api.tokenUpdate(req)
       tags:
         - Token Operations
+      x-speakeasy-group: tokens
+      x-speakeasy-name-override: revoke
   /api/{serviceId}/jose/verify:
     post:
       summary: Verify JOSE
@@ -7627,6 +7637,8 @@ paths:
             api.verifyJose(req)
       tags:
         - Jose Object
+      x-speakeasy-group: joseObjects
+      x-speakeasy-name-override: verify
   /api/{serviceId}/federation/configuration:
     post:
       summary: Process Entity Configuration Request
@@ -7742,6 +7754,8 @@ paths:
             api.getFederationConfiguration(True)
       tags:
         - Federation Endpoint
+      x-speakeasy-group: federationEndpoint
+      x-speakeasy-name-override: processConfiguration
   /api/{serviceId}/federation/registration:
     post:
       summary: Process Federation Registration Request
@@ -7801,6 +7815,8 @@ paths:
       operationId: federation_registration_api
       tags:
         - Federation Endpoint
+      x-speakeasy-group: federations
+      x-speakeasy-name-override: register
   /api/info:
     get:
       summary: Get Server Metadata
@@ -7836,6 +7852,8 @@ paths:
       operationId: info_api
       tags:
         - Utility Endpoints
+      x-speakeasy-group: utilityEndpoints
+      x-speakeasy-name-override: getInfo
   /api/{serviceId}/client/extension/requestable_scopes/get/{clientId}:
     get:
       summary: Get Requestable Scopes
@@ -7873,6 +7891,8 @@ paths:
       operationId: client_extension_requestables_scopes_get_api
       tags:
         - Client Management
+      x-speakeasy-group: clientManagement
+      x-speakeasy-name-override: getRequestableScopes
   /api/{serviceId}/client/extension/requestable_scopes/update/{clientId}:
     put:
       summary: Update Requestable Scopes
@@ -7916,6 +7936,8 @@ paths:
       operationId: client_extension_requestables_scopes_update_api
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: updateRequestableScopes
   /api/{serviceId}/client/extension/requestable_scopes/delete/{clientId}:
     delete:
       summary: Delete Requestable Scopes
@@ -7949,12 +7971,14 @@ paths:
       operationId: client_extension_requestables_scopes_delete_api
       tags:
         - Client Management
+      x-speakeasy-group: clients
+      x-speakeasy-name-override: deleteRequestableScopes
   /api/{serviceId}/hsk/create:
     post:
       summary: Create Security Key
       x-badges:
         - color: primary-color
-          label: 🏢 Dedicated Cloud Required
+          label: "\U0001F3E2 Dedicated Cloud Required"
       parameters:
         - in: path
           name: serviceId
@@ -7989,12 +8013,14 @@ paths:
       operationId: hsk_create_api
       tags:
         - Hardware Security Key
+      x-speakeasy-group: hardwareSecurityKeys
+      x-speakeasy-name-override: create
   /api/{serviceId}/hsk/delete/{handle}:
     delete:
       summary: Delete Security Key
       x-badges:
         - color: primary-color
-          label: 🏢 Dedicated Cloud Required
+          label: "\U0001F3E2 Dedicated Cloud Required"
       parameters:
         - in: path
           name: serviceId
@@ -8025,12 +8051,14 @@ paths:
       operationId: hsk_delete_api
       tags:
         - Hardware Security Key
+      x-speakeasy-group: hardwareSecurityKey
+      x-speakeasy-name-override: delete
   /api/{serviceId}/hsk/get/{handle}:
     get:
       summary: Get Security Key
       x-badges:
         - color: primary-color
-          label: 🏢 Dedicated Cloud Required
+          label: "\U0001F3E2 Dedicated Cloud Required"
       parameters:
         - in: path
           name: serviceId
@@ -8061,12 +8089,14 @@ paths:
       operationId: hsk_get_api
       tags:
         - Hardware Security Key
+      x-speakeasy-group: hardwareSecurityKey
+      x-speakeasy-name-override: get
   /api/{serviceId}/hsk/get/list:
     get:
       summary: List Security Keys
       x-badges:
         - color: primary-color
-          label: 🏢 Dedicated Cloud Required
+          label: "\U0001F3E2 Dedicated Cloud Required"
       parameters:
         - in: path
           name: serviceId
@@ -8092,6 +8122,8 @@ paths:
       operationId: hsk_get_list_api
       tags:
         - Hardware Security Key
+      x-speakeasy-group: hardwareSecurityKeys
+      x-speakeasy-name-override: getList
   /api/misc/echo:
     get:
       summary: Echo
@@ -8104,6 +8136,8 @@ paths:
       operationId: misc_echo_api
       tags:
         - Utility Endpoints
+      x-speakeasy-group: utilities
+      x-speakeasy-name-override: echo
   /api/{serviceId}/vci/metadata:
     post:
       summary: Get Verifiable Credential Issuer Metadata
@@ -8147,6 +8181,8 @@ paths:
       operationId: vci_metadata_api
       tags:
         - Verifiable Credential Issuer
+      x-speakeasy-group: verifiableCredentials
+      x-speakeasy-name-override: getMetadata
   /api/{serviceId}/vci/jwtissuer:
     post:
       summary: Get JWT Issuer Information
@@ -8185,6 +8221,8 @@ paths:
       operationId: vci_jwtissuer_api
       tags:
         - Verifiable Credential Issuer
+      x-speakeasy-group: verifiableCredentialIssuer
+      x-speakeasy-name-override: getJwtIssuerInfo
   /api/{serviceId}/vci/jwks:
     post:
       summary: Get JSON Web Key Set
@@ -8223,6 +8261,8 @@ paths:
       operationId: vci_jwks_api
       tags:
         - Verifiable Credential Issuer
+      x-speakeasy-group: verifiableCredentialIssuers
+      x-speakeasy-name-override: getJwks
   /api/{serviceId}/vci/offer/create:
     post:
       summary: Create Credential Offer
@@ -8261,6 +8301,8 @@ paths:
       operationId: vci_offer_create_api
       tags:
         - Verifiable Credential Issuer
+      x-speakeasy-group: verifiableCredentialIssuers
+      x-speakeasy-name-override: createOffer
   /api/{serviceId}/vci/offer/info:
     post:
       summary: Get Credential Offer Information
@@ -8299,6 +8341,8 @@ paths:
       operationId: vci_offer_info_api
       tags:
         - Verifiable Credential Issuer
+      x-speakeasy-group: verifiableCredentials
+      x-speakeasy-name-override: getOfferInfo
   /api/{serviceId}/vci/single/parse:
     post:
       summary: Parse Single Credential
@@ -8337,6 +8381,8 @@ paths:
       operationId: vci_single_parse_api
       tags:
         - Verifiable Credential Issuer
+      x-speakeasy-group: verifiableCredentialIssuer
+      x-speakeasy-name-override: parseSingle
   /api/{serviceId}/vci/single/issue:
     post:
       summary: Issue Single Credential
@@ -8372,6 +8418,8 @@ paths:
       operationId: vci_single_issue_api
       tags:
         - Verifiable Credential Issuer
+      x-speakeasy-group: verifiableCredentials
+      x-speakeasy-name-override: issueSingle
   /api/{serviceId}/vci/batch/parse:
     post:
       summary: Parse Batch Credentials
@@ -8410,6 +8458,8 @@ paths:
       operationId: vci_batch_parse_api
       tags:
         - Verifiable Credential Issuer
+      x-speakeasy-group: verifiableCredentials
+      x-speakeasy-name-override: parseBatch
   /api/{serviceId}/vci/batch/issue:
     post:
       summary: Issue Batch Credentials
@@ -8445,6 +8495,8 @@ paths:
       operationId: vci_batch_issue_api
       tags:
         - Verifiable Credential Issuer
+      x-speakeasy-group: verifiableCredentialIssuers
+      x-speakeasy-name-override: issueBatch
   /api/{serviceId}/vci/deferred/parse:
     post:
       summary: Parse Deferred Credential
@@ -8483,6 +8535,8 @@ paths:
       operationId: vci_deferred_parse_api
       tags:
         - Verifiable Credential Issuer
+      x-speakeasy-group: verifiableCredentialIssuers
+      x-speakeasy-name-override: parseDeferred
   /api/{serviceId}/vci/deferred/issue:
     post:
       summary: Issue Deferred Credential
@@ -8518,6 +8572,8 @@ paths:
       operationId: vci_deferred_issue_api
       tags:
         - Verifiable Credential Issuer
+      x-speakeasy-group: verifiableCredentialIssuers
+      x-speakeasy-name-override: issueDeferred
   /api/{serviceId}/auth/authorization/ticket/info:
     post:
       operationId: getAuthorizationTicketInfo
@@ -8555,6 +8611,8 @@ paths:
           $ref: '#/components/responses/500'
       tags:
         - Authorization Endpoint
+      x-speakeasy-group: authorizationEndpoint
+      x-speakeasy-name-override: getTicketInfo
   /api/{serviceId}/auth/authorization/ticket/update:
     post:
       operationId: updateAuthorizationTicket
@@ -8592,6 +8650,8 @@ paths:
           $ref: '#/components/responses/500'
       tags:
         - Authorization Endpoint
+      x-speakeasy-group: authorization
+      x-speakeasy-name-override: updateTicket
   /api/{serviceId}/nativesso:
     post:
       summary: Native SSO Processing
@@ -8715,6 +8775,8 @@ paths:
             api.nativeSso(req);
       tags:
         - Native SSO
+      x-speakeasy-group: nativeSSO
+      x-speakeasy-name-override: process
   /api/{serviceId}/nativesso/logout:
     post:
       summary: Native SSO Logout Processing
@@ -8799,6 +8861,8 @@ paths:
             api.nativeSsoLogout(req);
       tags:
         - Native SSO
+      x-speakeasy-group: nativeSSO
+      x-speakeasy-name-override: logout
 components:
   securitySchemes:
     authlete:

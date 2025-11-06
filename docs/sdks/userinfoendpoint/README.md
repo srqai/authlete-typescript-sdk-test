@@ -3,14 +3,12 @@
 
 ## Overview
 
-API endpoints for implementing OpenID Connect UserInfo Endpoint.
-
 ### Available Operations
 
-* [authUserinfoApi](#authuserinfoapi) - Process UserInfo Request
-* [authUserinfoIssueApi](#authuserinfoissueapi) - Issue UserInfo Response
+* [process](#process) - Process UserInfo Request
+* [issue](#issue) - Issue UserInfo Response
 
-## authUserinfoApi
+## process
 
 This API gathers information about a user.
 ### Description
@@ -134,7 +132,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.userInfoEndpoint.authUserinfoApi({
+  const result = await authlete.userInfoEndpoint.process({
     serviceId: "<id>",
     userinfoRequest: {
       token: "Ntm9MDb8WXQAevqrBkd84KTTHbYHVQrTjgUZCOWqEUI",
@@ -153,7 +151,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { userInfoEndpointAuthUserinfoApi } from "authlete/funcs/userInfoEndpointAuthUserinfoApi.js";
+import { userInfoEndpointProcess } from "authlete/funcs/userInfoEndpointProcess.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -164,7 +162,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await userInfoEndpointAuthUserinfoApi(authlete, {
+  const res = await userInfoEndpointProcess(authlete, {
     serviceId: "<id>",
     userinfoRequest: {
       token: "Ntm9MDb8WXQAevqrBkd84KTTHbYHVQrTjgUZCOWqEUI",
@@ -174,7 +172,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("userInfoEndpointAuthUserinfoApi failed:", res.error);
+    console.log("userInfoEndpointProcess failed:", res.error);
   }
 }
 
@@ -202,7 +200,7 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## authUserinfoIssueApi
+## issue
 
 This API generates an ID token.
 ### Description
@@ -329,7 +327,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.userInfoEndpoint.authUserinfoIssueApi({
+  const result = await authlete.userInfoEndpoint.issue({
     serviceId: "<id>",
     userinfoIssueRequest: {
       token: "Ntm9MDb8WXQAevqrBkd84KTTHbYHVQrTjgUZCOWqEUI",
@@ -348,7 +346,7 @@ The standalone function version of this method:
 
 ```typescript
 import { AuthleteCore } from "authlete/core.js";
-import { userInfoEndpointAuthUserinfoIssueApi } from "authlete/funcs/userInfoEndpointAuthUserinfoIssueApi.js";
+import { userInfoEndpointIssue } from "authlete/funcs/userInfoEndpointIssue.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -359,7 +357,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await userInfoEndpointAuthUserinfoIssueApi(authlete, {
+  const res = await userInfoEndpointIssue(authlete, {
     serviceId: "<id>",
     userinfoIssueRequest: {
       token: "Ntm9MDb8WXQAevqrBkd84KTTHbYHVQrTjgUZCOWqEUI",
@@ -369,7 +367,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("userInfoEndpointAuthUserinfoIssueApi failed:", res.error);
+    console.log("userInfoEndpointIssue failed:", res.error);
   }
 }
 
