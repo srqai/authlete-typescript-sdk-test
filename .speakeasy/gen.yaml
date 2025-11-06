@@ -19,18 +19,25 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
   sdkHooksConfigAccess: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
   tests:
     generateTests: false
     generateNewTests: true
     skipResponseBodyAssertions: false
 typescript:
   version: 0.1.0
+  acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
   additionalPackageJSON: {}
+  additionalScripts: {}
+  alwaysIncludeInboundAndOutbound: false
   author: Speakeasy
   baseErrorName: AuthleteError
   clientServerStatusCodesAsErrors: true
@@ -41,6 +48,7 @@ typescript:
   enableReactQuery: false
   enumFormat: union
   envVarPrefix: AUTHLETE
+  exportZodModelNamespace: false
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
   generateExamples: true
@@ -56,10 +64,13 @@ typescript:
   jsonpath: rfc9535
   maxMethodParams: 0
   methodArguments: infer-optional-args
+  modelPropertyCasing: camel
   moduleFormat: dual
   outputModelSuffix: output
   packageName: authlete
   responseFormat: flat
+  sseFlatResponse: false
   templateVersion: v2
   usageSDKInitImports: []
   useIndexModules: true
+  zodVersion: v3
