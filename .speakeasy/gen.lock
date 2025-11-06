@@ -1,0 +1,1817 @@
+lockVersion: 2.0.0
+id: b46c9081-6a59-4f57-9207-8f7715e429dc
+management:
+  docChecksum: 373b1f81e094bb790126ea4f6e3fcfc2
+  docVersion: 3.0.16
+  speakeasyVersion: 1.603.2
+  generationVersion: 2.681.8
+  releaseVersion: 0.2.0
+  configChecksum: 2e20b45dce86c37d49b0472d28ea8e8f
+features:
+  typescript:
+    additionalDependencies: 0.1.0
+    core: 3.21.20
+    defaultEnabledRetries: 0.1.0
+    devContainers: 2.90.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.1.2
+    globalSecurity: 2.82.13
+    globalSecurityCallbacks: 0.1.0
+    globalServerURLs: 2.82.5
+    inputOutputModels: 2.82.0
+    methodArguments: 0.1.2
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.3.0
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .npmignore
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/accesstoken.md
+  - docs/models/applicationtype.md
+  - docs/models/attachmenttype.md
+  - docs/models/authorizationdetailselement.md
+  - docs/models/authorizationfailrequest.md
+  - docs/models/authorizationfailrequestreason.md
+  - docs/models/authorizationfailresponse.md
+  - docs/models/authorizationfailresponseaction.md
+  - docs/models/authorizationissuerequest.md
+  - docs/models/authorizationissueresponse.md
+  - docs/models/authorizationissueresponseaction.md
+  - docs/models/authorizationrequest.md
+  - docs/models/authorizationresponse.md
+  - docs/models/authorizationresponseaction.md
+  - docs/models/authorizationticketinforequest.md
+  - docs/models/authorizationticketinforesponse.md
+  - docs/models/authorizationticketinforesponseaction.md
+  - docs/models/authorizationticketupdaterequest.md
+  - docs/models/authorizationticketupdateresponse.md
+  - docs/models/authorizationticketupdateresponseaction.md
+  - docs/models/authzdetails.md
+  - docs/models/backchannelauthenticationcompleterequest.md
+  - docs/models/backchannelauthenticationcompleterequestresult.md
+  - docs/models/backchannelauthenticationcompleteresponse.md
+  - docs/models/backchannelauthenticationcompleteresponseaction.md
+  - docs/models/backchannelauthenticationfailrequest.md
+  - docs/models/backchannelauthenticationfailrequestreason.md
+  - docs/models/backchannelauthenticationfailresponse.md
+  - docs/models/backchannelauthenticationfailresponseaction.md
+  - docs/models/backchannelauthenticationissuerequest.md
+  - docs/models/backchannelauthenticationissueresponse.md
+  - docs/models/backchannelauthenticationissueresponseaction.md
+  - docs/models/backchannelauthenticationrequest.md
+  - docs/models/backchannelauthenticationresponse.md
+  - docs/models/backchannelauthenticationresponseaction.md
+  - docs/models/claimtype.md
+  - docs/models/client.md
+  - docs/models/clientauthmethod.md
+  - docs/models/clientauthorizationdeleteresponse.md
+  - docs/models/clientauthorizationgetlistresponse.md
+  - docs/models/clientauthorizationupdaterequest.md
+  - docs/models/clientauthorizationupdateresponse.md
+  - docs/models/clientextension.md
+  - docs/models/clientextensionrequestablescopesgetresponse.md
+  - docs/models/clientextensionrequestablescopesupdaterequest.md
+  - docs/models/clientextensionrequestablescopesupdateresponse.md
+  - docs/models/clientflagupdaterequest.md
+  - docs/models/clientflagupdateresponse.md
+  - docs/models/clientgetlistresponse.md
+  - docs/models/clientgrantedscopesdeleteresponse.md
+  - docs/models/clientinput.md
+  - docs/models/clientlimited.md
+  - docs/models/clientlimitedauthorization.md
+  - docs/models/clientregistrationresponse.md
+  - docs/models/clientregistrationresponseaction.md
+  - docs/models/clientregistrationtype.md
+  - docs/models/clientsecretrefreshresponse.md
+  - docs/models/clientsecretupdaterequest.md
+  - docs/models/clientsecretupdateresponse.md
+  - docs/models/clienttype.md
+  - docs/models/credentialissuanceorder.md
+  - docs/models/credentialissuermetadata.md
+  - docs/models/credentialofferinfo.md
+  - docs/models/credentialrequestinfo.md
+  - docs/models/deliverymode.md
+  - docs/models/deviceauthorizationrequest.md
+  - docs/models/deviceauthorizationresponse.md
+  - docs/models/deviceauthorizationresponseaction.md
+  - docs/models/devicecompleterequest.md
+  - docs/models/devicecompleterequestresult.md
+  - docs/models/devicecompleteresponse.md
+  - docs/models/devicecompleteresponseaction.md
+  - docs/models/deviceverificationrequest.md
+  - docs/models/deviceverificationresponse.md
+  - docs/models/deviceverificationresponseaction.md
+  - docs/models/display.md
+  - docs/models/dynamicscope.md
+  - docs/models/errors/resulterror.md
+  - docs/models/fapimode.md
+  - docs/models/federationconfigurationresponse.md
+  - docs/models/federationconfigurationresponseaction.md
+  - docs/models/federationregistrationrequest.md
+  - docs/models/federationregistrationresponse.md
+  - docs/models/federationregistrationresponseaction.md
+  - docs/models/gmrequest.md
+  - docs/models/gmresponse.md
+  - docs/models/gmresponseaction.md
+  - docs/models/grant.md
+  - docs/models/grantmanagementaction.md
+  - docs/models/grantscope.md
+  - docs/models/granttype.md
+  - docs/models/hsk.md
+  - docs/models/hskcreaterequest.md
+  - docs/models/hskcreateresponse.md
+  - docs/models/hskcreateresponseaction.md
+  - docs/models/hskdeleteresponse.md
+  - docs/models/hskdeleteresponseaction.md
+  - docs/models/hskgetlistresponse.md
+  - docs/models/hskgetlistresponseaction.md
+  - docs/models/hskgetresponse.md
+  - docs/models/hskgetresponseaction.md
+  - docs/models/idtokenreissuerequest.md
+  - docs/models/idtokenreissueresponse.md
+  - docs/models/idtokenreissueresponseaction.md
+  - docs/models/inforesponse.md
+  - docs/models/introspectionrequest.md
+  - docs/models/introspectionresponse.md
+  - docs/models/introspectionresponseaction.md
+  - docs/models/joseverifyrequest.md
+  - docs/models/joseverifyresponse.md
+  - docs/models/jwealg.md
+  - docs/models/jweenc.md
+  - docs/models/jwsalg.md
+  - docs/models/key.md
+  - docs/models/nameduri.md
+  - docs/models/nativessologoutrequest.md
+  - docs/models/nativessologoutresponse.md
+  - docs/models/nativessologoutresponseaction.md
+  - docs/models/nativessorequest.md
+  - docs/models/nativessoresponse.md
+  - docs/models/nativessoresponseaction.md
+  - docs/models/operations/authauthorizationapirequest.md
+  - docs/models/operations/authauthorizationfailapirequest.md
+  - docs/models/operations/authauthorizationissueapirequest.md
+  - docs/models/operations/authintrospectionapirequest.md
+  - docs/models/operations/authintrospectionstandardapirequest.md
+  - docs/models/operations/authrevocationapirequest.md
+  - docs/models/operations/authtokenapirequest.md
+  - docs/models/operations/authtokencreateapirequest.md
+  - docs/models/operations/authtokendeleteapirequest.md
+  - docs/models/operations/authtokenfailapirequest.md
+  - docs/models/operations/authtokengetlistapirequest.md
+  - docs/models/operations/authtokenissueapirequest.md
+  - docs/models/operations/authtokenrevokeapirequest.md
+  - docs/models/operations/authtokenupdateapirequest.md
+  - docs/models/operations/authuserinfoapirequest.md
+  - docs/models/operations/authuserinfoissueapirequest.md
+  - docs/models/operations/backchannelauthenticationapirequest.md
+  - docs/models/operations/backchannelauthenticationcompleteapirequest.md
+  - docs/models/operations/backchannelauthenticationfailapirequest.md
+  - docs/models/operations/backchannelauthenticationissueapirequest.md
+  - docs/models/operations/clientauthorizationdeleteapirequest.md
+  - docs/models/operations/clientauthorizationgetlistapirequest.md
+  - docs/models/operations/clientauthorizationupdateapirequest.md
+  - docs/models/operations/clientcreateapirequest.md
+  - docs/models/operations/clientdeleteapirequest.md
+  - docs/models/operations/clientextensionrequestablesscopesdeleteapirequest.md
+  - docs/models/operations/clientextensionrequestablesscopesgetapirequest.md
+  - docs/models/operations/clientextensionrequestablesscopesupdateapirequest.md
+  - docs/models/operations/clientflagupdateapirequest.md
+  - docs/models/operations/clientgetapirequest.md
+  - docs/models/operations/clientgetlistapirequest.md
+  - docs/models/operations/clientgrantedscopesdeleteapirequest.md
+  - docs/models/operations/clientgrantedscopesgetapirequest.md
+  - docs/models/operations/clientregistrationapirequest.md
+  - docs/models/operations/clientregistrationapirequestbody.md
+  - docs/models/operations/clientregistrationdeleteapirequest.md
+  - docs/models/operations/clientregistrationdeleteapirequestbody.md
+  - docs/models/operations/clientregistrationgetapirequest.md
+  - docs/models/operations/clientregistrationgetapirequestbody.md
+  - docs/models/operations/clientregistrationupdateapirequest.md
+  - docs/models/operations/clientregistrationupdateapirequestbody.md
+  - docs/models/operations/clientsecretrefreshapirequest.md
+  - docs/models/operations/clientsecretupdateapirequest.md
+  - docs/models/operations/clientupdateapirequest.md
+  - docs/models/operations/deviceauthorizationapirequest.md
+  - docs/models/operations/devicecompleteapirequest.md
+  - docs/models/operations/deviceverificationapirequest.md
+  - docs/models/operations/federationconfigurationapirequest.md
+  - docs/models/operations/federationconfigurationapirequestbody.md
+  - docs/models/operations/federationregistrationapirequest.md
+  - docs/models/operations/getauthorizationticketinforequest.md
+  - docs/models/operations/grantmapirequest.md
+  - docs/models/operations/hskcreateapirequest.md
+  - docs/models/operations/hskdeleteapirequest.md
+  - docs/models/operations/hskgetapirequest.md
+  - docs/models/operations/hskgetlistapirequest.md
+  - docs/models/operations/idtokenreissueapirequest.md
+  - docs/models/operations/joseverifyapirequest.md
+  - docs/models/operations/nativessoapirequest.md
+  - docs/models/operations/nativessologoutapirequest.md
+  - docs/models/operations/pushedauthreqapirequest.md
+  - docs/models/operations/serviceconfigurationapirequest.md
+  - docs/models/operations/serviceconfigurationapiresponse.md
+  - docs/models/operations/servicedeleteapirequest.md
+  - docs/models/operations/servicegetapirequest.md
+  - docs/models/operations/servicegetlistapirequest.md
+  - docs/models/operations/servicejwksgetapirequest.md
+  - docs/models/operations/serviceupdateapirequest.md
+  - docs/models/operations/updateauthorizationticketrequest.md
+  - docs/models/operations/vcibatchissueapirequest.md
+  - docs/models/operations/vcibatchparseapirequest.md
+  - docs/models/operations/vcideferredissueapirequest.md
+  - docs/models/operations/vcideferredparseapirequest.md
+  - docs/models/operations/vcijwksapirequest.md
+  - docs/models/operations/vcijwtissuerapirequest.md
+  - docs/models/operations/vcimetadataapirequest.md
+  - docs/models/operations/vcioffercreateapirequest.md
+  - docs/models/operations/vciofferinfoapirequest.md
+  - docs/models/operations/vcisingleissueapirequest.md
+  - docs/models/operations/vcisingleparseapirequest.md
+  - docs/models/pair.md
+  - docs/models/prompt.md
+  - docs/models/property.md
+  - docs/models/pushedauthorizationrequest.md
+  - docs/models/pushedauthorizationresponse.md
+  - docs/models/pushedauthorizationresponseaction.md
+  - docs/models/pushedauthorizationresponseclientauthmethod.md
+  - docs/models/responsemode.md
+  - docs/models/responsetype.md
+  - docs/models/revocationrequest.md
+  - docs/models/revocationresponse.md
+  - docs/models/revocationresponseaction.md
+  - docs/models/scope.md
+  - docs/models/security.md
+  - docs/models/service.md
+  - docs/models/servicegetlistresponse.md
+  - docs/models/serviceinput.md
+  - docs/models/servicejwksgetresponse.md
+  - docs/models/serviceprofile.md
+  - docs/models/standardintrospectionrequest.md
+  - docs/models/standardintrospectionresponse.md
+  - docs/models/standardintrospectionresponseaction.md
+  - docs/models/subjecttype.md
+  - docs/models/taggedvalue.md
+  - docs/models/tokencreaterequest.md
+  - docs/models/tokencreateresponse.md
+  - docs/models/tokencreateresponseaction.md
+  - docs/models/tokenfailrequest.md
+  - docs/models/tokenfailrequestreason.md
+  - docs/models/tokenfailresponse.md
+  - docs/models/tokenfailresponseaction.md
+  - docs/models/tokengetlistresponse.md
+  - docs/models/tokeninfo.md
+  - docs/models/tokenissuerequest.md
+  - docs/models/tokenissueresponse.md
+  - docs/models/tokenissueresponseaction.md
+  - docs/models/tokenrequest.md
+  - docs/models/tokenresponse.md
+  - docs/models/tokenresponseaction.md
+  - docs/models/tokenrevokerequest.md
+  - docs/models/tokenrevokeresponse.md
+  - docs/models/tokentype.md
+  - docs/models/tokenupdaterequest.md
+  - docs/models/tokenupdateresponse.md
+  - docs/models/tokenupdateresponseaction.md
+  - docs/models/trustanchor.md
+  - docs/models/usercodecharset.md
+  - docs/models/userinfoissuerequest.md
+  - docs/models/userinfoissueresponse.md
+  - docs/models/userinfoissueresponseaction.md
+  - docs/models/userinforequest.md
+  - docs/models/userinforesponse.md
+  - docs/models/userinforesponseaction.md
+  - docs/models/vcibatchissuerequest.md
+  - docs/models/vcibatchissueresponse.md
+  - docs/models/vcibatchissueresponseaction.md
+  - docs/models/vcibatchparserequest.md
+  - docs/models/vcibatchparseresponse.md
+  - docs/models/vcibatchparseresponseaction.md
+  - docs/models/vcideferredissuerequest.md
+  - docs/models/vcideferredissueresponse.md
+  - docs/models/vcideferredissueresponseaction.md
+  - docs/models/vcideferredparserequest.md
+  - docs/models/vcideferredparseresponse.md
+  - docs/models/vcideferredparseresponseaction.md
+  - docs/models/vcijwksrequest.md
+  - docs/models/vcijwksresponse.md
+  - docs/models/vcijwksresponseaction.md
+  - docs/models/vcijwtissuerrequest.md
+  - docs/models/vcijwtissuerresponse.md
+  - docs/models/vcijwtissuerresponseaction.md
+  - docs/models/vcimetadatarequest.md
+  - docs/models/vcimetadataresponse.md
+  - docs/models/vcimetadataresponseaction.md
+  - docs/models/vcioffercreaterequest.md
+  - docs/models/vcioffercreateresponse.md
+  - docs/models/vcioffercreateresponseaction.md
+  - docs/models/vciofferinforequest.md
+  - docs/models/vciofferinforesponse.md
+  - docs/models/vciofferinforesponseaction.md
+  - docs/models/vcisingleissuerequest.md
+  - docs/models/vcisingleissueresponse.md
+  - docs/models/vcisingleissueresponseaction.md
+  - docs/models/vcisingleparserequest.md
+  - docs/models/vcisingleparseresponse.md
+  - docs/models/vcisingleparseresponseaction.md
+  - docs/models/verifiedclaimsvalidationschema.md
+  - docs/sdks/authlete/README.md
+  - docs/sdks/authorizationendpoint/README.md
+  - docs/sdks/ciba/README.md
+  - docs/sdks/clientmanagement/README.md
+  - docs/sdks/deviceflow/README.md
+  - docs/sdks/dynamicclientregistration/README.md
+  - docs/sdks/federationendpoint/README.md
+  - docs/sdks/grantmanagementendpoint/README.md
+  - docs/sdks/hardwaresecuritykey/README.md
+  - docs/sdks/introspectionendpoint/README.md
+  - docs/sdks/joseobject/README.md
+  - docs/sdks/jwksetendpoint/README.md
+  - docs/sdks/nativesso/README.md
+  - docs/sdks/pushedauthorizationendpoint/README.md
+  - docs/sdks/revocationendpoint/README.md
+  - docs/sdks/servicemanagement/README.md
+  - docs/sdks/tokenendpoint/README.md
+  - docs/sdks/tokenoperations/README.md
+  - docs/sdks/userinfoendpoint/README.md
+  - docs/sdks/utilityendpoints/README.md
+  - docs/sdks/verifiablecredentialissuer/README.md
+  - eslint.config.mjs
+  - examples/.env.template
+  - examples/README.md
+  - examples/package.json
+  - examples/serviceManagementServiceGetApi.example.ts
+  - jsr.json
+  - package.json
+  - src/core.ts
+  - src/funcs/authorizationEndpointAuthAuthorizationApi.ts
+  - src/funcs/authorizationEndpointAuthAuthorizationFailApi.ts
+  - src/funcs/authorizationEndpointAuthAuthorizationIssueApi.ts
+  - src/funcs/authorizationEndpointGetAuthorizationTicketInfo.ts
+  - src/funcs/authorizationEndpointUpdateAuthorizationTicket.ts
+  - src/funcs/cibaBackchannelAuthenticationApi.ts
+  - src/funcs/cibaBackchannelAuthenticationCompleteApi.ts
+  - src/funcs/cibaBackchannelAuthenticationFailApi.ts
+  - src/funcs/cibaBackchannelAuthenticationIssueApi.ts
+  - src/funcs/clientManagementClientAuthorizationDeleteApi.ts
+  - src/funcs/clientManagementClientAuthorizationGetListApi.ts
+  - src/funcs/clientManagementClientAuthorizationUpdateApi.ts
+  - src/funcs/clientManagementClientCreateApi.ts
+  - src/funcs/clientManagementClientDeleteApi.ts
+  - src/funcs/clientManagementClientExtensionRequestablesScopesDeleteApi.ts
+  - src/funcs/clientManagementClientExtensionRequestablesScopesGetApi.ts
+  - src/funcs/clientManagementClientExtensionRequestablesScopesUpdateApi.ts
+  - src/funcs/clientManagementClientFlagUpdateApi.ts
+  - src/funcs/clientManagementClientGetApi.ts
+  - src/funcs/clientManagementClientGetListApi.ts
+  - src/funcs/clientManagementClientGrantedScopesDeleteApi.ts
+  - src/funcs/clientManagementClientGrantedScopesGetApi.ts
+  - src/funcs/clientManagementClientSecretRefreshApi.ts
+  - src/funcs/clientManagementClientSecretUpdateApi.ts
+  - src/funcs/clientManagementClientUpdateApi.ts
+  - src/funcs/deviceFlowDeviceAuthorizationApi.ts
+  - src/funcs/deviceFlowDeviceCompleteApi.ts
+  - src/funcs/deviceFlowDeviceVerificationApi.ts
+  - src/funcs/dynamicClientRegistrationClientRegistrationApi.ts
+  - src/funcs/dynamicClientRegistrationClientRegistrationDeleteApi.ts
+  - src/funcs/dynamicClientRegistrationClientRegistrationGetApi.ts
+  - src/funcs/dynamicClientRegistrationClientRegistrationUpdateApi.ts
+  - src/funcs/federationEndpointFederationConfigurationApi.ts
+  - src/funcs/federationEndpointFederationRegistrationApi.ts
+  - src/funcs/grantManagementEndpointGrantMApi.ts
+  - src/funcs/hardwareSecurityKeyHskCreateApi.ts
+  - src/funcs/hardwareSecurityKeyHskDeleteApi.ts
+  - src/funcs/hardwareSecurityKeyHskGetApi.ts
+  - src/funcs/hardwareSecurityKeyHskGetListApi.ts
+  - src/funcs/introspectionEndpointAuthIntrospectionApi.ts
+  - src/funcs/introspectionEndpointAuthIntrospectionStandardApi.ts
+  - src/funcs/joseObjectJoseVerifyApi.ts
+  - src/funcs/jwkSetEndpointServiceJwksGetApi.ts
+  - src/funcs/nativeSSONativeSSOApi.ts
+  - src/funcs/nativeSSONativeSSOLogoutApi.ts
+  - src/funcs/pushedAuthorizationEndpointPushedAuthReqApi.ts
+  - src/funcs/revocationEndpointAuthRevocationApi.ts
+  - src/funcs/serviceManagementServiceConfigurationApi.ts
+  - src/funcs/serviceManagementServiceCreateApi.ts
+  - src/funcs/serviceManagementServiceDeleteApi.ts
+  - src/funcs/serviceManagementServiceGetApi.ts
+  - src/funcs/serviceManagementServiceGetListApi.ts
+  - src/funcs/serviceManagementServiceUpdateApi.ts
+  - src/funcs/tokenEndpointAuthTokenApi.ts
+  - src/funcs/tokenEndpointAuthTokenFailApi.ts
+  - src/funcs/tokenEndpointAuthTokenIssueApi.ts
+  - src/funcs/tokenEndpointIdtokenReissueApi.ts
+  - src/funcs/tokenOperationsAuthTokenCreateApi.ts
+  - src/funcs/tokenOperationsAuthTokenDeleteApi.ts
+  - src/funcs/tokenOperationsAuthTokenGetListApi.ts
+  - src/funcs/tokenOperationsAuthTokenRevokeApi.ts
+  - src/funcs/tokenOperationsAuthTokenUpdateApi.ts
+  - src/funcs/userInfoEndpointAuthUserinfoApi.ts
+  - src/funcs/userInfoEndpointAuthUserinfoIssueApi.ts
+  - src/funcs/utilityEndpointsInfoApi.ts
+  - src/funcs/utilityEndpointsMiscEchoApi.ts
+  - src/funcs/verifiableCredentialIssuerVciBatchIssueApi.ts
+  - src/funcs/verifiableCredentialIssuerVciBatchParseApi.ts
+  - src/funcs/verifiableCredentialIssuerVciDeferredIssueApi.ts
+  - src/funcs/verifiableCredentialIssuerVciDeferredParseApi.ts
+  - src/funcs/verifiableCredentialIssuerVciJwksApi.ts
+  - src/funcs/verifiableCredentialIssuerVciJwtissuerApi.ts
+  - src/funcs/verifiableCredentialIssuerVciMetadataApi.ts
+  - src/funcs/verifiableCredentialIssuerVciOfferCreateApi.ts
+  - src/funcs/verifiableCredentialIssuerVciOfferInfoApi.ts
+  - src/funcs/verifiableCredentialIssuerVciSingleIssueApi.ts
+  - src/funcs/verifiableCredentialIssuerVciSingleParseApi.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
+  - src/index.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/env.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/models/accesstoken.ts
+  - src/models/applicationtype.ts
+  - src/models/attachmenttype.ts
+  - src/models/authorizationdetailselement.ts
+  - src/models/authorizationfailrequest.ts
+  - src/models/authorizationfailresponse.ts
+  - src/models/authorizationissuerequest.ts
+  - src/models/authorizationissueresponse.ts
+  - src/models/authorizationrequest.ts
+  - src/models/authorizationresponse.ts
+  - src/models/authorizationticketinforequest.ts
+  - src/models/authorizationticketinforesponse.ts
+  - src/models/authorizationticketupdaterequest.ts
+  - src/models/authorizationticketupdateresponse.ts
+  - src/models/authzdetails.ts
+  - src/models/backchannelauthenticationcompleterequest.ts
+  - src/models/backchannelauthenticationcompleteresponse.ts
+  - src/models/backchannelauthenticationfailrequest.ts
+  - src/models/backchannelauthenticationfailresponse.ts
+  - src/models/backchannelauthenticationissuerequest.ts
+  - src/models/backchannelauthenticationissueresponse.ts
+  - src/models/backchannelauthenticationrequest.ts
+  - src/models/backchannelauthenticationresponse.ts
+  - src/models/claimtype.ts
+  - src/models/client.ts
+  - src/models/clientauthmethod.ts
+  - src/models/clientauthorizationdeleteresponse.ts
+  - src/models/clientauthorizationgetlistresponse.ts
+  - src/models/clientauthorizationupdaterequest.ts
+  - src/models/clientauthorizationupdateresponse.ts
+  - src/models/clientextension.ts
+  - src/models/clientextensionrequestablescopesgetresponse.ts
+  - src/models/clientextensionrequestablescopesupdaterequest.ts
+  - src/models/clientextensionrequestablescopesupdateresponse.ts
+  - src/models/clientflagupdaterequest.ts
+  - src/models/clientflagupdateresponse.ts
+  - src/models/clientgetlistresponse.ts
+  - src/models/clientgrantedscopesdeleteresponse.ts
+  - src/models/clientlimited.ts
+  - src/models/clientlimitedauthorization.ts
+  - src/models/clientregistrationresponse.ts
+  - src/models/clientregistrationtype.ts
+  - src/models/clientsecretrefreshresponse.ts
+  - src/models/clientsecretupdaterequest.ts
+  - src/models/clientsecretupdateresponse.ts
+  - src/models/clienttype.ts
+  - src/models/credentialissuanceorder.ts
+  - src/models/credentialissuermetadata.ts
+  - src/models/credentialofferinfo.ts
+  - src/models/credentialrequestinfo.ts
+  - src/models/deliverymode.ts
+  - src/models/deviceauthorizationrequest.ts
+  - src/models/deviceauthorizationresponse.ts
+  - src/models/devicecompleterequest.ts
+  - src/models/devicecompleteresponse.ts
+  - src/models/deviceverificationrequest.ts
+  - src/models/deviceverificationresponse.ts
+  - src/models/display.ts
+  - src/models/dynamicscope.ts
+  - src/models/errors/authletedefaulterror.ts
+  - src/models/errors/authleteerror.ts
+  - src/models/errors/httpclienterrors.ts
+  - src/models/errors/index.ts
+  - src/models/errors/responsevalidationerror.ts
+  - src/models/errors/resulterror.ts
+  - src/models/errors/sdkvalidationerror.ts
+  - src/models/fapimode.ts
+  - src/models/federationconfigurationresponse.ts
+  - src/models/federationregistrationrequest.ts
+  - src/models/federationregistrationresponse.ts
+  - src/models/gmrequest.ts
+  - src/models/gmresponse.ts
+  - src/models/grant.ts
+  - src/models/grantmanagementaction.ts
+  - src/models/grantscope.ts
+  - src/models/granttype.ts
+  - src/models/hsk.ts
+  - src/models/hskcreaterequest.ts
+  - src/models/hskcreateresponse.ts
+  - src/models/hskdeleteresponse.ts
+  - src/models/hskgetlistresponse.ts
+  - src/models/hskgetresponse.ts
+  - src/models/idtokenreissuerequest.ts
+  - src/models/idtokenreissueresponse.ts
+  - src/models/index.ts
+  - src/models/inforesponse.ts
+  - src/models/introspectionrequest.ts
+  - src/models/introspectionresponse.ts
+  - src/models/joseverifyrequest.ts
+  - src/models/joseverifyresponse.ts
+  - src/models/jwealg.ts
+  - src/models/jweenc.ts
+  - src/models/jwsalg.ts
+  - src/models/nameduri.ts
+  - src/models/nativessologoutrequest.ts
+  - src/models/nativessologoutresponse.ts
+  - src/models/nativessorequest.ts
+  - src/models/nativessoresponse.ts
+  - src/models/operations/authauthorizationapi.ts
+  - src/models/operations/authauthorizationfailapi.ts
+  - src/models/operations/authauthorizationissueapi.ts
+  - src/models/operations/authintrospectionapi.ts
+  - src/models/operations/authintrospectionstandardapi.ts
+  - src/models/operations/authrevocationapi.ts
+  - src/models/operations/authtokenapi.ts
+  - src/models/operations/authtokencreateapi.ts
+  - src/models/operations/authtokendeleteapi.ts
+  - src/models/operations/authtokenfailapi.ts
+  - src/models/operations/authtokengetlistapi.ts
+  - src/models/operations/authtokenissueapi.ts
+  - src/models/operations/authtokenrevokeapi.ts
+  - src/models/operations/authtokenupdateapi.ts
+  - src/models/operations/authuserinfoapi.ts
+  - src/models/operations/authuserinfoissueapi.ts
+  - src/models/operations/backchannelauthenticationapi.ts
+  - src/models/operations/backchannelauthenticationcompleteapi.ts
+  - src/models/operations/backchannelauthenticationfailapi.ts
+  - src/models/operations/backchannelauthenticationissueapi.ts
+  - src/models/operations/clientauthorizationdeleteapi.ts
+  - src/models/operations/clientauthorizationgetlistapi.ts
+  - src/models/operations/clientauthorizationupdateapi.ts
+  - src/models/operations/clientcreateapi.ts
+  - src/models/operations/clientdeleteapi.ts
+  - src/models/operations/clientextensionrequestablesscopesdeleteapi.ts
+  - src/models/operations/clientextensionrequestablesscopesgetapi.ts
+  - src/models/operations/clientextensionrequestablesscopesupdateapi.ts
+  - src/models/operations/clientflagupdateapi.ts
+  - src/models/operations/clientgetapi.ts
+  - src/models/operations/clientgetlistapi.ts
+  - src/models/operations/clientgrantedscopesdeleteapi.ts
+  - src/models/operations/clientgrantedscopesgetapi.ts
+  - src/models/operations/clientregistrationapi.ts
+  - src/models/operations/clientregistrationdeleteapi.ts
+  - src/models/operations/clientregistrationgetapi.ts
+  - src/models/operations/clientregistrationupdateapi.ts
+  - src/models/operations/clientsecretrefreshapi.ts
+  - src/models/operations/clientsecretupdateapi.ts
+  - src/models/operations/clientupdateapi.ts
+  - src/models/operations/deviceauthorizationapi.ts
+  - src/models/operations/devicecompleteapi.ts
+  - src/models/operations/deviceverificationapi.ts
+  - src/models/operations/federationconfigurationapi.ts
+  - src/models/operations/federationregistrationapi.ts
+  - src/models/operations/getauthorizationticketinfo.ts
+  - src/models/operations/grantmapi.ts
+  - src/models/operations/hskcreateapi.ts
+  - src/models/operations/hskdeleteapi.ts
+  - src/models/operations/hskgetapi.ts
+  - src/models/operations/hskgetlistapi.ts
+  - src/models/operations/idtokenreissueapi.ts
+  - src/models/operations/index.ts
+  - src/models/operations/joseverifyapi.ts
+  - src/models/operations/nativessoapi.ts
+  - src/models/operations/nativessologoutapi.ts
+  - src/models/operations/pushedauthreqapi.ts
+  - src/models/operations/serviceconfigurationapi.ts
+  - src/models/operations/servicedeleteapi.ts
+  - src/models/operations/servicegetapi.ts
+  - src/models/operations/servicegetlistapi.ts
+  - src/models/operations/servicejwksgetapi.ts
+  - src/models/operations/serviceupdateapi.ts
+  - src/models/operations/updateauthorizationticket.ts
+  - src/models/operations/vcibatchissueapi.ts
+  - src/models/operations/vcibatchparseapi.ts
+  - src/models/operations/vcideferredissueapi.ts
+  - src/models/operations/vcideferredparseapi.ts
+  - src/models/operations/vcijwksapi.ts
+  - src/models/operations/vcijwtissuerapi.ts
+  - src/models/operations/vcimetadataapi.ts
+  - src/models/operations/vcioffercreateapi.ts
+  - src/models/operations/vciofferinfoapi.ts
+  - src/models/operations/vcisingleissueapi.ts
+  - src/models/operations/vcisingleparseapi.ts
+  - src/models/pair.ts
+  - src/models/prompt.ts
+  - src/models/property.ts
+  - src/models/pushedauthorizationrequest.ts
+  - src/models/pushedauthorizationresponse.ts
+  - src/models/responsetype.ts
+  - src/models/revocationrequest.ts
+  - src/models/revocationresponse.ts
+  - src/models/scope.ts
+  - src/models/security.ts
+  - src/models/service.ts
+  - src/models/servicegetlistresponse.ts
+  - src/models/serviceinput.ts
+  - src/models/servicejwksgetresponse.ts
+  - src/models/serviceprofile.ts
+  - src/models/standardintrospectionrequest.ts
+  - src/models/standardintrospectionresponse.ts
+  - src/models/subjecttype.ts
+  - src/models/taggedvalue.ts
+  - src/models/tokencreaterequest.ts
+  - src/models/tokencreateresponse.ts
+  - src/models/tokenfailrequest.ts
+  - src/models/tokenfailresponse.ts
+  - src/models/tokengetlistresponse.ts
+  - src/models/tokeninfo.ts
+  - src/models/tokenissuerequest.ts
+  - src/models/tokenissueresponse.ts
+  - src/models/tokenrequest.ts
+  - src/models/tokenresponse.ts
+  - src/models/tokenrevokerequest.ts
+  - src/models/tokenrevokeresponse.ts
+  - src/models/tokentype.ts
+  - src/models/tokenupdaterequest.ts
+  - src/models/tokenupdateresponse.ts
+  - src/models/trustanchor.ts
+  - src/models/usercodecharset.ts
+  - src/models/userinfoissuerequest.ts
+  - src/models/userinfoissueresponse.ts
+  - src/models/userinforequest.ts
+  - src/models/userinforesponse.ts
+  - src/models/vcibatchissuerequest.ts
+  - src/models/vcibatchissueresponse.ts
+  - src/models/vcibatchparserequest.ts
+  - src/models/vcibatchparseresponse.ts
+  - src/models/vcideferredissuerequest.ts
+  - src/models/vcideferredissueresponse.ts
+  - src/models/vcideferredparserequest.ts
+  - src/models/vcideferredparseresponse.ts
+  - src/models/vcijwksrequest.ts
+  - src/models/vcijwksresponse.ts
+  - src/models/vcijwtissuerrequest.ts
+  - src/models/vcijwtissuerresponse.ts
+  - src/models/vcimetadatarequest.ts
+  - src/models/vcimetadataresponse.ts
+  - src/models/vcioffercreaterequest.ts
+  - src/models/vcioffercreateresponse.ts
+  - src/models/vciofferinforequest.ts
+  - src/models/vciofferinforesponse.ts
+  - src/models/vcisingleissuerequest.ts
+  - src/models/vcisingleissueresponse.ts
+  - src/models/vcisingleparserequest.ts
+  - src/models/vcisingleparseresponse.ts
+  - src/models/verifiedclaimsvalidationschema.ts
+  - src/sdk/authorizationendpoint.ts
+  - src/sdk/ciba.ts
+  - src/sdk/clientmanagement.ts
+  - src/sdk/deviceflow.ts
+  - src/sdk/dynamicclientregistration.ts
+  - src/sdk/federationendpoint.ts
+  - src/sdk/grantmanagementendpoint.ts
+  - src/sdk/hardwaresecuritykey.ts
+  - src/sdk/index.ts
+  - src/sdk/introspectionendpoint.ts
+  - src/sdk/joseobject.ts
+  - src/sdk/jwksetendpoint.ts
+  - src/sdk/nativesso.ts
+  - src/sdk/pushedauthorizationendpoint.ts
+  - src/sdk/revocationendpoint.ts
+  - src/sdk/sdk.ts
+  - src/sdk/servicemanagement.ts
+  - src/sdk/tokenendpoint.ts
+  - src/sdk/tokenoperations.ts
+  - src/sdk/userinfoendpoint.ts
+  - src/sdk/utilityendpoints.ts
+  - src/sdk/verifiablecredentialissuer.ts
+  - src/types/async.ts
+  - src/types/blobs.ts
+  - src/types/constdatetime.ts
+  - src/types/enums.ts
+  - src/types/fp.ts
+  - src/types/index.ts
+  - src/types/operations.ts
+  - src/types/rfcdate.ts
+  - src/types/streams.ts
+  - tsconfig.json
+examples:
+  service_get_api:
+    full:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {"number": 5041, "serviceName": "My service", "issuer": "https://my-service.example.com", "apiKey": 21653835348762, "clientIdAliasEnabled": true, "metadata": [{"key": "clientCount", "value": "1"}], "createdAt": 1639373421000, "modifiedAt": 1639373421000, "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "errorDescriptionOmitted": false, "errorUriOmitted": false, "authorizationEndpoint": "https://my-service.example.com/authz", "directAuthorizationEndpointEnabled": false, "supportedDisplays": ["PAGE"], "pkceRequired": true, "pkceS256Required": false, "authorizationResponseDuration": 0, "tokenEndpoint": "https://my-service.example.com/token", "directTokenEndpointEnabled": false, "supportedTokenAuthMethods": ["CLIENT_SECRET_BASIC"], "missingClientIdAllowed": false, "revocationEndpoint": "https://my-service.example.com/revocation", "directRevocationEndpointEnabled": false, "supportedRevocationAuthMethods": ["CLIENT_SECRET_BASIC"], "introspectionEndpoint": "https://my-service.example.com/introspection", "directIntrospectionEndpointEnabled": false, "supportedIntrospectionAuthMethods": ["CLIENT_SECRET_BASIC"], "pushedAuthReqDuration": 0, "parRequired": false, "requestObjectRequired": false, "traditionalRequestObjectProcessingApplied": false, "mutualTlsValidatePkiCertChain": false, "accessTokenType": "Bearer", "tlsClientCertificateBoundAccessTokens": false, "accessTokenDuration": 3600, "singleAccessTokenPerSubject": false, "refreshTokenDuration": 3600, "refreshTokenDurationKept": false, "refreshTokenDurationReset": false, "refreshTokenKept": false, "supportedScopes": [{"name": "history.read", "defaultEntry": false, "description": "A permission to read your history."}, {"name": "timeline.read", "defaultEntry": false, "description": "A permission to read your timeline."}], "scopeRequired": false, "idTokenDuration": 0, "allowableClockSkew": 0, "supportedClaimTypes": ["NORMAL"], "claimShortcutRestrictive": false, "directJwksEndpointEnabled": false, "directUserInfoEndpointEnabled": false, "dynamicRegistrationSupported": false, "backchannelAuthReqIdDuration": 0, "backchannelPollingInterval": 0, "backchannelUserCodeParameterSupported": false, "backchannelBindingMessageRequiredInFapi": false, "deviceFlowCodeDuration": 0, "deviceFlowPollingInterval": 0, "userCodeLength": 0, "attributes": [{"key": "attribute1-key", "value": "attribute1-value"}, {"key": "attribute2-key", "value": "attribute2-value"}], "nbfOptional": false, "issSuppressed": false, "tokenExpirationLinked": false, "frontChannelRequestObjectEncryptionRequired": false, "requestObjectEncryptionAlgMatchRequired": false, "requestObjectEncryptionEncMatchRequired": false, "hsmEnabled": false, "grantManagementActionRequired": false, "unauthorizedOnClientConfigSupported": false, "dcrScopeUsedAsRequestable": false}
+    limited:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {"number": 5041, "serviceName": "My service", "description": "This Service.", "apiKey": 21653835348762}
+    speakeasy-default-service-get-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  service_get_list_api:
+    full:
+      responses:
+        "200":
+          application/json: {"start": 0, "end": 5, "totalCount": 1, "services": [{"number": 5041, "serviceName": "My service", "issuer": "https://my-service.example.com", "apiKey": 21653835348762, "clientIdAliasEnabled": true, "metadata": [{"key": "clientCount", "value": "1"}], "createdAt": 1639373421000, "modifiedAt": 1639373421000, "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "errorDescriptionOmitted": false, "errorUriOmitted": false, "authorizationEndpoint": "https://as.example.com/authz", "directAuthorizationEndpointEnabled": false, "supportedDisplays": ["PAGE"], "pkceRequired": true, "pkceS256Required": false, "authorizationResponseDuration": 0, "tokenEndpoint": "https://my-service.example.com/token", "directTokenEndpointEnabled": false, "supportedTokenAuthMethods": ["CLIENT_SECRET_BASIC"], "missingClientIdAllowed": false, "revocationEndpoint": "https://my-service.example.com/revocation", "directRevocationEndpointEnabled": false, "supportedRevocationAuthMethods": ["CLIENT_SECRET_BASIC"], "introspectionEndpoint": "https://my-service.example.com/introspection", "directIntrospectionEndpointEnabled": false, "supportedIntrospectionAuthMethods": ["CLIENT_SECRET_BASIC"], "pushedAuthReqDuration": 0, "parRequired": false, "requestObjectRequired": false, "traditionalRequestObjectProcessingApplied": false, "mutualTlsValidatePkiCertChain": false, "accessTokenType": "Bearer", "tlsClientCertificateBoundAccessTokens": false, "accessTokenDuration": 3600, "singleAccessTokenPerSubject": false, "refreshTokenDuration": 3600, "refreshTokenDurationKept": false, "refreshTokenDurationReset": false, "refreshTokenKept": false, "supportedScopes": [{"name": "history.read", "defaultEntry": false, "description": "A permission to read your history."}, {"name": "timeline.read", "defaultEntry": false, "description": "A permission to read your timeline."}], "scopeRequired": false, "idTokenDuration": 0, "allowableClockSkew": 0, "supportedClaimTypes": ["NORMAL"], "claimShortcutRestrictive": false, "directJwksEndpointEnabled": false, "directUserInfoEndpointEnabled": false, "dynamicRegistrationSupported": false, "backchannelAuthReqIdDuration": 0, "backchannelPollingInterval": 0, "backchannelUserCodeParameterSupported": false, "backchannelBindingMessageRequiredInFapi": false, "deviceFlowCodeDuration": 0, "deviceFlowPollingInterval": 0, "userCodeLength": 0, "attributes": [{"key": "attribute1-key", "value": "attribute1-value"}, {"key": "attribute2-key", "value": "attribute2-value"}], "nbfOptional": false, "issSuppressed": false, "tokenExpirationLinked": false, "frontChannelRequestObjectEncryptionRequired": false, "requestObjectEncryptionAlgMatchRequired": false, "requestObjectEncryptionEncMatchRequired": false, "hsmEnabled": false, "grantManagementActionRequired": false, "unauthorizedOnClientConfigSupported": false, "dcrScopeUsedAsRequestable": false}]}
+    limited:
+      responses:
+        "200":
+          application/json: {"start": 0, "end": 5, "totalCount": 1, "services": [{"number": 5041, "serviceName": "My service", "apiKey": 21653835348762, "clientIdAliasEnabled": true}]}
+    speakeasy-default-service-get-list-api:
+      responses:
+        "200":
+          application/json: {"services": [{"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  service_create_api:
+    speakeasy-default-service-create-api:
+      requestBody:
+        application/json: {"serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
+        application/x-www-form-urlencoded: {"serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
+      responses:
+        "200":
+          application/json: {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  service_update_api:
+    speakeasy-default-service-update-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
+        application/x-www-form-urlencoded: {"serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
+      responses:
+        "200":
+          application/json: {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  service_delete_api:
+    speakeasy-default-service-delete-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  service_configuration_api:
+    speakeasy-default-service-configuration-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_get_api:
+    speakeasy-default-client-get-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientId: "<id>"
+      responses:
+        "200":
+          application/json: {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_get_list_api:
+    full:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {"start": 0, "end": 3, "totalCount": 1, "clients": [{"number": 6164, "serviceNumber": 5041, "clientName": "My client", "clientId": 26478243745571, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientIdAlias": "my-client", "clientIdAliasEnabled": true, "clientType": "CONFIDENTIAL", "applicationType": "WEB", "tlsClientCertificateBoundAccessTokens": false, "dynamicallyRegistered": false, "createdAt": 1639468356000, "modifiedAt": 1639468356000, "grantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "responseTypes": ["CODE", "TOKEN"], "redirectUris": ["https://my-client.example.com/cb1", "https://my-client.example.com/cb2"], "tokenAuthMethod": "CLIENT_SECRET_BASIC", "parRequired": false, "requestObjectRequired": false, "defaultMaxAge": 0, "idTokenSignAlg": "RS256", "authTimeRequired": false, "subjectType": "PUBLIC", "derivedSectorIdentifier": "my-client.example.com", "bcUserCodeRequired": false, "attributes": [{"key": "attribute1-key", "value": "attribute1-value"}, {"key": "attribute2-key", "value": "attribute2-value"}], "frontChannelRequestObjectEncryptionRequired": false, "requestObjectEncryptionAlgMatchRequired": false, "requestObjectEncryptionEncMatchRequired": false}]}
+    limited:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {"start": 0, "end": 3, "totalCount": 1, "clients": [{"number": 6164, "clientName": "My client", "clientId": 26478243745571, "clientIdAlias": "my-client", "clientIdAliasEnabled": true, "clientType": "CONFIDENTIAL"}]}
+    speakeasy-default-client-get-list-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {"clients": [{"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_create_api:
+    speakeasy-default-client-create-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"clientName": "My Test Client", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
+      responses:
+        "200":
+          application/json: {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_update_api:
+    speakeasy-default-client-update-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientId: "<id>"
+      requestBody:
+        application/json: {"clientName": "My Test Client", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
+        application/x-www-form-urlencoded: {"clientName": "My Test Client", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
+      responses:
+        "200":
+          application/json: {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_delete_api:
+    speakeasy-default-client-delete-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientId: "<id>"
+      responses:
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_flag_update_api:
+    speakeasy-default-client-flag-update-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientIdentifier: "<value>"
+      responses:
+        "200":
+          application/json: {"resultCode": "<value>", "resultMessage": "<value>"}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_secret_refresh_api:
+    speakeasy-default-client-secret-refresh-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientIdentifier: "<value>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_secret_update_api:
+    speakeasy-default-client-secret-update-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientIdentifier: "<value>"
+      requestBody:
+        application/json: {"clientSecret": "<value>"}
+        application/x-www-form-urlencoded: {"clientSecret": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_authorization_get_list_api:
+    speakeasy-default-client-authorization-get-list-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          subject: "<value>"
+        query:
+          subject: "<value>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_authorization_update_api:
+    speakeasy-default-client-authorization-update-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientId: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_authorization_delete_api:
+    speakeasy-default-client-authorization-delete-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientId: "<id>"
+          subject: "<value>"
+        query:
+          subject: "<value>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_granted_scopes_get_api:
+    speakeasy-default-client-granted-scopes-get-api:
+      parameters:
+        path:
+          serviceId: "715948317"
+          clientId: "1140735077"
+          subject: "<value>"
+        query:
+          subject: "<value>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_granted_scopes_delete_api:
+    speakeasy-default-client-granted-scopes-delete-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientId: "<id>"
+          subject: "<value>"
+        query:
+          subject: "<value>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_extension_requestables_scopes_get_api:
+    speakeasy-default-client-extension-requestables-scopes-get-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientId: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_extension_requestables_scopes_update_api:
+    speakeasy-default-client-extension-requestables-scopes-update-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientId: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_extension_requestables_scopes_delete_api:
+    speakeasy-default-client-extension-requestables-scopes-delete-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          clientId: "<id>"
+      responses:
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_authorization_api:
+    speakeasy-default-auth-authorization-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"parameters": "<value>"}
+        application/x-www-form-urlencoded: {"parameters": "<value>"}
+      responses:
+        "200":
+          application/json: {"service": {"number": 715948317, "serviceName": "My Test Service", "issuer": "https://example.com", "supportedGrantTypes": ["AUTHORIZATION_CODE", "REFRESH_TOKEN"], "supportedResponseTypes": ["CODE"], "supportedScopes": [{}, {}, {}]}}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_authorization_fail_api:
+    speakeasy-default-auth-authorization-fail-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"ticket": "<value>", "reason": "NOT_AUTHENTICATED"}
+        application/x-www-form-urlencoded: {"ticket": "<value>", "reason": "NOT_AUTHENTICATED"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_authorization_issue_api:
+    speakeasy-default-auth-authorization-issue-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"ticket": "<value>", "subject": "<value>"}
+        application/x-www-form-urlencoded: {"ticket": "<value>", "subject": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  getAuthorizationTicketInfo:
+    speakeasy-default-get-authorization-ticket-info:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"ticket": "<value>"}
+        application/x-www-form-urlencoded: {"ticket": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  updateAuthorizationTicket:
+    speakeasy-default-update-authorization-ticket:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"ticket": "<value>", "info": "<value>"}
+        application/x-www-form-urlencoded: {"ticket": "<value>", "info": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  pushed_auth_req_api:
+    speakeasy-default-pushed-auth-req-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"parameters": "<value>"}
+        application/x-www-form-urlencoded: {"parameters": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_token_api:
+    speakeasy-default-auth-token-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"parameters": "<value>"}
+        application/x-www-form-urlencoded: {"parameters": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_token_fail_api:
+    speakeasy-default-auth-token-fail-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"ticket": "<value>", "reason": "UNKNOWN"}
+        application/x-www-form-urlencoded: {"ticket": "<value>", "reason": "UNKNOWN"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_token_issue_api:
+    speakeasy-default-auth-token-issue-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"ticket": "<value>", "subject": "<value>"}
+        application/x-www-form-urlencoded: {"ticket": "<value>", "subject": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  idtoken_reissue_api:
+    speakeasy-default-idtoken-reissue-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_introspection_api:
+    speakeasy-default-auth-introspection-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"token": "<value>"}
+        application/x-www-form-urlencoded: {"token": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_introspection_standard_api:
+    speakeasy-default-auth-introspection-standard-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"parameters": "<value>"}
+        application/x-www-form-urlencoded: {"parameters": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_revocation_api:
+    speakeasy-default-auth-revocation-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"parameters": "<value>"}
+        application/x-www-form-urlencoded: {"parameters": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_userinfo_api:
+    speakeasy-default-auth-userinfo-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"token": "<value>"}
+        application/x-www-form-urlencoded: {"token": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_userinfo_issue_api:
+    speakeasy-default-auth-userinfo-issue-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"token": "<value>"}
+        application/x-www-form-urlencoded: {"token": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  grant_m_api:
+    speakeasy-default-grant-m-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  service_jwks_get_api:
+    speakeasy-default-service-jwks-get-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_registration_api:
+    speakeasy-default-client-registration-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"json": "{key: 6995014930124193, key1: null, key2: \"<value>\"}"}
+      responses:
+        "200":
+          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_registration_get_api:
+    speakeasy-default-client-registration-get-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"token": "<value>", "clientId": "<id>"}
+      responses:
+        "200":
+          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_registration_update_api:
+    speakeasy-default-client-registration-update-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"json": "{key: 7278695057340839, key1: null, key2: \"<value>\"}", "token": "<value>", "clientId": "<id>"}
+      responses:
+        "200":
+          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  client_registration_delete_api:
+    speakeasy-default-client-registration-delete-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"token": "<value>", "clientId": "<id>"}
+      responses:
+        "200":
+          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  backchannel_authentication_api:
+    speakeasy-default-backchannel-authentication-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"parameters": "<value>"}
+        application/x-www-form-urlencoded: {"parameters": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  backchannel_authentication_issue_api:
+    speakeasy-default-backchannel-authentication-issue-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"ticket": "<value>"}
+        application/x-www-form-urlencoded: {"ticket": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  backchannel_authentication_fail_api:
+    speakeasy-default-backchannel-authentication-fail-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"ticket": "<value>", "reason": "MISSING_USER_CODE"}
+        application/x-www-form-urlencoded: {"ticket": "<value>", "reason": "MISSING_USER_CODE"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  backchannel_authentication_complete_api:
+    speakeasy-default-backchannel-authentication-complete-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"ticket": "<value>", "result": "TRANSACTION_FAILED", "subject": "<value>"}
+        application/x-www-form-urlencoded: {"ticket": "<value>", "result": "TRANSACTION_FAILED", "subject": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  device_authorization_api:
+    speakeasy-default-device-authorization-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"parameters": "<value>"}
+        application/x-www-form-urlencoded: {"parameters": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  device_verification_api:
+    speakeasy-default-device-verification-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"userCode": "<value>"}
+        application/x-www-form-urlencoded: {"userCode": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  device_complete_api:
+    speakeasy-default-device-complete-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"userCode": "<value>", "result": "AUTHORIZED", "subject": "<value>"}
+        application/x-www-form-urlencoded: {"userCode": "<value>", "result": "AUTHORIZED", "subject": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_token_get_list_api:
+    speakeasy-default-auth-token-get-list-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_token_create_api:
+    speakeasy-default-auth-token-create-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"grantType": "REFRESH_TOKEN", "clientId": 987169}
+        application/x-www-form-urlencoded: {"grantType": "REFRESH_TOKEN", "clientId": 987169}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_token_update_api:
+    speakeasy-default-auth-token-update-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"accessToken": "<value>"}
+        application/x-www-form-urlencoded: {"accessToken": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_token_delete_api:
+    speakeasy-default-auth-token-delete-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          accessTokenIdentifier: "<value>"
+      responses:
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  auth_token_revoke_api:
+    speakeasy-default-auth-token-revoke-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+        application/x-www-form-urlencoded: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  jose_verify_api:
+    speakeasy-default-jose-verify-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  federation_configuration_api:
+    speakeasy-default-federation-configuration-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  federation_registration_api:
+    speakeasy-default-federation-registration-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+        application/x-www-form-urlencoded: {}
+      responses:
+        "200":
+          application/json: {"client": {"number": 1140735077, "serviceNumber": 715948317, "clientName": "My Test Client", "clientId": 1140735077, "clientSecret": "gXz97ISgLs4HuXwOZWch8GEmgL4YMvUJwu3er_kDVVGcA0UOhA9avLPbEmoeZdagi9yC_-tEiT2BdRyH9dbrQQ", "clientType": "PUBLIC", "grantTypes": ["AUTHORIZATION_CODE"], "responseTypes": ["CODE"], "redirectUris": ["https://example.com/callback"]}}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  info_api:
+    speakeasy-default-info-api:
+      responses:
+        "200":
+          application/json: {"version": "<value>", "features": ["<value 1>", "<value 2>", "<value 3>"]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  misc_echo_api: {}
+  hsk_create_api:
+    speakeasy-default-hsk-create-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+        application/x-www-form-urlencoded: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  hsk_delete_api:
+    speakeasy-default-hsk-delete-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          handle: "<value>"
+      responses:
+        "204":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  hsk_get_api:
+    speakeasy-default-hsk-get-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+          handle: "<value>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  hsk_get_list_api:
+    speakeasy-default-hsk-get-list-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  vci_metadata_api:
+    speakeasy-default-vci-metadata-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"pretty": true}
+        application/x-www-form-urlencoded: {"pretty": true}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  vci_jwtissuer_api:
+    speakeasy-default-vci-jwtissuer-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"pretty": true}
+        application/x-www-form-urlencoded: {"pretty": true}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  vci_jwks_api:
+    speakeasy-default-vci-jwks-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"pretty": false}
+        application/x-www-form-urlencoded: {"pretty": false}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  vci_offer_create_api:
+    speakeasy-default-vci-offer-create-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+        application/x-www-form-urlencoded: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  vci_offer_info_api:
+    speakeasy-default-vci-offer-info-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+        application/x-www-form-urlencoded: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  vci_single_parse_api:
+    speakeasy-default-vci-single-parse-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+        application/x-www-form-urlencoded: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  vci_single_issue_api:
+    speakeasy-default-vci-single-issue-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  vci_batch_parse_api:
+    speakeasy-default-vci-batch-parse-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+        application/x-www-form-urlencoded: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  vci_batch_issue_api:
+    speakeasy-default-vci-batch-issue-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  vci_deferred_parse_api:
+    speakeasy-default-vci-deferred-parse-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+        application/x-www-form-urlencoded: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  vci_deferred_issue_api:
+    speakeasy-default-vci-deferred-issue-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  native_sso_api:
+    speakeasy-default-native-sso-api:
+      parameters:
+        path:
+          serviceId: "715948317"
+      requestBody:
+        application/json: {"accessToken": "<value>", "deviceSecret": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+  native_sso_logout_api:
+    speakeasy-default-native-sso-logout-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"sessionId": "<id>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+examplesVersion: 1.0.2

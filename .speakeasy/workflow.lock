@@ -1,0 +1,39 @@
+speakeasyVersion: 1.603.2
+sources:
+    Authlete API Explorer:
+        sourceNamespace: authlete-api-explorer
+        sourceRevisionDigest: sha256:d788a81aed02239a1df715bb41e029d63791fd6fd74564e2ac0d98655973182a
+        sourceBlobDigest: sha256:4348750b3550bd0579ff4d83d9f1c52580af804b3abc73d67a42b2e43e19c1a3
+        tags:
+            - latest
+            - 3.0.16
+targets:
+    authlete:
+        source: Authlete API Explorer
+        sourceNamespace: authlete-api-explorer
+        sourceRevisionDigest: sha256:d788a81aed02239a1df715bb41e029d63791fd6fd74564e2ac0d98655973182a
+        sourceBlobDigest: sha256:4348750b3550bd0579ff4d83d9f1c52580af804b3abc73d67a42b2e43e19c1a3
+        codeSamplesNamespace: authlete-api-explorer-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:4a5d212fb2a505d306401fa9bc2217028e53e1c377e3f0e245a9cc9b67f12247
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Authlete API Explorer:
+            inputs:
+                - location: https://raw.githubusercontent.com/authlete/openapi/refs/heads/main/en.yaml
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            output: .speakeasy/out.openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/authlete/sdk-workspace/authlete-api-explorer
+    targets:
+        authlete:
+            target: typescript
+            source: Authlete API Explorer
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/authlete/sdk-workspace/authlete-api-explorer-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false
