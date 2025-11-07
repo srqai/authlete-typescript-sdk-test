@@ -10,7 +10,7 @@ mkdir samples
 npm install --ignore-scripts
 npm install -g ts-node --ignore-scripts
 npm link
-npm link authlete
+npm link authlete-beta
 TS_CONFIG_CONTENT=$(cat <<EOL
 {
   "compilerOptions": {

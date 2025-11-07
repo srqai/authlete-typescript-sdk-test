@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { AuthorizationResponseAction } from "authlete/models";
+import { AuthorizationResponseAction } from "authlete-beta/models";
 
 let value: AuthorizationResponseAction = "FORM";
 ```

@@ -1,14 +1,15 @@
 lockVersion: 2.0.0
 id: b46c9081-6a59-4f57-9207-8f7715e429dc
 management:
-  docChecksum: 0119cf83ad0aece41639011aa0a4d543
+  docChecksum: 6043b2ac25f7029ae86a713a35e73858
   docVersion: 3.0.16
   speakeasyVersion: 1.650.0
   generationVersion: 2.743.2
-  releaseVersion: 0.1.0
-  configChecksum: a9d4a1e0d7efe6aad5ce0d0659af5bec
+  releaseVersion: 0.8.1
+  configChecksum: 2af626fc97dc85b471d2f6cb32e12c2b
   repoURL: https://github.com/authlete/authlete-typescript-sdk.git
   installationURL: https://github.com/authlete/authlete-typescript-sdk
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -141,7 +142,6 @@ generatedFiles:
   - docs/models/idtokenreissuerequest.md
   - docs/models/idtokenreissueresponse.md
   - docs/models/idtokenreissueresponseaction.md
-  - docs/models/inforesponse.md
   - docs/models/introspectionrequest.md
   - docs/models/introspectionresponse.md
   - docs/models/introspectionresponseaction.md
@@ -163,6 +163,7 @@ generatedFiles:
   - docs/models/operations/authauthorizationissueapirequest.md
   - docs/models/operations/authintrospectionapirequest.md
   - docs/models/operations/authintrospectionstandardapirequest.md
+  - docs/models/operations/authorizationticketinfopostapirequest.md
   - docs/models/operations/authrevocationapirequest.md
   - docs/models/operations/authtokenapirequest.md
   - docs/models/operations/authtokencreateapirequest.md
@@ -208,7 +209,6 @@ generatedFiles:
   - docs/models/operations/federationconfigurationapirequest.md
   - docs/models/operations/federationconfigurationapirequestbody.md
   - docs/models/operations/federationregistrationapirequest.md
-  - docs/models/operations/getauthorizationticketinforequest.md
   - docs/models/operations/grantmapirequest.md
   - docs/models/operations/hskcreateapirequest.md
   - docs/models/operations/hskdeleteapirequest.md
@@ -326,121 +326,109 @@ generatedFiles:
   - docs/models/vcisingleparseresponseaction.md
   - docs/models/verifiedclaimsvalidationschema.md
   - docs/sdks/authorization/README.md
-  - docs/sdks/authorizationendpoint/README.md
+  - docs/sdks/authorizationmanagement/README.md
   - docs/sdks/ciba/README.md
+  - docs/sdks/client/README.md
   - docs/sdks/clientmanagement/README.md
-  - docs/sdks/clients/README.md
   - docs/sdks/deviceflow/README.md
   - docs/sdks/dynamicclientregistration/README.md
-  - docs/sdks/dynamicclientregistrations/README.md
-  - docs/sdks/federationendpoint/README.md
-  - docs/sdks/federations/README.md
-  - docs/sdks/grantmanagementendpoint/README.md
-  - docs/sdks/hardwaresecuritykey/README.md
+  - docs/sdks/federation/README.md
+  - docs/sdks/grantmanagement/README.md
   - docs/sdks/hardwaresecuritykeys/README.md
   - docs/sdks/introspection/README.md
-  - docs/sdks/introspectionendpoint/README.md
-  - docs/sdks/joseobjects/README.md
-  - docs/sdks/jwksets/README.md
+  - docs/sdks/joseobject/README.md
+  - docs/sdks/jwksetendpoint/README.md
   - docs/sdks/nativesso/README.md
   - docs/sdks/pushedauthorization/README.md
-  - docs/sdks/revocations/README.md
-  - docs/sdks/servicemanagement/README.md
-  - docs/sdks/services/README.md
-  - docs/sdks/tokenendpoint/README.md
-  - docs/sdks/tokenoperations/README.md
-  - docs/sdks/tokens/README.md
-  - docs/sdks/userinfoendpoint/README.md
-  - docs/sdks/utilities/README.md
-  - docs/sdks/utilityendpoints/README.md
-  - docs/sdks/verifiablecredentialissuer/README.md
-  - docs/sdks/verifiablecredentialissuers/README.md
+  - docs/sdks/revocation/README.md
+  - docs/sdks/service/README.md
+  - docs/sdks/token/README.md
+  - docs/sdks/tokenmanagement/README.md
+  - docs/sdks/userinfo/README.md
   - docs/sdks/verifiablecredentials/README.md
   - eslint.config.mjs
   - examples/.env.template
   - examples/README.md
   - examples/package.json
-  - examples/serviceManagementGet.example.ts
+  - examples/serviceGet.example.ts
   - jsr.json
   - package.json
   - src/core.ts
-  - src/funcs/authorizationEndpointFail.ts
-  - src/funcs/authorizationEndpointGetTicketInfo.ts
+  - src/funcs/authorizationFail.ts
   - src/funcs/authorizationIssue.ts
-  - src/funcs/authorizationProcess.ts
-  - src/funcs/authorizationUpdateTicket.ts
+  - src/funcs/authorizationManagementGetTicketInfo.ts
+  - src/funcs/authorizationManagementUpdateTicket.ts
+  - src/funcs/authorizationProcessRequest.ts
   - src/funcs/cibaComplete.ts
   - src/funcs/cibaFail.ts
-  - src/funcs/cibaIssueAuthenticationResponse.ts
-  - src/funcs/cibaProcessRequest.ts
+  - src/funcs/cibaIssue.ts
+  - src/funcs/cibaProcessAuthentication.ts
+  - src/funcs/clientCreate.ts
+  - src/funcs/clientDelete.ts
+  - src/funcs/clientGet.ts
+  - src/funcs/clientList.ts
+  - src/funcs/clientManagementDeleteAuthorizations.ts
   - src/funcs/clientManagementDeleteGrantedScopes.ts
+  - src/funcs/clientManagementDeleteRequestableScopes.ts
   - src/funcs/clientManagementGetGrantedScopes.ts
   - src/funcs/clientManagementGetRequestableScopes.ts
-  - src/funcs/clientsCreate.ts
-  - src/funcs/clientsDelete.ts
-  - src/funcs/clientsDeleteRequestableScopes.ts
-  - src/funcs/clientsDeleteTokens.ts
-  - src/funcs/clientsGet.ts
-  - src/funcs/clientsGetAuthorizedApplications.ts
-  - src/funcs/clientsGetList.ts
-  - src/funcs/clientsRotateSecret.ts
-  - src/funcs/clientsUpdate.ts
-  - src/funcs/clientsUpdateLockFlag.ts
-  - src/funcs/clientsUpdateRequestableScopes.ts
-  - src/funcs/clientsUpdateSecret.ts
-  - src/funcs/clientsUpdateTokens.ts
-  - src/funcs/deviceFlowAuthorize.ts
+  - src/funcs/clientManagementListAuthorizations.ts
+  - src/funcs/clientManagementRefreshSecret.ts
+  - src/funcs/clientManagementUpdateAuthorizations.ts
+  - src/funcs/clientManagementUpdateLockFlag.ts
+  - src/funcs/clientManagementUpdateRequestableScopes.ts
+  - src/funcs/clientManagementUpdateSecret.ts
+  - src/funcs/clientUpdate.ts
+  - src/funcs/deviceFlowAuthorization.ts
   - src/funcs/deviceFlowComplete.ts
-  - src/funcs/deviceFlowVerify.ts
+  - src/funcs/deviceFlowVerification.ts
+  - src/funcs/dynamicClientRegistrationDelete.ts
   - src/funcs/dynamicClientRegistrationGet.ts
+  - src/funcs/dynamicClientRegistrationRegister.ts
   - src/funcs/dynamicClientRegistrationUpdate.ts
-  - src/funcs/dynamicClientRegistrationsDelete.ts
-  - src/funcs/dynamicClientRegistrationsRegister.ts
-  - src/funcs/federationEndpointProcessConfiguration.ts
-  - src/funcs/federationsRegister.ts
-  - src/funcs/grantManagementEndpointProcessRequest.ts
-  - src/funcs/hardwareSecurityKeyDelete.ts
-  - src/funcs/hardwareSecurityKeyGet.ts
+  - src/funcs/federationConfiguration.ts
+  - src/funcs/federationRegistration.ts
+  - src/funcs/grantManagementProcessRequest.ts
   - src/funcs/hardwareSecurityKeysCreate.ts
-  - src/funcs/hardwareSecurityKeysGetList.ts
-  - src/funcs/introspectionEndpointProcessStandard.ts
-  - src/funcs/introspectionRequest.ts
-  - src/funcs/joseObjectsVerify.ts
-  - src/funcs/jwkSetsGet.ts
-  - src/funcs/nativeSSOLogout.ts
-  - src/funcs/nativeSSOProcess.ts
-  - src/funcs/pushedAuthorizationRequest.ts
-  - src/funcs/revocationsProcess.ts
-  - src/funcs/serviceManagementGet.ts
-  - src/funcs/serviceManagementUpdate.ts
-  - src/funcs/servicesConfiguration.ts
-  - src/funcs/servicesCreate.ts
-  - src/funcs/servicesDelete.ts
-  - src/funcs/servicesList.ts
-  - src/funcs/tokenEndpointReissueIdToken.ts
-  - src/funcs/tokenOperationsCreate.ts
-  - src/funcs/tokenOperationsDelete.ts
-  - src/funcs/tokenOperationsList.ts
-  - src/funcs/tokensFailRequest.ts
-  - src/funcs/tokensIssue.ts
-  - src/funcs/tokensRequest.ts
-  - src/funcs/tokensRevoke.ts
-  - src/funcs/tokensUpdate.ts
-  - src/funcs/userInfoEndpointIssue.ts
-  - src/funcs/userInfoEndpointProcess.ts
-  - src/funcs/utilitiesEcho.ts
-  - src/funcs/utilityEndpointsGetInfo.ts
-  - src/funcs/verifiableCredentialIssuerGetJwtIssuerInfo.ts
-  - src/funcs/verifiableCredentialIssuerParseSingle.ts
-  - src/funcs/verifiableCredentialIssuersCreateOffer.ts
-  - src/funcs/verifiableCredentialIssuersGetJwks.ts
-  - src/funcs/verifiableCredentialIssuersIssueBatch.ts
-  - src/funcs/verifiableCredentialIssuersIssueDeferred.ts
-  - src/funcs/verifiableCredentialIssuersParseDeferred.ts
+  - src/funcs/hardwareSecurityKeysDelete.ts
+  - src/funcs/hardwareSecurityKeysGet.ts
+  - src/funcs/hardwareSecurityKeysList.ts
+  - src/funcs/introspectionProcess.ts
+  - src/funcs/introspectionStandardProcess.ts
+  - src/funcs/joseObjectJoseVerifyApi.ts
+  - src/funcs/jwkSetEndpointServiceJwksGetApi.ts
+  - src/funcs/nativeSsoLogout.ts
+  - src/funcs/nativeSsoProcess.ts
+  - src/funcs/pushedAuthorizationCreate.ts
+  - src/funcs/revocationProcess.ts
+  - src/funcs/serviceCreate.ts
+  - src/funcs/serviceDelete.ts
+  - src/funcs/serviceGet.ts
+  - src/funcs/serviceGetConfiguration.ts
+  - src/funcs/serviceList.ts
+  - src/funcs/serviceUpdate.ts
+  - src/funcs/tokenFail.ts
+  - src/funcs/tokenIssue.ts
+  - src/funcs/tokenManagementCreate.ts
+  - src/funcs/tokenManagementDelete.ts
+  - src/funcs/tokenManagementList.ts
+  - src/funcs/tokenManagementReissueIdToken.ts
+  - src/funcs/tokenManagementRevoke.ts
+  - src/funcs/tokenManagementUpdate.ts
+  - src/funcs/tokenProcess.ts
+  - src/funcs/userinfoIssue.ts
+  - src/funcs/userinfoProcess.ts
+  - src/funcs/verifiableCredentialsBatchIssue.ts
+  - src/funcs/verifiableCredentialsBatchParse.ts
+  - src/funcs/verifiableCredentialsCreateOffer.ts
+  - src/funcs/verifiableCredentialsDeferredIssue.ts
+  - src/funcs/verifiableCredentialsDeferredParse.ts
+  - src/funcs/verifiableCredentialsGetJwks.ts
+  - src/funcs/verifiableCredentialsGetJwtIssuer.ts
   - src/funcs/verifiableCredentialsGetMetadata.ts
   - src/funcs/verifiableCredentialsGetOfferInfo.ts
-  - src/funcs/verifiableCredentialsIssueSingle.ts
-  - src/funcs/verifiableCredentialsParseBatch.ts
+  - src/funcs/verifiableCredentialsIssue.ts
+  - src/funcs/verifiableCredentialsParse.ts
   - src/hooks/hooks.ts
   - src/hooks/index.ts
   - src/hooks/types.ts
@@ -546,7 +534,6 @@ generatedFiles:
   - src/models/idtokenreissuerequest.ts
   - src/models/idtokenreissueresponse.ts
   - src/models/index.ts
-  - src/models/inforesponse.ts
   - src/models/introspectionrequest.ts
   - src/models/introspectionresponse.ts
   - src/models/joseverifyrequest.ts
@@ -564,6 +551,7 @@ generatedFiles:
   - src/models/operations/authauthorizationissueapi.ts
   - src/models/operations/authintrospectionapi.ts
   - src/models/operations/authintrospectionstandardapi.ts
+  - src/models/operations/authorizationticketinfopostapi.ts
   - src/models/operations/authrevocationapi.ts
   - src/models/operations/authtokenapi.ts
   - src/models/operations/authtokencreateapi.ts
@@ -604,7 +592,6 @@ generatedFiles:
   - src/models/operations/deviceverificationapi.ts
   - src/models/operations/federationconfigurationapi.ts
   - src/models/operations/federationregistrationapi.ts
-  - src/models/operations/getauthorizationticketinfo.ts
   - src/models/operations/grantmapi.ts
   - src/models/operations/hskcreateapi.ts
   - src/models/operations/hskdeleteapi.ts
@@ -698,37 +685,27 @@ generatedFiles:
   - src/models/vcisingleparseresponse.ts
   - src/models/verifiedclaimsvalidationschema.ts
   - src/sdk/authorization.ts
-  - src/sdk/authorizationendpoint.ts
+  - src/sdk/authorizationmanagement.ts
   - src/sdk/ciba.ts
+  - src/sdk/client.ts
   - src/sdk/clientmanagement.ts
-  - src/sdk/clients.ts
   - src/sdk/deviceflow.ts
   - src/sdk/dynamicclientregistration.ts
-  - src/sdk/dynamicclientregistrations.ts
-  - src/sdk/federationendpoint.ts
-  - src/sdk/federations.ts
-  - src/sdk/grantmanagementendpoint.ts
-  - src/sdk/hardwaresecuritykey.ts
+  - src/sdk/federation.ts
+  - src/sdk/grantmanagement.ts
   - src/sdk/hardwaresecuritykeys.ts
   - src/sdk/index.ts
   - src/sdk/introspection.ts
-  - src/sdk/introspectionendpoint.ts
-  - src/sdk/joseobjects.ts
-  - src/sdk/jwksets.ts
+  - src/sdk/joseobject.ts
+  - src/sdk/jwksetendpoint.ts
   - src/sdk/nativesso.ts
   - src/sdk/pushedauthorization.ts
-  - src/sdk/revocations.ts
+  - src/sdk/revocation.ts
   - src/sdk/sdk.ts
-  - src/sdk/servicemanagement.ts
-  - src/sdk/services.ts
-  - src/sdk/tokenendpoint.ts
-  - src/sdk/tokenoperations.ts
-  - src/sdk/tokens.ts
-  - src/sdk/userinfoendpoint.ts
-  - src/sdk/utilities.ts
-  - src/sdk/utilityendpoints.ts
-  - src/sdk/verifiablecredentialissuer.ts
-  - src/sdk/verifiablecredentialissuers.ts
+  - src/sdk/service.ts
+  - src/sdk/token.ts
+  - src/sdk/tokenmanagement.ts
+  - src/sdk/userinfo.ts
   - src/sdk/verifiablecredentials.ts
   - src/types/async.ts
   - src/types/blobs.ts
@@ -1839,160 +1816,155 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+  authorization_ticket_info_post_api:
+    speakeasy-default-authorization-ticket-info-post-api:
+      parameters:
+        path:
+          serviceId: "<id>"
+      requestBody:
+        application/json: {"ticket": "<value>"}
+        application/x-www-form-urlencoded: {"ticket": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes Detected:
-  * `authlete.serviceManagement.get()`: **Added**
-  * `authlete.serviceManagement.update()`: **Added**
-  * `authlete.services.list()`: **Added**
-  * `authlete.services.create()`: **Added**
-  * `authlete.services.delete()`: **Added**
-  * `authlete.services.configuration()`: **Added**
-  * `authlete.clients.get()`: **Added**
-  * `authlete.clients.getList()`: **Added**
-  * `authlete.clients.create()`: **Added**
-  * `authlete.clients.update()`: **Added**
-  * `authlete.clients.delete()`: **Added**
-  * `authlete.clients.updateLockFlag()`: **Added**
-  * `authlete.clients.rotateSecret()`: **Added**
-  * `authlete.clients.updateSecret()`: **Added**
-  * `authlete.clients.getAuthorizedApplications()`: **Added**
-  * `authlete.clients.updateTokens()`: **Added**
-  * `authlete.clients.deleteTokens()`: **Added**
-  * `authlete.clients.updateRequestableScopes()`: **Added**
-  * `authlete.clients.deleteRequestableScopes()`: **Added**
-  * `authlete.clientManagement.getGrantedScopes()`: **Added**
-  * `authlete.clientManagement.deleteGrantedScopes()`: **Added**
-  * `authlete.clientManagement.getRequestableScopes()`: **Added**
-  * `authlete.authorization.process()`: **Added**
-  * `authlete.authorization.issue()`: **Added**
-  * `authlete.authorization.updateTicket()`: **Added**
-  * `authlete.authorizationEndpoint.fail()`: **Added**
-  * `authlete.authorizationEndpoint.getTicketInfo()`: **Added**
-  * `authlete.pushedAuthorization.request()`: **Added**
-  * `authlete.tokens.request()`: **Added**
-  * `authlete.tokens.failRequest()`: **Added**
-  * `authlete.tokens.issue()`: **Added**
-  * `authlete.tokens.update()`: **Added**
-  * `authlete.tokens.revoke()`: **Added**
-  * `authlete.introspection.request()`: **Added**
-  * `authlete.introspectionEndpoint.processStandard()`: **Added**
-  * `authlete.revocations.process()`: **Added**
-  * `authlete.userInfoEndpoint.process()`: **Added**
-  * `authlete.userInfoEndpoint.issue()`: **Added**
-  * `authlete.tokenEndpoint.reissueIdToken()`: **Added**
-  * `authlete.grantManagementEndpoint.processRequest()`: **Added**
-  * `authlete.jwkSets.get()`: **Added**
-  * `authlete.dynamicClientRegistrations.register()`: **Added**
-  * `authlete.dynamicClientRegistrations.delete()`: **Added**
-  * `authlete.dynamicClientRegistration.get()`: **Added**
-  * `authlete.dynamicClientRegistration.update()`: **Added**
-  * `authlete.ciba.processRequest()`: **Added**
-  * `authlete.ciba.issueAuthenticationResponse()`: **Added**
-  * `authlete.ciba.fail()`: **Added**
-  * `authlete.ciba.complete()`: **Added**
-  * `authlete.deviceFlow.authorize()`: **Added**
-  * `authlete.deviceFlow.verify()`: **Added**
-  * `authlete.deviceFlow.complete()`: **Added**
-  * `authlete.tokenOperations.list()`: **Added**
-  * `authlete.tokenOperations.create()`: **Added**
-  * `authlete.tokenOperations.delete()`: **Added**
-  * `authlete.joseObjects.verify()`: **Added**
-  * `authlete.federationEndpoint.processConfiguration()`: **Added**
-  * `authlete.federations.register()`: **Added**
-  * `authlete.utilityEndpoints.getInfo()`: **Added**
-  * `authlete.hardwareSecurityKeys.create()`: **Added**
-  * `authlete.hardwareSecurityKeys.getList()`: **Added**
-  * `authlete.hardwareSecurityKey.delete()`: **Added**
-  * `authlete.hardwareSecurityKey.get()`: **Added**
-  * `authlete.utilities.echo()`: **Added**
-  * `authlete.verifiableCredentials.getMetadata()`: **Added**
-  * `authlete.verifiableCredentials.getOfferInfo()`: **Added**
-  * `authlete.verifiableCredentials.issueSingle()`: **Added**
-  * `authlete.verifiableCredentials.parseBatch()`: **Added**
-  * `authlete.verifiableCredentialIssuer.getJwtIssuerInfo()`: **Added**
-  * `authlete.verifiableCredentialIssuer.parseSingle()`: **Added**
-  * `authlete.verifiableCredentialIssuers.getJwks()`: **Added**
-  * `authlete.verifiableCredentialIssuers.createOffer()`: **Added**
-  * `authlete.verifiableCredentialIssuers.issueBatch()`: **Added**
-  * `authlete.verifiableCredentialIssuers.parseDeferred()`: **Added**
-  * `authlete.verifiableCredentialIssuers.issueDeferred()`: **Added**
+  * `authlete.service.get()`: **Added**
+  * `authlete.service.list()`: **Added**
+  * `authlete.service.create()`: **Added**
+  * `authlete.service.update()`: **Added**
+  * `authlete.service.delete()`: **Added**
+  * `authlete.service.getConfiguration()`: **Added**
+  * `authlete.client.get()`: **Added**
+  * `authlete.client.list()`: **Added**
+  * `authlete.client.create()`: **Added**
+  * `authlete.client.update()`: **Added**
+  * `authlete.client.delete()`: **Added**
+  * `authlete.client.management.updateLockFlag()`: **Added**
+  * `authlete.client.management.refreshSecret()`: **Added**
+  * `authlete.client.management.updateSecret()`: **Added**
+  * `authlete.client.management.listAuthorizations()`: **Added**
+  * `authlete.client.management.updateAuthorizations()`: **Added**
+  * `authlete.client.management.deleteAuthorizations()`: **Added**
+  * `authlete.client.management.getGrantedScopes()`: **Added**
+  * `authlete.client.management.deleteGrantedScopes()`: **Added**
+  * `authlete.client.management.getRequestableScopes()`: **Added**
+  * `authlete.client.management.updateRequestableScopes()`: **Added**
+  * `authlete.client.management.deleteRequestableScopes()`: **Added**
+  * `authlete.authorization.processRequest()`: **Added**
+  * `authlete.authorization.fail()`: **Added**
+  * `authlete.authorization.management.getTicketInfo()`: **Added**
+  * `authlete.authorization.management.updateTicket()`: **Added**
+  * `authlete.pushedAuthorization.create()`: **Added**
+  * `authlete.token.process()`: **Added**
+  * `authlete.token.fail()`: **Added**
+  * `authlete.token.issue()`: **Added**
+  * `authlete.token.management.reissueIdToken()`: **Added**
+  * `authlete.token.management.list()`: **Added**
+  * `authlete.token.management.create()`: **Added**
+  * `authlete.token.management.update()`: **Added**
+  * `authlete.token.management.delete()`: **Added**
+  * `authlete.token.management.revoke()`: **Added**
+  * `authlete.introspection.process()`: **Added**
+  * `authlete.introspection.standardProcess()`: **Added**
+  * `authlete.revocation.process()`: **Added**
+  * `authlete.userinfo.process()`: **Added**
+  * `authlete.userinfo.issue()`: **Added**
+  * `authlete.grantManagement.processRequest()`: **Added**
+  * `authlete.jwkSetEndpoint.serviceJwksGetApi()`: **Added**
+  * `authlete.dynamicClientRegistration.register()`: **Added**
+  * `authlete.dynamicClientRegistration.delete()`: **Added**
+  * `authlete.ciba.processAuthentication()`: **Added**
+  * `authlete.ciba.issue()`: **Added**
+  * `authlete.deviceFlow.authorization()`: **Added**
+  * `authlete.deviceFlow.verification()`: **Added**
+  * `authlete.joseObject.joseVerifyApi()`: **Added**
+  * `authlete.federation.configuration()`: **Added**
+  * `authlete.federation.registration()`: **Added**
+  * `authlete.hardwareSecurityKeys.delete()`: **Added**
+  * `authlete.hardwareSecurityKeys.get()`: **Added**
+  * `authlete.hardwareSecurityKeys.list()`: **Added**
+  * `authlete.verifiableCredentials.getJwtIssuer()`: **Added**
+  * `authlete.verifiableCredentials.getJwks()`: **Added**
+  * `authlete.verifiableCredentials.createOffer()`: **Added**
+  * `authlete.verifiableCredentials.parse()`: **Added**
+  * `authlete.verifiableCredentials.issue()`: **Added**
+  * `authlete.verifiableCredentials.batchParse()`: **Added**
+  * `authlete.verifiableCredentials.batchIssue()`: **Added**
+  * `authlete.verifiableCredentials.deferredParse()`: **Added**
+  * `authlete.verifiableCredentials.deferredIssue()`: **Added**
   * `authlete.nativeSso.process()`: **Added**
   * `authlete.nativeSso.logout()`: **Added**
-  * `authlete.serviceManagement.serviceGetApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.serviceManagement.serviceGetListApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.serviceManagement.serviceCreateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.serviceManagement.serviceUpdateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.serviceManagement.serviceDeleteApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.serviceManagement.serviceConfigurationApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientGetApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientGetListApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientCreateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientUpdateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientDeleteApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientFlagUpdateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientSecretRefreshApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientSecretUpdateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientAuthorizationGetListApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientAuthorizationUpdateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientAuthorizationDeleteApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientGrantedScopesGetApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientGrantedScopesDeleteApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientExtensionRequestablesScopesGetApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientExtensionRequestablesScopesUpdateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.clientManagement.clientExtensionRequestablesScopesDeleteApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.authorizationEndpoint.authAuthorizationApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.authorizationEndpoint.authAuthorizationFailApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.authorizationEndpoint.authAuthorizationIssueApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.authorizationEndpoint.getAuthorizationTicketInfo()`: **Deleted** **Breaking** :warning:
-  * `authlete.authorizationEndpoint.updateAuthorizationTicket()`: **Deleted** **Breaking** :warning:
-  * `authlete.pushedAuthorizationEndpoint.pushedAuthReqApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenEndpoint.authTokenApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenEndpoint.authTokenFailApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenEndpoint.authTokenIssueApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenEndpoint.idtokenReissueApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.introspectionEndpoint.authIntrospectionApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.introspectionEndpoint.authIntrospectionStandardApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.revocationEndpoint.authRevocationApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.userInfoEndpoint.authUserinfoApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.userInfoEndpoint.authUserinfoIssueApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.grantManagementEndpoint.grantMApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.jwkSetEndpoint.serviceJwksGetApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.dynamicClientRegistration.clientRegistrationApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.dynamicClientRegistration.clientRegistrationGetApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.dynamicClientRegistration.clientRegistrationUpdateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.dynamicClientRegistration.clientRegistrationDeleteApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.ciba.backchannelAuthenticationApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.ciba.backchannelAuthenticationIssueApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.ciba.backchannelAuthenticationFailApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.ciba.backchannelAuthenticationCompleteApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.deviceFlow.deviceAuthorizationApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.deviceFlow.deviceVerificationApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.deviceFlow.deviceCompleteApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenOperations.authTokenGetListApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenOperations.authTokenCreateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenOperations.authTokenUpdateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenOperations.authTokenDeleteApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.tokenOperations.authTokenRevokeApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.joseObject.joseVerifyApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.federationEndpoint.federationConfigurationApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.federationEndpoint.federationRegistrationApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.utilityEndpoints.infoApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.utilityEndpoints.miscEchoApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.hardwareSecurityKey.hskCreateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.hardwareSecurityKey.hskDeleteApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.hardwareSecurityKey.hskGetApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.hardwareSecurityKey.hskGetListApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.vciMetadataApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.vciJwtissuerApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.vciJwksApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.vciOfferCreateApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.vciOfferInfoApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.vciSingleParseApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.vciSingleIssueApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.vciBatchParseApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.vciBatchIssueApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.vciDeferredParseApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentialIssuer.vciDeferredIssueApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.nativeSso.nativeSsoApi()`: **Deleted** **Breaking** :warning:
-  * `authlete.nativeSso.nativeSsoLogoutApi()`: **Deleted** **Breaking** :warning:
+  * `authlete.serviceManagement.get()`: **Deleted** **Breaking** :warning:
+  * `authlete.serviceManagement.update()`: **Deleted** **Breaking** :warning:
+  * `authlete.services.list()`: **Deleted** **Breaking** :warning:
+  * `authlete.services.create()`: **Deleted** **Breaking** :warning:
+  * `authlete.services.delete()`: **Deleted** **Breaking** :warning:
+  * `authlete.services.configuration()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.get()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.getList()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.create()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.update()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.delete()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.updateLockFlag()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.rotateSecret()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.updateSecret()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.getAuthorizedApplications()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.updateTokens()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.deleteTokens()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.updateRequestableScopes()`: **Deleted** **Breaking** :warning:
+  * `authlete.clients.deleteRequestableScopes()`: **Deleted** **Breaking** :warning:
+  * `authlete.clientManagement.getGrantedScopes()`: **Deleted** **Breaking** :warning:
+  * `authlete.clientManagement.deleteGrantedScopes()`: **Deleted** **Breaking** :warning:
+  * `authlete.clientManagement.getRequestableScopes()`: **Deleted** **Breaking** :warning:
+  * `authlete.authorization.process()`: **Deleted** **Breaking** :warning:
+  * `authlete.authorization.updateTicket()`: **Deleted** **Breaking** :warning:
+  * `authlete.authorizationEndpoint.fail()`: **Deleted** **Breaking** :warning:
+  * `authlete.authorizationEndpoint.getTicketInfo()`: **Deleted** **Breaking** :warning:
+  * `authlete.pushedAuthorization.request()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokens.request()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokens.failRequest()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokens.issue()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokens.update()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokens.revoke()`: **Deleted** **Breaking** :warning:
+  * `authlete.introspection.request()`: **Deleted** **Breaking** :warning:
+  * `authlete.introspectionEndpoint.processStandard()`: **Deleted** **Breaking** :warning:
+  * `authlete.revocations.process()`: **Deleted** **Breaking** :warning:
+  * `authlete.userInfoEndpoint.process()`: **Deleted** **Breaking** :warning:
+  * `authlete.userInfoEndpoint.issue()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokenEndpoint.reissueIdToken()`: **Deleted** **Breaking** :warning:
+  * `authlete.grantManagementEndpoint.processRequest()`: **Deleted** **Breaking** :warning:
+  * `authlete.jwkSets.get()`: **Deleted** **Breaking** :warning:
+  * `authlete.dynamicClientRegistrations.register()`: **Deleted** **Breaking** :warning:
+  * `authlete.dynamicClientRegistrations.delete()`: **Deleted** **Breaking** :warning:
+  * `authlete.ciba.processRequest()`: **Deleted** **Breaking** :warning:
+  * `authlete.ciba.issueAuthenticationResponse()`: **Deleted** **Breaking** :warning:
+  * `authlete.deviceFlow.authorize()`: **Deleted** **Breaking** :warning:
+  * `authlete.deviceFlow.verify()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokenOperations.list()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokenOperations.create()`: **Deleted** **Breaking** :warning:
+  * `authlete.tokenOperations.delete()`: **Deleted** **Breaking** :warning:
+  * `authlete.joseObjects.verify()`: **Deleted** **Breaking** :warning:
+  * `authlete.federationEndpoint.processConfiguration()`: **Deleted** **Breaking** :warning:
+  * `authlete.federations.register()`: **Deleted** **Breaking** :warning:
+  * `authlete.utilityEndpoints.getInfo()`: **Deleted** **Breaking** :warning:
+  * `authlete.hardwareSecurityKeys.getList()`: **Deleted** **Breaking** :warning:
+  * `authlete.hardwareSecurityKey.delete()`: **Deleted** **Breaking** :warning:
+  * `authlete.hardwareSecurityKey.get()`: **Deleted** **Breaking** :warning:
+  * `authlete.utilities.echo()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentials.issueSingle()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentials.parseBatch()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentialIssuer.getJwtIssuerInfo()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentialIssuer.parseSingle()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentialIssuers.getJwks()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentialIssuers.createOffer()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentialIssuers.issueBatch()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentialIssuers.parseDeferred()`: **Deleted** **Breaking** :warning:
+  * `authlete.verifiableCredentialIssuers.issueDeferred()`: **Deleted** **Breaking** :warning:
+  * `authlete.nativeSso.process()`: **Deleted** **Breaking** :warning:
+  * `authlete.nativeSso.logout()`: **Deleted** **Breaking** :warning:

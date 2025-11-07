@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { BackchannelAuthenticationIssueResponseAction } from "authlete/models";
+import { BackchannelAuthenticationIssueResponseAction } from "authlete-beta/models";
 
 let value: BackchannelAuthenticationIssueResponseAction = "OK";
 ```

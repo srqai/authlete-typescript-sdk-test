@@ -6,7 +6,7 @@ The grant type of the access token when the access token was created.
 ## Example Usage
 
 ```typescript
-import { TokenType } from "authlete/models";
+import { TokenType } from "authlete-beta/models";
 
 let value: TokenType = "JWT_BEARER";
 ```

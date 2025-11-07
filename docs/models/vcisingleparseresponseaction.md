@@ -5,7 +5,7 @@ The next action that the credential endpoint should take.
 ## Example Usage
 
 ```typescript
-import { VciSingleParseResponseAction } from "authlete/models";
+import { VciSingleParseResponseAction } from "authlete-beta/models";
 
 let value: VciSingleParseResponseAction = "BAD_REQUEST";
 ```

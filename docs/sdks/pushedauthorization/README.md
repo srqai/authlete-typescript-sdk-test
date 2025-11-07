@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [request](#request) - Process Pushed Authorization Request
+* [create](#create) - Process Pushed Authorization Request
 
-## request
+## create
 
 This API creates a pushed request authorization. It authenticates the client and creates a authorization_uri to be returned by the authorization server.
 
@@ -25,7 +25,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.pushedAuthorization.request({
+  const result = await authlete.pushedAuthorization.create({
     serviceId: "<id>",
     pushedAuthorizationRequest: {
       parameters: "response_type=code%20id_token&client_id=5921531358155430&redirect_uri=https%3A%2F%2Fserver.example.com%2Fcb&state=SOME_VALUE_ABLE_TO_PREVENT_CSRF&scope=openid&nonce=SOME_VALUE_ABLE_TO_PREVENT_REPLAY_ATTACK&code_challenge=5ZWDQJiryK3eaLtSeFV8y1XySMCWtyITxICLaTwvK8g&code_challenge_method=S256",
@@ -45,8 +45,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { pushedAuthorizationRequest } from "authlete/funcs/pushedAuthorizationRequest.js";
+import { AuthleteCore } from "authlete-beta/core.js";
+import { pushedAuthorizationCreate } from "authlete-beta/funcs/pushedAuthorizationCreate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -57,7 +57,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await pushedAuthorizationRequest(authlete, {
+  const res = await pushedAuthorizationCreate(authlete, {
     serviceId: "<id>",
     pushedAuthorizationRequest: {
       parameters: "response_type=code%20id_token&client_id=5921531358155430&redirect_uri=https%3A%2F%2Fserver.example.com%2Fcb&state=SOME_VALUE_ABLE_TO_PREVENT_CSRF&scope=openid&nonce=SOME_VALUE_ABLE_TO_PREVENT_REPLAY_ATTACK&code_challenge=5ZWDQJiryK3eaLtSeFV8y1XySMCWtyITxICLaTwvK8g&code_challenge_method=S256",
@@ -69,7 +69,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("pushedAuthorizationRequest failed:", res.error);
+    console.log("pushedAuthorizationCreate failed:", res.error);
   }
 }
 

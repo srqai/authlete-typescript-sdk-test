@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { BackchannelAuthenticationFailResponseAction } from "authlete/models";
+import { BackchannelAuthenticationFailResponseAction } from "authlete-beta/models";
 
 let value: BackchannelAuthenticationFailResponseAction =
   "INTERNAL_SERVER_ERROR";

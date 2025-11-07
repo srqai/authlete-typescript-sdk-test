@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { AuthorizationDetailsElement } from "authlete/models";
+import { AuthorizationDetailsElement } from "authlete-beta/models";
 
 let value: AuthorizationDetailsElement = {
   type: "<value>",

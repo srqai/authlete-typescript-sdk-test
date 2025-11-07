@@ -10,7 +10,7 @@ See "[OpenID Connect Core 1.0, 3.1.2.1. Authentication Request](https://openid.n
 ## Example Usage
 
 ```typescript
-import { Prompt } from "authlete/models";
+import { Prompt } from "authlete-beta/models";
 
 let value: Prompt = "NONE";
 ```

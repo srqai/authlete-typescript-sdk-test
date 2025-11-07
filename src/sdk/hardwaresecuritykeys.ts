@@ -3,7 +3,9 @@
  */
 
 import { hardwareSecurityKeysCreate } from "../funcs/hardwareSecurityKeysCreate.js";
-import { hardwareSecurityKeysGetList } from "../funcs/hardwareSecurityKeysGetList.js";
+import { hardwareSecurityKeysDelete } from "../funcs/hardwareSecurityKeysDelete.js";
+import { hardwareSecurityKeysGet } from "../funcs/hardwareSecurityKeysGet.js";
+import { hardwareSecurityKeysList } from "../funcs/hardwareSecurityKeysList.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
@@ -25,13 +27,41 @@ export class HardwareSecurityKeys extends ClientSDK {
   }
 
   /**
+   * Delete Security Key
+   */
+  async delete(
+    request: operations.HskDeleteApiRequest,
+    options?: RequestOptions,
+  ): Promise<models.HskDeleteResponse> {
+    return unwrapAsync(hardwareSecurityKeysDelete(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get Security Key
+   */
+  async get(
+    request: operations.HskGetApiRequest,
+    options?: RequestOptions,
+  ): Promise<models.HskGetResponse> {
+    return unwrapAsync(hardwareSecurityKeysGet(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * List Security Keys
    */
-  async getList(
+  async list(
     request: operations.HskGetListApiRequest,
     options?: RequestOptions,
   ): Promise<models.HskGetListResponse> {
-    return unwrapAsync(hardwareSecurityKeysGetList(
+    return unwrapAsync(hardwareSecurityKeysList(
       this,
       request,
       options,

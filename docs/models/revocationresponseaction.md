@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { RevocationResponseAction } from "authlete/models";
+import { RevocationResponseAction } from "authlete-beta/models";
 
 let value: RevocationResponseAction = "BAD_REQUEST";
 ```

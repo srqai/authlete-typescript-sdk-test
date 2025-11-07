@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { TokenCreateRequest } from "authlete/models";
+import { TokenCreateRequest } from "authlete-beta/models";
 
 let value: TokenCreateRequest = {
   grantType: "CLIENT_CREDENTIALS",

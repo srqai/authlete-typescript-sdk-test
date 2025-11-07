@@ -19,8 +19,8 @@ specific category of applications.
 ## Example
 
 ```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { serviceManagementGet } from "authlete/funcs/serviceManagementGet.js";
+import { AuthleteCore } from "authlete-beta/core.js";
+import { serviceGet } from "authlete-beta/funcs/serviceGet.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -31,14 +31,14 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await serviceManagementGet(authlete, {
+  const res = await serviceGet(authlete, {
     serviceId: "<id>",
   });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("serviceManagementGet failed:", res.error);
+    console.log("serviceGet failed:", res.error);
   }
 }
 

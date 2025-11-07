@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { DeviceAuthorizationResponseAction } from "authlete/models";
+import { DeviceAuthorizationResponseAction } from "authlete-beta/models";
 
 let value: DeviceAuthorizationResponseAction = "OK";
 ```
