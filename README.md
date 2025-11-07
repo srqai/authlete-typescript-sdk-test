@@ -105,6 +105,7 @@ If you have any questions or need assistance, our team is here to help:
   * [🛠 Contact Us](#contact-us)
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
+  * [Access Tokens](#access-tokens)
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication-1)
   * [Available Resources and Operations](#available-resources-and-operations)
