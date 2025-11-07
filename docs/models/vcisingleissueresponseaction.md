@@ -7,7 +7,7 @@ should take.
 ## Example Usage
 
 ```typescript
-import { VciSingleIssueResponseAction } from "authlete-beta/models";
+import { VciSingleIssueResponseAction } from "authlete-typescript-sdk/models";
 
 let value: VciSingleIssueResponseAction = "INTERNAL_SERVER_ERROR";
 ```

@@ -18,7 +18,7 @@ Create Security Key
 
 <!-- UsageSnippet language="typescript" operationID="hsk_create_api" method="post" path="/api/{serviceId}/hsk/create" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -43,8 +43,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { hardwareSecurityKeysCreate } from "authlete-beta/funcs/hardwareSecurityKeysCreate.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { hardwareSecurityKeysCreate } from "authlete-typescript-sdk/funcs/hardwareSecurityKeysCreate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -99,7 +99,7 @@ Delete Security Key
 
 <!-- UsageSnippet language="typescript" operationID="hsk_delete_api" method="delete" path="/api/{serviceId}/hsk/delete/{handle}" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -124,8 +124,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { hardwareSecurityKeysDelete } from "authlete-beta/funcs/hardwareSecurityKeysDelete.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { hardwareSecurityKeysDelete } from "authlete-typescript-sdk/funcs/hardwareSecurityKeysDelete.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -180,7 +180,7 @@ Get Security Key
 
 <!-- UsageSnippet language="typescript" operationID="hsk_get_api" method="get" path="/api/{serviceId}/hsk/get/{handle}" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -205,8 +205,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { hardwareSecurityKeysGet } from "authlete-beta/funcs/hardwareSecurityKeysGet.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { hardwareSecurityKeysGet } from "authlete-typescript-sdk/funcs/hardwareSecurityKeysGet.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -261,7 +261,7 @@ List Security Keys
 
 <!-- UsageSnippet language="typescript" operationID="hsk_get_list_api" method="get" path="/api/{serviceId}/hsk/get/list" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -285,8 +285,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { hardwareSecurityKeysList } from "authlete-beta/funcs/hardwareSecurityKeysList.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { hardwareSecurityKeysList } from "authlete-typescript-sdk/funcs/hardwareSecurityKeysList.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

@@ -6,7 +6,7 @@ Holds information about a key managed in an HSM (Hardware Security Module)
 ## Example Usage
 
 ```typescript
-import { Hsk } from "authlete-beta/models";
+import { Hsk } from "authlete-typescript-sdk/models";
 
 let value: Hsk = {};
 ```

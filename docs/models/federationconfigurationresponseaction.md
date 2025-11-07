@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { FederationConfigurationResponseAction } from "authlete-beta/models";
+import { FederationConfigurationResponseAction } from "authlete-typescript-sdk/models";
 
 let value: FederationConfigurationResponseAction = "OK";
 ```

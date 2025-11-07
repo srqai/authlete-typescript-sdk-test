@@ -417,7 +417,7 @@ above in the description for the case of `action=NO\_INTERACTION`.
 
 <!-- UsageSnippet language="typescript" operationID="auth_authorization_api" method="post" path="/api/{serviceId}/auth/authorization" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -444,8 +444,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { authorizationProcessRequest } from "authlete-beta/funcs/authorizationProcessRequest.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { authorizationProcessRequest } from "authlete-typescript-sdk/funcs/authorizationProcessRequest.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -578,7 +578,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_authorization_fail_api" method="post" path="/api/{serviceId}/auth/authorization/fail" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -606,8 +606,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { authorizationFail } from "authlete-beta/funcs/authorizationFail.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { authorizationFail } from "authlete-typescript-sdk/funcs/authorizationFail.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -745,7 +745,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_authorization_issue_api" method="post" path="/api/{serviceId}/auth/authorization/issue" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -773,8 +773,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { authorizationIssue } from "authlete-beta/funcs/authorizationIssue.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { authorizationIssue } from "authlete-typescript-sdk/funcs/authorizationIssue.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

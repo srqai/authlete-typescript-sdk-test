@@ -1,11 +1,11 @@
 {
-  "name": "authlete-beta",
-  "version": "0.8.2",
+  "name": "authlete-typescript-sdk",
+  "version": "1.0.0",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {
     "sourceDialects": [
-      "authlete-beta/source"
+      "authlete-typescript-sdk/source"
     ],
     "exports": {
       ".": "./src/index.ts",
@@ -43,7 +43,7 @@
   "exports": {
     ".": {
       "import": {
-        "authlete-beta/source": "./src/index.ts",
+        "authlete-typescript-sdk/source": "./src/index.ts",
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       },
@@ -55,7 +55,7 @@
     "./package.json": "./package.json",
     "./types": {
       "import": {
-        "authlete-beta/source": "./src/types/index.ts",
+        "authlete-typescript-sdk/source": "./src/types/index.ts",
         "types": "./dist/esm/types/index.d.ts",
         "default": "./dist/esm/types/index.js"
       },
@@ -66,7 +66,7 @@
     },
     "./models/errors": {
       "import": {
-        "authlete-beta/source": "./src/models/errors/index.ts",
+        "authlete-typescript-sdk/source": "./src/models/errors/index.ts",
         "types": "./dist/esm/models/errors/index.d.ts",
         "default": "./dist/esm/models/errors/index.js"
       },
@@ -77,7 +77,7 @@
     },
     "./models": {
       "import": {
-        "authlete-beta/source": "./src/models/index.ts",
+        "authlete-typescript-sdk/source": "./src/models/index.ts",
         "types": "./dist/esm/models/index.d.ts",
         "default": "./dist/esm/models/index.js"
       },
@@ -88,7 +88,7 @@
     },
     "./models/operations": {
       "import": {
-        "authlete-beta/source": "./src/models/operations/index.ts",
+        "authlete-typescript-sdk/source": "./src/models/operations/index.ts",
         "types": "./dist/esm/models/operations/index.d.ts",
         "default": "./dist/esm/models/operations/index.js"
       },
@@ -99,7 +99,7 @@
     },
     "./*.js": {
       "import": {
-        "authlete-beta/source": "./src/*.ts",
+        "authlete-typescript-sdk/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },
@@ -110,7 +110,7 @@
     },
     "./*": {
       "import": {
-        "authlete-beta/source": "./src/*.ts",
+        "authlete-typescript-sdk/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },

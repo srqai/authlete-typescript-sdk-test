@@ -5,13 +5,13 @@
 import dotenv from "dotenv";
 dotenv.config();
 /**
- * Example usage of the authlete-beta SDK
+ * Example usage of the authlete-typescript-sdk SDK
  *
  * To run this example from the examples directory:
  * npm run build && npx tsx serviceGet.example.ts
  */
 
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {

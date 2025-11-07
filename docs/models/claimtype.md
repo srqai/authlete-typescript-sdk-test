@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ClaimType } from "authlete-beta/models";
+import { ClaimType } from "authlete-typescript-sdk/models";
 
 let value: ClaimType = "DISTRIBUTED";
 ```

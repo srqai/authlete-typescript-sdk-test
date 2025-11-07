@@ -252,7 +252,7 @@ not have to be changed to support CIBA.
 
 <!-- UsageSnippet language="typescript" operationID="backchannel_authentication_api" method="post" path="/api/{serviceId}/backchannel/authentication" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -281,8 +281,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { cibaProcessAuthentication } from "authlete-beta/funcs/cibaProcessAuthentication.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { cibaProcessAuthentication } from "authlete-typescript-sdk/funcs/cibaProcessAuthentication.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -405,7 +405,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="backchannel_authentication_issue_api" method="post" path="/api/{serviceId}/backchannel/authentication/issue" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -432,8 +432,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { cibaIssue } from "authlete-beta/funcs/cibaIssue.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { cibaIssue } from "authlete-typescript-sdk/funcs/cibaIssue.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -513,7 +513,7 @@ server implementation should return a "403 Forbidden" response to the client app
 
 <!-- UsageSnippet language="typescript" operationID="backchannel_authentication_fail_api" method="post" path="/api/{serviceId}/backchannel/authentication/fail" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -541,8 +541,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { cibaFail } from "authlete-beta/funcs/cibaFail.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { cibaFail } from "authlete-typescript-sdk/funcs/cibaFail.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -682,7 +682,7 @@ Content-Type: application/json
 
 <!-- UsageSnippet language="typescript" operationID="backchannel_authentication_complete_api" method="post" path="/api/{serviceId}/backchannel/authentication/complete" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -711,8 +711,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { cibaComplete } from "authlete-beta/funcs/cibaComplete.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { cibaComplete } from "authlete-typescript-sdk/funcs/cibaComplete.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

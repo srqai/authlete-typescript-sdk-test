@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ClientFlagUpdateRequest } from "authlete-beta/models";
+import { ClientFlagUpdateRequest } from "authlete-typescript-sdk/models";
 
 let value: ClientFlagUpdateRequest = {
   clientLocked: true,

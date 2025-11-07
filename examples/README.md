@@ -1,6 +1,6 @@
-# authlete-beta Examples
+# authlete-typescript-sdk Examples
 
-This directory contains example scripts demonstrating how to use the authlete-beta SDK.
+This directory contains example scripts demonstrating how to use the authlete-typescript-sdk SDK.
 
 ## Prerequisites
 

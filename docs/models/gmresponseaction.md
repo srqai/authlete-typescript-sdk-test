@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { GMResponseAction } from "authlete-beta/models";
+import { GMResponseAction } from "authlete-typescript-sdk/models";
 
 let value: GMResponseAction = "NOT_FOUND";
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { VciBatchIssueApiRequest } from "authlete-beta/models/operations";
+import { VciBatchIssueApiRequest } from "authlete-typescript-sdk/models/operations";
 
 let value: VciBatchIssueApiRequest = {
   serviceId: "<id>",

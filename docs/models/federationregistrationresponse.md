@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { FederationRegistrationResponse } from "authlete-beta/models";
+import { FederationRegistrationResponse } from "authlete-typescript-sdk/models";
 
 let value: FederationRegistrationResponse = {
   client: {

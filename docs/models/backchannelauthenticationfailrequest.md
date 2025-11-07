@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BackchannelAuthenticationFailRequest } from "authlete-beta/models";
+import { BackchannelAuthenticationFailRequest } from "authlete-typescript-sdk/models";
 
 let value: BackchannelAuthenticationFailRequest = {
   ticket: "<value>",

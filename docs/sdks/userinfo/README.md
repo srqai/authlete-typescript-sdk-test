@@ -123,7 +123,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_userinfo_api" method="post" path="/api/{serviceId}/auth/userinfo" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -150,8 +150,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { userinfoProcess } from "authlete-beta/funcs/userinfoProcess.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { userinfoProcess } from "authlete-typescript-sdk/funcs/userinfoProcess.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -318,7 +318,7 @@ Content-Type: application/jwt
 
 <!-- UsageSnippet language="typescript" operationID="auth_userinfo_issue_api" method="post" path="/api/{serviceId}/auth/userinfo/issue" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -345,8 +345,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { userinfoIssue } from "authlete-beta/funcs/userinfoIssue.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { userinfoIssue } from "authlete-typescript-sdk/funcs/userinfoIssue.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
