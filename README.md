@@ -7,107 +7,21 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
     <a href="https://opensource.org/licenses/MIT">
         <img src="https://img.shields.io/badge/License-MIT-blue.svg" style="width: 100px; height: 28px;" />
     </a>
+    <br /><br />
 </div>
 
-<br /><br />
 > [!IMPORTANT]
 > This is a beta SDK.
-
-<!-- Start Summary [summary] -->
-## Summary
-
-Authlete API: Welcome to the **Authlete API documentation**. Authlete is an **API-first service** where every aspect of the 
-platform is configurable via API. This documentation will help you authenticate and integrate with Authlete to 
-build powerful OAuth 2.0 and OpenID Connect servers. 🚀
-
-At a high level, the Authlete API is grouped into two categories:
-
-- **Management APIs**: Enable you to manage services and clients. 🔧
-- **Runtime APIs**: Allow you to build your own Authorization Servers or Verifiable Credential (VC) issuers. 🔐
-
-## 🌐 API Servers
-
-Authlete is a global service with clusters available in multiple regions across the world:
-
-- 🇺🇸 **US**: `https://us.authlete.com`
-- 🇯🇵 **Japan**: `https://jp.authlete.com`
-- 🇪🇺 **Europe**: `https://eu.authlete.com`
-- 🇧🇷 **Brazil**: `https://br.authlete.com`
-
-Our customers can host their data in the region that best meets their requirements.
-
-## 🔑 Authentication
-
-All API endpoints are secured using **Bearer token authentication**. You must include an access token in every request:
-
-```
-Authorization: Bearer YOUR_ACCESS_TOKEN
-```
-
-### Getting Your Access Token
-
-Authlete supports two types of access tokens:
-
-**Service Access Token** - Scoped to a single service (authorization server instance)
-
-1. Log in to [Authlete Console](https://console.authlete.com)
-2. Navigate to your service → **Settings** → **Access Tokens**
-3. Click **Create Token** and select permissions (e.g., `service.read`, `client.write`)
-4. Copy the generated token
-
-**Organization Token** - Scoped to your entire organization
-
-1. Log in to [Authlete Console](https://console.authlete.com)
-2. Navigate to **Organization Settings** → **Access Tokens**
-3. Click **Create Token** and select org-level permissions
-4. Copy the generated token
-
-> ⚠️ **Important Note**: Tokens inherit the permissions of the account that creates them. Service tokens can only 
-> access their specific service, while organization tokens can access all services within your org.
-
-### Token Security Best Practices
-
-- **Never commit tokens to version control** - Store in environment variables or secure secret managers
-- **Rotate regularly** - Generate new tokens periodically and revoke old ones
-- **Scope appropriately** - Request only the permissions your application needs
-- **Revoke unused tokens** - Delete tokens you're no longer using from the console
-
-### Quick Test
-
-Verify your token works with a simple API call:
-
-```bash
-curl -X GET https://us.authlete.com/api/service/get/list \
-  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
-```
-
-## 🎓 Tutorials
-
-If you're new to Authlete or want to see sample implementations, these resources will help you get started:
-
-- [🚀 Getting Started with Authlete](https://www.authlete.com/developers/getting_started/)
-- [🔑 From Sign-Up to the First API Request](https://www.authlete.com/developers/tutorial/signup/)
-
-## 🛠 Contact Us
-
-If you have any questions or need assistance, our team is here to help:
-
-- [Contact Page](https://www.authlete.com/contact/)
-<!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
 * [Authlete Typescript SDK](#authlete-typescript-sdk)
-  * [🌐 API Servers](#api-servers)
-  * [🔑 Authentication](#authentication)
-  * [🎓 Tutorials](#tutorials)
-  * [🛠 Contact Us](#contact-us)
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [Access Tokens](#access-tokens)
   * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication-1)
+  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
   * [Retries](#retries)
@@ -162,9 +76,16 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 
 ## Access Tokens
 
-You need to pass a valid access token to be able to use any resource or operation. Refer to [Creating an Access Token](https://docs.authlete.com/en/shared/latest/authentication.html) to learn how to create one. Make sure that you create a token with the correct Authlete scope. If you face permission (403) errors when you are already sending a token, it can be one of the following problems:
+You need to pass a valid access token to be able to use any resource or operation. Refer to [Creating an Access Token](https://docs.authlete.com/en/shared/latest/authentication.html) to learn how to create one.
 
-- The token you are using has expired. Check the expiry date of the token in the Authlete Console.
+Authlete supports two types of access tokens:
+
+- **Service Access Token** - Scoped to a single service (authorization server instance). Create from **Service Settings** → **Access Tokens** in the [Authlete Console](https://console.authlete.com).
+- **Organization Token** - Scoped to your entire organization, allowing access to all services. Create from **Organization Settings** → **Access Tokens**.
+
+Make sure that you create a token with the correct scope. If you face permission (403) errors when already sending a token, it can be one of the following problems:
+
+- The token you are using has expired. Check the expiry date in the Authlete Console.
 - The token does not have access to the correct scope, either not the right service or it does not have account level access.
 - The resource or operation you are trying to use is not available for that service tier. For example, some features are Enterprise-only and you may be using a token for a service on a different plan.
 
