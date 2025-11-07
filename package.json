@@ -1,11 +1,11 @@
 {
-  "name": "authlete-beta",
-  "version": "0.8.2",
+  "name": "authlete-typescript-sdk",
+  "version": "1.0.0",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {
     "sourceDialects": [
-      "authlete-beta/source"
+      "authlete-typescript-sdk/source"
     ],
     "exports": {
       ".": "./src/index.ts",
@@ -43,7 +43,7 @@
   "exports": {
     ".": {
       "import": {
-        "authlete-beta/source": "./src/index.ts",
+        "authlete-typescript-sdk/source": "./src/index.ts",
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       },
