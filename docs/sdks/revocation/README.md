@@ -109,7 +109,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_revocation_api" method="post" path="/api/{serviceId}/auth/revocation" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -138,8 +138,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { revocationProcess } from "authlete-beta/funcs/revocationProcess.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { revocationProcess } from "authlete-typescript-sdk/funcs/revocationProcess.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

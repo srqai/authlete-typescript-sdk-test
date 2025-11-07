@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { DeviceVerificationResponseAction } from "authlete-beta/models";
+import { DeviceVerificationResponseAction } from "authlete-typescript-sdk/models";
 
 let value: DeviceVerificationResponseAction = "NOT_EXIST";
 ```

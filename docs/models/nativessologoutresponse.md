@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NativeSsoLogoutResponse } from "authlete-beta/models";
+import { NativeSsoLogoutResponse } from "authlete-typescript-sdk/models";
 
 let value: NativeSsoLogoutResponse = {};
 ```

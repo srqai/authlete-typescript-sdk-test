@@ -140,7 +140,7 @@ may be different.
 
 <!-- UsageSnippet language="typescript" operationID="auth_introspection_api" method="post" path="/api/{serviceId}/auth/introspection" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -172,8 +172,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { introspectionProcess } from "authlete-beta/funcs/introspectionProcess.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { introspectionProcess } from "authlete-typescript-sdk/funcs/introspectionProcess.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -300,7 +300,7 @@ request does not satisfy authorization requirements imposed by your introspectio
 
 <!-- UsageSnippet language="typescript" operationID="auth_introspection_standard_api" method="post" path="/api/{serviceId}/auth/introspection/standard" -->
 ```typescript
-import { Authlete } from "authlete-beta";
+import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   security: {
@@ -327,8 +327,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-beta/core.js";
-import { introspectionStandardProcess } from "authlete-beta/funcs/introspectionStandardProcess.js";
+import { AuthleteCore } from "authlete-typescript-sdk/core.js";
+import { introspectionStandardProcess } from "authlete-typescript-sdk/funcs/introspectionStandardProcess.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

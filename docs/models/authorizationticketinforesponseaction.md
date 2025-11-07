@@ -5,7 +5,7 @@ The result of the `/auth/authorization/ticket/info` API call.
 ## Example Usage
 
 ```typescript
-import { AuthorizationTicketInfoResponseAction } from "authlete-beta/models";
+import { AuthorizationTicketInfoResponseAction } from "authlete-typescript-sdk/models";
 
 let value: AuthorizationTicketInfoResponseAction = "OK";
 ```
