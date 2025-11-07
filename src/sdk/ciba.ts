@@ -4,8 +4,8 @@
 
 import { cibaComplete } from "../funcs/cibaComplete.js";
 import { cibaFail } from "../funcs/cibaFail.js";
-import { cibaIssueAuthenticationResponse } from "../funcs/cibaIssueAuthenticationResponse.js";
-import { cibaProcessRequest } from "../funcs/cibaProcessRequest.js";
+import { cibaIssue } from "../funcs/cibaIssue.js";
+import { cibaProcessAuthentication } from "../funcs/cibaProcessAuthentication.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
@@ -251,11 +251,11 @@ export class Ciba extends ClientSDK {
    * grant type automatically and behaves properly, so the existing token endpoint implementation does
    * not have to be changed to support CIBA.
    */
-  async processRequest(
+  async processAuthentication(
     request: operations.BackchannelAuthenticationApiRequest,
     options?: RequestOptions,
   ): Promise<models.BackchannelAuthenticationResponse> {
-    return unwrapAsync(cibaProcessRequest(
+    return unwrapAsync(cibaProcessAuthentication(
       this,
       request,
       options,
@@ -331,11 +331,11 @@ export class Ciba extends ClientSDK {
    * {responseContent}
    * ```
    */
-  async issueAuthenticationResponse(
+  async issue(
     request: operations.BackchannelAuthenticationIssueApiRequest,
     options?: RequestOptions,
   ): Promise<models.BackchannelAuthenticationIssueResponse> {
-    return unwrapAsync(cibaIssueAuthenticationResponse(
+    return unwrapAsync(cibaIssue(
       this,
       request,
       options,

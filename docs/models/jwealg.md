@@ -12,7 +12,7 @@ Depending upon the context, this refers to key transport scheme to be used by th
 ## Example Usage
 
 ```typescript
-import { JweAlg } from "authlete/models";
+import { JweAlg } from "authlete-beta/models";
 
 let value: JweAlg = "A128GCMKW";
 ```

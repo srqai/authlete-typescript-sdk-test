@@ -7,7 +7,7 @@ endpoint should take.
 ## Example Usage
 
 ```typescript
-import { VciDeferredIssueResponseAction } from "authlete/models";
+import { VciDeferredIssueResponseAction } from "authlete-beta/models";
 
 let value: VciDeferredIssueResponseAction = "INTERNAL_SERVER_ERROR";
 ```

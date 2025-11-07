@@ -5,11 +5,11 @@
 
 ### Available Operations
 
-* [authorize](#authorize) - Process Device Authorization Request
-* [verify](#verify) - Process Device Verification Request
+* [authorization](#authorization) - Process Device Authorization Request
+* [verification](#verification) - Process Device Verification Request
 * [complete](#complete) - Complete Device Authorization
 
-## authorize
+## authorization
 
 This API parses request parameters of a [device authorization request](https://datatracker.ietf.org/doc/html/rfc8628#section-3.1)
 and returns necessary data for the authorization server implementation to process the device authorization
@@ -91,7 +91,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.deviceFlow.authorize({
+  const result = await authlete.deviceFlow.authorization({
     serviceId: "<id>",
     deviceAuthorizationRequest: {
       parameters: "client_id=26888344961664&scope=history.read",
@@ -111,8 +111,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { deviceFlowAuthorize } from "authlete/funcs/deviceFlowAuthorize.js";
+import { AuthleteCore } from "authlete-beta/core.js";
+import { deviceFlowAuthorization } from "authlete-beta/funcs/deviceFlowAuthorization.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -123,7 +123,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await deviceFlowAuthorize(authlete, {
+  const res = await deviceFlowAuthorization(authlete, {
     serviceId: "<id>",
     deviceAuthorizationRequest: {
       parameters: "client_id=26888344961664&scope=history.read",
@@ -135,7 +135,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("deviceFlowAuthorize failed:", res.error);
+    console.log("deviceFlowAuthorization failed:", res.error);
   }
 }
 
@@ -163,7 +163,7 @@ run();
 | errors.ResultError          | 500                         | application/json            |
 | errors.AuthleteDefaultError | 4XX, 5XX                    | \*/\*                       |
 
-## verify
+## verification
 
 The API returns information associated with a user code.
 ### Description
@@ -207,7 +207,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.deviceFlow.verify({
+  const result = await authlete.deviceFlow.verification({
     serviceId: "<id>",
     deviceVerificationRequest: {
       userCode: "XWWKPBWVXQ",
@@ -225,8 +225,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { deviceFlowVerify } from "authlete/funcs/deviceFlowVerify.js";
+import { AuthleteCore } from "authlete-beta/core.js";
+import { deviceFlowVerification } from "authlete-beta/funcs/deviceFlowVerification.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -237,7 +237,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await deviceFlowVerify(authlete, {
+  const res = await deviceFlowVerification(authlete, {
     serviceId: "<id>",
     deviceVerificationRequest: {
       userCode: "XWWKPBWVXQ",
@@ -247,7 +247,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("deviceFlowVerify failed:", res.error);
+    console.log("deviceFlowVerification failed:", res.error);
   }
 }
 
@@ -361,8 +361,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { deviceFlowComplete } from "authlete/funcs/deviceFlowComplete.js";
+import { AuthleteCore } from "authlete-beta/core.js";
+import { deviceFlowComplete } from "authlete-beta/funcs/deviceFlowComplete.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

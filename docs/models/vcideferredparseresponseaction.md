@@ -5,7 +5,7 @@ The next action that the deferred credential endpoint should take.
 ## Example Usage
 
 ```typescript
-import { VciDeferredParseResponseAction } from "authlete/models";
+import { VciDeferredParseResponseAction } from "authlete-beta/models";
 
 let value: VciDeferredParseResponseAction = "UNAUTHORIZED";
 ```

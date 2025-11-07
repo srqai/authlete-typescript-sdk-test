@@ -9,7 +9,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.serviceManagement.get({
+  const result = await authlete.service.get({
     serviceId: "<id>",
   });
 

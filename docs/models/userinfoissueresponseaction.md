@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { UserinfoIssueResponseAction } from "authlete/models";
+import { UserinfoIssueResponseAction } from "authlete-beta/models";
 
 let value: UserinfoIssueResponseAction = "INTERNAL_SERVER_ERROR";
 ```

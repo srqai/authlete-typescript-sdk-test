@@ -5,7 +5,7 @@
   "type": "module",
   "tshy": {
     "sourceDialects": [
-      "authlete/source"
+      "authlete-beta/source"
     ],
     "exports": {
       ".": "./src/index.ts",
@@ -21,7 +21,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/authlete/authlete-typescript-sdk.git"
+    "url": "https://github.com/authlete/authlete-typescript-sdk.git"
   },
   "scripts": {
     "lint": "eslint --cache --max-warnings=0 src",
@@ -43,7 +43,7 @@
   "exports": {
     ".": {
       "import": {
-        "authlete/source": "./src/index.ts",
+        "authlete-beta/source": "./src/index.ts",
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       },
@@ -55,7 +55,7 @@
     "./package.json": "./package.json",
     "./types": {
       "import": {
-        "authlete/source": "./src/types/index.ts",
+        "authlete-beta/source": "./src/types/index.ts",
         "types": "./dist/esm/types/index.d.ts",
         "default": "./dist/esm/types/index.js"
       },
@@ -66,7 +66,7 @@
     },
     "./models/errors": {
       "import": {
-        "authlete/source": "./src/models/errors/index.ts",
+        "authlete-beta/source": "./src/models/errors/index.ts",
         "types": "./dist/esm/models/errors/index.d.ts",
         "default": "./dist/esm/models/errors/index.js"
       },
@@ -77,7 +77,7 @@
     },
     "./models": {
       "import": {
-        "authlete/source": "./src/models/index.ts",
+        "authlete-beta/source": "./src/models/index.ts",
         "types": "./dist/esm/models/index.d.ts",
         "default": "./dist/esm/models/index.js"
       },
@@ -88,7 +88,7 @@
     },
     "./models/operations": {
       "import": {
-        "authlete/source": "./src/models/operations/index.ts",
+        "authlete-beta/source": "./src/models/operations/index.ts",
         "types": "./dist/esm/models/operations/index.d.ts",
         "default": "./dist/esm/models/operations/index.js"
       },
@@ -99,7 +99,7 @@
     },
     "./*.js": {
       "import": {
-        "authlete/source": "./src/*.ts",
+        "authlete-beta/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },
@@ -110,7 +110,7 @@
     },
     "./*": {
       "import": {
-        "authlete/source": "./src/*.ts",
+        "authlete-beta/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ResponseType } from "authlete/models";
+import { ResponseType } from "authlete-beta/models";
 
 let value: ResponseType = "CODE_ID_TOKEN_TOKEN";
 ```

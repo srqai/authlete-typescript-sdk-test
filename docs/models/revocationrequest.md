@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { RevocationRequest } from "authlete/models";
+import { RevocationRequest } from "authlete-beta/models";
 
 let value: RevocationRequest = {
   parameters: "<value>",

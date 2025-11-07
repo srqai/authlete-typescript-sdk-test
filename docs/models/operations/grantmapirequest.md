@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GrantMApiRequest } from "authlete/models/operations";
+import { GrantMApiRequest } from "authlete-beta/models/operations";
 
 let value: GrantMApiRequest = {
   serviceId: "<id>",

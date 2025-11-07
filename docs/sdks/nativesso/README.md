@@ -1,5 +1,5 @@
-# NativeSSO
-(*nativeSSO*)
+# NativeSso
+(*nativeSso*)
 
 ## Overview
 
@@ -75,7 +75,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.nativeSSO.process({
+  const result = await authlete.nativeSso.process({
     serviceId: "715948317",
     nativeSsoRequest: {
       accessToken: "_kh1aygxZ5NKLYKCJRM8M_AYvDg2wCWoprQDjfO87ZWq",
@@ -96,8 +96,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { nativeSSOProcess } from "authlete/funcs/nativeSSOProcess.js";
+import { AuthleteCore } from "authlete-beta/core.js";
+import { nativeSsoProcess } from "authlete-beta/funcs/nativeSsoProcess.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -108,7 +108,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await nativeSSOProcess(authlete, {
+  const res = await nativeSsoProcess(authlete, {
     serviceId: "715948317",
     nativeSsoRequest: {
       accessToken: "_kh1aygxZ5NKLYKCJRM8M_AYvDg2wCWoprQDjfO87ZWq",
@@ -121,7 +121,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("nativeSSOProcess failed:", res.error);
+    console.log("nativeSsoProcess failed:", res.error);
   }
 }
 
@@ -187,7 +187,7 @@ const authlete = new Authlete({
 });
 
 async function run() {
-  const result = await authlete.nativeSSO.logout({
+  const result = await authlete.nativeSso.logout({
     serviceId: "<id>",
     nativeSsoLogoutRequest: {
       sessionId: "my-sid",
@@ -205,8 +205,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete/core.js";
-import { nativeSSOLogout } from "authlete/funcs/nativeSSOLogout.js";
+import { AuthleteCore } from "authlete-beta/core.js";
+import { nativeSsoLogout } from "authlete-beta/funcs/nativeSsoLogout.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -217,7 +217,7 @@ const authlete = new AuthleteCore({
 });
 
 async function run() {
-  const res = await nativeSSOLogout(authlete, {
+  const res = await nativeSsoLogout(authlete, {
     serviceId: "<id>",
     nativeSsoLogoutRequest: {
       sessionId: "my-sid",
@@ -227,7 +227,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("nativeSSOLogout failed:", res.error);
+    console.log("nativeSsoLogout failed:", res.error);
   }
 }
 

@@ -9,7 +9,7 @@ The `grant_management_action` request parameter is defined in
 ## Example Usage
 
 ```typescript
-import { GrantManagementAction } from "authlete/models";
+import { GrantManagementAction } from "authlete-beta/models";
 
 let value: GrantManagementAction = "CREATE";
 ```

@@ -7,7 +7,7 @@ endpoint should take.
 ## Example Usage
 
 ```typescript
-import { VciBatchIssueResponseAction } from "authlete/models";
+import { VciBatchIssueResponseAction } from "authlete-beta/models";
 
 let value: VciBatchIssueResponseAction = "FORBIDDEN";
 ```

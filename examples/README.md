@@ -1,6 +1,6 @@
-# authlete Examples
+# authlete-beta Examples
 
-This directory contains example scripts demonstrating how to use the authlete SDK.
+This directory contains example scripts demonstrating how to use the authlete-beta SDK.
 
 ## Prerequisites
 

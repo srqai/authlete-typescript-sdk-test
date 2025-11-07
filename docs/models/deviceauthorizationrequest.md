@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeviceAuthorizationRequest } from "authlete/models";
+import { DeviceAuthorizationRequest } from "authlete-beta/models";
 
 let value: DeviceAuthorizationRequest = {
   parameters: "<value>",
