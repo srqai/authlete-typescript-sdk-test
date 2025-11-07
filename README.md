@@ -14,10 +14,21 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 > This is a beta SDK.
 
 <!-- Start Summary [summary] -->
-## Overview
- <div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6">
+## Summary
+
+Authlete API Explorer: <div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6">
+  <div class="flex justify-end mb-4">
+    <label for="theme-toggle" class="flex items-center cursor-pointer">
+      <div class="relative">Dark mode:
+        <input type="checkbox" id="theme-toggle" class="sr-only" onchange="toggleTheme()">
+        <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+        <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+      </div>
+    </label>
+  </div>
+  <header class="bg-green-500 dark:bg-green-700 p-4 rounded-lg text-white text-center">
     <p>
-      Welcome to the <strong>Authlete</strong>. Authlete is an <strong>API-first service</strong>
+      Welcome to the <strong>Authlete API documentation</strong>. Authlete is an <strong>API-first service</strong>
       where every aspect of the platform is configurable via API. This explorer provides a convenient way to
       authenticate and interact with the API, allowing you to see Authlete in action quickly. 🚀
     </p>
@@ -100,7 +111,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [Authlete](#authlete)
+* [Authlete Typescript SDK](#authlete-typescript-sdk)
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [SDK Example Usage](#sdk-example-usage)
