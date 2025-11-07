@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { UserinfoResponseAction } from "@authlete/authlete-typescript-sdk/models";
+import { UserinfoResponseAction } from "@authlete/typescript-sdk/models";
 
 let value: UserinfoResponseAction = "FORBIDDEN";
 ```

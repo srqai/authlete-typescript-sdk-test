@@ -5,7 +5,7 @@ Result of the API call
 ## Example Usage
 
 ```typescript
-import { HskGetResponseAction } from "@authlete/authlete-typescript-sdk/models";
+import { HskGetResponseAction } from "@authlete/typescript-sdk/models";
 
 let value: HskGetResponseAction = "NOT_FOUND";
 ```

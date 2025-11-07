@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { AuthorizationFailRequest } from "@authlete/authlete-typescript-sdk/models";
+import { AuthorizationFailRequest } from "@authlete/typescript-sdk/models";
 
 let value: AuthorizationFailRequest = {
   ticket: "<value>",

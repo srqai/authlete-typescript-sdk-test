@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { VciMetadataRequest } from "@authlete/authlete-typescript-sdk/models";
+import { VciMetadataRequest } from "@authlete/typescript-sdk/models";
 
 let value: VciMetadataRequest = {
   pretty: false,

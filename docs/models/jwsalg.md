@@ -12,7 +12,7 @@ it's semantics depends upon where is this defined, for instance:
 ## Example Usage
 
 ```typescript
-import { JwsAlg } from "@authlete/authlete-typescript-sdk/models";
+import { JwsAlg } from "@authlete/typescript-sdk/models";
 
 let value: JwsAlg = "PS384";
 ```

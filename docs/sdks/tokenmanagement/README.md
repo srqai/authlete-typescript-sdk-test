@@ -25,7 +25,7 @@ token.
 
 <!-- UsageSnippet language="typescript" operationID="idtoken_reissue_api" method="post" path="/api/{serviceId}/idtoken/reissue" -->
 ```typescript
-import { Authlete } from "@authlete/authlete-typescript-sdk";
+import { Authlete } from "@authlete/typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -47,8 +47,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
-import { tokenManagementReissueIdToken } from "@authlete/authlete-typescript-sdk/funcs/tokenManagementReissueIdToken.js";
+import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
+import { tokenManagementReissueIdToken } from "@authlete/typescript-sdk/funcs/tokenManagementReissueIdToken.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -101,7 +101,7 @@ Get the list of access tokens that are associated with the service.
 
 <!-- UsageSnippet language="typescript" operationID="auth_token_get_list_api" method="get" path="/api/{serviceId}/auth/token/get/list" -->
 ```typescript
-import { Authlete } from "@authlete/authlete-typescript-sdk";
+import { Authlete } from "@authlete/typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -123,8 +123,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
-import { tokenManagementList } from "@authlete/authlete-typescript-sdk/funcs/tokenManagementList.js";
+import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
+import { tokenManagementList } from "@authlete/typescript-sdk/funcs/tokenManagementList.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -177,7 +177,7 @@ Create an access token.
 
 <!-- UsageSnippet language="typescript" operationID="auth_token_create_api" method="post" path="/api/{serviceId}/auth/token/create" -->
 ```typescript
-import { Authlete } from "@authlete/authlete-typescript-sdk";
+import { Authlete } from "@authlete/typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -208,8 +208,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
-import { tokenManagementCreate } from "@authlete/authlete-typescript-sdk/funcs/tokenManagementCreate.js";
+import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
+import { tokenManagementCreate } from "@authlete/typescript-sdk/funcs/tokenManagementCreate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -271,7 +271,7 @@ Update an access token.
 
 <!-- UsageSnippet language="typescript" operationID="auth_token_update_api" method="post" path="/api/{serviceId}/auth/token/update" -->
 ```typescript
-import { Authlete } from "@authlete/authlete-typescript-sdk";
+import { Authlete } from "@authlete/typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -299,8 +299,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
-import { tokenManagementUpdate } from "@authlete/authlete-typescript-sdk/funcs/tokenManagementUpdate.js";
+import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
+import { tokenManagementUpdate } from "@authlete/typescript-sdk/funcs/tokenManagementUpdate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -359,7 +359,7 @@ Delete an access token.
 
 <!-- UsageSnippet language="typescript" operationID="auth_token_delete_api" method="delete" path="/api/{serviceId}/auth/token/delete/{accessTokenIdentifier}" -->
 ```typescript
-import { Authlete } from "@authlete/authlete-typescript-sdk";
+import { Authlete } from "@authlete/typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -382,8 +382,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
-import { tokenManagementDelete } from "@authlete/authlete-typescript-sdk/funcs/tokenManagementDelete.js";
+import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
+import { tokenManagementDelete } from "@authlete/typescript-sdk/funcs/tokenManagementDelete.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -437,7 +437,7 @@ Revoke an access token.
 
 <!-- UsageSnippet language="typescript" operationID="auth_token_revoke_api" method="post" path="/api/{serviceId}/auth/token/revoke" -->
 ```typescript
-import { Authlete } from "@authlete/authlete-typescript-sdk";
+import { Authlete } from "@authlete/typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -462,8 +462,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
-import { tokenManagementRevoke } from "@authlete/authlete-typescript-sdk/funcs/tokenManagementRevoke.js";
+import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
+import { tokenManagementRevoke } from "@authlete/typescript-sdk/funcs/tokenManagementRevoke.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
