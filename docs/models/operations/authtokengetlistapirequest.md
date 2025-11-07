@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { AuthTokenGetListApiRequest } from "authlete-typescript-sdk/models/operations";
+import { AuthTokenGetListApiRequest } from "@authlete/authlete-typescript-sdk/models/operations";
 
 let value: AuthTokenGetListApiRequest = {
   serviceId: "<id>",

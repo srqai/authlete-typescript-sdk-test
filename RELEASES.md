@@ -77,3 +77,13 @@ Based on:
 - [typescript v1.1.2] .
 ### Releases
 - [NPM v1.1.2] https://www.npmjs.com/package/authlete-typescript-sdk/v/1.1.2 - .
+
+## 2025-11-07 13:05:00
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.650.0 (2.743.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v1.1.3] .
+### Releases
+- [NPM v1.1.3] https://www.npmjs.com/package/@authlete/authlete-typescript-sdk/v/1.1.3 - .

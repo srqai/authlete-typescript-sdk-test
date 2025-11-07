@@ -78,7 +78,7 @@ Content-Type: application/entity-statement+jwt
 
 <!-- UsageSnippet language="typescript" operationID="federation_configuration_api" method="post" path="/api/{serviceId}/federation/configuration" -->
 ```typescript
-import { Authlete } from "authlete-typescript-sdk";
+import { Authlete } from "@authlete/authlete-typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -100,8 +100,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-typescript-sdk/core.js";
-import { federationConfiguration } from "authlete-typescript-sdk/funcs/federationConfiguration.js";
+import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
+import { federationConfiguration } from "@authlete/authlete-typescript-sdk/funcs/federationConfiguration.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -174,7 +174,7 @@ federation registration endpoint should call Authlete's
 
 <!-- UsageSnippet language="typescript" operationID="federation_registration_api" method="post" path="/api/{serviceId}/federation/registration" -->
 ```typescript
-import { Authlete } from "authlete-typescript-sdk";
+import { Authlete } from "@authlete/authlete-typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -197,8 +197,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-typescript-sdk/core.js";
-import { federationRegistration } from "authlete-typescript-sdk/funcs/federationRegistration.js";
+import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
+import { federationRegistration } from "@authlete/authlete-typescript-sdk/funcs/federationRegistration.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
