@@ -14,7 +14,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 > This is a beta SDK.
 
 <!-- Start Summary [summary] -->
-## Summary
+## Overview
  <div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6">
     <p>
       Welcome to the <strong>Authlete</strong>. Authlete is an <strong>API-first service</strong>
