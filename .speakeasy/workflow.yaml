@@ -3,7 +3,7 @@ speakeasyVersion: latest
 sources:
     Authlete API Explorer:
         inputs:
-            - location: https://raw.githubusercontent.com/authlete/openapi/refs/heads/main/en.yaml
+            - location: https://raw.githubusercontent.com/authlete/openapi/refs/heads/main/spec.yaml
         overlays:
             - location: .speakeasy/speakeasy-modifications-overlay.yaml
         output: .speakeasy/out.openapi.yaml
