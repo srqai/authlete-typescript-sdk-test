@@ -7,7 +7,7 @@ See the description about `redirectUris` property for more details.
 ## Example Usage
 
 ```typescript
-import { ApplicationType } from "@authlete/authlete-typescript-sdk/models";
+import { ApplicationType } from "@authlete/typescript-sdk/models";
 
 let value: ApplicationType = "WEB";
 ```

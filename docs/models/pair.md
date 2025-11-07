@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Pair } from "@authlete/authlete-typescript-sdk/models";
+import { Pair } from "@authlete/typescript-sdk/models";
 
 let value: Pair = {};
 ```

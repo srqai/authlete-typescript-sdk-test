@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ClientRegistrationDeleteApiRequestBody } from "@authlete/authlete-typescript-sdk/models/operations";
+import { ClientRegistrationDeleteApiRequestBody } from "@authlete/typescript-sdk/models/operations";
 
 let value: ClientRegistrationDeleteApiRequestBody = {
   token: "<value>",

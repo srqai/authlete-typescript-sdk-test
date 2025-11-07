@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ClientRegistrationUpdateApiRequestBody } from "@authlete/authlete-typescript-sdk/models/operations";
+import { ClientRegistrationUpdateApiRequestBody } from "@authlete/typescript-sdk/models/operations";
 
 let value: ClientRegistrationUpdateApiRequestBody = {
   json: "{key: 7112400702100740, key1: null, key2: \"<value>\"}",

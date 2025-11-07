@@ -6,7 +6,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { DeviceCompleteResponseAction } from "@authlete/authlete-typescript-sdk/models";
+import { DeviceCompleteResponseAction } from "@authlete/typescript-sdk/models";
 
 let value: DeviceCompleteResponseAction = "INVALID_REQUEST";
 ```

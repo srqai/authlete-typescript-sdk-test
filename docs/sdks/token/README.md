@@ -372,7 +372,7 @@ signature by yourself.
 
 <!-- UsageSnippet language="typescript" operationID="auth_token_api" method="post" path="/api/{serviceId}/auth/token" -->
 ```typescript
-import { Authlete } from "@authlete/authlete-typescript-sdk";
+import { Authlete } from "@authlete/typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -399,8 +399,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
-import { tokenProcess } from "@authlete/authlete-typescript-sdk/funcs/tokenProcess.js";
+import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
+import { tokenProcess } from "@authlete/typescript-sdk/funcs/tokenProcess.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -503,7 +503,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_token_fail_api" method="post" path="/api/{serviceId}/auth/token/fail" -->
 ```typescript
-import { Authlete } from "@authlete/authlete-typescript-sdk";
+import { Authlete } from "@authlete/typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -529,8 +529,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
-import { tokenFail } from "@authlete/authlete-typescript-sdk/funcs/tokenFail.js";
+import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
+import { tokenFail } from "@authlete/typescript-sdk/funcs/tokenFail.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -632,7 +632,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_token_issue_api" method="post" path="/api/{serviceId}/auth/token/issue" -->
 ```typescript
-import { Authlete } from "@authlete/authlete-typescript-sdk";
+import { Authlete } from "@authlete/typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -658,8 +658,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
-import { tokenIssue } from "@authlete/authlete-typescript-sdk/funcs/tokenIssue.js";
+import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
+import { tokenIssue } from "@authlete/typescript-sdk/funcs/tokenIssue.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
