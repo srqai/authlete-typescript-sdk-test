@@ -16,106 +16,97 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-Authlete API Explorer: <div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6">
-  <div class="flex justify-end mb-4">
-    <label for="theme-toggle" class="flex items-center cursor-pointer">
-      <div class="relative">Dark mode:
-        <input type="checkbox" id="theme-toggle" class="sr-only" onchange="toggleTheme()">
-        <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
-        <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
-      </div>
-    </label>
-  </div>
-  <header class="bg-green-500 dark:bg-green-700 p-4 rounded-lg text-white text-center">
-    <p>
-      Welcome to the <strong>Authlete API documentation</strong>. Authlete is an <strong>API-first service</strong>
-      where every aspect of the platform is configurable via API. This explorer provides a convenient way to
-      authenticate and interact with the API, allowing you to see Authlete in action quickly. 🚀
-    </p>
-    <p>
-      At a high level, the Authlete API is grouped into two categories:
-    </p>
-    <ul class="list-disc list-inside">
-      <li><strong>Management APIs</strong>: Enable you to manage services and clients. 🔧</li>
-      <li><strong>Runtime APIs</strong>: Allow you to build your own Authorization Servers or Verifiable Credential (VC)
-        issuers. 🔐</li>
-    </ul>
-    <p>All API endpoints are secured using access tokens issued by Authlete's Identity Provider (IdP). If you already
-      have an Authlete account, simply use the <em>Get Token</em> option on the Authentication page to log in and obtain
-      an access token for API usage. If you don't have an account yet, <a href="https://console.authlete.com/register">sign up
-        here</a> to get started.</p>
-  </header>
-  <main>
-    <section id="api-servers" class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">🌐 API Servers</h2>
-      <p>Authlete is a global service with clusters available in multiple regions across the world.</p>
-      <p>Currently, our service is available in the following regions:</p>
-      <div class="grid grid-cols-2 gap-4">
-        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
-          <p class="text-center font-semibold">🇺🇸 US</p>
-        </div>
-        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
-          <p class="text-center font-semibold">🇯🇵 JP</p>
-        </div>
-        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
-          <p class="text-center font-semibold">🇪🇺 EU</p>
-        </div>
-        <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
-          <p class="text-center font-semibold">🇧🇷 Brazil</p>
-        </div>
-      </div>
-      <p>Our customers can host their data in the region that best meets their requirements.</p>
-      <a href="#servers" class="block mt-4 text-green-500 dark:text-green-300 hover:underline text-center">Select your
-        preferred server</a>
-    </section>
-    <section id="authentication" class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">🔑 Authentication</h2>
-      <p>The API Explorer requires an access token to call the API.</p>
-      <p>You can create the access token from the <a href="https://console.authlete.com">Authlete Management Console</a> and set it in the HTTP Bearer section of Authentication page.</p>
-      <p>Alternatively, if you have an Authlete account, the API Explorer can log you in with your Authlete account and
-        automatically acquire the required access token.</p>
-      <div class="theme-admonition theme-admonition-warning admonition_o5H7 alert alert--warning">
-        <div class="admonitionContent_Knsx">
-          <p>⚠️ <strong>Important Note:</strong> When the API Explorer acquires the token after login, the access tokens
-            will have the same permissions as the user who logs in as part of this flow.</p>
-        </div>
-      </div>
-      <a href="#auth" class="block mt-4 text-green-500 dark:text-green-300 hover:underline text-center">Setup your
-        access token</a>
-    </section>
-    <section id="tutorials" class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">🎓 Tutorials</h2>
-      <p>If you have successfully tested the API from the API Console and want to take the next step of integrating the
-        API into your application, or if you want to see a sample using Authlete APIs, follow the links below. These
-        resources will help you understand key concepts and how to integrate Authlete API into your applications.</p>
-      <div class="mt-4">
-        <a href="https://www.authlete.com/developers/getting_started/"
-          class="block text-green-500 dark:text-green-300 font-bold hover:underline mb-2">🚀 Getting Started with
-          Authlete</a>
-          </br>
-        <a href="https://www.authlete.com/developers/tutorial/signup/"
-          class="block text-green-500 dark:text-green-300 font-bold hover:underline">🔑 From Sign-Up to the First API
-          Request</a>
-      </div>
-    </section>
-    <section id="support" class="mb-10">
-      <h2 class="text-2xl font-semibold mb-4">🛠 Contact Us</h2>
-      <p>If you have any questions or need assistance, our team is here to help.</p>
-      <a href="https://www.authlete.com/contact/"
-        class="block mt-4 text-green-500 dark:text-green-300 font-bold hover:underline">Contact Page</a>
-    </section>
-  </main>
-</div>
+Authlete API: Welcome to the **Authlete API documentation**. Authlete is an **API-first service** where every aspect of the 
+platform is configurable via API. This documentation will help you authenticate and integrate with Authlete to 
+build powerful OAuth 2.0 and OpenID Connect servers. 🚀
+
+At a high level, the Authlete API is grouped into two categories:
+
+- **Management APIs**: Enable you to manage services and clients. 🔧
+- **Runtime APIs**: Allow you to build your own Authorization Servers or Verifiable Credential (VC) issuers. 🔐
+
+## 🌐 API Servers
+
+Authlete is a global service with clusters available in multiple regions across the world:
+
+- 🇺🇸 **US**: `https://us.authlete.com`
+- 🇯🇵 **Japan**: `https://jp.authlete.com`
+- 🇪🇺 **Europe**: `https://eu.authlete.com`
+- 🇧🇷 **Brazil**: `https://br.authlete.com`
+
+Our customers can host their data in the region that best meets their requirements.
+
+## 🔑 Authentication
+
+All API endpoints are secured using **Bearer token authentication**. You must include an access token in every request:
+
+```
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Getting Your Access Token
+
+Authlete supports two types of access tokens:
+
+**Service Access Token** - Scoped to a single service (authorization server instance)
+
+1. Log in to [Authlete Console](https://console.authlete.com)
+2. Navigate to your service → **Settings** → **Access Tokens**
+3. Click **Create Token** and select permissions (e.g., `service.read`, `client.write`)
+4. Copy the generated token
+
+**Organization Token** - Scoped to your entire organization
+
+1. Log in to [Authlete Console](https://console.authlete.com)
+2. Navigate to **Organization Settings** → **Access Tokens**
+3. Click **Create Token** and select org-level permissions
+4. Copy the generated token
+
+> ⚠️ **Important Note**: Tokens inherit the permissions of the account that creates them. Service tokens can only 
+> access their specific service, while organization tokens can access all services within your org.
+
+### Token Security Best Practices
+
+- **Never commit tokens to version control** - Store in environment variables or secure secret managers
+- **Rotate regularly** - Generate new tokens periodically and revoke old ones
+- **Scope appropriately** - Request only the permissions your application needs
+- **Revoke unused tokens** - Delete tokens you're no longer using from the console
+
+### Quick Test
+
+Verify your token works with a simple API call:
+
+```bash
+curl -X GET https://us.authlete.com/api/service/get/list \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+```
+
+## 🎓 Tutorials
+
+If you're new to Authlete or want to see sample implementations, these resources will help you get started:
+
+- [🚀 Getting Started with Authlete](https://www.authlete.com/developers/getting_started/)
+- [🔑 From Sign-Up to the First API Request](https://www.authlete.com/developers/tutorial/signup/)
+
+## 🛠 Contact Us
+
+If you have any questions or need assistance, our team is here to help:
+
+- [Contact Page](https://www.authlete.com/contact/)
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
 * [Authlete Typescript SDK](#authlete-typescript-sdk)
+  * [🌐 API Servers](#api-servers)
+  * [🔑 Authentication](#authentication)
+  * [🎓 Tutorials](#tutorials)
+  * [🛠 Contact Us](#contact-us)
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication)
+  * [Authentication](#authentication-1)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
   * [Retries](#retries)
@@ -177,9 +168,7 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -200,21 +189,18 @@ run();
 
 ### Per-Client Security Schemes
 
-This SDK supports the following security schemes globally:
+This SDK supports the following security scheme globally:
 
-| Name       | Type   | Scheme       | Environment Variable |
-| ---------- | ------ | ------------ | -------------------- |
-| `authlete` | oauth2 | OAuth2 token | `AUTHLETE_AUTHLETE`  |
-| `bearer`   | http   | HTTP Bearer  | `AUTHLETE_BEARER`    |
+| Name     | Type | Scheme      | Environment Variable |
+| -------- | ---- | ----------- | -------------------- |
+| `bearer` | http | HTTP Bearer | `AUTHLETE_BEARER`    |
 
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
+To authenticate with the API the `bearer` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -481,9 +467,7 @@ To change the default retry strategy for a single API call, simply provide a ret
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -524,9 +508,7 @@ const authlete = new Authlete({
     },
     retryConnectionErrors: false,
   },
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -562,9 +544,7 @@ import { Authlete } from "authlete-typescript-sdk";
 import * as errors from "authlete-typescript-sdk/models/errors";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -639,9 +619,7 @@ import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   serverIdx: 0,
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -664,9 +642,7 @@ import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
   serverURL: "https://br.authlete.com",
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {

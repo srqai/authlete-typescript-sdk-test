@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: b46c9081-6a59-4f57-9207-8f7715e429dc
 management:
-  docChecksum: 6043b2ac25f7029ae86a713a35e73858
+  docChecksum: a66658c931829b449d771dbf57cc6e71
   docVersion: 3.0.16
   speakeasyVersion: 1.650.0
   generationVersion: 2.743.2
-  releaseVersion: 1.0.1
-  configChecksum: 7a5159f648bca6ca8435917da408f8dd
+  releaseVersion: 1.1.0
+  configChecksum: 6c88580dff279344cb452bed52ed9827
   repoURL: https://github.com/authlete/authlete-typescript-sdk.git
   installationURL: https://github.com/authlete/authlete-typescript-sdk
   published: true
@@ -20,6 +20,7 @@ features:
     envVarSecurityUsage: 0.1.2
     globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.83.0
     groups: 2.81.3
     inputOutputModels: 2.82.0

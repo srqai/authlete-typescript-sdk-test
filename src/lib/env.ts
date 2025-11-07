@@ -6,14 +6,12 @@ import * as z from "zod/v3";
 import { dlv } from "./dlv.js";
 
 export interface Env {
-  AUTHLETE_AUTHLETE?: string | undefined;
   AUTHLETE_BEARER?: string | undefined;
 
   AUTHLETE_DEBUG?: boolean | undefined;
 }
 
 export const envSchema: z.ZodType<Env, z.ZodTypeDef, unknown> = z.object({
-  AUTHLETE_AUTHLETE: z.string().optional(),
   AUTHLETE_BEARER: z.string().optional(),
 
   AUTHLETE_DEBUG: z.coerce.boolean().optional(),
