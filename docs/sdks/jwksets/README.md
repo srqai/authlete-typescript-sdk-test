@@ -23,7 +23,7 @@ if the service supports [OpenID Connect Discovery 1.0](https://openid.net/specs/
 
 <!-- UsageSnippet language="typescript" operationID="service_jwks_get_api" method="get" path="/api/{serviceId}/service/jwks/get" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

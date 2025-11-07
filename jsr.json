@@ -1,7 +1,7 @@
 
 
 {
-  "name": "authlete",
+  "name": "authlete-beta",
   "version": "0.8.1",
   "exports": {
     ".": "./src/index.ts",    

@@ -139,7 +139,7 @@ may be different.
 
 <!-- UsageSnippet language="typescript" operationID="auth_introspection_api" method="post" path="/api/{serviceId}/auth/introspection" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

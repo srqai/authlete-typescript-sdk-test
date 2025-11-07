@@ -417,7 +417,7 @@ above in the description for the case of `action=NO\_INTERACTION`.
 
 <!-- UsageSnippet language="typescript" operationID="auth_authorization_api" method="post" path="/api/{serviceId}/auth/authorization" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -582,7 +582,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_authorization_issue_api" method="post" path="/api/{serviceId}/auth/authorization/issue" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -669,7 +669,7 @@ Update Ticket Information
 
 <!-- UsageSnippet language="typescript" operationID="updateAuthorizationTicket" method="post" path="/api/{serviceId}/auth/authorization/ticket/update" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

@@ -11,7 +11,7 @@ dotenv.config();
  * npm run build && npx tsx serviceManagementGet.example.ts
  */
 
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

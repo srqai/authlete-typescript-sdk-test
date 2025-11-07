@@ -26,7 +26,7 @@ Otherwise, all services that the access token can view, even in a limited fashio
 
 <!-- UsageSnippet language="typescript" operationID="service_get_list_api" method="get" path="/api/service/get/list" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -102,7 +102,7 @@ Create a new service.
 
 <!-- UsageSnippet language="typescript" operationID="service_create_api" method="post" path="/api/service/create" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -278,7 +278,7 @@ Delete a service.
 
 <!-- UsageSnippet language="typescript" operationID="service_delete_api" method="delete" path="/api/{serviceId}/service/delete" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -364,7 +364,7 @@ in OpenID Connect Discovery 1.0.
 
 <!-- UsageSnippet language="typescript" operationID="service_configuration_api" method="get" path="/api/{serviceId}/service/configuration" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

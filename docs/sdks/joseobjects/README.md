@@ -16,7 +16,7 @@ This API verifies a JOSE object.
 
 <!-- UsageSnippet language="typescript" operationID="jose_verify_api" method="post" path="/api/{serviceId}/jose/verify" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

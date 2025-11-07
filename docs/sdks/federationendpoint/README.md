@@ -77,7 +77,7 @@ Content-Type: application/entity-statement+jwt
 
 <!-- UsageSnippet language="typescript" operationID="federation_configuration_api" method="post" path="/api/{serviceId}/federation/configuration" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

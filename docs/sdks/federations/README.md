@@ -36,7 +36,7 @@ federation registration endpoint should call Authlete's
 
 <!-- UsageSnippet language="typescript" operationID="federation_registration_api" method="post" path="/api/{serviceId}/federation/registration" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

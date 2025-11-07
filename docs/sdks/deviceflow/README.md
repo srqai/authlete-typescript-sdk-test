@@ -82,7 +82,7 @@ and return to the client application.
 
 <!-- UsageSnippet language="typescript" operationID="device_authorization_api" method="post" path="/api/{serviceId}/device/authorization" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -198,7 +198,7 @@ to ask whether she approves or rejects the authorization request from the device
 
 <!-- UsageSnippet language="typescript" operationID="device_verification_api" method="post" path="/api/{serviceId}/device/verification" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -332,7 +332,7 @@ using.
 
 <!-- UsageSnippet language="typescript" operationID="device_complete_api" method="post" path="/api/{serviceId}/device/complete" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

@@ -16,7 +16,7 @@ Delete Security Key
 
 <!-- UsageSnippet language="typescript" operationID="hsk_delete_api" method="delete" path="/api/{serviceId}/hsk/delete/{handle}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -97,7 +97,7 @@ Get Security Key
 
 <!-- UsageSnippet language="typescript" operationID="hsk_get_api" method="get" path="/api/{serviceId}/hsk/get/{handle}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

@@ -17,7 +17,7 @@ defined in "[Grant Management for OAuth 2.0](https://openid.net/specs/fapi-grant
 
 <!-- UsageSnippet language="typescript" operationID="grant_m_api" method="post" path="/api/{serviceId}/gm" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

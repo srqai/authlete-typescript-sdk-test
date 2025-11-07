@@ -67,7 +67,7 @@ typescript:
   modelPropertyCasing: camel
   moduleFormat: dual
   outputModelSuffix: output
-  packageName: authlete
+  packageName: authlete-beta
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2

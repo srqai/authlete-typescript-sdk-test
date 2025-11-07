@@ -91,7 +91,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="client_registration_get_api" method="post" path="/api/{serviceId}/client/registration/get" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -253,7 +253,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="client_registration_update_api" method="post" path="/api/{serviceId}/client/registration/update" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

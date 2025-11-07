@@ -28,7 +28,7 @@ Get a client.
 
 <!-- UsageSnippet language="typescript" operationID="client_get_api" method="get" path="/api/{serviceId}/client/get/{clientId}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -115,7 +115,7 @@ service are returned.
 
 <!-- UsageSnippet language="typescript" operationID="client_get_list_api" method="get" path="/api/{serviceId}/client/get/list" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -195,7 +195,7 @@ Create a new client.
 
 <!-- UsageSnippet language="typescript" operationID="client_create_api" method="post" path="/api/{serviceId}/client/create" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -335,7 +335,7 @@ Update a client.
 
 <!-- UsageSnippet language="typescript" operationID="client_update_api" method="post" path="/api/{serviceId}/client/update/{clientId}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -499,7 +499,7 @@ Delete a client.
 
 <!-- UsageSnippet language="typescript" operationID="client_delete_api" method="delete" path="/api/{serviceId}/client/delete/{clientId}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -581,7 +581,7 @@ Lock and unlock a client
 
 <!-- UsageSnippet language="typescript" operationID="client_flag_update_api" method="post" path="/api/{serviceId}/client/lock_flag/update/{clientIdentifier}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -672,7 +672,7 @@ If you want to specify a new value, use `/api/client/secret/update` API.
 
 <!-- UsageSnippet language="typescript" operationID="client_secret_refresh_api" method="get" path="/api/{serviceId}/client/secret/refresh/{clientIdentifier}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -757,7 +757,7 @@ API.
 
 <!-- UsageSnippet language="typescript" operationID="client_secret_update_api" method="post" path="/api/{serviceId}/client/secret/update/{clientIdentifier}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -847,7 +847,7 @@ The subject parameter is required and can be provided either in the path or as a
 
 <!-- UsageSnippet language="typescript" operationID="client_authorization_get_list_api" method="get" path="/api/{serviceId}/client/authorization/get/list/{subject}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -931,7 +931,7 @@ Update attributes of all existing access tokens given to a client application.
 
 <!-- UsageSnippet language="typescript" operationID="client_authorization_update_api" method="post" path="/api/{serviceId}/client/authorization/update/{clientId}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -1027,7 +1027,7 @@ The subject parameter is required and can be provided either in the path or as a
 
 <!-- UsageSnippet language="typescript" operationID="client_authorization_delete_api" method="delete" path="/api/{serviceId}/client/authorization/delete/{clientId}/{subject}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -1113,7 +1113,7 @@ Update requestable scopes of a client
 
 <!-- UsageSnippet language="typescript" operationID="client_extension_requestables_scopes_update_api" method="put" path="/api/{serviceId}/client/extension/requestable_scopes/update/{clientId}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -1197,7 +1197,7 @@ Delete requestable scopes of a client
 
 <!-- UsageSnippet language="typescript" operationID="client_extension_requestables_scopes_delete_api" method="delete" path="/api/{serviceId}/client/extension/requestable_scopes/delete/{clientId}" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

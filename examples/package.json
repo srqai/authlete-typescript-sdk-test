@@ -13,6 +13,6 @@
     "tsx": "^4.19.2"
   },
   "dependencies": {
-    "authlete": "file:.."
+    "authlete-beta": "file:.."
   }
 }

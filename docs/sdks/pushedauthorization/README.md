@@ -16,7 +16,7 @@ This API creates a pushed request authorization. It authenticates the client and
 
 <!-- UsageSnippet language="typescript" operationID="pushed_auth_req_api" method="post" path="/api/{serviceId}/pushed_auth_req" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

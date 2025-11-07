@@ -66,7 +66,7 @@ If `CALLER_ERROR` is returned, please review the implementation of your OpenID P
 
 <!-- UsageSnippet language="typescript" operationID="native_sso_api" method="post" path="/api/{serviceId}/nativesso" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -178,7 +178,7 @@ problem. For example, the call may have been missing the required request parame
 
 <!-- UsageSnippet language="typescript" operationID="native_sso_logout_api" method="post" path="/api/{serviceId}/nativesso/logout" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

@@ -16,7 +16,7 @@ get the server version and enabled features
 
 <!-- UsageSnippet language="typescript" operationID="info_api" method="get" path="/api/info" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

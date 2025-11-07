@@ -139,28 +139,31 @@ Authlete API Explorer: <div class="min-h-screen bg-gray-100 dark:bg-gray-900 tex
 
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
+> [!WARNING]
+> Temporary test releases are published under the `authlete-beta` name until the primary `authlete` package name becomes available again.
+
 ### NPM
 
 ```bash
-npm add https://github.com/authlete/authlete-typescript-sdk
+npm add authlete-beta
 ```
 
 ### PNPM
 
 ```bash
-pnpm add https://github.com/authlete/authlete-typescript-sdk
+pnpm add authlete-beta
 ```
 
 ### Bun
 
 ```bash
-bun add https://github.com/authlete/authlete-typescript-sdk
+bun add authlete-beta
 ```
 
 ### Yarn
 
 ```bash
-yarn add https://github.com/authlete/authlete-typescript-sdk
+yarn add authlete-beta
 ```
 
 > [!NOTE]
@@ -179,7 +182,7 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ### Example
 
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -214,7 +217,7 @@ This SDK supports the following security schemes globally:
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -517,7 +520,7 @@ Some of the endpoints in this SDK support retries.  If you use the SDK without a
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -550,7 +553,7 @@ run();
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   retryConfig: {
@@ -597,7 +600,7 @@ run();
 
 ### Example
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 import * as errors from "authlete/models/errors";
 
 const authlete = new Authlete({
@@ -676,7 +679,7 @@ You can override the default server globally by passing a server index to the `s
 #### Example
 
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   serverIdx: 0,
@@ -701,7 +704,7 @@ run();
 
 The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   serverURL: "https://br.authlete.com",
@@ -741,7 +744,7 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 import { HTTPClient } from "authlete/lib/http";
 
 const httpClient = new HTTPClient({
@@ -783,7 +786,7 @@ You can pass a logger that matches `console`'s interface as an SDK option.
 > Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
 
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const sdk = new Authlete({ debugLogger: console });
 ```

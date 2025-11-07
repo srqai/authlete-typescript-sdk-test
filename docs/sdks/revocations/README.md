@@ -109,7 +109,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_revocation_api" method="post" path="/api/{serviceId}/auth/revocation" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

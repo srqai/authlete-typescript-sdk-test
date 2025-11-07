@@ -16,7 +16,7 @@ Create Security Key
 
 <!-- UsageSnippet language="typescript" operationID="hsk_create_api" method="post" path="/api/{serviceId}/hsk/create" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -97,7 +97,7 @@ List Security Keys
 
 <!-- UsageSnippet language="typescript" operationID="hsk_get_list_api" method="get" path="/api/{serviceId}/hsk/get/list" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

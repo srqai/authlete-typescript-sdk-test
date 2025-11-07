@@ -80,7 +80,7 @@ request does not satisfy authorization requirements imposed by your introspectio
 
 <!-- UsageSnippet language="typescript" operationID="auth_introspection_standard_api" method="post" path="/api/{serviceId}/auth/introspection/standard" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

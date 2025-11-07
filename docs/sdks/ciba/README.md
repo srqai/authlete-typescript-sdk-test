@@ -252,7 +252,7 @@ not have to be changed to support CIBA.
 
 <!-- UsageSnippet language="typescript" operationID="backchannel_authentication_api" method="post" path="/api/{serviceId}/backchannel/authentication" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -405,7 +405,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="backchannel_authentication_issue_api" method="post" path="/api/{serviceId}/backchannel/authentication/issue" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -513,7 +513,7 @@ server implementation should return a "403 Forbidden" response to the client app
 
 <!-- UsageSnippet language="typescript" operationID="backchannel_authentication_fail_api" method="post" path="/api/{serviceId}/backchannel/authentication/fail" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -682,7 +682,7 @@ Content-Type: application/json
 
 <!-- UsageSnippet language="typescript" operationID="backchannel_authentication_complete_api" method="post" path="/api/{serviceId}/backchannel/authentication/complete" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

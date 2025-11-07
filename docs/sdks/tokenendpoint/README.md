@@ -20,7 +20,7 @@ token.
 
 <!-- UsageSnippet language="typescript" operationID="idtoken_reissue_api" method="post" path="/api/{serviceId}/idtoken/reissue" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

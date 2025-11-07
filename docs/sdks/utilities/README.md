@@ -16,7 +16,7 @@ Echo test endpoint. Will return all path parameters in the request
 
 <!-- UsageSnippet language="typescript" operationID="misc_echo_api" method="get" path="/api/misc/echo" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {

@@ -123,7 +123,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_userinfo_api" method="post" path="/api/{serviceId}/auth/userinfo" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
@@ -318,7 +318,7 @@ Content-Type: application/jwt
 
 <!-- UsageSnippet language="typescript" operationID="auth_userinfo_issue_api" method="post" path="/api/{serviceId}/auth/userinfo/issue" -->
 ```typescript
-import { Authlete } from "authlete";
+import { Authlete } from "authlete-beta";
 
 const authlete = new Authlete({
   security: {
