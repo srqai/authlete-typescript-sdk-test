@@ -29,7 +29,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.8.2
+  version: 1.0.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -67,7 +67,7 @@ typescript:
   modelPropertyCasing: camel
   moduleFormat: dual
   outputModelSuffix: output
-  packageName: authlete-beta
+  packageName: authlete-typescript-sdk
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
