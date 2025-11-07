@@ -10,7 +10,7 @@ Depending upon the context, this refers to encryption done by the client or by t
 ## Example Usage
 
 ```typescript
-import { JweEnc } from "authlete-typescript-sdk/models";
+import { JweEnc } from "@authlete/authlete-typescript-sdk/models";
 
 let value: JweEnc = "A256CBC_HS512";
 ```

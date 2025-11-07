@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DynamicScope } from "authlete-typescript-sdk/models";
+import { DynamicScope } from "@authlete/authlete-typescript-sdk/models";
 
 let value: DynamicScope = {};
 ```

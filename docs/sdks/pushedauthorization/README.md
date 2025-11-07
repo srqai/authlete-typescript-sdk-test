@@ -16,7 +16,7 @@ This API creates a pushed request authorization. It authenticates the client and
 
 <!-- UsageSnippet language="typescript" operationID="pushed_auth_req_api" method="post" path="/api/{serviceId}/pushed_auth_req" -->
 ```typescript
-import { Authlete } from "authlete-typescript-sdk";
+import { Authlete } from "@authlete/authlete-typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -43,8 +43,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-typescript-sdk/core.js";
-import { pushedAuthorizationCreate } from "authlete-typescript-sdk/funcs/pushedAuthorizationCreate.js";
+import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
+import { pushedAuthorizationCreate } from "@authlete/authlete-typescript-sdk/funcs/pushedAuthorizationCreate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

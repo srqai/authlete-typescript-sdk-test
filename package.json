@@ -1,11 +1,15 @@
 {
-  "name": "authlete-typescript-sdk",
-  "version": "1.1.2",
+  "name": "@authlete/authlete-typescript-sdk",
+  "version": "1.1.3",
   "author": "Speakeasy",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "type": "module",
   "tshy": {
     "sourceDialects": [
-      "authlete-typescript-sdk/source"
+      "@authlete/authlete-typescript-sdk/source"
     ],
     "exports": {
       ".": "./src/index.ts",
@@ -43,7 +47,7 @@
   "exports": {
     ".": {
       "import": {
-        "authlete-typescript-sdk/source": "./src/index.ts",
+        "@authlete/authlete-typescript-sdk/source": "./src/index.ts",
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       },
@@ -55,7 +59,7 @@
     "./package.json": "./package.json",
     "./types": {
       "import": {
-        "authlete-typescript-sdk/source": "./src/types/index.ts",
+        "@authlete/authlete-typescript-sdk/source": "./src/types/index.ts",
         "types": "./dist/esm/types/index.d.ts",
         "default": "./dist/esm/types/index.js"
       },
@@ -66,7 +70,7 @@
     },
     "./models/errors": {
       "import": {
-        "authlete-typescript-sdk/source": "./src/models/errors/index.ts",
+        "@authlete/authlete-typescript-sdk/source": "./src/models/errors/index.ts",
         "types": "./dist/esm/models/errors/index.d.ts",
         "default": "./dist/esm/models/errors/index.js"
       },
@@ -77,7 +81,7 @@
     },
     "./models": {
       "import": {
-        "authlete-typescript-sdk/source": "./src/models/index.ts",
+        "@authlete/authlete-typescript-sdk/source": "./src/models/index.ts",
         "types": "./dist/esm/models/index.d.ts",
         "default": "./dist/esm/models/index.js"
       },
@@ -88,7 +92,7 @@
     },
     "./models/operations": {
       "import": {
-        "authlete-typescript-sdk/source": "./src/models/operations/index.ts",
+        "@authlete/authlete-typescript-sdk/source": "./src/models/operations/index.ts",
         "types": "./dist/esm/models/operations/index.d.ts",
         "default": "./dist/esm/models/operations/index.js"
       },
@@ -99,7 +103,7 @@
     },
     "./*.js": {
       "import": {
-        "authlete-typescript-sdk/source": "./src/*.ts",
+        "@authlete/authlete-typescript-sdk/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },
@@ -110,7 +114,7 @@
     },
     "./*": {
       "import": {
-        "authlete-typescript-sdk/source": "./src/*.ts",
+        "@authlete/authlete-typescript-sdk/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },

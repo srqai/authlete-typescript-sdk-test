@@ -66,7 +66,7 @@ If `CALLER_ERROR` is returned, please review the implementation of your OpenID P
 
 <!-- UsageSnippet language="typescript" operationID="native_sso_api" method="post" path="/api/{serviceId}/nativesso" -->
 ```typescript
-import { Authlete } from "authlete-typescript-sdk";
+import { Authlete } from "@authlete/authlete-typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -94,8 +94,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-typescript-sdk/core.js";
-import { nativeSsoProcess } from "authlete-typescript-sdk/funcs/nativeSsoProcess.js";
+import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
+import { nativeSsoProcess } from "@authlete/authlete-typescript-sdk/funcs/nativeSsoProcess.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -174,7 +174,7 @@ problem. For example, the call may have been missing the required request parame
 
 <!-- UsageSnippet language="typescript" operationID="native_sso_logout_api" method="post" path="/api/{serviceId}/nativesso/logout" -->
 ```typescript
-import { Authlete } from "authlete-typescript-sdk";
+import { Authlete } from "@authlete/authlete-typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -199,8 +199,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-typescript-sdk/core.js";
-import { nativeSsoLogout } from "authlete-typescript-sdk/funcs/nativeSsoLogout.js";
+import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
+import { nativeSsoLogout } from "@authlete/authlete-typescript-sdk/funcs/nativeSsoLogout.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

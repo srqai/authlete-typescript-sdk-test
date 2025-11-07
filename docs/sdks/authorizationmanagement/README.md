@@ -16,7 +16,7 @@ Get Ticket Information
 
 <!-- UsageSnippet language="typescript" operationID="authorization_ticket_info_post_api" method="post" path="/api/{serviceId}/auth/authorization/ticket/info" -->
 ```typescript
-import { Authlete } from "authlete-typescript-sdk";
+import { Authlete } from "@authlete/authlete-typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -41,8 +41,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-typescript-sdk/core.js";
-import { authorizationManagementGetTicketInfo } from "authlete-typescript-sdk/funcs/authorizationManagementGetTicketInfo.js";
+import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
+import { authorizationManagementGetTicketInfo } from "@authlete/authlete-typescript-sdk/funcs/authorizationManagementGetTicketInfo.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -97,7 +97,7 @@ Update Ticket Information
 
 <!-- UsageSnippet language="typescript" operationID="updateAuthorizationTicket" method="post" path="/api/{serviceId}/auth/authorization/ticket/update" -->
 ```typescript
-import { Authlete } from "authlete-typescript-sdk";
+import { Authlete } from "@authlete/authlete-typescript-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -123,8 +123,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "authlete-typescript-sdk/core.js";
-import { authorizationManagementUpdateTicket } from "authlete-typescript-sdk/funcs/authorizationManagementUpdateTicket.js";
+import { AuthleteCore } from "@authlete/authlete-typescript-sdk/core.js";
+import { authorizationManagementUpdateTicket } from "@authlete/authlete-typescript-sdk/funcs/authorizationManagementUpdateTicket.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

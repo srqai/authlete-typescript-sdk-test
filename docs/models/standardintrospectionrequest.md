@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { StandardIntrospectionRequest } from "authlete-typescript-sdk/models";
+import { StandardIntrospectionRequest } from "@authlete/authlete-typescript-sdk/models";
 
 let value: StandardIntrospectionRequest = {
   parameters: "<value>",
