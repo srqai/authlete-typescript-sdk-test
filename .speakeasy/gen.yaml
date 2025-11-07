@@ -71,7 +71,7 @@ typescript:
   moduleFormat: dual
   omitDescriptionIfSummaryPresent: true
   outputModelSuffix: output
-  packageName: '@authlete/authlete-typescript-sdk'
+  packageName: '@authlete/typescript-sdk'
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
