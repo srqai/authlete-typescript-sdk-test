@@ -5,8 +5,8 @@ management:
   docVersion: 3.0.16
   speakeasyVersion: 1.650.0
   generationVersion: 2.743.2
-  releaseVersion: 1.1.1
-  configChecksum: d9dc1a2b3ecd4780468444c4bcd68cb5
+  releaseVersion: 1.1.2
+  configChecksum: 73955be3d103ac67a72c16a81e8744e6
   repoURL: https://github.com/authlete/authlete-typescript-sdk.git
   installationURL: https://github.com/authlete/authlete-typescript-sdk
   published: true
