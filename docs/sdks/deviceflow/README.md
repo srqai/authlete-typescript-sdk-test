@@ -85,9 +85,7 @@ and return to the client application.
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -117,9 +115,7 @@ import { deviceFlowAuthorization } from "authlete-typescript-sdk/funcs/deviceFlo
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -201,9 +197,7 @@ to ask whether she approves or rejects the authorization request from the device
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -231,9 +225,7 @@ import { deviceFlowVerification } from "authlete-typescript-sdk/funcs/deviceFlow
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -335,9 +327,7 @@ using.
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -367,9 +357,7 @@ import { deviceFlowComplete } from "authlete-typescript-sdk/funcs/deviceFlowComp
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {

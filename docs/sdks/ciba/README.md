@@ -255,9 +255,7 @@ not have to be changed to support CIBA.
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -287,9 +285,7 @@ import { cibaProcessAuthentication } from "authlete-typescript-sdk/funcs/cibaPro
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -408,9 +404,7 @@ Pragma: no-cache
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -438,9 +432,7 @@ import { cibaIssue } from "authlete-typescript-sdk/funcs/cibaIssue.js";
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -516,9 +508,7 @@ server implementation should return a "403 Forbidden" response to the client app
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -547,9 +537,7 @@ import { cibaFail } from "authlete-typescript-sdk/funcs/cibaFail.js";
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -685,9 +673,7 @@ Content-Type: application/json
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -717,9 +703,7 @@ import { cibaComplete } from "authlete-typescript-sdk/funcs/cibaComplete.js";
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {

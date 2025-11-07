@@ -47,16 +47,16 @@ import { Result } from "../types/fp.js";
  * @GET
  * public Response get(@Context UriInfo uriInfo)
  * {
- * // The query parameters of the authorization request.
- * String parameters = uriInfo.getRequestUri().getQuery();
- * ......
+ *     // The query parameters of the authorization request.
+ *     String parameters = uriInfo.getRequestUri().getQuery();
+ *     ......
  * }
  * @POST
  * @Consumes(MediaType.APPLICATION\_FORM\_URLENCODED)
  * public Response post(String parameters)
  * {
- * // 'parameters' is the entity body of the authorization request.
- * ......
+ *     // 'parameters' is the entity body of the authorization request.
+ *     ......
  * }
  * ```
  * The endpoint implementation does not have to parse the request parameters from the client application
@@ -221,100 +221,100 @@ import { Result } from "../types/fp.js";
  * The API requires the following parameters. Prepare these parameters and call `/auth/authorization/issue`
  * API and use the response to generate a response to the client application.
  * - `ticket` (required)
- * This parameter represents a ticket which is exchanged with tokens at `/auth/authorization/issue`.
- * Use the value of `ticket` contained in the `/auth/authorization` API response.
+ *   This parameter represents a ticket which is exchanged with tokens at `/auth/authorization/issue`.
+ *   Use the value of `ticket` contained in the `/auth/authorization` API response.
  * - `subject` (required)
- * This parameter represents the unique identifier of the current end-user. It is often called "user ID"
- * and it may or may not be visible to the user. In any case, it is a number or a string assigned
- * to an end-user by the authorization server implementation. Authlete does not care about the format
- * of the value of subject, but it must consist of only ASCII letters and its length must not exceed 100.
- * When the value of `subject` parameter in the /auth/authorization API response is not `null`,
- * it is necessarily identical to the value of `subject` parameter in the `/auth/authorization/issue`
- * API request.
- * The value of this parameter will be embedded in an ID token as the value of `sub` claim. When
+ *   This parameter represents the unique identifier of the current end-user. It is often called "user ID"
+ *   and it may or may not be visible to the user. In any case, it is a number or a string assigned
+ *   to an end-user by the authorization server implementation. Authlete does not care about the format
+ *   of the value of subject, but it must consist of only ASCII letters and its length must not exceed 100.
+ *   When the value of `subject` parameter in the /auth/authorization API response is not `null`,
+ *   it is necessarily identical to the value of `subject` parameter in the `/auth/authorization/issue`
+ *   API request.
+ *   The value of this parameter will be embedded in an ID token as the value of `sub` claim. When
  * the value of `subject\_type` configuration parameter of the client application is `PAIRWISE`,
- * the value of sub claim is different from the value specified by this parameter, See [8. Subject
+ *   the value of sub claim is different from the value specified by this parameter, See [8. Subject
  * Identifier Types](https://openid.net/specs/openid-connect-core-1\_0.html#SubjectIDTypes) of OpenID
- * Connect Core 1.0 for details about subject types.
- * You can use the `sub` request parameter to adjust the value of the `sub` claim in an ID token.
- * See the description of the `sub` request parameter for details.
+ *   Connect Core 1.0 for details about subject types.
+ *   You can use the `sub` request parameter to adjust the value of the `sub` claim in an ID token.
+ *   See the description of the `sub` request parameter for details.
  * - `authTime` (optional)
- * This parameter represents the time when the end-user authentication occurred. Its value is the
- * number of seconds from `1970-01-01`. The value of this parameter will be embedded in an ID token
+ *   This parameter represents the time when the end-user authentication occurred. Its value is the
+ *   number of seconds from `1970-01-01`. The value of this parameter will be embedded in an ID token
  * as the value of `auth\_time` claim.
  * - `acr` (optional)
- * This parameter represents the ACR (Authentication Context Class Reference) which the authentication
- * of the end-user satisfies. When `acrs` in the `/auth/authorization` API response is a non-empty
- * array and the value of `acrEssential` is `true`, the value of this parameter must be one of the
- * array elements. Otherwise, even `null` is allowed. The value of this parameter will be embedded
- * in an ID token as the value of `acr` claim.
+ *   This parameter represents the ACR (Authentication Context Class Reference) which the authentication
+ *   of the end-user satisfies. When `acrs` in the `/auth/authorization` API response is a non-empty
+ *   array and the value of `acrEssential` is `true`, the value of this parameter must be one of the
+ *   array elements. Otherwise, even `null` is allowed. The value of this parameter will be embedded
+ *   in an ID token as the value of `acr` claim.
  * - `claims` (optional)
- * This parameter represents claims of the end-user. "Claims" here are pieces of information about
- * the end-user such as `"name"`, `"email"` and `"birthdate"`. The authorization server implementation
- * is required to gather claims of the end-user, format the claim values into JSON and set the JSON
- * string as the value of this parameter.
- * The claims which the authorization server implementation is required to gather are listed in
- * `claims` parameter in the `/auth/authorization` API response.
- * For example, if claims parameter lists `"name"`, `"email"` and `"birthdate"`, the value of this
- * parameter should look like the following.
- * ```json
- * {
- * "name": "John Smith",
- * "email": "john@example.com",
- * "birthdate": "1974-05-06"
- * }
- * ```
- * `claimsLocales` parameter in the `/auth/authorization` API response lists the end-user's preferred
- * languages and scripts, ordered by preference. When `claimsLocales` parameter is a non-empty array,
- * its elements should be taken into account when the authorization server implementation gathers
+ *   This parameter represents claims of the end-user. "Claims" here are pieces of information about
+ *   the end-user such as `"name"`, `"email"` and `"birthdate"`. The authorization server implementation
+ *   is required to gather claims of the end-user, format the claim values into JSON and set the JSON
+ *   string as the value of this parameter.
+ *   The claims which the authorization server implementation is required to gather are listed in
+ *   `claims` parameter in the `/auth/authorization` API response.
+ *   For example, if claims parameter lists `"name"`, `"email"` and `"birthdate"`, the value of this
+ *   parameter should look like the following.
+ *   ```json
+ *   {
+ *     "name": "John Smith",
+ *     "email": "john@example.com",
+ *     "birthdate": "1974-05-06"
+ *   }
+ *   ```
+ *   `claimsLocales` parameter in the `/auth/authorization` API response lists the end-user's preferred
+ *   languages and scripts, ordered by preference. When `claimsLocales` parameter is a non-empty array,
+ *   its elements should be taken into account when the authorization server implementation gathers
  * claim values. Especially, note the excerpt below from [5.2. Claims Languages and Scripts](https://openid.net/specs/openid-connect-core-1\_0.html#ClaimsLanguagesAndScripts)
- * of OpenID Connect Core 1.0.
+ *   of OpenID Connect Core 1.0.
  * > When the OP determines, either through the `claims\_locales` parameter, or by other means, that
- * the End-User and Client are requesting Claims in only one set of languages and scripts, it is
- * RECOMMENDED that OPs return Claims without language tags when they employ this language and script.
- * It is also RECOMMENDED that Clients be written in a manner that they can handle and utilize Claims
- * using language tags.
- * If `claims` parameter in the `/auth/authorization` API response is `null` or an empty array,
- * the value of this parameter should be `null`.
+ *   the End-User and Client are requesting Claims in only one set of languages and scripts, it is
+ *   RECOMMENDED that OPs return Claims without language tags when they employ this language and script.
+ *   It is also RECOMMENDED that Clients be written in a manner that they can handle and utilize Claims
+ *   using language tags.
+ *   If `claims` parameter in the `/auth/authorization` API response is `null` or an empty array,
+ *   the value of this parameter should be `null`.
  * See [5.1. Standard Claims](https://openid.net/specs/openid-connect-core-1\_0.html#StandardClaims)
- * of OpenID Connect core 1.0 for claim names and their value formats. Note (1) that the authorization
+ *   of OpenID Connect core 1.0 for claim names and their value formats. Note (1) that the authorization
  * server implementation support its special claims ([5.1.2. Additional Claims](https://openid.net/specs/openid-connect-core-1\_0.html#AdditionalClaims))
  * and (2) that claim names may be followed by a language tag ([5.2. Claims Languages and Scripts](https://openid.net/specs/openid-connect-core-1\_0.html#ClaimsLanguagesAndScripts)).
  * Read the specification of [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1\_0.html)
- * for details.
- * The claim values in this parameter will be embedded in an ID token.
- * Note that `idTokenClaims` parameter is available in the `/auth/authorization` API response.
+ *   for details.
+ *   The claim values in this parameter will be embedded in an ID token.
+ *   Note that `idTokenClaims` parameter is available in the `/auth/authorization` API response.
  * The parameter has the value of the `"id\_token"` property in the `claims` request parameter or
- * in the `"claims"` property in a request object. The value of this parameter should be considered
- * when you prepare claim values.
+ *   in the `"claims"` property in a request object. The value of this parameter should be considered
+ *   when you prepare claim values.
  * - `properties` (optional)
- * Extra properties to associate with an access token and/or an authorization code that may be issued
- * by this request. Note that `properties` parameter is accepted only when `Content-Type` of the
- * request is `application/json`, so don't use `application/x-www-form-urlencoded` for details.
+ *   Extra properties to associate with an access token and/or an authorization code that may be issued
+ *   by this request. Note that `properties` parameter is accepted only when `Content-Type` of the
+ *   request is `application/json`, so don't use `application/x-www-form-urlencoded` for details.
  * - `scopes` (optional)
- * Scopes to associate with an access token and/or an authorization code. If this parameter is `null`,
- * the scopes specified in the original authorization request from the client application are used.
- * In other cases, including the case of an empty array, the specified scopes will replace the original
- * scopes contained in the original authorization request.
- * Even scopes that are not included in the original authorization request can be specified. However,
- * as an exception, `openid` scope is ignored on the server side if it is not included in the original
- * request. It is because the existence of `openid` scope considerably changes the validation steps
- * and because adding `openid` triggers generation of an ID token (although the client application
- * has not requested it) and the behavior is a major violation against the specification.
+ *   Scopes to associate with an access token and/or an authorization code. If this parameter is `null`,
+ *   the scopes specified in the original authorization request from the client application are used.
+ *   In other cases, including the case of an empty array, the specified scopes will replace the original
+ *   scopes contained in the original authorization request.
+ *   Even scopes that are not included in the original authorization request can be specified. However,
+ *   as an exception, `openid` scope is ignored on the server side if it is not included in the original
+ *   request. It is because the existence of `openid` scope considerably changes the validation steps
+ *   and because adding `openid` triggers generation of an ID token (although the client application
+ *   has not requested it) and the behavior is a major violation against the specification.
  * If you add `offline\_access` scope although it is not included in the original request, keep in
- * mind that the specification requires explicit consent from the user for the scope ([OpenID Connect
+ *   mind that the specification requires explicit consent from the user for the scope ([OpenID Connect
  * Core 1.0, 11. Offline Access](https://openid.net/specs/openid-connect-core-1\_0.html#OfflineAccess)).
  * When `offline\_access` is included in the original request, the current implementation of Authlete's
- * `/auth/authorization` API checks whether the request has come along with `prompt` request parameter
- * and the value includes consent. However, note that the implementation of Authlete's `/auth/authorization/issue`
+ *   `/auth/authorization` API checks whether the request has come along with `prompt` request parameter
+ *   and the value includes consent. However, note that the implementation of Authlete's `/auth/authorization/issue`
  * API does not perform such checking if `offline\_access` scope is added via this `scopes` parameter.
  * - `sub` (optional)
- * The value of the `sub` claim in an ID token. If the value of this request parameter is not empty,
- * it is used as the value of the `sub` claim. Otherwise, the value of the `subject` request parameter
- * is used as the value of the `sub` claim. The main purpose of this parameter is to hide the actual
- * value of the subject from client applications.
- * Note that even if this `sub` parameter is not empty, the value of the subject request parameter
- * is used as the value of the subject which is associated with the access token.
+ *   The value of the `sub` claim in an ID token. If the value of this request parameter is not empty,
+ *   it is used as the value of the `sub` claim. Otherwise, the value of the `subject` request parameter
+ *   is used as the value of the `sub` claim. The main purpose of this parameter is to hide the actual
+ *   value of the subject from client applications.
+ *   Note that even if this `sub` parameter is not empty, the value of the subject request parameter
+ *   is used as the value of the subject which is associated with the access token.
  * **INTERACTION**
  * When the value of `action` is `INTERACTION`, it means that the request from the client application
  * has no problem and requires the service to process the request with user interaction by an HTML form.
@@ -505,7 +505,8 @@ async function $do(
     Accept: "application/json",
   }));
 
-  const securityInput = await extractSecurity(client._options.security);
+  const secConfig = await extractSecurity(client._options.bearer);
+  const securityInput = secConfig == null ? {} : { bearer: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
@@ -516,7 +517,7 @@ async function $do(
 
     resolvedSecurity: requestSecurity,
 
-    securitySource: client._options.security,
+    securitySource: client._options.bearer,
     retryConfig: options?.retries
       || client._options.retryConfig
       || { strategy: "none" },

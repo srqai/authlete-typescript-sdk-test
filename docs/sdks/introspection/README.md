@@ -143,9 +143,7 @@ may be different.
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -178,9 +176,7 @@ import { introspectionProcess } from "authlete-typescript-sdk/funcs/introspectio
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -303,9 +299,7 @@ request does not satisfy authorization requirements imposed by your introspectio
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -333,9 +327,7 @@ import { introspectionStandardProcess } from "authlete-typescript-sdk/funcs/intr
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {

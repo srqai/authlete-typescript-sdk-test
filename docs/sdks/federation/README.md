@@ -81,9 +81,7 @@ Content-Type: application/entity-statement+jwt
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -108,9 +106,7 @@ import { federationConfiguration } from "authlete-typescript-sdk/funcs/federatio
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -181,9 +177,7 @@ federation registration endpoint should call Authlete's
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -209,9 +203,7 @@ import { federationRegistration } from "authlete-typescript-sdk/funcs/federation
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {

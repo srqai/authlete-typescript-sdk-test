@@ -28,9 +28,7 @@ if the service supports [OpenID Connect Discovery 1.0](https://openid.net/specs/
 import { Authlete } from "authlete-typescript-sdk";
 
 const authlete = new Authlete({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {
@@ -55,9 +53,7 @@ import { jwkSetEndpointServiceJwksGetApi } from "authlete-typescript-sdk/funcs/j
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const authlete = new AuthleteCore({
-  security: {
-    authlete: process.env["AUTHLETE_AUTHLETE"] ?? "",
-  },
+  bearer: process.env["AUTHLETE_BEARER"] ?? "",
 });
 
 async function run() {

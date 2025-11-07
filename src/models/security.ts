@@ -5,13 +5,11 @@
 import * as z from "zod/v3";
 
 export type Security = {
-  authlete?: string | undefined;
   bearer?: string | undefined;
 };
 
 /** @internal */
 export type Security$Outbound = {
-  authlete?: string | undefined;
   bearer?: string | undefined;
 };
 
@@ -21,7 +19,6 @@ export const Security$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Security
 > = z.object({
-  authlete: z.string().optional(),
   bearer: z.string().optional(),
 });
 
