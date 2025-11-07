@@ -1,6 +1,6 @@
-# authlete
+# Authlete Typescript SDK
 
-Developer-friendly & type-safe Typescript SDK specifically catered to leverage *authlete* API.
+Developer-friendly & type-safe Typescript SDK specifically catered to leverage *Authlete* API.
 
 <div align="left">
     <a href="https://www.speakeasy.com/?utm_source=authlete&utm_campaign=typescript"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" /></a>
@@ -9,27 +9,15 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
     </a>
 </div>
 
-
 <br /><br />
 > [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/authlete/sdk-workspace). Delete this section before > publishing to a package manager.
+> This is a beta SDK.
 
 <!-- Start Summary [summary] -->
 ## Summary
-
-Authlete API Explorer: <div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6">
-  <div class="flex justify-end mb-4">
-    <label for="theme-toggle" class="flex items-center cursor-pointer">
-      <div class="relative">Dark mode:
-        <input type="checkbox" id="theme-toggle" class="sr-only" onchange="toggleTheme()">
-        <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
-        <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
-      </div>
-    </label>
-  </div>
-  <header class="bg-green-500 dark:bg-green-700 p-4 rounded-lg text-white text-center">
+ <div class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-6">
     <p>
-      Welcome to the <strong>Authlete API documentation</strong>. Authlete is an <strong>API-first service</strong>
+      Welcome to the <strong>Authlete</strong>. Authlete is an <strong>API-first service</strong>
       where every aspect of the platform is configurable via API. This explorer provides a convenient way to
       authenticate and interact with the API, allowing you to see Authlete in action quickly. 🚀
     </p>
@@ -112,7 +100,7 @@ Authlete API Explorer: <div class="min-h-screen bg-gray-100 dark:bg-gray-900 tex
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [authlete](#authlete)
+* [Authlete](#authlete)
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [SDK Example Usage](#sdk-example-usage)
