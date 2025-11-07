@@ -29,18 +29,8 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 typescript:
-  version: 1.1.0
+  version: 1.1.1
   acceptHeaderEnum: true
-  readme:
-    customSections:
-      - title: "Access Tokens"
-        placement: "after-requirements"
-        content: |
-          You need to pass a valid access token to be able to use any resource or operation. Refer to [Creating an Access Token](https://docs.authlete.com/en/shared/latest/authentication.html) to learn how to create one. Make sure that you create a token with the correct Authlete scope. If you face permission (403) errors when you are already sending a token, it can be one of the following problems:
-          
-          - The token you are using has expired. Check the expiry date of the token in the Authlete Console.
-          - The token does not have access to the correct scope, either not the right service or it does not have account level access.
-          - The resource or operation you are trying to use is not available for that service tier. For example, some features are Enterprise-only and you may be using a token for a service on a different plan.
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -78,6 +68,16 @@ typescript:
   moduleFormat: dual
   outputModelSuffix: output
   packageName: authlete-typescript-sdk
+  readme:
+    customSections:
+      - content: |
+          You need to pass a valid access token to be able to use any resource or operation. Refer to [Creating an Access Token](https://docs.authlete.com/en/shared/latest/authentication.html) to learn how to create one. Make sure that you create a token with the correct Authlete scope. If you face permission (403) errors when you are already sending a token, it can be one of the following problems:
+
+          - The token you are using has expired. Check the expiry date of the token in the Authlete Console.
+          - The token does not have access to the correct scope, either not the right service or it does not have account level access.
+          - The resource or operation you are trying to use is not available for that service tier. For example, some features are Enterprise-only and you may be using a token for a service on a different plan.
+        placement: after-requirements
+        title: Access Tokens
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
