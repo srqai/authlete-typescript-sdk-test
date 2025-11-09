@@ -44,7 +44,7 @@ export type TokenRequest = {
    *
    * @remarks
    */
-  clientCertificatePath?: string | undefined;
+  clientCertificatePath?: Array<string> | undefined;
   /**
    * Extra properties to associate with an access token. See [Extra Properties](https://www.authlete.com/developers/definitive_guide/extra_properties/)
    *
@@ -145,7 +145,7 @@ export type TokenRequest$Outbound = {
   clientId?: string | undefined;
   clientSecret?: string | undefined;
   clientCertificate?: string | undefined;
-  clientCertificatePath?: string | undefined;
+  clientCertificatePath?: Array<string> | undefined;
   properties?: string | undefined;
   dpop?: string | undefined;
   htm?: string | undefined;
@@ -169,7 +169,7 @@ export const TokenRequest$outboundSchema: z.ZodType<
   clientId: z.string().optional(),
   clientSecret: z.string().optional(),
   clientCertificate: z.string().optional(),
-  clientCertificatePath: z.string().optional(),
+  clientCertificatePath: z.array(z.string()).optional(),
   properties: z.string().optional(),
   dpop: z.string().optional(),
   htm: z.string().optional(),

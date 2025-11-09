@@ -222,24 +222,27 @@ export type TokenResponse = {
    */
   audiences?: Array<string> | undefined;
   /**
-   * The grant type of the access token when the access token was created.
+   * The token type identifier used in OAuth 2.0 Token Exchange (RFC 8693).
    *
    * @remarks
+   * The API returns short codes (enum constant names) in response fields.
    */
   requestedTokenType?: TokenType | undefined;
   subjectToken?: string | undefined;
   /**
-   * The grant type of the access token when the access token was created.
+   * The token type identifier used in OAuth 2.0 Token Exchange (RFC 8693).
    *
    * @remarks
+   * The API returns short codes (enum constant names) in response fields.
    */
   subjectTokenType?: TokenType | undefined;
   subjectTokenInfo?: TokenInfo | undefined;
   actorToken?: string | undefined;
   /**
-   * The grant type of the access token when the access token was created.
+   * The token type identifier used in OAuth 2.0 Token Exchange (RFC 8693).
    *
    * @remarks
+   * The API returns short codes (enum constant names) in response fields.
    */
   actorTokenType?: TokenType | undefined;
   actorTokenInfo?: TokenInfo | undefined;

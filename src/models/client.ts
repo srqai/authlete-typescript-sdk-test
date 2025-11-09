@@ -226,6 +226,12 @@ export type Client = {
    */
   softwareId?: string | undefined;
   /**
+   * The unique identifier of the developer who created this client application.
+   *
+   * @remarks
+   */
+  developer?: string | undefined;
+  /**
    * The version identifier string for the client software identified by the software ID.
    *
    * @remarks
@@ -1034,6 +1040,13 @@ export type Client = {
    * [FAPI 2.0 Security Profile, 8.1.1. use_mtls_endpoint_aliases](https://openid.bitbucket.io/fapi/fapi-2_0-security-profile.html#section-8.1.1).
    */
   mtlsEndpointAliasesUsed?: boolean | undefined;
+  /**
+   * The flag indicating whether this client is in scope for token migration
+   *
+   * @remarks
+   * operations.
+   */
+  inScopeForTokenMigration?: boolean | undefined;
 };
 
 export type ClientInput = {
@@ -1128,6 +1141,12 @@ export type ClientInput = {
    * of [RFC 7591](https://datatracker.ietf.org/doc/html/rfc7591).
    */
   softwareId?: string | undefined;
+  /**
+   * The unique identifier of the developer who created this client application.
+   *
+   * @remarks
+   */
+  developer?: string | undefined;
   /**
    * The version identifier string for the client software identified by the software ID.
    *
@@ -1921,6 +1940,13 @@ export type ClientInput = {
    * [FAPI 2.0 Security Profile, 8.1.1. use_mtls_endpoint_aliases](https://openid.bitbucket.io/fapi/fapi-2_0-security-profile.html#section-8.1.1).
    */
   mtlsEndpointAliasesUsed?: boolean | undefined;
+  /**
+   * The flag indicating whether this client is in scope for token migration
+   *
+   * @remarks
+   * operations.
+   */
+  inScopeForTokenMigration?: boolean | undefined;
 };
 
 /** @internal */
@@ -1951,6 +1977,7 @@ export const Client$inboundSchema: z.ZodType<Client, z.ZodTypeDef, unknown> = z
     tlsClientCertificateBoundAccessTokens: z.boolean().optional(),
     dynamicallyRegistered: z.boolean().optional(),
     softwareId: z.string().optional(),
+    developer: z.string().optional(),
     softwareVersion: z.string().optional(),
     registrationAccessTokenHash: z.string().optional(),
     createdAt: z.number().int().optional(),
@@ -2031,6 +2058,7 @@ export const Client$inboundSchema: z.ZodType<Client, z.ZodTypeDef, unknown> = z
     responseModes: z.array(ResponseMode$inboundSchema).optional(),
     credentialResponseEncryptionRequired: z.boolean().optional(),
     mtlsEndpointAliasesUsed: z.boolean().optional(),
+    inScopeForTokenMigration: z.boolean().optional(),
   });
 
 export function clientFromJSON(
@@ -2058,6 +2086,7 @@ export type ClientInput$Outbound = {
   contacts?: Array<string> | undefined;
   tlsClientCertificateBoundAccessTokens?: boolean | undefined;
   softwareId?: string | undefined;
+  developer?: string | undefined;
   softwareVersion?: string | undefined;
   registrationAccessTokenHash?: string | undefined;
   grantTypes?: Array<string> | undefined;
@@ -2134,6 +2163,7 @@ export type ClientInput$Outbound = {
   responseModes?: Array<string> | undefined;
   credentialResponseEncryptionRequired?: boolean | undefined;
   mtlsEndpointAliasesUsed?: boolean | undefined;
+  inScopeForTokenMigration?: boolean | undefined;
 };
 
 /** @internal */
@@ -2155,6 +2185,7 @@ export const ClientInput$outboundSchema: z.ZodType<
   contacts: z.array(z.string()).optional(),
   tlsClientCertificateBoundAccessTokens: z.boolean().optional(),
   softwareId: z.string().optional(),
+  developer: z.string().optional(),
   softwareVersion: z.string().optional(),
   registrationAccessTokenHash: z.string().optional(),
   grantTypes: z.array(GrantType$outboundSchema).optional(),
@@ -2232,6 +2263,7 @@ export const ClientInput$outboundSchema: z.ZodType<
   responseModes: z.array(ResponseMode$outboundSchema).optional(),
   credentialResponseEncryptionRequired: z.boolean().optional(),
   mtlsEndpointAliasesUsed: z.boolean().optional(),
+  inScopeForTokenMigration: z.boolean().optional(),
 });
 
 export function clientInputToJSON(clientInput: ClientInput): string {

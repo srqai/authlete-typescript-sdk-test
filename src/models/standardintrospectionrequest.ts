@@ -31,7 +31,7 @@ export type StandardIntrospectionRequest = {
    * API includes all the associated key-value pairs into the output regardless of the value of the
    * hidden attribute.
    */
-  withHiddenProperties?: string | undefined;
+  withHiddenProperties?: boolean | undefined;
   /**
    * The URI of the resource server making the introspection request.
    *
@@ -120,7 +120,7 @@ export type StandardIntrospectionRequest = {
 /** @internal */
 export type StandardIntrospectionRequest$Outbound = {
   parameters: string;
-  withHiddenProperties?: string | undefined;
+  withHiddenProperties?: boolean | undefined;
   rsUri?: string | undefined;
   httpAcceptHeader?: string | undefined;
   introspectionSignAlg?: string | undefined;
@@ -138,7 +138,7 @@ export const StandardIntrospectionRequest$outboundSchema: z.ZodType<
   StandardIntrospectionRequest
 > = z.object({
   parameters: z.string(),
-  withHiddenProperties: z.string().optional(),
+  withHiddenProperties: z.boolean().optional(),
   rsUri: z.string().optional(),
   httpAcceptHeader: z.string().optional(),
   introspectionSignAlg: z.string().optional(),
