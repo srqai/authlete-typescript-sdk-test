@@ -76,12 +76,12 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 
 ## Access Tokens
 
-You need to pass a valid access token to be able to use any resource or operation. Refer to [Creating an Access Token](https://docs.authlete.com/en/shared/latest/authentication.html) to learn how to create one.
+You need to pass a valid access token to be able to use any resource or operation. Refer to [Creating an Access Token](https://www.authlete.com/developers/tutorial/signup/) to learn how to create one.
 
 Authlete supports two types of access tokens:
 
 - **Service Access Token** - Scoped to a single service (authorization server instance). Create from **Service Settings** → **Access Tokens** in the [Authlete Console](https://console.authlete.com).
-- **Organization Token** - Scoped to your entire organization, allowing access to all services. Create from **Organization Settings** → **Access Tokens**.
+- **Organization Token** - Scoped to your entire organization, allowing access to all services. Create from **[Organization Settings](https://www.authlete.com/developers/terraform/starting/#setting-your-environment)** → **Access Tokens**.
 
 Make sure that you create a token with the correct scope. If you face permission (403) errors when already sending a token, it can be one of the following problems:
 
