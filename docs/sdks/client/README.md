@@ -194,6 +194,7 @@ async function run() {
       clientIdAliasEnabled: true,
       clientType: "CONFIDENTIAL",
       applicationType: "WEB",
+      developer: "john",
       grantTypes: [
         "AUTHORIZATION_CODE",
         "REFRESH_TOKEN",
@@ -249,6 +250,7 @@ async function run() {
       clientIdAliasEnabled: true,
       clientType: "CONFIDENTIAL",
       applicationType: "WEB",
+      developer: "john",
       grantTypes: [
         "AUTHORIZATION_CODE",
         "REFRESH_TOKEN",
@@ -332,6 +334,7 @@ async function run() {
       clientType: "CONFIDENTIAL",
       applicationType: "WEB",
       tlsClientCertificateBoundAccessTokens: false,
+      developer: "john",
       grantTypes: [
         "AUTHORIZATION_CODE",
         "REFRESH_TOKEN",
@@ -399,6 +402,7 @@ async function run() {
       clientType: "CONFIDENTIAL",
       applicationType: "WEB",
       tlsClientCertificateBoundAccessTokens: false,
+      developer: "john",
       grantTypes: [
         "AUTHORIZATION_CODE",
         "REFRESH_TOKEN",

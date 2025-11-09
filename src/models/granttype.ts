@@ -20,6 +20,7 @@ export const GrantType = {
   DeviceCode: "DEVICE_CODE",
   TokenExchange: "TOKEN_EXCHANGE",
   JwtBearer: "JWT_BEARER",
+  PreAuthorizedCode: "PRE_AUTHORIZED_CODE",
 } as const;
 /**
  * The grant type of the access token when the access token was created.

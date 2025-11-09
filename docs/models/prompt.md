@@ -18,5 +18,5 @@ let value: Prompt = "NONE";
 ## Values
 
 ```typescript
-"NONE" | "LOGIN" | "CONSENT" | "SELECT_ACCOUNT"
+"NONE" | "LOGIN" | "CONSENT" | "SELECT_ACCOUNT" | "CREATE"
 ```

@@ -35,7 +35,7 @@ export type PushedAuthorizationRequest = {
    *
    * @remarks
    */
-  clientCertificatePath?: string | undefined;
+  clientCertificatePath?: Array<string> | undefined;
   /**
    * DPoP Header
    *
@@ -85,7 +85,7 @@ export type PushedAuthorizationRequest$Outbound = {
   clientId?: string | undefined;
   clientSecret?: string | undefined;
   clientCertificate?: string | undefined;
-  clientCertificatePath?: string | undefined;
+  clientCertificatePath?: Array<string> | undefined;
   dpop?: string | undefined;
   htm?: string | undefined;
   htu?: string | undefined;
@@ -104,7 +104,7 @@ export const PushedAuthorizationRequest$outboundSchema: z.ZodType<
   clientId: z.string().optional(),
   clientSecret: z.string().optional(),
   clientCertificate: z.string().optional(),
-  clientCertificatePath: z.string().optional(),
+  clientCertificatePath: z.array(z.string()).optional(),
   dpop: z.string().optional(),
   htm: z.string().optional(),
   htu: z.string().optional(),

@@ -1,6 +1,7 @@
 # TokenType
 
-The grant type of the access token when the access token was created.
+The token type identifier used in OAuth 2.0 Token Exchange (RFC 8693).
+The API returns short codes (enum constant names) in response fields.
 
 
 ## Example Usage
@@ -14,5 +15,5 @@ let value: TokenType = "JWT_BEARER";
 ## Values
 
 ```typescript
-"urn:ietf:params:oauth:token-type:jwt" | "urn:ietf:params:oauth:token-type:access_token" | "urn:ietf:params:oauth:token-type:refresh_token" | "urn:ietf:params:oauth:token-type:id_token" | "urn:ietf:params:oauth:token-type:saml1" | "urn:ietf:params:oauth:token-type:saml2" | "DEVICE_CODE" | "TOKEN_EXCHANGE" | "JWT_BEARER"
+"JWT" | "ACCESS_TOKEN" | "REFRESH_TOKEN" | "ID_TOKEN" | "SAML1" | "SAML2" | "DEVICE_SECRET" | "DEVICE_CODE" | "TOKEN_EXCHANGE" | "JWT_BEARER"
 ```

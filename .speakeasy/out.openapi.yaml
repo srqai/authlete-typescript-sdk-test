@@ -8990,6 +8990,7 @@ components:
         - PRIVATE_KEY_JWT
         - TLS_CLIENT_AUTH
         - SELF_SIGNED_TLS_CLIENT_AUTH
+        - ATTEST_JWT_CLIENT_AUTH
     client_extension:
       type: object
       properties:
@@ -9182,6 +9183,10 @@ components:
 
             This property corresponds to the `software_id metadata` defined in [2. Client Metadata](https://datatracker.ietf.org/doc/html/rfc7591#section-2)
             of [RFC 7591](https://datatracker.ietf.org/doc/html/rfc7591).
+        developer:
+          type: string
+          description: |
+            The unique identifier of the developer who created this client application.
         softwareVersion:
           type: string
           description: |
@@ -9770,6 +9775,9 @@ components:
 
             This property corresponds to the `use_mtls_endpoint_aliases` client metadata that is defined in
             [FAPI 2.0 Security Profile, 8.1.1. use_mtls_endpoint_aliases](https://openid.bitbucket.io/fapi/fapi-2_0-security-profile.html#section-8.1.1).
+        inScopeForTokenMigration:
+          type: boolean
+          description: "The flag indicating whether this client is in scope for token migration \noperations.\n"
     delivery_mode:
       type: string
       enum:
@@ -9816,6 +9824,7 @@ components:
         - DEVICE_CODE
         - TOKEN_EXCHANGE
         - JWT_BEARER
+        - PRE_AUTHORIZED_CODE
     jwe_alg:
       type: string
       description: |
@@ -9915,6 +9924,7 @@ components:
         - LOGIN
         - CONSENT
         - SELECT_ACCOUNT
+        - CREATE
     property:
       type: object
       properties:
@@ -10008,6 +10018,49 @@ components:
           format: int64
           readOnly: true
           description: The service ID used in Authlete API calls. The value of this property is assigned by Authlete.
+        apiSecret:
+          type: string
+          readOnly: true
+          description: "The API secret of this service. This value is assigned by Authlete and \nis used for service authentication in API calls.\n"
+        tokenBatchNotificationEndpoint:
+          type: string
+          format: uri
+          description: "The endpoint for batch token notifications. This endpoint is called when \nmultiple tokens are issued or revoked in a batch operation.\n"
+        clientAssertionAudRestrictedToIssuer:
+          type: boolean
+          description: "The flag indicating whether the audience of client assertion JWTs must \nmatch the issuer identifier of this service.\n"
+        serviceOwnerNumber:
+          type: integer
+          format: int32
+          readOnly: true
+          description: "The number of the organization that owns this service. This value is \nassigned by Authlete.\n"
+        clientsPerDeveloper:
+          type: integer
+          format: int32
+          description: |
+            The maximum number of client applications that a developer can have.
+        developerAuthenticationCallbackEndpoint:
+          type: string
+          format: uri
+          description: "The endpoint for developer authentication callbacks. This is used when \ndevelopers log into the developer portal.\n"
+        developerAuthenticationCallbackApiKey:
+          type: string
+          description: "The API key for basic authentication at the developer authentication \ncallback endpoint.\n"
+        developerAuthenticationCallbackApiSecret:
+          type: string
+          description: "The API secret for basic authentication at the developer authentication \ncallback endpoint.\n"
+        supportedSnses:
+          type: array
+          items:
+            type: string
+            enum:
+              - FACEBOOK
+          description: "Social login services (SNS) that this service supports for end-user \nauthentication.\n"
+        snsCredentials:
+          type: array
+          items:
+            $ref: '#/components/schemas/sns_credentials'
+          description: "The credentials for social login services (SNS) that are used for \nend-user authentication.\n"
         clientIdAliasEnabled:
           type: boolean
           description: Deprecated. Always `true`.
@@ -11657,8 +11710,8 @@ components:
           type: boolean
           description: The URL of the credential endpoint of the credential issuer.
         batchCredentialEndpoint:
-          type: integer
-          format: int64
+          type: string
+          format: uri
           description: The URL of the batch credential endpoint of the credential issuer.
         deferredCredentialEndpoint:
           type: string
@@ -12748,7 +12801,9 @@ components:
 
             This request parameter takes precedence over the `idTokenAudType` property of the service.
         verifiedClaimsForTx:
-          type: string
+          type: array
+          items:
+            type: string
           description: |
             Values of verified claims requested indirectly by "transformed claims".
 
@@ -12811,6 +12866,13 @@ components:
               "{\"nationalities\":[\"DEU\",\"USA\"]}"
             ]
             ```
+    authorization_ticket_info:
+      type: object
+      properties:
+        context:
+          type: string
+          description: |
+            The arbitrary text attached to the ticket.
     authorization_issue_response:
       type: object
       properties:
@@ -12865,7 +12927,7 @@ components:
             The newly issued access token in JWT format. If the service is not configured to issue JWT-based access tokens,
             this property is always set to `null`.
         ticketInfo:
-          type: string
+          $ref: '#/components/schemas/authorization_ticket_info'
           description: |
             The information about the ticket.
     pushed_authorization_request:
@@ -12892,7 +12954,9 @@ components:
           type: string
           description: The client certificate from the MTLS connection to pushed authorization endpoint from the client application.
         clientCertificatePath:
-          type: string
+          type: array
+          items:
+            type: string
           description: |
             The certificate path presented by the client during client authentication. These certificates are strings in PEM format.
         dpop:
@@ -13004,7 +13068,9 @@ components:
           type: string
           description: The client certificate from the MTLS of the token request from the client application.
         clientCertificatePath:
-          type: string
+          type: array
+          items:
+            type: string
           description: |
             The certificate path presented by the client during client authentication. These certificates are strings in PEM format.
         properties:
@@ -13082,14 +13148,16 @@ components:
     token_type:
       type: string
       description: |
-        The grant type of the access token when the access token was created.
+        The token type identifier used in OAuth 2.0 Token Exchange (RFC 8693).
+        The API returns short codes (enum constant names) in response fields.
       enum:
-        - urn:ietf:params:oauth:token-type:jwt
-        - urn:ietf:params:oauth:token-type:access_token
-        - urn:ietf:params:oauth:token-type:refresh_token
-        - urn:ietf:params:oauth:token-type:id_token
-        - urn:ietf:params:oauth:token-type:saml1
-        - urn:ietf:params:oauth:token-type:saml2
+        - JWT
+        - ACCESS_TOKEN
+        - REFRESH_TOKEN
+        - ID_TOKEN
+        - SAML1
+        - SAML2
+        - DEVICE_SECRET
         - DEVICE_CODE
         - TOKEN_EXCHANGE
         - JWT_BEARER
@@ -13950,7 +14018,7 @@ components:
             in the `application/x-www-form-urlencoded` format. It is the entity body of the request that
             Authlete's  `/api/auth/introspection/standard` API expects as the value of `parameters`.
         withHiddenProperties:
-          type: string
+          type: boolean
           description: |
             Flag indicating whether to include hidden properties in the output.
 
@@ -14084,7 +14152,9 @@ components:
           description: |
             The client certificate used in the TLS connection between the client application and the revocation endpoint.
         clientCertificatePath:
-          type: string
+          type: array
+          items:
+            type: string
           description: |
             The certificate path presented by the client during client authentication.
         oauthClientAttestation:
@@ -14468,7 +14538,9 @@ components:
             HTTP headers to be included in processing the signature. If this is a signed request, this must include the
             Signature and Signature-Input headers, as well as any additional headers covered by the signature.
         verifiedClaimsForTx:
-          type: string
+          type: array
+          items:
+            type: string
           description: |
             Values of verified claims requested indirectly by "transformed claims".
 
@@ -14821,7 +14893,9 @@ components:
             The client certification used in the TLS connection between the client application and the
             backchannel authentication endpoint of the OpenID provider.
         clientCertificatePath:
-          type: string
+          type: array
+          items:
+            type: string
           description: |
             The client certificate path presented by the client during client authentication. Each element
             is a string in PEM format.
@@ -15432,7 +15506,9 @@ components:
             The client certificate used in the TLS connection between the client application and the device
             authorization endpoint of the authorization server.
         clientCertificatePath:
-          type: string
+          type: array
+          items:
+            type: string
           description: |
             The client certificate path presented by the client during client authentication. Each element
             is a string in PEM format.
@@ -16400,7 +16476,9 @@ components:
           description: |
             A JOSE object.
         mandatoryClaims:
-          type: string
+          type: array
+          items:
+            type: string
           description: |
             Mandatory claims that are required to be included in the JOSE object.
         clockSkew:
@@ -17168,7 +17246,7 @@ components:
       type: object
       properties:
         info:
-          type: string
+          $ref: '#/components/schemas/authorization_ticket_info'
           description: Information about the ticket.
         action:
           type: string

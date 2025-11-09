@@ -6,7 +6,7 @@
 import { TokenCreateRequest } from "@authlete/typescript-sdk/models";
 
 let value: TokenCreateRequest = {
-  grantType: "CLIENT_CREDENTIALS",
+  grantType: "REFRESH_TOKEN",
   clientId: 549697,
 };
 ```

@@ -363,6 +363,7 @@ async function run() {
     service: {
       serviceName: "My updated service",
       issuer: "https://my-service.example.com",
+      clientsPerDeveloper: 0,
       clientIdAliasEnabled: true,
       supportedGrantTypes: [
         "AUTHORIZATION_CODE",
@@ -488,6 +489,7 @@ async function run() {
     service: {
       serviceName: "My updated service",
       issuer: "https://my-service.example.com",
+      clientsPerDeveloper: 0,
       clientIdAliasEnabled: true,
       supportedGrantTypes: [
         "AUTHORIZATION_CODE",

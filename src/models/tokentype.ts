@@ -6,28 +6,28 @@ import * as z from "zod/v3";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
- * The grant type of the access token when the access token was created.
+ * The token type identifier used in OAuth 2.0 Token Exchange (RFC 8693).
  *
  * @remarks
+ * The API returns short codes (enum constant names) in response fields.
  */
 export const TokenType = {
-  UrnIetfParamsOauthTokenTypeJwt: "urn:ietf:params:oauth:token-type:jwt",
-  UrnIetfParamsOauthTokenTypeAccessToken:
-    "urn:ietf:params:oauth:token-type:access_token",
-  UrnIetfParamsOauthTokenTypeRefreshToken:
-    "urn:ietf:params:oauth:token-type:refresh_token",
-  UrnIetfParamsOauthTokenTypeIdToken:
-    "urn:ietf:params:oauth:token-type:id_token",
-  UrnIetfParamsOauthTokenTypeSaml1: "urn:ietf:params:oauth:token-type:saml1",
-  UrnIetfParamsOauthTokenTypeSaml2: "urn:ietf:params:oauth:token-type:saml2",
+  Jwt: "JWT",
+  AccessToken: "ACCESS_TOKEN",
+  RefreshToken: "REFRESH_TOKEN",
+  IdToken: "ID_TOKEN",
+  Saml1: "SAML1",
+  Saml2: "SAML2",
+  DeviceSecret: "DEVICE_SECRET",
   DeviceCode: "DEVICE_CODE",
   TokenExchange: "TOKEN_EXCHANGE",
   JwtBearer: "JWT_BEARER",
 } as const;
 /**
- * The grant type of the access token when the access token was created.
+ * The token type identifier used in OAuth 2.0 Token Exchange (RFC 8693).
  *
  * @remarks
+ * The API returns short codes (enum constant names) in response fields.
  */
 export type TokenType = ClosedEnum<typeof TokenType>;
 
