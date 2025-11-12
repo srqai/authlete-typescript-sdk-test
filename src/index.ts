@@ -6,4 +6,33 @@ export * from "./lib/config.js";
 export * as files from "./lib/files.js";
 export { HTTPClient } from "./lib/http.js";
 export type { Fetcher, HTTPClientOptions } from "./lib/http.js";
-export * from "./sdk/sdk.js";
+
+// <CUSTOM_CODE_REGION>
+// This region is preserved by Speakeasy when enableCustomCodeRegions: true
+// Export overlay class instead of generated class (enables serviceId in constructor)
+export { Authlete, type AuthleteOptions } from "./authlete-overlay.js";
+// </CUSTOM_CODE_REGION>
+
+// Re-export everything else from generated SDK (except Authlete which is overridden above)
+export { Authorization } from "./sdk/authorization.js";
+export { Ciba } from "./sdk/ciba.js";
+export { Client } from "./sdk/client.js";
+export { DeviceFlow } from "./sdk/deviceflow.js";
+export { DynamicClientRegistration } from "./sdk/dynamicclientregistration.js";
+export { Federation } from "./sdk/federation.js";
+export { GrantManagement } from "./sdk/grantmanagement.js";
+export { HardwareSecurityKeys } from "./sdk/hardwaresecuritykeys.js";
+export { Introspection } from "./sdk/introspection.js";
+export { JoseObject } from "./sdk/joseobject.js";
+export { JWKSetEndpoint } from "./sdk/jwksetendpoint.js";
+export { NativeSso } from "./sdk/nativesso.js";
+export { PushedAuthorization } from "./sdk/pushedauthorization.js";
+export { Revocation } from "./sdk/revocation.js";
+export { Service } from "./sdk/service.js";
+export { Token } from "./sdk/token.js";
+export { Userinfo } from "./sdk/userinfo.js";
+export { VerifiableCredentials } from "./sdk/verifiablecredentials.js";
+export { AuthorizationManagement } from "./sdk/authorizationmanagement.js";
+export { ClientManagement } from "./sdk/clientmanagement.js";
+export { TokenManagement } from "./sdk/tokenmanagement.js";
+export { AuthleteCore } from "./core.js";

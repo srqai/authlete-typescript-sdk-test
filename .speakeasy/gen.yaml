@@ -46,7 +46,7 @@ typescript:
   clientServerStatusCodesAsErrors: true
   constFieldsAlwaysOptional: false
   defaultErrorName: AuthleteDefaultError
-  enableCustomCodeRegions: false
+  enableCustomCodeRegions: true
   enableMCPServer: false
   enableReactQuery: false
   enumFormat: union
