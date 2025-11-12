@@ -5,35 +5,8 @@
  * It exports the enhanced Authlete class with serviceId support.
  */
 
-// Export the overlay class (with serviceId support) as the main Authlete export
-export { Authlete, type AuthleteOptions } from "./authlete-overlay.js";
+// Re-export everything from the generated index, but override Authlete with our overlay
+export * from "./index.js";
 
-// Re-export everything else from the generated SDK
-export * from "./lib/config.js";
-export * as files from "./lib/files.js";
-export { HTTPClient } from "./lib/http.js";
-export type { Fetcher, HTTPClientOptions } from "./lib/http.js";
-export * from "./sdk/authorization.js";
-export * from "./sdk/ciba.js";
-export * from "./sdk/client.js";
-export * from "./sdk/deviceflow.js";
-export * from "./sdk/dynamicclientregistration.js";
-export * from "./sdk/federation.js";
-export * from "./sdk/grantmanagement.js";
-export * from "./sdk/hardwaresecuritykeys.js";
-export * from "./sdk/introspection.js";
-export * from "./sdk/joseobject.js";
-export * from "./sdk/jwksetendpoint.js";
-export * from "./sdk/nativesso.js";
-export * from "./sdk/pushedauthorization.js";
-export * from "./sdk/revocation.js";
-export * from "./sdk/service.js";
-export * from "./sdk/token.js";
-export * from "./sdk/userinfo.js";
-export * from "./sdk/verifiablecredentials.js";
-export * from "./sdk/authorizationmanagement.js";
-export * from "./sdk/clientmanagement.js";
-export * from "./sdk/tokenmanagement.js";
-export { AuthleteCore } from "./core.js";
-export * from "./models/index.js";
-export * from "./types/index.js";
+// Override: Export the overlay class (with serviceId support) instead of generated class
+export { Authlete, type AuthleteOptions } from "./authlete-overlay.js";

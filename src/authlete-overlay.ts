@@ -31,7 +31,8 @@ function injectServiceId<T extends Record<string, any>>(
   
   // If request has serviceId property and it's missing/empty, inject default
   if ('serviceId' in request) {
-    if (!request.serviceId || request.serviceId === '' || request.serviceId === undefined || request.serviceId === null) {
+    const currentServiceId = request['serviceId'];
+    if (!currentServiceId || currentServiceId === '' || currentServiceId === undefined || currentServiceId === null) {
       return { ...request, serviceId: defaultServiceId };
     }
     // If serviceId is provided, keep it (allows override)
@@ -126,7 +127,7 @@ function createServiceIdProxy<T extends object>(
  * objects before path construction, so it works seamlessly with the generated SDK.
  */
 export class Authlete extends GeneratedAuthlete {
-  private readonly defaultServiceId?: string;
+  private readonly defaultServiceId: string | undefined;
 
   constructor(options: AuthleteOptions = {}) {
     const { serviceId, ...restOptions } = options;
