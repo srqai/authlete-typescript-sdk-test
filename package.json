@@ -1,10 +1,10 @@
 {
   "name": "@authlete/typescript-sdk",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "author": "Speakeasy",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "type": "module",
   "tshy": {
