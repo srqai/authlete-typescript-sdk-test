@@ -6,25 +6,10 @@ import * as z from "zod/v3";
 import { safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
-import {
-  AuthzDetails,
-  AuthzDetails$inboundSchema,
-  AuthzDetails$Outbound,
-  AuthzDetails$outboundSchema,
-} from "./authzdetails.js";
+import { AuthzDetails, AuthzDetails$inboundSchema } from "./authzdetails.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Pair,
-  Pair$inboundSchema,
-  Pair$Outbound,
-  Pair$outboundSchema,
-} from "./pair.js";
-import {
-  Property,
-  Property$inboundSchema,
-  Property$Outbound,
-  Property$outboundSchema,
-} from "./property.js";
+import { Pair, Pair$inboundSchema } from "./pair.js";
+import { Property, Property$inboundSchema } from "./property.js";
 
 /**
  * The next action that the authorization server implementation should take.
@@ -191,22 +176,6 @@ export const TokenIssueResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(TokenIssueResponseAction);
 
 /** @internal */
-export const TokenIssueResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof TokenIssueResponseAction
-> = TokenIssueResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenIssueResponseAction$ {
-  /** @deprecated use `TokenIssueResponseAction$inboundSchema` instead. */
-  export const inboundSchema = TokenIssueResponseAction$inboundSchema;
-  /** @deprecated use `TokenIssueResponseAction$outboundSchema` instead. */
-  export const outboundSchema = TokenIssueResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const TokenIssueResponse$inboundSchema: z.ZodType<
   TokenIssueResponse,
   z.ZodTypeDef,
@@ -237,87 +206,6 @@ export const TokenIssueResponse$inboundSchema: z.ZodType<
   clientEntityIdUsed: z.boolean().optional(),
   refreshTokenScopes: z.array(z.string()).optional(),
 });
-
-/** @internal */
-export type TokenIssueResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-  accessToken?: string | undefined;
-  accessTokenExpiresAt?: number | undefined;
-  accessTokenDuration?: number | undefined;
-  refreshToken?: string | undefined;
-  refreshTokenExpiresAt?: number | undefined;
-  refreshTokenDuration?: number | undefined;
-  clientId?: number | undefined;
-  clientIdAlias?: string | undefined;
-  clientIdAliasUsed?: boolean | undefined;
-  subject?: string | undefined;
-  scopes?: Array<string> | undefined;
-  properties?: Array<Property$Outbound> | undefined;
-  jwtAccessToken?: string | undefined;
-  accessTokenResources?: Array<string> | undefined;
-  authorizationDetails?: AuthzDetails$Outbound | undefined;
-  serviceAttributes?: Array<Pair$Outbound> | undefined;
-  clientAttributes?: Array<Pair$Outbound> | undefined;
-  clientEntityId?: string | undefined;
-  clientEntityIdUsed?: boolean | undefined;
-  refreshTokenScopes?: Array<string> | undefined;
-};
-
-/** @internal */
-export const TokenIssueResponse$outboundSchema: z.ZodType<
-  TokenIssueResponse$Outbound,
-  z.ZodTypeDef,
-  TokenIssueResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: TokenIssueResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-  accessToken: z.string().optional(),
-  accessTokenExpiresAt: z.number().int().optional(),
-  accessTokenDuration: z.number().int().optional(),
-  refreshToken: z.string().optional(),
-  refreshTokenExpiresAt: z.number().int().optional(),
-  refreshTokenDuration: z.number().int().optional(),
-  clientId: z.number().int().optional(),
-  clientIdAlias: z.string().optional(),
-  clientIdAliasUsed: z.boolean().optional(),
-  subject: z.string().optional(),
-  scopes: z.array(z.string()).optional(),
-  properties: z.array(Property$outboundSchema).optional(),
-  jwtAccessToken: z.string().optional(),
-  accessTokenResources: z.array(z.string()).optional(),
-  authorizationDetails: AuthzDetails$outboundSchema.optional(),
-  serviceAttributes: z.array(Pair$outboundSchema).optional(),
-  clientAttributes: z.array(Pair$outboundSchema).optional(),
-  clientEntityId: z.string().optional(),
-  clientEntityIdUsed: z.boolean().optional(),
-  refreshTokenScopes: z.array(z.string()).optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenIssueResponse$ {
-  /** @deprecated use `TokenIssueResponse$inboundSchema` instead. */
-  export const inboundSchema = TokenIssueResponse$inboundSchema;
-  /** @deprecated use `TokenIssueResponse$outboundSchema` instead. */
-  export const outboundSchema = TokenIssueResponse$outboundSchema;
-  /** @deprecated use `TokenIssueResponse$Outbound` instead. */
-  export type Outbound = TokenIssueResponse$Outbound;
-}
-
-export function tokenIssueResponseToJSON(
-  tokenIssueResponse: TokenIssueResponse,
-): string {
-  return JSON.stringify(
-    TokenIssueResponse$outboundSchema.parse(tokenIssueResponse),
-  );
-}
 
 export function tokenIssueResponseFromJSON(
   jsonString: string,

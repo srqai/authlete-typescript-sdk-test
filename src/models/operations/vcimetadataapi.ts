@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type VciMetadataApiRequest = {
@@ -16,20 +13,6 @@ export type VciMetadataApiRequest = {
   serviceId: string;
   vciMetadataRequest: models.VciMetadataRequest;
 };
-
-/** @internal */
-export const VciMetadataApiRequest$inboundSchema: z.ZodType<
-  VciMetadataApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  vci_metadata_request: models.VciMetadataRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "vci_metadata_request": "vciMetadataRequest",
-  });
-});
 
 /** @internal */
 export type VciMetadataApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const VciMetadataApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciMetadataApiRequest$ {
-  /** @deprecated use `VciMetadataApiRequest$inboundSchema` instead. */
-  export const inboundSchema = VciMetadataApiRequest$inboundSchema;
-  /** @deprecated use `VciMetadataApiRequest$outboundSchema` instead. */
-  export const outboundSchema = VciMetadataApiRequest$outboundSchema;
-  /** @deprecated use `VciMetadataApiRequest$Outbound` instead. */
-  export type Outbound = VciMetadataApiRequest$Outbound;
-}
-
 export function vciMetadataApiRequestToJSON(
   vciMetadataApiRequest: VciMetadataApiRequest,
 ): string {
   return JSON.stringify(
     VciMetadataApiRequest$outboundSchema.parse(vciMetadataApiRequest),
-  );
-}
-
-export function vciMetadataApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciMetadataApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciMetadataApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciMetadataApiRequest' from JSON`,
   );
 }

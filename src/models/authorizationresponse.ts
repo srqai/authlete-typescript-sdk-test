@@ -6,64 +6,26 @@ import * as z from "zod/v3";
 import { safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
-import {
-  AuthzDetails,
-  AuthzDetails$inboundSchema,
-  AuthzDetails$Outbound,
-  AuthzDetails$outboundSchema,
-} from "./authzdetails.js";
+import { AuthzDetails, AuthzDetails$inboundSchema } from "./authzdetails.js";
 import {
   ClientLimitedAuthorization,
   ClientLimitedAuthorization$inboundSchema,
-  ClientLimitedAuthorization$Outbound,
-  ClientLimitedAuthorization$outboundSchema,
 } from "./clientlimitedauthorization.js";
 import {
   CredentialOfferInfo,
   CredentialOfferInfo$inboundSchema,
-  CredentialOfferInfo$Outbound,
-  CredentialOfferInfo$outboundSchema,
 } from "./credentialofferinfo.js";
-import {
-  Display,
-  Display$inboundSchema,
-  Display$outboundSchema,
-} from "./display.js";
-import {
-  DynamicScope,
-  DynamicScope$inboundSchema,
-  DynamicScope$Outbound,
-  DynamicScope$outboundSchema,
-} from "./dynamicscope.js";
+import { Display, Display$inboundSchema } from "./display.js";
+import { DynamicScope, DynamicScope$inboundSchema } from "./dynamicscope.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Grant,
-  Grant$inboundSchema,
-  Grant$Outbound,
-  Grant$outboundSchema,
-} from "./grant.js";
+import { Grant, Grant$inboundSchema } from "./grant.js";
 import {
   GrantManagementAction,
   GrantManagementAction$inboundSchema,
-  GrantManagementAction$outboundSchema,
 } from "./grantmanagementaction.js";
-import {
-  Prompt,
-  Prompt$inboundSchema,
-  Prompt$outboundSchema,
-} from "./prompt.js";
-import {
-  Scope,
-  Scope$inboundSchema,
-  Scope$Outbound,
-  Scope$outboundSchema,
-} from "./scope.js";
-import {
-  Service,
-  Service$inboundSchema,
-  Service$Outbound,
-  Service$outboundSchema,
-} from "./service.js";
+import { Prompt, Prompt$inboundSchema } from "./prompt.js";
+import { Scope, Scope$inboundSchema } from "./scope.js";
+import { Service, Service$inboundSchema } from "./service.js";
 
 /**
  * The next action that the authorization server implementation should take.
@@ -567,22 +529,6 @@ export const AuthorizationResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(AuthorizationResponseAction);
 
 /** @internal */
-export const AuthorizationResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof AuthorizationResponseAction
-> = AuthorizationResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizationResponseAction$ {
-  /** @deprecated use `AuthorizationResponseAction$inboundSchema` instead. */
-  export const inboundSchema = AuthorizationResponseAction$inboundSchema;
-  /** @deprecated use `AuthorizationResponseAction$outboundSchema` instead. */
-  export const outboundSchema = AuthorizationResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const AuthorizationResponse$inboundSchema: z.ZodType<
   AuthorizationResponse,
   z.ZodTypeDef,
@@ -628,117 +574,6 @@ export const AuthorizationResponse$inboundSchema: z.ZodType<
   issuableCredentials: z.string().optional(),
   nativeSsoRequested: z.boolean().optional(),
 });
-
-/** @internal */
-export type AuthorizationResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  client?: ClientLimitedAuthorization$Outbound | undefined;
-  display?: string | undefined;
-  maxAge?: number | undefined;
-  service?: Service$Outbound | undefined;
-  scopes?: Array<Scope$Outbound> | undefined;
-  uiLocales?: Array<string> | undefined;
-  claimsLocales?: Array<string> | undefined;
-  claims?: Array<string> | undefined;
-  acrEssential?: boolean | undefined;
-  clientIdAliasUsed?: boolean | undefined;
-  acrs?: Array<string> | undefined;
-  subject?: string | undefined;
-  loginHint?: string | undefined;
-  prompts?: Array<string> | undefined;
-  lowestPrompt?: string | undefined;
-  requestObjectPayload?: string | undefined;
-  idTokenClaims?: string | undefined;
-  userInfoClaims?: string | undefined;
-  resources?: Array<string> | undefined;
-  authorizationDetails?: AuthzDetails$Outbound | undefined;
-  purpose?: string | undefined;
-  responseContent?: string | undefined;
-  ticket?: string | undefined;
-  dynamicScopes?: Array<DynamicScope$Outbound> | undefined;
-  gmAction?: string | undefined;
-  grantId?: string | undefined;
-  grant?: Grant$Outbound | undefined;
-  grantSubject?: string | undefined;
-  requestedClaimsForTx?: Array<string> | undefined;
-  requestedVerifiedClaimsForTx?: Array<Array<string>> | undefined;
-  transformedClaims?: string | undefined;
-  clientEntityIdUsed?: boolean | undefined;
-  claimsAtUserInfo?: Array<string> | undefined;
-  credentialOfferInfo?: CredentialOfferInfo$Outbound | undefined;
-  issuableCredentials?: string | undefined;
-  nativeSsoRequested?: boolean | undefined;
-};
-
-/** @internal */
-export const AuthorizationResponse$outboundSchema: z.ZodType<
-  AuthorizationResponse$Outbound,
-  z.ZodTypeDef,
-  AuthorizationResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: AuthorizationResponseAction$outboundSchema.optional(),
-  client: ClientLimitedAuthorization$outboundSchema.optional(),
-  display: Display$outboundSchema.optional(),
-  maxAge: z.number().int().optional(),
-  service: Service$outboundSchema.optional(),
-  scopes: z.array(Scope$outboundSchema).optional(),
-  uiLocales: z.array(z.string()).optional(),
-  claimsLocales: z.array(z.string()).optional(),
-  claims: z.array(z.string()).optional(),
-  acrEssential: z.boolean().optional(),
-  clientIdAliasUsed: z.boolean().optional(),
-  acrs: z.array(z.string()).optional(),
-  subject: z.string().optional(),
-  loginHint: z.string().optional(),
-  prompts: z.array(Prompt$outboundSchema).optional(),
-  lowestPrompt: Prompt$outboundSchema.optional(),
-  requestObjectPayload: z.string().optional(),
-  idTokenClaims: z.string().optional(),
-  userInfoClaims: z.string().optional(),
-  resources: z.array(z.string()).optional(),
-  authorizationDetails: AuthzDetails$outboundSchema.optional(),
-  purpose: z.string().optional(),
-  responseContent: z.string().optional(),
-  ticket: z.string().optional(),
-  dynamicScopes: z.array(DynamicScope$outboundSchema).optional(),
-  gmAction: GrantManagementAction$outboundSchema.optional(),
-  grantId: z.string().optional(),
-  grant: Grant$outboundSchema.optional(),
-  grantSubject: z.string().optional(),
-  requestedClaimsForTx: z.array(z.string()).optional(),
-  requestedVerifiedClaimsForTx: z.array(z.array(z.string())).optional(),
-  transformedClaims: z.string().optional(),
-  clientEntityIdUsed: z.boolean().optional(),
-  claimsAtUserInfo: z.array(z.string()).optional(),
-  credentialOfferInfo: CredentialOfferInfo$outboundSchema.optional(),
-  issuableCredentials: z.string().optional(),
-  nativeSsoRequested: z.boolean().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizationResponse$ {
-  /** @deprecated use `AuthorizationResponse$inboundSchema` instead. */
-  export const inboundSchema = AuthorizationResponse$inboundSchema;
-  /** @deprecated use `AuthorizationResponse$outboundSchema` instead. */
-  export const outboundSchema = AuthorizationResponse$outboundSchema;
-  /** @deprecated use `AuthorizationResponse$Outbound` instead. */
-  export type Outbound = AuthorizationResponse$Outbound;
-}
-
-export function authorizationResponseToJSON(
-  authorizationResponse: AuthorizationResponse,
-): string {
-  return JSON.stringify(
-    AuthorizationResponse$outboundSchema.parse(authorizationResponse),
-  );
-}
 
 export function authorizationResponseFromJSON(
   jsonString: string,

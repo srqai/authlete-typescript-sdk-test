@@ -69,22 +69,6 @@ export const VciSingleIssueResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(VciSingleIssueResponseAction);
 
 /** @internal */
-export const VciSingleIssueResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof VciSingleIssueResponseAction
-> = VciSingleIssueResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciSingleIssueResponseAction$ {
-  /** @deprecated use `VciSingleIssueResponseAction$inboundSchema` instead. */
-  export const inboundSchema = VciSingleIssueResponseAction$inboundSchema;
-  /** @deprecated use `VciSingleIssueResponseAction$outboundSchema` instead. */
-  export const outboundSchema = VciSingleIssueResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const VciSingleIssueResponse$inboundSchema: z.ZodType<
   VciSingleIssueResponse,
   z.ZodTypeDef,
@@ -96,49 +80,6 @@ export const VciSingleIssueResponse$inboundSchema: z.ZodType<
   responseContent: z.string().optional(),
   transactionId: z.string().optional(),
 });
-
-/** @internal */
-export type VciSingleIssueResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-  transactionId?: string | undefined;
-};
-
-/** @internal */
-export const VciSingleIssueResponse$outboundSchema: z.ZodType<
-  VciSingleIssueResponse$Outbound,
-  z.ZodTypeDef,
-  VciSingleIssueResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: VciSingleIssueResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-  transactionId: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciSingleIssueResponse$ {
-  /** @deprecated use `VciSingleIssueResponse$inboundSchema` instead. */
-  export const inboundSchema = VciSingleIssueResponse$inboundSchema;
-  /** @deprecated use `VciSingleIssueResponse$outboundSchema` instead. */
-  export const outboundSchema = VciSingleIssueResponse$outboundSchema;
-  /** @deprecated use `VciSingleIssueResponse$Outbound` instead. */
-  export type Outbound = VciSingleIssueResponse$Outbound;
-}
-
-export function vciSingleIssueResponseToJSON(
-  vciSingleIssueResponse: VciSingleIssueResponse,
-): string {
-  return JSON.stringify(
-    VciSingleIssueResponse$outboundSchema.parse(vciSingleIssueResponse),
-  );
-}
 
 export function vciSingleIssueResponseFromJSON(
   jsonString: string,

@@ -15,18 +15,6 @@ export type ClaimType = ClosedEnum<typeof ClaimType>;
 /** @internal */
 export const ClaimType$inboundSchema: z.ZodNativeEnum<typeof ClaimType> = z
   .nativeEnum(ClaimType);
-
 /** @internal */
 export const ClaimType$outboundSchema: z.ZodNativeEnum<typeof ClaimType> =
   ClaimType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClaimType$ {
-  /** @deprecated use `ClaimType$inboundSchema` instead. */
-  export const inboundSchema = ClaimType$inboundSchema;
-  /** @deprecated use `ClaimType$outboundSchema` instead. */
-  export const outboundSchema = ClaimType$outboundSchema;
-}

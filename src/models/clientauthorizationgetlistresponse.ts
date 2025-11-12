@@ -5,12 +5,7 @@
 import * as z from "zod/v3";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
-import {
-  ClientLimited,
-  ClientLimited$inboundSchema,
-  ClientLimited$Outbound,
-  ClientLimited$outboundSchema,
-} from "./clientlimited.js";
+import { ClientLimited, ClientLimited$inboundSchema } from "./clientlimited.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type ClientAuthorizationGetListResponse = {
@@ -65,54 +60,6 @@ export const ClientAuthorizationGetListResponse$inboundSchema: z.ZodType<
   totalCount: z.number().int().optional(),
   clients: z.array(ClientLimited$inboundSchema).optional(),
 });
-
-/** @internal */
-export type ClientAuthorizationGetListResponse$Outbound = {
-  start?: number | undefined;
-  end?: number | undefined;
-  developer?: string | undefined;
-  subject?: string | undefined;
-  totalCount?: number | undefined;
-  clients?: Array<ClientLimited$Outbound> | undefined;
-};
-
-/** @internal */
-export const ClientAuthorizationGetListResponse$outboundSchema: z.ZodType<
-  ClientAuthorizationGetListResponse$Outbound,
-  z.ZodTypeDef,
-  ClientAuthorizationGetListResponse
-> = z.object({
-  start: z.number().int().optional(),
-  end: z.number().int().optional(),
-  developer: z.string().optional(),
-  subject: z.string().optional(),
-  totalCount: z.number().int().optional(),
-  clients: z.array(ClientLimited$outboundSchema).optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientAuthorizationGetListResponse$ {
-  /** @deprecated use `ClientAuthorizationGetListResponse$inboundSchema` instead. */
-  export const inboundSchema = ClientAuthorizationGetListResponse$inboundSchema;
-  /** @deprecated use `ClientAuthorizationGetListResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    ClientAuthorizationGetListResponse$outboundSchema;
-  /** @deprecated use `ClientAuthorizationGetListResponse$Outbound` instead. */
-  export type Outbound = ClientAuthorizationGetListResponse$Outbound;
-}
-
-export function clientAuthorizationGetListResponseToJSON(
-  clientAuthorizationGetListResponse: ClientAuthorizationGetListResponse,
-): string {
-  return JSON.stringify(
-    ClientAuthorizationGetListResponse$outboundSchema.parse(
-      clientAuthorizationGetListResponse,
-    ),
-  );
-}
 
 export function clientAuthorizationGetListResponseFromJSON(
   jsonString: string,

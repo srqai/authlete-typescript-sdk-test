@@ -36,18 +36,6 @@ export type JweEnc = ClosedEnum<typeof JweEnc>;
 /** @internal */
 export const JweEnc$inboundSchema: z.ZodNativeEnum<typeof JweEnc> = z
   .nativeEnum(JweEnc);
-
 /** @internal */
 export const JweEnc$outboundSchema: z.ZodNativeEnum<typeof JweEnc> =
   JweEnc$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace JweEnc$ {
-  /** @deprecated use `JweEnc$inboundSchema` instead. */
-  export const inboundSchema = JweEnc$inboundSchema;
-  /** @deprecated use `JweEnc$outboundSchema` instead. */
-  export const outboundSchema = JweEnc$outboundSchema;
-}

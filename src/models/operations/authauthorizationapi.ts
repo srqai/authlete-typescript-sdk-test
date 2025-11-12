@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type AuthAuthorizationApiRequest = {
@@ -16,20 +13,6 @@ export type AuthAuthorizationApiRequest = {
   serviceId: string;
   authorizationRequest: models.AuthorizationRequest;
 };
-
-/** @internal */
-export const AuthAuthorizationApiRequest$inboundSchema: z.ZodType<
-  AuthAuthorizationApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  authorization_request: models.AuthorizationRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "authorization_request": "authorizationRequest",
-  });
-});
 
 /** @internal */
 export type AuthAuthorizationApiRequest$Outbound = {
@@ -51,19 +34,6 @@ export const AuthAuthorizationApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthAuthorizationApiRequest$ {
-  /** @deprecated use `AuthAuthorizationApiRequest$inboundSchema` instead. */
-  export const inboundSchema = AuthAuthorizationApiRequest$inboundSchema;
-  /** @deprecated use `AuthAuthorizationApiRequest$outboundSchema` instead. */
-  export const outboundSchema = AuthAuthorizationApiRequest$outboundSchema;
-  /** @deprecated use `AuthAuthorizationApiRequest$Outbound` instead. */
-  export type Outbound = AuthAuthorizationApiRequest$Outbound;
-}
-
 export function authAuthorizationApiRequestToJSON(
   authAuthorizationApiRequest: AuthAuthorizationApiRequest,
 ): string {
@@ -71,15 +41,5 @@ export function authAuthorizationApiRequestToJSON(
     AuthAuthorizationApiRequest$outboundSchema.parse(
       authAuthorizationApiRequest,
     ),
-  );
-}
-
-export function authAuthorizationApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<AuthAuthorizationApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AuthAuthorizationApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AuthAuthorizationApiRequest' from JSON`,
   );
 }

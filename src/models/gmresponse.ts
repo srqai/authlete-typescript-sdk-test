@@ -60,22 +60,6 @@ export const GMResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(GMResponseAction);
 
 /** @internal */
-export const GMResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof GMResponseAction
-> = GMResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GMResponseAction$ {
-  /** @deprecated use `GMResponseAction$inboundSchema` instead. */
-  export const inboundSchema = GMResponseAction$inboundSchema;
-  /** @deprecated use `GMResponseAction$outboundSchema` instead. */
-  export const outboundSchema = GMResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const GMResponse$inboundSchema: z.ZodType<
   GMResponse,
   z.ZodTypeDef,
@@ -87,45 +71,6 @@ export const GMResponse$inboundSchema: z.ZodType<
   responseContent: z.string().optional(),
   dpopNonce: z.string().optional(),
 });
-
-/** @internal */
-export type GMResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-  dpopNonce?: string | undefined;
-};
-
-/** @internal */
-export const GMResponse$outboundSchema: z.ZodType<
-  GMResponse$Outbound,
-  z.ZodTypeDef,
-  GMResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: GMResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-  dpopNonce: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GMResponse$ {
-  /** @deprecated use `GMResponse$inboundSchema` instead. */
-  export const inboundSchema = GMResponse$inboundSchema;
-  /** @deprecated use `GMResponse$outboundSchema` instead. */
-  export const outboundSchema = GMResponse$outboundSchema;
-  /** @deprecated use `GMResponse$Outbound` instead. */
-  export type Outbound = GMResponse$Outbound;
-}
-
-export function gMResponseToJSON(gmResponse: GMResponse): string {
-  return JSON.stringify(GMResponse$outboundSchema.parse(gmResponse));
-}
 
 export function gMResponseFromJSON(
   jsonString: string,

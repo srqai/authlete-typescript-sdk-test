@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type DeviceVerificationRequest = {
   /**
@@ -15,15 +12,6 @@ export type DeviceVerificationRequest = {
    */
   userCode: string;
 };
-
-/** @internal */
-export const DeviceVerificationRequest$inboundSchema: z.ZodType<
-  DeviceVerificationRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  userCode: z.string(),
-});
 
 /** @internal */
 export type DeviceVerificationRequest$Outbound = {
@@ -39,33 +27,10 @@ export const DeviceVerificationRequest$outboundSchema: z.ZodType<
   userCode: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeviceVerificationRequest$ {
-  /** @deprecated use `DeviceVerificationRequest$inboundSchema` instead. */
-  export const inboundSchema = DeviceVerificationRequest$inboundSchema;
-  /** @deprecated use `DeviceVerificationRequest$outboundSchema` instead. */
-  export const outboundSchema = DeviceVerificationRequest$outboundSchema;
-  /** @deprecated use `DeviceVerificationRequest$Outbound` instead. */
-  export type Outbound = DeviceVerificationRequest$Outbound;
-}
-
 export function deviceVerificationRequestToJSON(
   deviceVerificationRequest: DeviceVerificationRequest,
 ): string {
   return JSON.stringify(
     DeviceVerificationRequest$outboundSchema.parse(deviceVerificationRequest),
-  );
-}
-
-export function deviceVerificationRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<DeviceVerificationRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DeviceVerificationRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DeviceVerificationRequest' from JSON`,
   );
 }

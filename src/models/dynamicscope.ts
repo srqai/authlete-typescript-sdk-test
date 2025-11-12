@@ -28,39 +28,6 @@ export const DynamicScope$inboundSchema: z.ZodType<
   value: z.string().optional(),
 });
 
-/** @internal */
-export type DynamicScope$Outbound = {
-  name?: string | undefined;
-  value?: string | undefined;
-};
-
-/** @internal */
-export const DynamicScope$outboundSchema: z.ZodType<
-  DynamicScope$Outbound,
-  z.ZodTypeDef,
-  DynamicScope
-> = z.object({
-  name: z.string().optional(),
-  value: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DynamicScope$ {
-  /** @deprecated use `DynamicScope$inboundSchema` instead. */
-  export const inboundSchema = DynamicScope$inboundSchema;
-  /** @deprecated use `DynamicScope$outboundSchema` instead. */
-  export const outboundSchema = DynamicScope$outboundSchema;
-  /** @deprecated use `DynamicScope$Outbound` instead. */
-  export type Outbound = DynamicScope$Outbound;
-}
-
-export function dynamicScopeToJSON(dynamicScope: DynamicScope): string {
-  return JSON.stringify(DynamicScope$outboundSchema.parse(dynamicScope));
-}
-
 export function dynamicScopeFromJSON(
   jsonString: string,
 ): SafeParseResult<DynamicScope, SDKValidationError> {

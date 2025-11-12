@@ -3,10 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 /**
  * The reason of the failure of the token request.
@@ -41,35 +38,9 @@ export type TokenFailRequest = {
 };
 
 /** @internal */
-export const TokenFailRequestReason$inboundSchema: z.ZodNativeEnum<
-  typeof TokenFailRequestReason
-> = z.nativeEnum(TokenFailRequestReason);
-
-/** @internal */
 export const TokenFailRequestReason$outboundSchema: z.ZodNativeEnum<
   typeof TokenFailRequestReason
-> = TokenFailRequestReason$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenFailRequestReason$ {
-  /** @deprecated use `TokenFailRequestReason$inboundSchema` instead. */
-  export const inboundSchema = TokenFailRequestReason$inboundSchema;
-  /** @deprecated use `TokenFailRequestReason$outboundSchema` instead. */
-  export const outboundSchema = TokenFailRequestReason$outboundSchema;
-}
-
-/** @internal */
-export const TokenFailRequest$inboundSchema: z.ZodType<
-  TokenFailRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  ticket: z.string(),
-  reason: TokenFailRequestReason$inboundSchema,
-});
+> = z.nativeEnum(TokenFailRequestReason);
 
 /** @internal */
 export type TokenFailRequest$Outbound = {
@@ -87,33 +58,10 @@ export const TokenFailRequest$outboundSchema: z.ZodType<
   reason: TokenFailRequestReason$outboundSchema,
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenFailRequest$ {
-  /** @deprecated use `TokenFailRequest$inboundSchema` instead. */
-  export const inboundSchema = TokenFailRequest$inboundSchema;
-  /** @deprecated use `TokenFailRequest$outboundSchema` instead. */
-  export const outboundSchema = TokenFailRequest$outboundSchema;
-  /** @deprecated use `TokenFailRequest$Outbound` instead. */
-  export type Outbound = TokenFailRequest$Outbound;
-}
-
 export function tokenFailRequestToJSON(
   tokenFailRequest: TokenFailRequest,
 ): string {
   return JSON.stringify(
     TokenFailRequest$outboundSchema.parse(tokenFailRequest),
-  );
-}
-
-export function tokenFailRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<TokenFailRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TokenFailRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TokenFailRequest' from JSON`,
   );
 }

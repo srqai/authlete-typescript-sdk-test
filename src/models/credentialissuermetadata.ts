@@ -79,7 +79,6 @@ export const CredentialIssuerMetadata$inboundSchema: z.ZodType<
     .optional(),
   requireCredentialResponseEncryption: z.boolean().optional(),
 });
-
 /** @internal */
 export type CredentialIssuerMetadata$Outbound = {
   authorizationServers?: Array<string> | undefined;
@@ -112,19 +111,6 @@ export const CredentialIssuerMetadata$outboundSchema: z.ZodType<
   requireCredentialResponseEncryption: z.boolean().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CredentialIssuerMetadata$ {
-  /** @deprecated use `CredentialIssuerMetadata$inboundSchema` instead. */
-  export const inboundSchema = CredentialIssuerMetadata$inboundSchema;
-  /** @deprecated use `CredentialIssuerMetadata$outboundSchema` instead. */
-  export const outboundSchema = CredentialIssuerMetadata$outboundSchema;
-  /** @deprecated use `CredentialIssuerMetadata$Outbound` instead. */
-  export type Outbound = CredentialIssuerMetadata$Outbound;
-}
-
 export function credentialIssuerMetadataToJSON(
   credentialIssuerMetadata: CredentialIssuerMetadata,
 ): string {
@@ -132,7 +118,6 @@ export function credentialIssuerMetadataToJSON(
     CredentialIssuerMetadata$outboundSchema.parse(credentialIssuerMetadata),
   );
 }
-
 export function credentialIssuerMetadataFromJSON(
   jsonString: string,
 ): SafeParseResult<CredentialIssuerMetadata, SDKValidationError> {

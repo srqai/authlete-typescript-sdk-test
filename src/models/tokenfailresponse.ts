@@ -50,22 +50,6 @@ export const TokenFailResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(TokenFailResponseAction);
 
 /** @internal */
-export const TokenFailResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof TokenFailResponseAction
-> = TokenFailResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenFailResponseAction$ {
-  /** @deprecated use `TokenFailResponseAction$inboundSchema` instead. */
-  export const inboundSchema = TokenFailResponseAction$inboundSchema;
-  /** @deprecated use `TokenFailResponseAction$outboundSchema` instead. */
-  export const outboundSchema = TokenFailResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const TokenFailResponse$inboundSchema: z.ZodType<
   TokenFailResponse,
   z.ZodTypeDef,
@@ -76,47 +60,6 @@ export const TokenFailResponse$inboundSchema: z.ZodType<
   action: TokenFailResponseAction$inboundSchema.optional(),
   responseContent: z.string().optional(),
 });
-
-/** @internal */
-export type TokenFailResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-};
-
-/** @internal */
-export const TokenFailResponse$outboundSchema: z.ZodType<
-  TokenFailResponse$Outbound,
-  z.ZodTypeDef,
-  TokenFailResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: TokenFailResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenFailResponse$ {
-  /** @deprecated use `TokenFailResponse$inboundSchema` instead. */
-  export const inboundSchema = TokenFailResponse$inboundSchema;
-  /** @deprecated use `TokenFailResponse$outboundSchema` instead. */
-  export const outboundSchema = TokenFailResponse$outboundSchema;
-  /** @deprecated use `TokenFailResponse$Outbound` instead. */
-  export type Outbound = TokenFailResponse$Outbound;
-}
-
-export function tokenFailResponseToJSON(
-  tokenFailResponse: TokenFailResponse,
-): string {
-  return JSON.stringify(
-    TokenFailResponse$outboundSchema.parse(tokenFailResponse),
-  );
-}
 
 export function tokenFailResponseFromJSON(
   jsonString: string,

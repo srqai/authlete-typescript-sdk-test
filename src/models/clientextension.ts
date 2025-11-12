@@ -94,7 +94,6 @@ export const ClientExtension$inboundSchema: z.ZodType<
   idTokenDuration: z.number().int().optional(),
   tokenExchangePermitted: z.boolean().optional(),
 });
-
 /** @internal */
 export type ClientExtension$Outbound = {
   requestableScopes?: Array<string> | undefined;
@@ -119,25 +118,11 @@ export const ClientExtension$outboundSchema: z.ZodType<
   tokenExchangePermitted: z.boolean().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientExtension$ {
-  /** @deprecated use `ClientExtension$inboundSchema` instead. */
-  export const inboundSchema = ClientExtension$inboundSchema;
-  /** @deprecated use `ClientExtension$outboundSchema` instead. */
-  export const outboundSchema = ClientExtension$outboundSchema;
-  /** @deprecated use `ClientExtension$Outbound` instead. */
-  export type Outbound = ClientExtension$Outbound;
-}
-
 export function clientExtensionToJSON(
   clientExtension: ClientExtension,
 ): string {
   return JSON.stringify(ClientExtension$outboundSchema.parse(clientExtension));
 }
-
 export function clientExtensionFromJSON(
   jsonString: string,
 ): SafeParseResult<ClientExtension, SDKValidationError> {

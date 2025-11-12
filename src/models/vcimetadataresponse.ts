@@ -66,22 +66,6 @@ export const VciMetadataResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(VciMetadataResponseAction);
 
 /** @internal */
-export const VciMetadataResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof VciMetadataResponseAction
-> = VciMetadataResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciMetadataResponseAction$ {
-  /** @deprecated use `VciMetadataResponseAction$inboundSchema` instead. */
-  export const inboundSchema = VciMetadataResponseAction$inboundSchema;
-  /** @deprecated use `VciMetadataResponseAction$outboundSchema` instead. */
-  export const outboundSchema = VciMetadataResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const VciMetadataResponse$inboundSchema: z.ZodType<
   VciMetadataResponse,
   z.ZodTypeDef,
@@ -92,47 +76,6 @@ export const VciMetadataResponse$inboundSchema: z.ZodType<
   action: VciMetadataResponseAction$inboundSchema.optional(),
   responseContent: z.string().optional(),
 });
-
-/** @internal */
-export type VciMetadataResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-};
-
-/** @internal */
-export const VciMetadataResponse$outboundSchema: z.ZodType<
-  VciMetadataResponse$Outbound,
-  z.ZodTypeDef,
-  VciMetadataResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: VciMetadataResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciMetadataResponse$ {
-  /** @deprecated use `VciMetadataResponse$inboundSchema` instead. */
-  export const inboundSchema = VciMetadataResponse$inboundSchema;
-  /** @deprecated use `VciMetadataResponse$outboundSchema` instead. */
-  export const outboundSchema = VciMetadataResponse$outboundSchema;
-  /** @deprecated use `VciMetadataResponse$Outbound` instead. */
-  export type Outbound = VciMetadataResponse$Outbound;
-}
-
-export function vciMetadataResponseToJSON(
-  vciMetadataResponse: VciMetadataResponse,
-): string {
-  return JSON.stringify(
-    VciMetadataResponse$outboundSchema.parse(vciMetadataResponse),
-  );
-}
 
 export function vciMetadataResponseFromJSON(
   jsonString: string,

@@ -72,58 +72,6 @@ export const ClientAuthorizationDeleteResponse$inboundSchema: z.ZodType<
   modifiedAt: z.number().int().optional(),
 });
 
-/** @internal */
-export type ClientAuthorizationDeleteResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  serviceApiKey?: number | undefined;
-  clientId?: number | undefined;
-  subject?: string | undefined;
-  latestGrantedScopes?: Array<string> | undefined;
-  mergedGrantedScopes?: Array<string> | undefined;
-  modifiedAt?: number | undefined;
-};
-
-/** @internal */
-export const ClientAuthorizationDeleteResponse$outboundSchema: z.ZodType<
-  ClientAuthorizationDeleteResponse$Outbound,
-  z.ZodTypeDef,
-  ClientAuthorizationDeleteResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  serviceApiKey: z.number().int().optional(),
-  clientId: z.number().int().optional(),
-  subject: z.string().optional(),
-  latestGrantedScopes: z.array(z.string()).optional(),
-  mergedGrantedScopes: z.array(z.string()).optional(),
-  modifiedAt: z.number().int().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientAuthorizationDeleteResponse$ {
-  /** @deprecated use `ClientAuthorizationDeleteResponse$inboundSchema` instead. */
-  export const inboundSchema = ClientAuthorizationDeleteResponse$inboundSchema;
-  /** @deprecated use `ClientAuthorizationDeleteResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    ClientAuthorizationDeleteResponse$outboundSchema;
-  /** @deprecated use `ClientAuthorizationDeleteResponse$Outbound` instead. */
-  export type Outbound = ClientAuthorizationDeleteResponse$Outbound;
-}
-
-export function clientAuthorizationDeleteResponseToJSON(
-  clientAuthorizationDeleteResponse: ClientAuthorizationDeleteResponse,
-): string {
-  return JSON.stringify(
-    ClientAuthorizationDeleteResponse$outboundSchema.parse(
-      clientAuthorizationDeleteResponse,
-    ),
-  );
-}
-
 export function clientAuthorizationDeleteResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<ClientAuthorizationDeleteResponse, SDKValidationError> {

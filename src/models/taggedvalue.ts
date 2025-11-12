@@ -27,7 +27,6 @@ export const TaggedValue$inboundSchema: z.ZodType<
   tag: z.string().optional(),
   value: z.string().optional(),
 });
-
 /** @internal */
 export type TaggedValue$Outbound = {
   tag?: string | undefined;
@@ -44,23 +43,9 @@ export const TaggedValue$outboundSchema: z.ZodType<
   value: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TaggedValue$ {
-  /** @deprecated use `TaggedValue$inboundSchema` instead. */
-  export const inboundSchema = TaggedValue$inboundSchema;
-  /** @deprecated use `TaggedValue$outboundSchema` instead. */
-  export const outboundSchema = TaggedValue$outboundSchema;
-  /** @deprecated use `TaggedValue$Outbound` instead. */
-  export type Outbound = TaggedValue$Outbound;
-}
-
 export function taggedValueToJSON(taggedValue: TaggedValue): string {
   return JSON.stringify(TaggedValue$outboundSchema.parse(taggedValue));
 }
-
 export function taggedValueFromJSON(
   jsonString: string,
 ): SafeParseResult<TaggedValue, SDKValidationError> {

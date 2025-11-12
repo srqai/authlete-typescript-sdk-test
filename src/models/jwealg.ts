@@ -51,18 +51,6 @@ export type JweAlg = ClosedEnum<typeof JweAlg>;
 /** @internal */
 export const JweAlg$inboundSchema: z.ZodNativeEnum<typeof JweAlg> = z
   .nativeEnum(JweAlg);
-
 /** @internal */
 export const JweAlg$outboundSchema: z.ZodNativeEnum<typeof JweAlg> =
   JweAlg$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace JweAlg$ {
-  /** @deprecated use `JweAlg$inboundSchema` instead. */
-  export const inboundSchema = JweAlg$inboundSchema;
-  /** @deprecated use `JweAlg$outboundSchema` instead. */
-  export const outboundSchema = JweAlg$outboundSchema;
-}

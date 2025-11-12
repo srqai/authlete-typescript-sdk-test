@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type ServiceUpdateApiRequest = {
@@ -15,16 +12,6 @@ export type ServiceUpdateApiRequest = {
   serviceId: string;
   service?: models.ServiceInput | undefined;
 };
-
-/** @internal */
-export const ServiceUpdateApiRequest$inboundSchema: z.ZodType<
-  ServiceUpdateApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  service: models.ServiceInput$inboundSchema.optional(),
-});
 
 /** @internal */
 export type ServiceUpdateApiRequest$Outbound = {
@@ -42,33 +29,10 @@ export const ServiceUpdateApiRequest$outboundSchema: z.ZodType<
   service: models.ServiceInput$outboundSchema.optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceUpdateApiRequest$ {
-  /** @deprecated use `ServiceUpdateApiRequest$inboundSchema` instead. */
-  export const inboundSchema = ServiceUpdateApiRequest$inboundSchema;
-  /** @deprecated use `ServiceUpdateApiRequest$outboundSchema` instead. */
-  export const outboundSchema = ServiceUpdateApiRequest$outboundSchema;
-  /** @deprecated use `ServiceUpdateApiRequest$Outbound` instead. */
-  export type Outbound = ServiceUpdateApiRequest$Outbound;
-}
-
 export function serviceUpdateApiRequestToJSON(
   serviceUpdateApiRequest: ServiceUpdateApiRequest,
 ): string {
   return JSON.stringify(
     ServiceUpdateApiRequest$outboundSchema.parse(serviceUpdateApiRequest),
-  );
-}
-
-export function serviceUpdateApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ServiceUpdateApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ServiceUpdateApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ServiceUpdateApiRequest' from JSON`,
   );
 }

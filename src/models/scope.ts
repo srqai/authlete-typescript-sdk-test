@@ -51,7 +51,6 @@ export const Scope$inboundSchema: z.ZodType<Scope, z.ZodTypeDef, unknown> = z
     descriptions: z.array(TaggedValue$inboundSchema).optional(),
     attributes: z.array(Pair$inboundSchema).optional(),
   });
-
 /** @internal */
 export type Scope$Outbound = {
   name?: string | undefined;
@@ -74,23 +73,9 @@ export const Scope$outboundSchema: z.ZodType<
   attributes: z.array(Pair$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Scope$ {
-  /** @deprecated use `Scope$inboundSchema` instead. */
-  export const inboundSchema = Scope$inboundSchema;
-  /** @deprecated use `Scope$outboundSchema` instead. */
-  export const outboundSchema = Scope$outboundSchema;
-  /** @deprecated use `Scope$Outbound` instead. */
-  export type Outbound = Scope$Outbound;
-}
-
 export function scopeToJSON(scope: Scope): string {
   return JSON.stringify(Scope$outboundSchema.parse(scope));
 }
-
 export function scopeFromJSON(
   jsonString: string,
 ): SafeParseResult<Scope, SDKValidationError> {

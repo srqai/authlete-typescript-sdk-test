@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type IdtokenReissueRequest = {
   /**
@@ -105,20 +102,6 @@ export type IdtokenReissueRequest = {
 };
 
 /** @internal */
-export const IdtokenReissueRequest$inboundSchema: z.ZodType<
-  IdtokenReissueRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  accessToken: z.string(),
-  refreshToken: z.string(),
-  sub: z.string().optional(),
-  claims: z.string().optional(),
-  idtHeaderParams: z.string().optional(),
-  idTokenAudType: z.string().optional(),
-});
-
-/** @internal */
 export type IdtokenReissueRequest$Outbound = {
   accessToken: string;
   refreshToken: string;
@@ -142,33 +125,10 @@ export const IdtokenReissueRequest$outboundSchema: z.ZodType<
   idTokenAudType: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IdtokenReissueRequest$ {
-  /** @deprecated use `IdtokenReissueRequest$inboundSchema` instead. */
-  export const inboundSchema = IdtokenReissueRequest$inboundSchema;
-  /** @deprecated use `IdtokenReissueRequest$outboundSchema` instead. */
-  export const outboundSchema = IdtokenReissueRequest$outboundSchema;
-  /** @deprecated use `IdtokenReissueRequest$Outbound` instead. */
-  export type Outbound = IdtokenReissueRequest$Outbound;
-}
-
 export function idtokenReissueRequestToJSON(
   idtokenReissueRequest: IdtokenReissueRequest,
 ): string {
   return JSON.stringify(
     IdtokenReissueRequest$outboundSchema.parse(idtokenReissueRequest),
-  );
-}
-
-export function idtokenReissueRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<IdtokenReissueRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => IdtokenReissueRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'IdtokenReissueRequest' from JSON`,
   );
 }

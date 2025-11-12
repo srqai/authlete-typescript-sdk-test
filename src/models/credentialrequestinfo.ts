@@ -43,49 +43,6 @@ export const CredentialRequestInfo$inboundSchema: z.ZodType<
   details: z.string().optional(),
 });
 
-/** @internal */
-export type CredentialRequestInfo$Outbound = {
-  identifier?: string | undefined;
-  format?: string | undefined;
-  bindingKey?: string | undefined;
-  bindingKeys?: Array<string> | undefined;
-  details?: string | undefined;
-};
-
-/** @internal */
-export const CredentialRequestInfo$outboundSchema: z.ZodType<
-  CredentialRequestInfo$Outbound,
-  z.ZodTypeDef,
-  CredentialRequestInfo
-> = z.object({
-  identifier: z.string().optional(),
-  format: z.string().optional(),
-  bindingKey: z.string().optional(),
-  bindingKeys: z.array(z.string()).optional(),
-  details: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CredentialRequestInfo$ {
-  /** @deprecated use `CredentialRequestInfo$inboundSchema` instead. */
-  export const inboundSchema = CredentialRequestInfo$inboundSchema;
-  /** @deprecated use `CredentialRequestInfo$outboundSchema` instead. */
-  export const outboundSchema = CredentialRequestInfo$outboundSchema;
-  /** @deprecated use `CredentialRequestInfo$Outbound` instead. */
-  export type Outbound = CredentialRequestInfo$Outbound;
-}
-
-export function credentialRequestInfoToJSON(
-  credentialRequestInfo: CredentialRequestInfo,
-): string {
-  return JSON.stringify(
-    CredentialRequestInfo$outboundSchema.parse(credentialRequestInfo),
-  );
-}
-
 export function credentialRequestInfoFromJSON(
   jsonString: string,
 ): SafeParseResult<CredentialRequestInfo, SDKValidationError> {

@@ -3,12 +3,8 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 import {
   Property,
-  Property$inboundSchema,
   Property$Outbound,
   Property$outboundSchema,
 } from "./property.js";
@@ -170,28 +166,6 @@ export type VciOfferCreateRequest = {
 };
 
 /** @internal */
-export const VciOfferCreateRequest$inboundSchema: z.ZodType<
-  VciOfferCreateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  authorizationCodeGrantIncluded: z.boolean().optional(),
-  issuerStateIncluded: z.boolean().optional(),
-  preAuthorizedCodeGrantIncluded: z.boolean().optional(),
-  subject: z.string().optional(),
-  duration: z.number().int().optional(),
-  context: z.string().optional(),
-  properties: z.array(Property$inboundSchema).optional(),
-  jwtAtClaims: z.string().optional(),
-  authTime: z.number().int().optional(),
-  acr: z.string().optional(),
-  credentialConfigurationIds: z.array(z.string()).optional(),
-  txCode: z.string().optional(),
-  txCodeInputMode: z.string().optional(),
-  txCodeDescription: z.string().optional(),
-});
-
-/** @internal */
 export type VciOfferCreateRequest$Outbound = {
   authorizationCodeGrantIncluded?: boolean | undefined;
   issuerStateIncluded?: boolean | undefined;
@@ -231,33 +205,10 @@ export const VciOfferCreateRequest$outboundSchema: z.ZodType<
   txCodeDescription: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciOfferCreateRequest$ {
-  /** @deprecated use `VciOfferCreateRequest$inboundSchema` instead. */
-  export const inboundSchema = VciOfferCreateRequest$inboundSchema;
-  /** @deprecated use `VciOfferCreateRequest$outboundSchema` instead. */
-  export const outboundSchema = VciOfferCreateRequest$outboundSchema;
-  /** @deprecated use `VciOfferCreateRequest$Outbound` instead. */
-  export type Outbound = VciOfferCreateRequest$Outbound;
-}
-
 export function vciOfferCreateRequestToJSON(
   vciOfferCreateRequest: VciOfferCreateRequest,
 ): string {
   return JSON.stringify(
     VciOfferCreateRequest$outboundSchema.parse(vciOfferCreateRequest),
-  );
-}
-
-export function vciOfferCreateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciOfferCreateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciOfferCreateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciOfferCreateRequest' from JSON`,
   );
 }

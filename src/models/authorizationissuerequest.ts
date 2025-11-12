@@ -3,18 +3,13 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
 import {
   AuthzDetails,
-  AuthzDetails$inboundSchema,
   AuthzDetails$Outbound,
   AuthzDetails$outboundSchema,
 } from "./authzdetails.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 import {
   Property,
-  Property$inboundSchema,
   Property$Outbound,
   Property$outboundSchema,
 } from "./property.js";
@@ -214,32 +209,6 @@ export type AuthorizationIssueRequest = {
 };
 
 /** @internal */
-export const AuthorizationIssueRequest$inboundSchema: z.ZodType<
-  AuthorizationIssueRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  ticket: z.string(),
-  subject: z.string(),
-  authTime: z.number().int().optional(),
-  acr: z.string().optional(),
-  claims: z.string().optional(),
-  properties: z.array(Property$inboundSchema).optional(),
-  scopes: z.array(z.string()).optional(),
-  sub: z.string().optional(),
-  idtHeaderParams: z.string().optional(),
-  claimsForTx: z.string().optional(),
-  consentedClaims: z.array(z.string()).optional(),
-  authorizationDetails: AuthzDetails$inboundSchema.optional(),
-  jwtAtClaims: z.string().optional(),
-  accessToken: z.string().optional(),
-  accessTokenDuration: z.number().int().optional(),
-  sessionId: z.string().optional(),
-  idTokenAudType: z.string().optional(),
-  verifiedClaimsForTx: z.string().optional(),
-});
-
-/** @internal */
 export type AuthorizationIssueRequest$Outbound = {
   ticket: string;
   subject: string;
@@ -287,33 +256,10 @@ export const AuthorizationIssueRequest$outboundSchema: z.ZodType<
   verifiedClaimsForTx: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizationIssueRequest$ {
-  /** @deprecated use `AuthorizationIssueRequest$inboundSchema` instead. */
-  export const inboundSchema = AuthorizationIssueRequest$inboundSchema;
-  /** @deprecated use `AuthorizationIssueRequest$outboundSchema` instead. */
-  export const outboundSchema = AuthorizationIssueRequest$outboundSchema;
-  /** @deprecated use `AuthorizationIssueRequest$Outbound` instead. */
-  export type Outbound = AuthorizationIssueRequest$Outbound;
-}
-
 export function authorizationIssueRequestToJSON(
   authorizationIssueRequest: AuthorizationIssueRequest,
 ): string {
   return JSON.stringify(
     AuthorizationIssueRequest$outboundSchema.parse(authorizationIssueRequest),
-  );
-}
-
-export function authorizationIssueRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<AuthorizationIssueRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AuthorizationIssueRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AuthorizationIssueRequest' from JSON`,
   );
 }

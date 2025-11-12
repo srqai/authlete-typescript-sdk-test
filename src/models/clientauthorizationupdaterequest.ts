@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type ClientAuthorizationUpdateRequest = {
   /**
@@ -27,16 +24,6 @@ export type ClientAuthorizationUpdateRequest = {
 };
 
 /** @internal */
-export const ClientAuthorizationUpdateRequest$inboundSchema: z.ZodType<
-  ClientAuthorizationUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  subject: z.string(),
-  scopes: z.array(z.string()).optional(),
-});
-
-/** @internal */
 export type ClientAuthorizationUpdateRequest$Outbound = {
   subject: string;
   scopes?: Array<string> | undefined;
@@ -52,19 +39,6 @@ export const ClientAuthorizationUpdateRequest$outboundSchema: z.ZodType<
   scopes: z.array(z.string()).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientAuthorizationUpdateRequest$ {
-  /** @deprecated use `ClientAuthorizationUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = ClientAuthorizationUpdateRequest$inboundSchema;
-  /** @deprecated use `ClientAuthorizationUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = ClientAuthorizationUpdateRequest$outboundSchema;
-  /** @deprecated use `ClientAuthorizationUpdateRequest$Outbound` instead. */
-  export type Outbound = ClientAuthorizationUpdateRequest$Outbound;
-}
-
 export function clientAuthorizationUpdateRequestToJSON(
   clientAuthorizationUpdateRequest: ClientAuthorizationUpdateRequest,
 ): string {
@@ -72,15 +46,5 @@ export function clientAuthorizationUpdateRequestToJSON(
     ClientAuthorizationUpdateRequest$outboundSchema.parse(
       clientAuthorizationUpdateRequest,
     ),
-  );
-}
-
-export function clientAuthorizationUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientAuthorizationUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ClientAuthorizationUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientAuthorizationUpdateRequest' from JSON`,
   );
 }

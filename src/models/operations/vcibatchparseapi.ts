@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type VciBatchParseApiRequest = {
@@ -16,20 +13,6 @@ export type VciBatchParseApiRequest = {
   serviceId: string;
   vciBatchParseRequest: models.VciBatchParseRequest;
 };
-
-/** @internal */
-export const VciBatchParseApiRequest$inboundSchema: z.ZodType<
-  VciBatchParseApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  vci_batch_parse_request: models.VciBatchParseRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "vci_batch_parse_request": "vciBatchParseRequest",
-  });
-});
 
 /** @internal */
 export type VciBatchParseApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const VciBatchParseApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciBatchParseApiRequest$ {
-  /** @deprecated use `VciBatchParseApiRequest$inboundSchema` instead. */
-  export const inboundSchema = VciBatchParseApiRequest$inboundSchema;
-  /** @deprecated use `VciBatchParseApiRequest$outboundSchema` instead. */
-  export const outboundSchema = VciBatchParseApiRequest$outboundSchema;
-  /** @deprecated use `VciBatchParseApiRequest$Outbound` instead. */
-  export type Outbound = VciBatchParseApiRequest$Outbound;
-}
-
 export function vciBatchParseApiRequestToJSON(
   vciBatchParseApiRequest: VciBatchParseApiRequest,
 ): string {
   return JSON.stringify(
     VciBatchParseApiRequest$outboundSchema.parse(vciBatchParseApiRequest),
-  );
-}
-
-export function vciBatchParseApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciBatchParseApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciBatchParseApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciBatchParseApiRequest' from JSON`,
   );
 }

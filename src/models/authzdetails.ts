@@ -37,7 +37,6 @@ export const AuthzDetails$inboundSchema: z.ZodType<
 > = z.object({
   elements: z.array(AuthorizationDetailsElement$inboundSchema).optional(),
 });
-
 /** @internal */
 export type AuthzDetails$Outbound = {
   elements?: Array<AuthorizationDetailsElement$Outbound> | undefined;
@@ -52,23 +51,9 @@ export const AuthzDetails$outboundSchema: z.ZodType<
   elements: z.array(AuthorizationDetailsElement$outboundSchema).optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthzDetails$ {
-  /** @deprecated use `AuthzDetails$inboundSchema` instead. */
-  export const inboundSchema = AuthzDetails$inboundSchema;
-  /** @deprecated use `AuthzDetails$outboundSchema` instead. */
-  export const outboundSchema = AuthzDetails$outboundSchema;
-  /** @deprecated use `AuthzDetails$Outbound` instead. */
-  export type Outbound = AuthzDetails$Outbound;
-}
-
 export function authzDetailsToJSON(authzDetails: AuthzDetails): string {
   return JSON.stringify(AuthzDetails$outboundSchema.parse(authzDetails));
 }
-
 export function authzDetailsFromJSON(
   jsonString: string,
 ): SafeParseResult<AuthzDetails, SDKValidationError> {

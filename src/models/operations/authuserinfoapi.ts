@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type AuthUserinfoApiRequest = {
@@ -16,20 +13,6 @@ export type AuthUserinfoApiRequest = {
   serviceId: string;
   userinfoRequest: models.UserinfoRequest;
 };
-
-/** @internal */
-export const AuthUserinfoApiRequest$inboundSchema: z.ZodType<
-  AuthUserinfoApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  userinfo_request: models.UserinfoRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "userinfo_request": "userinfoRequest",
-  });
-});
 
 /** @internal */
 export type AuthUserinfoApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const AuthUserinfoApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthUserinfoApiRequest$ {
-  /** @deprecated use `AuthUserinfoApiRequest$inboundSchema` instead. */
-  export const inboundSchema = AuthUserinfoApiRequest$inboundSchema;
-  /** @deprecated use `AuthUserinfoApiRequest$outboundSchema` instead. */
-  export const outboundSchema = AuthUserinfoApiRequest$outboundSchema;
-  /** @deprecated use `AuthUserinfoApiRequest$Outbound` instead. */
-  export type Outbound = AuthUserinfoApiRequest$Outbound;
-}
-
 export function authUserinfoApiRequestToJSON(
   authUserinfoApiRequest: AuthUserinfoApiRequest,
 ): string {
   return JSON.stringify(
     AuthUserinfoApiRequest$outboundSchema.parse(authUserinfoApiRequest),
-  );
-}
-
-export function authUserinfoApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<AuthUserinfoApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AuthUserinfoApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AuthUserinfoApiRequest' from JSON`,
   );
 }

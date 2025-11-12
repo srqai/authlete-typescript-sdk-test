@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type VciSingleParseApiRequest = {
@@ -16,20 +13,6 @@ export type VciSingleParseApiRequest = {
   serviceId: string;
   vciSingleParseRequest: models.VciSingleParseRequest;
 };
-
-/** @internal */
-export const VciSingleParseApiRequest$inboundSchema: z.ZodType<
-  VciSingleParseApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  vci_single_parse_request: models.VciSingleParseRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "vci_single_parse_request": "vciSingleParseRequest",
-  });
-});
 
 /** @internal */
 export type VciSingleParseApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const VciSingleParseApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciSingleParseApiRequest$ {
-  /** @deprecated use `VciSingleParseApiRequest$inboundSchema` instead. */
-  export const inboundSchema = VciSingleParseApiRequest$inboundSchema;
-  /** @deprecated use `VciSingleParseApiRequest$outboundSchema` instead. */
-  export const outboundSchema = VciSingleParseApiRequest$outboundSchema;
-  /** @deprecated use `VciSingleParseApiRequest$Outbound` instead. */
-  export type Outbound = VciSingleParseApiRequest$Outbound;
-}
-
 export function vciSingleParseApiRequestToJSON(
   vciSingleParseApiRequest: VciSingleParseApiRequest,
 ): string {
   return JSON.stringify(
     VciSingleParseApiRequest$outboundSchema.parse(vciSingleParseApiRequest),
-  );
-}
-
-export function vciSingleParseApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciSingleParseApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciSingleParseApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciSingleParseApiRequest' from JSON`,
   );
 }

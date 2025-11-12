@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type ClientSecretUpdateRequest = {
   /**
@@ -16,15 +13,6 @@ export type ClientSecretUpdateRequest = {
    */
   clientSecret: string;
 };
-
-/** @internal */
-export const ClientSecretUpdateRequest$inboundSchema: z.ZodType<
-  ClientSecretUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  clientSecret: z.string(),
-});
 
 /** @internal */
 export type ClientSecretUpdateRequest$Outbound = {
@@ -40,33 +28,10 @@ export const ClientSecretUpdateRequest$outboundSchema: z.ZodType<
   clientSecret: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientSecretUpdateRequest$ {
-  /** @deprecated use `ClientSecretUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = ClientSecretUpdateRequest$inboundSchema;
-  /** @deprecated use `ClientSecretUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = ClientSecretUpdateRequest$outboundSchema;
-  /** @deprecated use `ClientSecretUpdateRequest$Outbound` instead. */
-  export type Outbound = ClientSecretUpdateRequest$Outbound;
-}
-
 export function clientSecretUpdateRequestToJSON(
   clientSecretUpdateRequest: ClientSecretUpdateRequest,
 ): string {
   return JSON.stringify(
     ClientSecretUpdateRequest$outboundSchema.parse(clientSecretUpdateRequest),
-  );
-}
-
-export function clientSecretUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientSecretUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ClientSecretUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientSecretUpdateRequest' from JSON`,
   );
 }

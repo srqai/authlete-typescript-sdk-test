@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type HskCreateRequest = {
   /**
@@ -50,19 +47,6 @@ export type HskCreateRequest = {
 };
 
 /** @internal */
-export const HskCreateRequest$inboundSchema: z.ZodType<
-  HskCreateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  kty: z.string().optional(),
-  use: z.string().optional(),
-  kid: z.string().optional(),
-  hsmName: z.string().optional(),
-  alg: z.string().optional(),
-});
-
-/** @internal */
 export type HskCreateRequest$Outbound = {
   kty?: string | undefined;
   use?: string | undefined;
@@ -84,33 +68,10 @@ export const HskCreateRequest$outboundSchema: z.ZodType<
   alg: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace HskCreateRequest$ {
-  /** @deprecated use `HskCreateRequest$inboundSchema` instead. */
-  export const inboundSchema = HskCreateRequest$inboundSchema;
-  /** @deprecated use `HskCreateRequest$outboundSchema` instead. */
-  export const outboundSchema = HskCreateRequest$outboundSchema;
-  /** @deprecated use `HskCreateRequest$Outbound` instead. */
-  export type Outbound = HskCreateRequest$Outbound;
-}
-
 export function hskCreateRequestToJSON(
   hskCreateRequest: HskCreateRequest,
 ): string {
   return JSON.stringify(
     HskCreateRequest$outboundSchema.parse(hskCreateRequest),
-  );
-}
-
-export function hskCreateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<HskCreateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => HskCreateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'HskCreateRequest' from JSON`,
   );
 }

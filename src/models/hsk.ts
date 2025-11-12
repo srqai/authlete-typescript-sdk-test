@@ -74,7 +74,6 @@ export const Hsk$inboundSchema: z.ZodType<Hsk, z.ZodTypeDef, unknown> = z
     publicKey: z.string().optional(),
     alg: z.string().optional(),
   });
-
 /** @internal */
 export type Hsk$Outbound = {
   kty?: string | undefined;
@@ -98,23 +97,9 @@ export const Hsk$outboundSchema: z.ZodType<Hsk$Outbound, z.ZodTypeDef, Hsk> = z
     alg: z.string().optional(),
   });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Hsk$ {
-  /** @deprecated use `Hsk$inboundSchema` instead. */
-  export const inboundSchema = Hsk$inboundSchema;
-  /** @deprecated use `Hsk$outboundSchema` instead. */
-  export const outboundSchema = Hsk$outboundSchema;
-  /** @deprecated use `Hsk$Outbound` instead. */
-  export type Outbound = Hsk$Outbound;
-}
-
 export function hskToJSON(hsk: Hsk): string {
   return JSON.stringify(Hsk$outboundSchema.parse(hsk));
 }
-
 export function hskFromJSON(
   jsonString: string,
 ): SafeParseResult<Hsk, SDKValidationError> {

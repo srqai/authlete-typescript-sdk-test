@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type IdtokenReissueApiRequest = {
@@ -16,21 +13,6 @@ export type IdtokenReissueApiRequest = {
   serviceId: string;
   idtokenReissueRequest?: models.IdtokenReissueRequest | undefined;
 };
-
-/** @internal */
-export const IdtokenReissueApiRequest$inboundSchema: z.ZodType<
-  IdtokenReissueApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  idtoken_reissue_request: models.IdtokenReissueRequest$inboundSchema
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "idtoken_reissue_request": "idtokenReissueRequest",
-  });
-});
 
 /** @internal */
 export type IdtokenReissueApiRequest$Outbound = {
@@ -52,33 +34,10 @@ export const IdtokenReissueApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IdtokenReissueApiRequest$ {
-  /** @deprecated use `IdtokenReissueApiRequest$inboundSchema` instead. */
-  export const inboundSchema = IdtokenReissueApiRequest$inboundSchema;
-  /** @deprecated use `IdtokenReissueApiRequest$outboundSchema` instead. */
-  export const outboundSchema = IdtokenReissueApiRequest$outboundSchema;
-  /** @deprecated use `IdtokenReissueApiRequest$Outbound` instead. */
-  export type Outbound = IdtokenReissueApiRequest$Outbound;
-}
-
 export function idtokenReissueApiRequestToJSON(
   idtokenReissueApiRequest: IdtokenReissueApiRequest,
 ): string {
   return JSON.stringify(
     IdtokenReissueApiRequest$outboundSchema.parse(idtokenReissueApiRequest),
-  );
-}
-
-export function idtokenReissueApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<IdtokenReissueApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => IdtokenReissueApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'IdtokenReissueApiRequest' from JSON`,
   );
 }

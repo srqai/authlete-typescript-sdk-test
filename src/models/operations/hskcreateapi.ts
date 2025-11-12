@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type HskCreateApiRequest = {
@@ -16,20 +13,6 @@ export type HskCreateApiRequest = {
   serviceId: string;
   hskCreateRequest: models.HskCreateRequest;
 };
-
-/** @internal */
-export const HskCreateApiRequest$inboundSchema: z.ZodType<
-  HskCreateApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  hsk_create_request: models.HskCreateRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "hsk_create_request": "hskCreateRequest",
-  });
-});
 
 /** @internal */
 export type HskCreateApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const HskCreateApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace HskCreateApiRequest$ {
-  /** @deprecated use `HskCreateApiRequest$inboundSchema` instead. */
-  export const inboundSchema = HskCreateApiRequest$inboundSchema;
-  /** @deprecated use `HskCreateApiRequest$outboundSchema` instead. */
-  export const outboundSchema = HskCreateApiRequest$outboundSchema;
-  /** @deprecated use `HskCreateApiRequest$Outbound` instead. */
-  export type Outbound = HskCreateApiRequest$Outbound;
-}
-
 export function hskCreateApiRequestToJSON(
   hskCreateApiRequest: HskCreateApiRequest,
 ): string {
   return JSON.stringify(
     HskCreateApiRequest$outboundSchema.parse(hskCreateApiRequest),
-  );
-}
-
-export function hskCreateApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<HskCreateApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => HskCreateApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'HskCreateApiRequest' from JSON`,
   );
 }

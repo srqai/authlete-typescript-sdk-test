@@ -42,49 +42,6 @@ export const ClientSecretRefreshResponse$inboundSchema: z.ZodType<
   oldClientSecret: z.string().optional(),
 });
 
-/** @internal */
-export type ClientSecretRefreshResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  newClientSecret?: string | undefined;
-  oldClientSecret?: string | undefined;
-};
-
-/** @internal */
-export const ClientSecretRefreshResponse$outboundSchema: z.ZodType<
-  ClientSecretRefreshResponse$Outbound,
-  z.ZodTypeDef,
-  ClientSecretRefreshResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  newClientSecret: z.string().optional(),
-  oldClientSecret: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientSecretRefreshResponse$ {
-  /** @deprecated use `ClientSecretRefreshResponse$inboundSchema` instead. */
-  export const inboundSchema = ClientSecretRefreshResponse$inboundSchema;
-  /** @deprecated use `ClientSecretRefreshResponse$outboundSchema` instead. */
-  export const outboundSchema = ClientSecretRefreshResponse$outboundSchema;
-  /** @deprecated use `ClientSecretRefreshResponse$Outbound` instead. */
-  export type Outbound = ClientSecretRefreshResponse$Outbound;
-}
-
-export function clientSecretRefreshResponseToJSON(
-  clientSecretRefreshResponse: ClientSecretRefreshResponse,
-): string {
-  return JSON.stringify(
-    ClientSecretRefreshResponse$outboundSchema.parse(
-      clientSecretRefreshResponse,
-    ),
-  );
-}
-
 export function clientSecretRefreshResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<ClientSecretRefreshResponse, SDKValidationError> {

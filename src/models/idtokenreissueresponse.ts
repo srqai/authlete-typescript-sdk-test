@@ -57,22 +57,6 @@ export const IdtokenReissueResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(IdtokenReissueResponseAction);
 
 /** @internal */
-export const IdtokenReissueResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof IdtokenReissueResponseAction
-> = IdtokenReissueResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IdtokenReissueResponseAction$ {
-  /** @deprecated use `IdtokenReissueResponseAction$inboundSchema` instead. */
-  export const inboundSchema = IdtokenReissueResponseAction$inboundSchema;
-  /** @deprecated use `IdtokenReissueResponseAction$outboundSchema` instead. */
-  export const outboundSchema = IdtokenReissueResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const IdtokenReissueResponse$inboundSchema: z.ZodType<
   IdtokenReissueResponse,
   z.ZodTypeDef,
@@ -84,49 +68,6 @@ export const IdtokenReissueResponse$inboundSchema: z.ZodType<
   responseContent: z.string().optional(),
   idToken: z.string().optional(),
 });
-
-/** @internal */
-export type IdtokenReissueResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-  idToken?: string | undefined;
-};
-
-/** @internal */
-export const IdtokenReissueResponse$outboundSchema: z.ZodType<
-  IdtokenReissueResponse$Outbound,
-  z.ZodTypeDef,
-  IdtokenReissueResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: IdtokenReissueResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-  idToken: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace IdtokenReissueResponse$ {
-  /** @deprecated use `IdtokenReissueResponse$inboundSchema` instead. */
-  export const inboundSchema = IdtokenReissueResponse$inboundSchema;
-  /** @deprecated use `IdtokenReissueResponse$outboundSchema` instead. */
-  export const outboundSchema = IdtokenReissueResponse$outboundSchema;
-  /** @deprecated use `IdtokenReissueResponse$Outbound` instead. */
-  export type Outbound = IdtokenReissueResponse$Outbound;
-}
-
-export function idtokenReissueResponseToJSON(
-  idtokenReissueResponse: IdtokenReissueResponse,
-): string {
-  return JSON.stringify(
-    IdtokenReissueResponse$outboundSchema.parse(idtokenReissueResponse),
-  );
-}
 
 export function idtokenReissueResponseFromJSON(
   jsonString: string,

@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type DeviceVerificationApiRequest = {
@@ -16,20 +13,6 @@ export type DeviceVerificationApiRequest = {
   serviceId: string;
   deviceVerificationRequest: models.DeviceVerificationRequest;
 };
-
-/** @internal */
-export const DeviceVerificationApiRequest$inboundSchema: z.ZodType<
-  DeviceVerificationApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  device_verification_request: models.DeviceVerificationRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "device_verification_request": "deviceVerificationRequest",
-  });
-});
 
 /** @internal */
 export type DeviceVerificationApiRequest$Outbound = {
@@ -51,19 +34,6 @@ export const DeviceVerificationApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeviceVerificationApiRequest$ {
-  /** @deprecated use `DeviceVerificationApiRequest$inboundSchema` instead. */
-  export const inboundSchema = DeviceVerificationApiRequest$inboundSchema;
-  /** @deprecated use `DeviceVerificationApiRequest$outboundSchema` instead. */
-  export const outboundSchema = DeviceVerificationApiRequest$outboundSchema;
-  /** @deprecated use `DeviceVerificationApiRequest$Outbound` instead. */
-  export type Outbound = DeviceVerificationApiRequest$Outbound;
-}
-
 export function deviceVerificationApiRequestToJSON(
   deviceVerificationApiRequest: DeviceVerificationApiRequest,
 ): string {
@@ -71,15 +41,5 @@ export function deviceVerificationApiRequestToJSON(
     DeviceVerificationApiRequest$outboundSchema.parse(
       deviceVerificationApiRequest,
     ),
-  );
-}
-
-export function deviceVerificationApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<DeviceVerificationApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DeviceVerificationApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DeviceVerificationApiRequest' from JSON`,
   );
 }

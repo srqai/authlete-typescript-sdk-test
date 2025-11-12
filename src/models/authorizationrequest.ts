@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type AuthorizationRequest = {
   /**
@@ -34,16 +31,6 @@ export type AuthorizationRequest = {
 };
 
 /** @internal */
-export const AuthorizationRequest$inboundSchema: z.ZodType<
-  AuthorizationRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  parameters: z.string(),
-  context: z.string().optional(),
-});
-
-/** @internal */
 export type AuthorizationRequest$Outbound = {
   parameters: string;
   context?: string | undefined;
@@ -59,33 +46,10 @@ export const AuthorizationRequest$outboundSchema: z.ZodType<
   context: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizationRequest$ {
-  /** @deprecated use `AuthorizationRequest$inboundSchema` instead. */
-  export const inboundSchema = AuthorizationRequest$inboundSchema;
-  /** @deprecated use `AuthorizationRequest$outboundSchema` instead. */
-  export const outboundSchema = AuthorizationRequest$outboundSchema;
-  /** @deprecated use `AuthorizationRequest$Outbound` instead. */
-  export type Outbound = AuthorizationRequest$Outbound;
-}
-
 export function authorizationRequestToJSON(
   authorizationRequest: AuthorizationRequest,
 ): string {
   return JSON.stringify(
     AuthorizationRequest$outboundSchema.parse(authorizationRequest),
-  );
-}
-
-export function authorizationRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<AuthorizationRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AuthorizationRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AuthorizationRequest' from JSON`,
   );
 }

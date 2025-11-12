@@ -34,18 +34,6 @@ export type Prompt = ClosedEnum<typeof Prompt>;
 /** @internal */
 export const Prompt$inboundSchema: z.ZodNativeEnum<typeof Prompt> = z
   .nativeEnum(Prompt);
-
 /** @internal */
 export const Prompt$outboundSchema: z.ZodNativeEnum<typeof Prompt> =
   Prompt$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Prompt$ {
-  /** @deprecated use `Prompt$inboundSchema` instead. */
-  export const inboundSchema = Prompt$inboundSchema;
-  /** @deprecated use `Prompt$outboundSchema` instead. */
-  export const outboundSchema = Prompt$outboundSchema;
-}

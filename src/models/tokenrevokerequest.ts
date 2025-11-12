@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type TokenRevokeRequest = {
   /**
@@ -42,18 +39,6 @@ export type TokenRevokeRequest = {
 };
 
 /** @internal */
-export const TokenRevokeRequest$inboundSchema: z.ZodType<
-  TokenRevokeRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  accessTokenIdentifier: z.string().optional(),
-  refreshTokenIdentifier: z.string().optional(),
-  clientIdentifier: z.string().optional(),
-  subject: z.string().optional(),
-});
-
-/** @internal */
 export type TokenRevokeRequest$Outbound = {
   accessTokenIdentifier?: string | undefined;
   refreshTokenIdentifier?: string | undefined;
@@ -73,33 +58,10 @@ export const TokenRevokeRequest$outboundSchema: z.ZodType<
   subject: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenRevokeRequest$ {
-  /** @deprecated use `TokenRevokeRequest$inboundSchema` instead. */
-  export const inboundSchema = TokenRevokeRequest$inboundSchema;
-  /** @deprecated use `TokenRevokeRequest$outboundSchema` instead. */
-  export const outboundSchema = TokenRevokeRequest$outboundSchema;
-  /** @deprecated use `TokenRevokeRequest$Outbound` instead. */
-  export type Outbound = TokenRevokeRequest$Outbound;
-}
-
 export function tokenRevokeRequestToJSON(
   tokenRevokeRequest: TokenRevokeRequest,
 ): string {
   return JSON.stringify(
     TokenRevokeRequest$outboundSchema.parse(tokenRevokeRequest),
-  );
-}
-
-export function tokenRevokeRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<TokenRevokeRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TokenRevokeRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TokenRevokeRequest' from JSON`,
   );
 }

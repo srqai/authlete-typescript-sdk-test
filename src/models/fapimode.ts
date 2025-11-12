@@ -19,18 +19,6 @@ export type FapiMode = ClosedEnum<typeof FapiMode>;
 /** @internal */
 export const FapiMode$inboundSchema: z.ZodNativeEnum<typeof FapiMode> = z
   .nativeEnum(FapiMode);
-
 /** @internal */
 export const FapiMode$outboundSchema: z.ZodNativeEnum<typeof FapiMode> =
   FapiMode$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FapiMode$ {
-  /** @deprecated use `FapiMode$inboundSchema` instead. */
-  export const inboundSchema = FapiMode$inboundSchema;
-  /** @deprecated use `FapiMode$outboundSchema` instead. */
-  export const outboundSchema = FapiMode$outboundSchema;
-}

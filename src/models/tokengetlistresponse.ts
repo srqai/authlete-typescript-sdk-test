@@ -5,18 +5,8 @@
 import * as z from "zod/v3";
 import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
-import {
-  AccessToken,
-  AccessToken$inboundSchema,
-  AccessToken$Outbound,
-  AccessToken$outboundSchema,
-} from "./accesstoken.js";
-import {
-  ClientLimited,
-  ClientLimited$inboundSchema,
-  ClientLimited$Outbound,
-  ClientLimited$outboundSchema,
-} from "./clientlimited.js";
+import { AccessToken, AccessToken$inboundSchema } from "./accesstoken.js";
+import { ClientLimited, ClientLimited$inboundSchema } from "./clientlimited.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type TokenGetListResponse = {
@@ -66,51 +56,6 @@ export const TokenGetListResponse$inboundSchema: z.ZodType<
   subject: z.string().optional(),
   accessTokens: z.array(AccessToken$inboundSchema).optional(),
 });
-
-/** @internal */
-export type TokenGetListResponse$Outbound = {
-  start?: number | undefined;
-  end?: number | undefined;
-  totalCount?: number | undefined;
-  client?: ClientLimited$Outbound | undefined;
-  subject?: string | undefined;
-  accessTokens?: Array<AccessToken$Outbound> | undefined;
-};
-
-/** @internal */
-export const TokenGetListResponse$outboundSchema: z.ZodType<
-  TokenGetListResponse$Outbound,
-  z.ZodTypeDef,
-  TokenGetListResponse
-> = z.object({
-  start: z.number().int().optional(),
-  end: z.number().int().optional(),
-  totalCount: z.number().int().optional(),
-  client: ClientLimited$outboundSchema.optional(),
-  subject: z.string().optional(),
-  accessTokens: z.array(AccessToken$outboundSchema).optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenGetListResponse$ {
-  /** @deprecated use `TokenGetListResponse$inboundSchema` instead. */
-  export const inboundSchema = TokenGetListResponse$inboundSchema;
-  /** @deprecated use `TokenGetListResponse$outboundSchema` instead. */
-  export const outboundSchema = TokenGetListResponse$outboundSchema;
-  /** @deprecated use `TokenGetListResponse$Outbound` instead. */
-  export type Outbound = TokenGetListResponse$Outbound;
-}
-
-export function tokenGetListResponseToJSON(
-  tokenGetListResponse: TokenGetListResponse,
-): string {
-  return JSON.stringify(
-    TokenGetListResponse$outboundSchema.parse(tokenGetListResponse),
-  );
-}
 
 export function tokenGetListResponseFromJSON(
   jsonString: string,

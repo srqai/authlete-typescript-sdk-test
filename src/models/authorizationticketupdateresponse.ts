@@ -49,24 +49,6 @@ export const AuthorizationTicketUpdateResponseAction$inboundSchema:
     .nativeEnum(AuthorizationTicketUpdateResponseAction);
 
 /** @internal */
-export const AuthorizationTicketUpdateResponseAction$outboundSchema:
-  z.ZodNativeEnum<typeof AuthorizationTicketUpdateResponseAction> =
-    AuthorizationTicketUpdateResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizationTicketUpdateResponseAction$ {
-  /** @deprecated use `AuthorizationTicketUpdateResponseAction$inboundSchema` instead. */
-  export const inboundSchema =
-    AuthorizationTicketUpdateResponseAction$inboundSchema;
-  /** @deprecated use `AuthorizationTicketUpdateResponseAction$outboundSchema` instead. */
-  export const outboundSchema =
-    AuthorizationTicketUpdateResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const AuthorizationTicketUpdateResponse$inboundSchema: z.ZodType<
   AuthorizationTicketUpdateResponse,
   z.ZodTypeDef,
@@ -77,50 +59,6 @@ export const AuthorizationTicketUpdateResponse$inboundSchema: z.ZodType<
   resultCode: z.string().optional(),
   resultMessage: z.string().optional(),
 });
-
-/** @internal */
-export type AuthorizationTicketUpdateResponse$Outbound = {
-  info?: string | undefined;
-  action?: string | undefined;
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-};
-
-/** @internal */
-export const AuthorizationTicketUpdateResponse$outboundSchema: z.ZodType<
-  AuthorizationTicketUpdateResponse$Outbound,
-  z.ZodTypeDef,
-  AuthorizationTicketUpdateResponse
-> = z.object({
-  info: z.string().optional(),
-  action: AuthorizationTicketUpdateResponseAction$outboundSchema.optional(),
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizationTicketUpdateResponse$ {
-  /** @deprecated use `AuthorizationTicketUpdateResponse$inboundSchema` instead. */
-  export const inboundSchema = AuthorizationTicketUpdateResponse$inboundSchema;
-  /** @deprecated use `AuthorizationTicketUpdateResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    AuthorizationTicketUpdateResponse$outboundSchema;
-  /** @deprecated use `AuthorizationTicketUpdateResponse$Outbound` instead. */
-  export type Outbound = AuthorizationTicketUpdateResponse$Outbound;
-}
-
-export function authorizationTicketUpdateResponseToJSON(
-  authorizationTicketUpdateResponse: AuthorizationTicketUpdateResponse,
-): string {
-  return JSON.stringify(
-    AuthorizationTicketUpdateResponse$outboundSchema.parse(
-      authorizationTicketUpdateResponse,
-    ),
-  );
-}
 
 export function authorizationTicketUpdateResponseFromJSON(
   jsonString: string,

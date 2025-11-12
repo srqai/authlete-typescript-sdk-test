@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type TokenRequest = {
   /**
@@ -143,30 +140,6 @@ export type TokenRequest = {
 };
 
 /** @internal */
-export const TokenRequest$inboundSchema: z.ZodType<
-  TokenRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  parameters: z.string(),
-  clientId: z.string().optional(),
-  clientSecret: z.string().optional(),
-  clientCertificate: z.string().optional(),
-  clientCertificatePath: z.string().optional(),
-  properties: z.string().optional(),
-  dpop: z.string().optional(),
-  htm: z.string().optional(),
-  htu: z.string().optional(),
-  accessToken: z.string().optional(),
-  jwtAtClaims: z.string().optional(),
-  oauthClientAttestation: z.string().optional(),
-  oauthClientAttestationPop: z.string().optional(),
-  accessTokenDuration: z.number().int().optional(),
-  refreshTokenDuration: z.number().int().optional(),
-  dpopNonceRequired: z.boolean().optional(),
-});
-
-/** @internal */
 export type TokenRequest$Outbound = {
   parameters: string;
   clientId?: string | undefined;
@@ -210,29 +183,6 @@ export const TokenRequest$outboundSchema: z.ZodType<
   dpopNonceRequired: z.boolean().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenRequest$ {
-  /** @deprecated use `TokenRequest$inboundSchema` instead. */
-  export const inboundSchema = TokenRequest$inboundSchema;
-  /** @deprecated use `TokenRequest$outboundSchema` instead. */
-  export const outboundSchema = TokenRequest$outboundSchema;
-  /** @deprecated use `TokenRequest$Outbound` instead. */
-  export type Outbound = TokenRequest$Outbound;
-}
-
 export function tokenRequestToJSON(tokenRequest: TokenRequest): string {
   return JSON.stringify(TokenRequest$outboundSchema.parse(tokenRequest));
-}
-
-export function tokenRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<TokenRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TokenRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TokenRequest' from JSON`,
-  );
 }

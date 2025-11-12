@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ServiceDeleteApiRequest = {
   /**
@@ -13,15 +10,6 @@ export type ServiceDeleteApiRequest = {
    */
   serviceId: string;
 };
-
-/** @internal */
-export const ServiceDeleteApiRequest$inboundSchema: z.ZodType<
-  ServiceDeleteApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-});
 
 /** @internal */
 export type ServiceDeleteApiRequest$Outbound = {
@@ -37,33 +25,10 @@ export const ServiceDeleteApiRequest$outboundSchema: z.ZodType<
   serviceId: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceDeleteApiRequest$ {
-  /** @deprecated use `ServiceDeleteApiRequest$inboundSchema` instead. */
-  export const inboundSchema = ServiceDeleteApiRequest$inboundSchema;
-  /** @deprecated use `ServiceDeleteApiRequest$outboundSchema` instead. */
-  export const outboundSchema = ServiceDeleteApiRequest$outboundSchema;
-  /** @deprecated use `ServiceDeleteApiRequest$Outbound` instead. */
-  export type Outbound = ServiceDeleteApiRequest$Outbound;
-}
-
 export function serviceDeleteApiRequestToJSON(
   serviceDeleteApiRequest: ServiceDeleteApiRequest,
 ): string {
   return JSON.stringify(
     ServiceDeleteApiRequest$outboundSchema.parse(serviceDeleteApiRequest),
-  );
-}
-
-export function serviceDeleteApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ServiceDeleteApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ServiceDeleteApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ServiceDeleteApiRequest' from JSON`,
   );
 }

@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type VciDeferredParseRequest = {
   /**
@@ -17,16 +14,6 @@ export type VciDeferredParseRequest = {
    */
   requestContent?: string | undefined;
 };
-
-/** @internal */
-export const VciDeferredParseRequest$inboundSchema: z.ZodType<
-  VciDeferredParseRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  accessToken: z.string().optional(),
-  requestContent: z.string().optional(),
-});
 
 /** @internal */
 export type VciDeferredParseRequest$Outbound = {
@@ -44,33 +31,10 @@ export const VciDeferredParseRequest$outboundSchema: z.ZodType<
   requestContent: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciDeferredParseRequest$ {
-  /** @deprecated use `VciDeferredParseRequest$inboundSchema` instead. */
-  export const inboundSchema = VciDeferredParseRequest$inboundSchema;
-  /** @deprecated use `VciDeferredParseRequest$outboundSchema` instead. */
-  export const outboundSchema = VciDeferredParseRequest$outboundSchema;
-  /** @deprecated use `VciDeferredParseRequest$Outbound` instead. */
-  export type Outbound = VciDeferredParseRequest$Outbound;
-}
-
 export function vciDeferredParseRequestToJSON(
   vciDeferredParseRequest: VciDeferredParseRequest,
 ): string {
   return JSON.stringify(
     VciDeferredParseRequest$outboundSchema.parse(vciDeferredParseRequest),
-  );
-}
-
-export function vciDeferredParseRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciDeferredParseRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciDeferredParseRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciDeferredParseRequest' from JSON`,
   );
 }

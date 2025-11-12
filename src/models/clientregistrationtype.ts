@@ -29,19 +29,7 @@ export type ClientRegistrationType = ClosedEnum<typeof ClientRegistrationType>;
 export const ClientRegistrationType$inboundSchema: z.ZodNativeEnum<
   typeof ClientRegistrationType
 > = z.nativeEnum(ClientRegistrationType);
-
 /** @internal */
 export const ClientRegistrationType$outboundSchema: z.ZodNativeEnum<
   typeof ClientRegistrationType
 > = ClientRegistrationType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientRegistrationType$ {
-  /** @deprecated use `ClientRegistrationType$inboundSchema` instead. */
-  export const inboundSchema = ClientRegistrationType$inboundSchema;
-  /** @deprecated use `ClientRegistrationType$outboundSchema` instead. */
-  export const outboundSchema = ClientRegistrationType$outboundSchema;
-}

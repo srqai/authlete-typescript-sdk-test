@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type VciSingleParseRequest = {
   /**
@@ -17,16 +14,6 @@ export type VciSingleParseRequest = {
    */
   requestContent?: string | undefined;
 };
-
-/** @internal */
-export const VciSingleParseRequest$inboundSchema: z.ZodType<
-  VciSingleParseRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  accessToken: z.string().optional(),
-  requestContent: z.string().optional(),
-});
 
 /** @internal */
 export type VciSingleParseRequest$Outbound = {
@@ -44,33 +31,10 @@ export const VciSingleParseRequest$outboundSchema: z.ZodType<
   requestContent: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciSingleParseRequest$ {
-  /** @deprecated use `VciSingleParseRequest$inboundSchema` instead. */
-  export const inboundSchema = VciSingleParseRequest$inboundSchema;
-  /** @deprecated use `VciSingleParseRequest$outboundSchema` instead. */
-  export const outboundSchema = VciSingleParseRequest$outboundSchema;
-  /** @deprecated use `VciSingleParseRequest$Outbound` instead. */
-  export type Outbound = VciSingleParseRequest$Outbound;
-}
-
 export function vciSingleParseRequestToJSON(
   vciSingleParseRequest: VciSingleParseRequest,
 ): string {
   return JSON.stringify(
     VciSingleParseRequest$outboundSchema.parse(vciSingleParseRequest),
-  );
-}
-
-export function vciSingleParseRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciSingleParseRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciSingleParseRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciSingleParseRequest' from JSON`,
   );
 }

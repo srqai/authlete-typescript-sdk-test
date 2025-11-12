@@ -52,22 +52,6 @@ export const RevocationResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(RevocationResponseAction);
 
 /** @internal */
-export const RevocationResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof RevocationResponseAction
-> = RevocationResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RevocationResponseAction$ {
-  /** @deprecated use `RevocationResponseAction$inboundSchema` instead. */
-  export const inboundSchema = RevocationResponseAction$inboundSchema;
-  /** @deprecated use `RevocationResponseAction$outboundSchema` instead. */
-  export const outboundSchema = RevocationResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const RevocationResponse$inboundSchema: z.ZodType<
   RevocationResponse,
   z.ZodTypeDef,
@@ -78,47 +62,6 @@ export const RevocationResponse$inboundSchema: z.ZodType<
   action: RevocationResponseAction$inboundSchema.optional(),
   responseContent: z.string().optional(),
 });
-
-/** @internal */
-export type RevocationResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-};
-
-/** @internal */
-export const RevocationResponse$outboundSchema: z.ZodType<
-  RevocationResponse$Outbound,
-  z.ZodTypeDef,
-  RevocationResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: RevocationResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RevocationResponse$ {
-  /** @deprecated use `RevocationResponse$inboundSchema` instead. */
-  export const inboundSchema = RevocationResponse$inboundSchema;
-  /** @deprecated use `RevocationResponse$outboundSchema` instead. */
-  export const outboundSchema = RevocationResponse$outboundSchema;
-  /** @deprecated use `RevocationResponse$Outbound` instead. */
-  export type Outbound = RevocationResponse$Outbound;
-}
-
-export function revocationResponseToJSON(
-  revocationResponse: RevocationResponse,
-): string {
-  return JSON.stringify(
-    RevocationResponse$outboundSchema.parse(revocationResponse),
-  );
-}
 
 export function revocationResponseFromJSON(
   jsonString: string,

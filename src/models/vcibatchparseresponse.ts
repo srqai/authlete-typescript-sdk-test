@@ -9,8 +9,6 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import {
   CredentialRequestInfo,
   CredentialRequestInfo$inboundSchema,
-  CredentialRequestInfo$Outbound,
-  CredentialRequestInfo$outboundSchema,
 } from "./credentialrequestinfo.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
@@ -63,22 +61,6 @@ export const VciBatchParseResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(VciBatchParseResponseAction);
 
 /** @internal */
-export const VciBatchParseResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof VciBatchParseResponseAction
-> = VciBatchParseResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciBatchParseResponseAction$ {
-  /** @deprecated use `VciBatchParseResponseAction$inboundSchema` instead. */
-  export const inboundSchema = VciBatchParseResponseAction$inboundSchema;
-  /** @deprecated use `VciBatchParseResponseAction$outboundSchema` instead. */
-  export const outboundSchema = VciBatchParseResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const VciBatchParseResponse$inboundSchema: z.ZodType<
   VciBatchParseResponse,
   z.ZodTypeDef,
@@ -90,49 +72,6 @@ export const VciBatchParseResponse$inboundSchema: z.ZodType<
   responseContent: z.string().optional(),
   info: z.array(CredentialRequestInfo$inboundSchema).optional(),
 });
-
-/** @internal */
-export type VciBatchParseResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-  info?: Array<CredentialRequestInfo$Outbound> | undefined;
-};
-
-/** @internal */
-export const VciBatchParseResponse$outboundSchema: z.ZodType<
-  VciBatchParseResponse$Outbound,
-  z.ZodTypeDef,
-  VciBatchParseResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: VciBatchParseResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-  info: z.array(CredentialRequestInfo$outboundSchema).optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciBatchParseResponse$ {
-  /** @deprecated use `VciBatchParseResponse$inboundSchema` instead. */
-  export const inboundSchema = VciBatchParseResponse$inboundSchema;
-  /** @deprecated use `VciBatchParseResponse$outboundSchema` instead. */
-  export const outboundSchema = VciBatchParseResponse$outboundSchema;
-  /** @deprecated use `VciBatchParseResponse$Outbound` instead. */
-  export type Outbound = VciBatchParseResponse$Outbound;
-}
-
-export function vciBatchParseResponseToJSON(
-  vciBatchParseResponse: VciBatchParseResponse,
-): string {
-  return JSON.stringify(
-    VciBatchParseResponse$outboundSchema.parse(vciBatchParseResponse),
-  );
-}
 
 export function vciBatchParseResponseFromJSON(
   jsonString: string,

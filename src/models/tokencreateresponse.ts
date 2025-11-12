@@ -6,19 +6,9 @@ import * as z from "zod/v3";
 import { safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
-import {
-  AuthzDetails,
-  AuthzDetails$inboundSchema,
-  AuthzDetails$Outbound,
-  AuthzDetails$outboundSchema,
-} from "./authzdetails.js";
+import { AuthzDetails, AuthzDetails$inboundSchema } from "./authzdetails.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Property,
-  Property$inboundSchema,
-  Property$Outbound,
-  Property$outboundSchema,
-} from "./property.js";
+import { Property, Property$inboundSchema } from "./property.js";
 
 /**
  * The next action that the authorization server implementation should take.
@@ -167,22 +157,6 @@ export const TokenCreateResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(TokenCreateResponseAction);
 
 /** @internal */
-export const TokenCreateResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof TokenCreateResponseAction
-> = TokenCreateResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenCreateResponseAction$ {
-  /** @deprecated use `TokenCreateResponseAction$inboundSchema` instead. */
-  export const inboundSchema = TokenCreateResponseAction$inboundSchema;
-  /** @deprecated use `TokenCreateResponseAction$outboundSchema` instead. */
-  export const outboundSchema = TokenCreateResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const TokenCreateResponse$inboundSchema: z.ZodType<
   TokenCreateResponse,
   z.ZodTypeDef,
@@ -209,79 +183,6 @@ export const TokenCreateResponse$inboundSchema: z.ZodType<
   clientIdentifier: z.string().optional(),
   sessionId: z.string().optional(),
 });
-
-/** @internal */
-export type TokenCreateResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  accessToken?: string | undefined;
-  clientId?: number | undefined;
-  expiresAt?: number | undefined;
-  expiresIn?: number | undefined;
-  grantType?: string | undefined;
-  properties?: Array<Property$Outbound> | undefined;
-  refreshToken?: string | undefined;
-  scopes?: Array<string> | undefined;
-  subject?: string | undefined;
-  tokenType?: string | undefined;
-  jwtAccessToken?: string | undefined;
-  authorizationDetails?: AuthzDetails$Outbound | undefined;
-  forExternalAttachment?: boolean | undefined;
-  tokenId?: string | undefined;
-  refreshTokenScopes?: Array<string> | undefined;
-  clientIdentifier?: string | undefined;
-  sessionId?: string | undefined;
-};
-
-/** @internal */
-export const TokenCreateResponse$outboundSchema: z.ZodType<
-  TokenCreateResponse$Outbound,
-  z.ZodTypeDef,
-  TokenCreateResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: TokenCreateResponseAction$outboundSchema.optional(),
-  accessToken: z.string().optional(),
-  clientId: z.number().int().optional(),
-  expiresAt: z.number().int().optional(),
-  expiresIn: z.number().int().optional(),
-  grantType: z.string().optional(),
-  properties: z.array(Property$outboundSchema).optional(),
-  refreshToken: z.string().optional(),
-  scopes: z.array(z.string()).optional(),
-  subject: z.string().optional(),
-  tokenType: z.string().optional(),
-  jwtAccessToken: z.string().optional(),
-  authorizationDetails: AuthzDetails$outboundSchema.optional(),
-  forExternalAttachment: z.boolean().optional(),
-  tokenId: z.string().optional(),
-  refreshTokenScopes: z.array(z.string()).optional(),
-  clientIdentifier: z.string().optional(),
-  sessionId: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenCreateResponse$ {
-  /** @deprecated use `TokenCreateResponse$inboundSchema` instead. */
-  export const inboundSchema = TokenCreateResponse$inboundSchema;
-  /** @deprecated use `TokenCreateResponse$outboundSchema` instead. */
-  export const outboundSchema = TokenCreateResponse$outboundSchema;
-  /** @deprecated use `TokenCreateResponse$Outbound` instead. */
-  export type Outbound = TokenCreateResponse$Outbound;
-}
-
-export function tokenCreateResponseToJSON(
-  tokenCreateResponse: TokenCreateResponse,
-): string {
-  return JSON.stringify(
-    TokenCreateResponse$outboundSchema.parse(tokenCreateResponse),
-  );
-}
 
 export function tokenCreateResponseFromJSON(
   jsonString: string,

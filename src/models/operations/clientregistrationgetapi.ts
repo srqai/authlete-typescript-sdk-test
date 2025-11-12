@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ClientRegistrationGetApiRequestBody = {
   /**
@@ -39,17 +36,6 @@ export type ClientRegistrationGetApiRequest = {
 };
 
 /** @internal */
-export const ClientRegistrationGetApiRequestBody$inboundSchema: z.ZodType<
-  ClientRegistrationGetApiRequestBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  json: z.string().optional(),
-  token: z.string(),
-  clientId: z.string(),
-});
-
-/** @internal */
 export type ClientRegistrationGetApiRequestBody$Outbound = {
   json?: string | undefined;
   token: string;
@@ -67,21 +53,6 @@ export const ClientRegistrationGetApiRequestBody$outboundSchema: z.ZodType<
   clientId: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientRegistrationGetApiRequestBody$ {
-  /** @deprecated use `ClientRegistrationGetApiRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    ClientRegistrationGetApiRequestBody$inboundSchema;
-  /** @deprecated use `ClientRegistrationGetApiRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    ClientRegistrationGetApiRequestBody$outboundSchema;
-  /** @deprecated use `ClientRegistrationGetApiRequestBody$Outbound` instead. */
-  export type Outbound = ClientRegistrationGetApiRequestBody$Outbound;
-}
-
 export function clientRegistrationGetApiRequestBodyToJSON(
   clientRegistrationGetApiRequestBody: ClientRegistrationGetApiRequestBody,
 ): string {
@@ -91,31 +62,6 @@ export function clientRegistrationGetApiRequestBodyToJSON(
     ),
   );
 }
-
-export function clientRegistrationGetApiRequestBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientRegistrationGetApiRequestBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      ClientRegistrationGetApiRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientRegistrationGetApiRequestBody' from JSON`,
-  );
-}
-
-/** @internal */
-export const ClientRegistrationGetApiRequest$inboundSchema: z.ZodType<
-  ClientRegistrationGetApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  RequestBody: z.lazy(() => ClientRegistrationGetApiRequestBody$inboundSchema),
-}).transform((v) => {
-  return remap$(v, {
-    "RequestBody": "requestBody",
-  });
-});
 
 /** @internal */
 export type ClientRegistrationGetApiRequest$Outbound = {
@@ -137,19 +83,6 @@ export const ClientRegistrationGetApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientRegistrationGetApiRequest$ {
-  /** @deprecated use `ClientRegistrationGetApiRequest$inboundSchema` instead. */
-  export const inboundSchema = ClientRegistrationGetApiRequest$inboundSchema;
-  /** @deprecated use `ClientRegistrationGetApiRequest$outboundSchema` instead. */
-  export const outboundSchema = ClientRegistrationGetApiRequest$outboundSchema;
-  /** @deprecated use `ClientRegistrationGetApiRequest$Outbound` instead. */
-  export type Outbound = ClientRegistrationGetApiRequest$Outbound;
-}
-
 export function clientRegistrationGetApiRequestToJSON(
   clientRegistrationGetApiRequest: ClientRegistrationGetApiRequest,
 ): string {
@@ -157,15 +90,5 @@ export function clientRegistrationGetApiRequestToJSON(
     ClientRegistrationGetApiRequest$outboundSchema.parse(
       clientRegistrationGetApiRequest,
     ),
-  );
-}
-
-export function clientRegistrationGetApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientRegistrationGetApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ClientRegistrationGetApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientRegistrationGetApiRequest' from JSON`,
   );
 }

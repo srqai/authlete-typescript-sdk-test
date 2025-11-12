@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type CredentialIssuanceOrder = {
   /**
@@ -34,19 +31,6 @@ export type CredentialIssuanceOrder = {
 };
 
 /** @internal */
-export const CredentialIssuanceOrder$inboundSchema: z.ZodType<
-  CredentialIssuanceOrder,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  requestIdentifier: z.string().optional(),
-  credentialPayload: z.string().optional(),
-  issuanceDeferred: z.boolean().optional(),
-  credentialDuration: z.number().int().optional(),
-  signingKeyId: z.string().optional(),
-});
-
-/** @internal */
 export type CredentialIssuanceOrder$Outbound = {
   requestIdentifier?: string | undefined;
   credentialPayload?: string | undefined;
@@ -68,33 +52,10 @@ export const CredentialIssuanceOrder$outboundSchema: z.ZodType<
   signingKeyId: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CredentialIssuanceOrder$ {
-  /** @deprecated use `CredentialIssuanceOrder$inboundSchema` instead. */
-  export const inboundSchema = CredentialIssuanceOrder$inboundSchema;
-  /** @deprecated use `CredentialIssuanceOrder$outboundSchema` instead. */
-  export const outboundSchema = CredentialIssuanceOrder$outboundSchema;
-  /** @deprecated use `CredentialIssuanceOrder$Outbound` instead. */
-  export type Outbound = CredentialIssuanceOrder$Outbound;
-}
-
 export function credentialIssuanceOrderToJSON(
   credentialIssuanceOrder: CredentialIssuanceOrder,
 ): string {
   return JSON.stringify(
     CredentialIssuanceOrder$outboundSchema.parse(credentialIssuanceOrder),
-  );
-}
-
-export function credentialIssuanceOrderFromJSON(
-  jsonString: string,
-): SafeParseResult<CredentialIssuanceOrder, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CredentialIssuanceOrder$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CredentialIssuanceOrder' from JSON`,
   );
 }

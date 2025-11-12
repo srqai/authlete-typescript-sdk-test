@@ -25,19 +25,7 @@ export type UserCodeCharset = ClosedEnum<typeof UserCodeCharset>;
 export const UserCodeCharset$inboundSchema: z.ZodNativeEnum<
   typeof UserCodeCharset
 > = z.nativeEnum(UserCodeCharset);
-
 /** @internal */
 export const UserCodeCharset$outboundSchema: z.ZodNativeEnum<
   typeof UserCodeCharset
 > = UserCodeCharset$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UserCodeCharset$ {
-  /** @deprecated use `UserCodeCharset$inboundSchema` instead. */
-  export const inboundSchema = UserCodeCharset$inboundSchema;
-  /** @deprecated use `UserCodeCharset$outboundSchema` instead. */
-  export const outboundSchema = UserCodeCharset$outboundSchema;
-}

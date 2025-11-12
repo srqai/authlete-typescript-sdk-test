@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ClientRegistrationDeleteApiRequestBody = {
   /**
@@ -39,17 +36,6 @@ export type ClientRegistrationDeleteApiRequest = {
 };
 
 /** @internal */
-export const ClientRegistrationDeleteApiRequestBody$inboundSchema: z.ZodType<
-  ClientRegistrationDeleteApiRequestBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  json: z.string().optional(),
-  token: z.string(),
-  clientId: z.string(),
-});
-
-/** @internal */
 export type ClientRegistrationDeleteApiRequestBody$Outbound = {
   json?: string | undefined;
   token: string;
@@ -67,21 +53,6 @@ export const ClientRegistrationDeleteApiRequestBody$outboundSchema: z.ZodType<
   clientId: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientRegistrationDeleteApiRequestBody$ {
-  /** @deprecated use `ClientRegistrationDeleteApiRequestBody$inboundSchema` instead. */
-  export const inboundSchema =
-    ClientRegistrationDeleteApiRequestBody$inboundSchema;
-  /** @deprecated use `ClientRegistrationDeleteApiRequestBody$outboundSchema` instead. */
-  export const outboundSchema =
-    ClientRegistrationDeleteApiRequestBody$outboundSchema;
-  /** @deprecated use `ClientRegistrationDeleteApiRequestBody$Outbound` instead. */
-  export type Outbound = ClientRegistrationDeleteApiRequestBody$Outbound;
-}
-
 export function clientRegistrationDeleteApiRequestBodyToJSON(
   clientRegistrationDeleteApiRequestBody:
     ClientRegistrationDeleteApiRequestBody,
@@ -92,33 +63,6 @@ export function clientRegistrationDeleteApiRequestBodyToJSON(
     ),
   );
 }
-
-export function clientRegistrationDeleteApiRequestBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientRegistrationDeleteApiRequestBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      ClientRegistrationDeleteApiRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientRegistrationDeleteApiRequestBody' from JSON`,
-  );
-}
-
-/** @internal */
-export const ClientRegistrationDeleteApiRequest$inboundSchema: z.ZodType<
-  ClientRegistrationDeleteApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  RequestBody: z.lazy(() =>
-    ClientRegistrationDeleteApiRequestBody$inboundSchema
-  ),
-}).transform((v) => {
-  return remap$(v, {
-    "RequestBody": "requestBody",
-  });
-});
 
 /** @internal */
 export type ClientRegistrationDeleteApiRequest$Outbound = {
@@ -142,20 +86,6 @@ export const ClientRegistrationDeleteApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientRegistrationDeleteApiRequest$ {
-  /** @deprecated use `ClientRegistrationDeleteApiRequest$inboundSchema` instead. */
-  export const inboundSchema = ClientRegistrationDeleteApiRequest$inboundSchema;
-  /** @deprecated use `ClientRegistrationDeleteApiRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ClientRegistrationDeleteApiRequest$outboundSchema;
-  /** @deprecated use `ClientRegistrationDeleteApiRequest$Outbound` instead. */
-  export type Outbound = ClientRegistrationDeleteApiRequest$Outbound;
-}
-
 export function clientRegistrationDeleteApiRequestToJSON(
   clientRegistrationDeleteApiRequest: ClientRegistrationDeleteApiRequest,
 ): string {
@@ -163,16 +93,5 @@ export function clientRegistrationDeleteApiRequestToJSON(
     ClientRegistrationDeleteApiRequest$outboundSchema.parse(
       clientRegistrationDeleteApiRequest,
     ),
-  );
-}
-
-export function clientRegistrationDeleteApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientRegistrationDeleteApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      ClientRegistrationDeleteApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientRegistrationDeleteApiRequest' from JSON`,
   );
 }

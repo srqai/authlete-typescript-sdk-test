@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type DeviceAuthorizationRequest = {
   /**
@@ -73,21 +70,6 @@ export type DeviceAuthorizationRequest = {
 };
 
 /** @internal */
-export const DeviceAuthorizationRequest$inboundSchema: z.ZodType<
-  DeviceAuthorizationRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  parameters: z.string(),
-  clientId: z.string().optional(),
-  clientSecret: z.string().optional(),
-  clientCertificate: z.string().optional(),
-  clientCertificatePath: z.string().optional(),
-  oauthClientAttestation: z.string().optional(),
-  oauthClientAttestationPop: z.string().optional(),
-});
-
-/** @internal */
 export type DeviceAuthorizationRequest$Outbound = {
   parameters: string;
   clientId?: string | undefined;
@@ -113,33 +95,10 @@ export const DeviceAuthorizationRequest$outboundSchema: z.ZodType<
   oauthClientAttestationPop: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeviceAuthorizationRequest$ {
-  /** @deprecated use `DeviceAuthorizationRequest$inboundSchema` instead. */
-  export const inboundSchema = DeviceAuthorizationRequest$inboundSchema;
-  /** @deprecated use `DeviceAuthorizationRequest$outboundSchema` instead. */
-  export const outboundSchema = DeviceAuthorizationRequest$outboundSchema;
-  /** @deprecated use `DeviceAuthorizationRequest$Outbound` instead. */
-  export type Outbound = DeviceAuthorizationRequest$Outbound;
-}
-
 export function deviceAuthorizationRequestToJSON(
   deviceAuthorizationRequest: DeviceAuthorizationRequest,
 ): string {
   return JSON.stringify(
     DeviceAuthorizationRequest$outboundSchema.parse(deviceAuthorizationRequest),
-  );
-}
-
-export function deviceAuthorizationRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<DeviceAuthorizationRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DeviceAuthorizationRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DeviceAuthorizationRequest' from JSON`,
   );
 }

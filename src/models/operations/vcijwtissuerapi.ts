@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type VciJwtissuerApiRequest = {
@@ -16,20 +13,6 @@ export type VciJwtissuerApiRequest = {
   serviceId: string;
   vciJwtissuerRequest: models.VciJwtissuerRequest;
 };
-
-/** @internal */
-export const VciJwtissuerApiRequest$inboundSchema: z.ZodType<
-  VciJwtissuerApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  vci_jwtissuer_request: models.VciJwtissuerRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "vci_jwtissuer_request": "vciJwtissuerRequest",
-  });
-});
 
 /** @internal */
 export type VciJwtissuerApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const VciJwtissuerApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciJwtissuerApiRequest$ {
-  /** @deprecated use `VciJwtissuerApiRequest$inboundSchema` instead. */
-  export const inboundSchema = VciJwtissuerApiRequest$inboundSchema;
-  /** @deprecated use `VciJwtissuerApiRequest$outboundSchema` instead. */
-  export const outboundSchema = VciJwtissuerApiRequest$outboundSchema;
-  /** @deprecated use `VciJwtissuerApiRequest$Outbound` instead. */
-  export type Outbound = VciJwtissuerApiRequest$Outbound;
-}
-
 export function vciJwtissuerApiRequestToJSON(
   vciJwtissuerApiRequest: VciJwtissuerApiRequest,
 ): string {
   return JSON.stringify(
     VciJwtissuerApiRequest$outboundSchema.parse(vciJwtissuerApiRequest),
-  );
-}
-
-export function vciJwtissuerApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciJwtissuerApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciJwtissuerApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciJwtissuerApiRequest' from JSON`,
   );
 }

@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type HskGetApiRequest = {
   /**
@@ -14,16 +11,6 @@ export type HskGetApiRequest = {
   serviceId: string;
   handle: string;
 };
-
-/** @internal */
-export const HskGetApiRequest$inboundSchema: z.ZodType<
-  HskGetApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  handle: z.string(),
-});
 
 /** @internal */
 export type HskGetApiRequest$Outbound = {
@@ -41,33 +28,10 @@ export const HskGetApiRequest$outboundSchema: z.ZodType<
   handle: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace HskGetApiRequest$ {
-  /** @deprecated use `HskGetApiRequest$inboundSchema` instead. */
-  export const inboundSchema = HskGetApiRequest$inboundSchema;
-  /** @deprecated use `HskGetApiRequest$outboundSchema` instead. */
-  export const outboundSchema = HskGetApiRequest$outboundSchema;
-  /** @deprecated use `HskGetApiRequest$Outbound` instead. */
-  export type Outbound = HskGetApiRequest$Outbound;
-}
-
 export function hskGetApiRequestToJSON(
   hskGetApiRequest: HskGetApiRequest,
 ): string {
   return JSON.stringify(
     HskGetApiRequest$outboundSchema.parse(hskGetApiRequest),
-  );
-}
-
-export function hskGetApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<HskGetApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => HskGetApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'HskGetApiRequest' from JSON`,
   );
 }

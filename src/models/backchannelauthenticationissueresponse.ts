@@ -70,24 +70,6 @@ export const BackchannelAuthenticationIssueResponseAction$inboundSchema:
     .nativeEnum(BackchannelAuthenticationIssueResponseAction);
 
 /** @internal */
-export const BackchannelAuthenticationIssueResponseAction$outboundSchema:
-  z.ZodNativeEnum<typeof BackchannelAuthenticationIssueResponseAction> =
-    BackchannelAuthenticationIssueResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BackchannelAuthenticationIssueResponseAction$ {
-  /** @deprecated use `BackchannelAuthenticationIssueResponseAction$inboundSchema` instead. */
-  export const inboundSchema =
-    BackchannelAuthenticationIssueResponseAction$inboundSchema;
-  /** @deprecated use `BackchannelAuthenticationIssueResponseAction$outboundSchema` instead. */
-  export const outboundSchema =
-    BackchannelAuthenticationIssueResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const BackchannelAuthenticationIssueResponse$inboundSchema: z.ZodType<
   BackchannelAuthenticationIssueResponse,
   z.ZodTypeDef,
@@ -101,59 +83,6 @@ export const BackchannelAuthenticationIssueResponse$inboundSchema: z.ZodType<
   expiresIn: z.number().int().optional(),
   interval: z.number().int().optional(),
 });
-
-/** @internal */
-export type BackchannelAuthenticationIssueResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-  authReqId?: string | undefined;
-  expiresIn?: number | undefined;
-  interval?: number | undefined;
-};
-
-/** @internal */
-export const BackchannelAuthenticationIssueResponse$outboundSchema: z.ZodType<
-  BackchannelAuthenticationIssueResponse$Outbound,
-  z.ZodTypeDef,
-  BackchannelAuthenticationIssueResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: BackchannelAuthenticationIssueResponseAction$outboundSchema
-    .optional(),
-  responseContent: z.string().optional(),
-  authReqId: z.string().optional(),
-  expiresIn: z.number().int().optional(),
-  interval: z.number().int().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BackchannelAuthenticationIssueResponse$ {
-  /** @deprecated use `BackchannelAuthenticationIssueResponse$inboundSchema` instead. */
-  export const inboundSchema =
-    BackchannelAuthenticationIssueResponse$inboundSchema;
-  /** @deprecated use `BackchannelAuthenticationIssueResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    BackchannelAuthenticationIssueResponse$outboundSchema;
-  /** @deprecated use `BackchannelAuthenticationIssueResponse$Outbound` instead. */
-  export type Outbound = BackchannelAuthenticationIssueResponse$Outbound;
-}
-
-export function backchannelAuthenticationIssueResponseToJSON(
-  backchannelAuthenticationIssueResponse:
-    BackchannelAuthenticationIssueResponse,
-): string {
-  return JSON.stringify(
-    BackchannelAuthenticationIssueResponse$outboundSchema.parse(
-      backchannelAuthenticationIssueResponse,
-    ),
-  );
-}
 
 export function backchannelAuthenticationIssueResponseFromJSON(
   jsonString: string,

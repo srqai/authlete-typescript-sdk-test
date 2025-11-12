@@ -32,18 +32,6 @@ export type SubjectType = ClosedEnum<typeof SubjectType>;
 /** @internal */
 export const SubjectType$inboundSchema: z.ZodNativeEnum<typeof SubjectType> = z
   .nativeEnum(SubjectType);
-
 /** @internal */
 export const SubjectType$outboundSchema: z.ZodNativeEnum<typeof SubjectType> =
   SubjectType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubjectType$ {
-  /** @deprecated use `SubjectType$inboundSchema` instead. */
-  export const inboundSchema = SubjectType$inboundSchema;
-  /** @deprecated use `SubjectType$outboundSchema` instead. */
-  export const outboundSchema = SubjectType$outboundSchema;
-}

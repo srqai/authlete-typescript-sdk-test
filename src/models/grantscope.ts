@@ -32,39 +32,6 @@ export const GrantScope$inboundSchema: z.ZodType<
   resource: z.array(z.string()).optional(),
 });
 
-/** @internal */
-export type GrantScope$Outbound = {
-  scope?: string | undefined;
-  resource?: Array<string> | undefined;
-};
-
-/** @internal */
-export const GrantScope$outboundSchema: z.ZodType<
-  GrantScope$Outbound,
-  z.ZodTypeDef,
-  GrantScope
-> = z.object({
-  scope: z.string().optional(),
-  resource: z.array(z.string()).optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GrantScope$ {
-  /** @deprecated use `GrantScope$inboundSchema` instead. */
-  export const inboundSchema = GrantScope$inboundSchema;
-  /** @deprecated use `GrantScope$outboundSchema` instead. */
-  export const outboundSchema = GrantScope$outboundSchema;
-  /** @deprecated use `GrantScope$Outbound` instead. */
-  export type Outbound = GrantScope$Outbound;
-}
-
-export function grantScopeToJSON(grantScope: GrantScope): string {
-  return JSON.stringify(GrantScope$outboundSchema.parse(grantScope));
-}
-
 export function grantScopeFromJSON(
   jsonString: string,
 ): SafeParseResult<GrantScope, SDKValidationError> {

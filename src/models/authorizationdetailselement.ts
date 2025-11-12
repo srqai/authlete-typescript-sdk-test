@@ -92,7 +92,6 @@ export const AuthorizationDetailsElement$inboundSchema: z.ZodType<
   privileges: z.array(z.string()).optional(),
   otherFields: z.string().optional(),
 });
-
 /** @internal */
 export type AuthorizationDetailsElement$Outbound = {
   type: string;
@@ -119,19 +118,6 @@ export const AuthorizationDetailsElement$outboundSchema: z.ZodType<
   otherFields: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthorizationDetailsElement$ {
-  /** @deprecated use `AuthorizationDetailsElement$inboundSchema` instead. */
-  export const inboundSchema = AuthorizationDetailsElement$inboundSchema;
-  /** @deprecated use `AuthorizationDetailsElement$outboundSchema` instead. */
-  export const outboundSchema = AuthorizationDetailsElement$outboundSchema;
-  /** @deprecated use `AuthorizationDetailsElement$Outbound` instead. */
-  export type Outbound = AuthorizationDetailsElement$Outbound;
-}
-
 export function authorizationDetailsElementToJSON(
   authorizationDetailsElement: AuthorizationDetailsElement,
 ): string {
@@ -141,7 +127,6 @@ export function authorizationDetailsElementToJSON(
     ),
   );
 }
-
 export function authorizationDetailsElementFromJSON(
   jsonString: string,
 ): SafeParseResult<AuthorizationDetailsElement, SDKValidationError> {

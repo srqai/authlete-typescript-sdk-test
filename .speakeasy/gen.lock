@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 6bef56a0-baee-4c65-b71e-495533b2af98
 management:
-  docChecksum: a443faf7dd75e2573b740cdc17558f79
+  docChecksum: 20a445d6e1ecc738d17abc30d63ded7e
   docVersion: 3.0.15
-  speakeasyVersion: 1.645.2
-  generationVersion: 2.735.1
-  releaseVersion: 0.8.0
-  configChecksum: 3075a6d8e427ea4b2addab9afabcd159
+  speakeasyVersion: 1.654.0
+  generationVersion: 2.750.0
+  releaseVersion: 0.9.0
+  configChecksum: 0edba6d21eaf1311800f7c44f583ee69
   repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
   installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.24.2
+    core: 3.26.5
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -142,9 +142,12 @@ generatedFiles:
   - docs/models/introspectionrequest.md
   - docs/models/introspectionresponse.md
   - docs/models/introspectionresponseaction.md
+  - docs/models/joseverifyrequest.md
+  - docs/models/joseverifyresponse.md
   - docs/models/jwealg.md
   - docs/models/jweenc.md
   - docs/models/jwsalg.md
+  - docs/models/key.md
   - docs/models/nameduri.md
   - docs/models/nativessologoutrequest.md
   - docs/models/nativessologoutresponse.md
@@ -208,6 +211,7 @@ generatedFiles:
   - docs/models/operations/hskgetapirequest.md
   - docs/models/operations/hskgetlistapirequest.md
   - docs/models/operations/idtokenreissueapirequest.md
+  - docs/models/operations/joseverifyapirequest.md
   - docs/models/operations/nativessoapirequest.md
   - docs/models/operations/nativessologoutapirequest.md
   - docs/models/operations/pushedauthreqapirequest.md
@@ -216,6 +220,7 @@ generatedFiles:
   - docs/models/operations/servicedeleteapirequest.md
   - docs/models/operations/servicegetapirequest.md
   - docs/models/operations/servicegetlistapirequest.md
+  - docs/models/operations/servicejwksgetapirequest.md
   - docs/models/operations/serviceupdateapirequest.md
   - docs/models/operations/updateauthorizationticketrequest.md
   - docs/models/operations/vcibatchissueapirequest.md
@@ -246,6 +251,7 @@ generatedFiles:
   - docs/models/service.md
   - docs/models/servicegetlistresponse.md
   - docs/models/serviceinput.md
+  - docs/models/servicejwksgetresponse.md
   - docs/models/serviceprofile.md
   - docs/models/standardintrospectionrequest.md
   - docs/models/standardintrospectionresponse.md
@@ -326,6 +332,8 @@ generatedFiles:
   - docs/sdks/grantmanagement/README.md
   - docs/sdks/hardwaresecuritykeys/README.md
   - docs/sdks/introspection/README.md
+  - docs/sdks/joseobject/README.md
+  - docs/sdks/jwksetendpoint/README.md
   - docs/sdks/nativesso/README.md
   - docs/sdks/pushedauthorization/README.md
   - docs/sdks/revocation/README.md
@@ -382,6 +390,8 @@ generatedFiles:
   - src/funcs/hardwareSecurityKeysList.ts
   - src/funcs/introspectionProcess.ts
   - src/funcs/introspectionStandardProcess.ts
+  - src/funcs/joseObjectJoseVerifyApi.ts
+  - src/funcs/jwkSetEndpointServiceJwksGetApi.ts
   - src/funcs/nativeSsoLogout.ts
   - src/funcs/nativeSsoProcess.ts
   - src/funcs/pushedAuthorizationCreate.ts
@@ -519,6 +529,8 @@ generatedFiles:
   - src/models/index.ts
   - src/models/introspectionrequest.ts
   - src/models/introspectionresponse.ts
+  - src/models/joseverifyrequest.ts
+  - src/models/joseverifyresponse.ts
   - src/models/jwealg.ts
   - src/models/jweenc.ts
   - src/models/jwsalg.ts
@@ -579,6 +591,7 @@ generatedFiles:
   - src/models/operations/hskgetlistapi.ts
   - src/models/operations/idtokenreissueapi.ts
   - src/models/operations/index.ts
+  - src/models/operations/joseverifyapi.ts
   - src/models/operations/nativessoapi.ts
   - src/models/operations/nativessologoutapi.ts
   - src/models/operations/pushedauthreqapi.ts
@@ -586,6 +599,7 @@ generatedFiles:
   - src/models/operations/servicedeleteapi.ts
   - src/models/operations/servicegetapi.ts
   - src/models/operations/servicegetlistapi.ts
+  - src/models/operations/servicejwksgetapi.ts
   - src/models/operations/serviceupdateapi.ts
   - src/models/operations/updateauthorizationticket.ts
   - src/models/operations/vcibatchissueapi.ts
@@ -612,6 +626,7 @@ generatedFiles:
   - src/models/service.ts
   - src/models/servicegetlistresponse.ts
   - src/models/serviceinput.ts
+  - src/models/servicejwksgetresponse.ts
   - src/models/serviceprofile.ts
   - src/models/standardintrospectionrequest.ts
   - src/models/standardintrospectionresponse.ts
@@ -673,6 +688,8 @@ generatedFiles:
   - src/sdk/hardwaresecuritykeys.ts
   - src/sdk/index.ts
   - src/sdk/introspection.ts
+  - src/sdk/joseobject.ts
+  - src/sdk/jwksetendpoint.ts
   - src/sdk/nativesso.ts
   - src/sdk/pushedauthorization.ts
   - src/sdk/revocation.ts
@@ -1794,21 +1811,5 @@ examples:
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes Detected:
-  * `authlete.service.getConfiguration()`: **Added**
-  * `authlete.introspection.standardProcess()`: **Added**
-  * `authlete.verifiableCredentials.getMetadata()`: **Added**
-  * `authlete.verifiableCredentials.getJwtIssuer()`: **Added**
-  * `authlete.verifiableCredentials.getJwks()`: **Added**
-  * `authlete.verifiableCredentials.batchParse()`: **Added**
-  * `authlete.verifiableCredentials.batchIssue()`: **Added**
-  * `authlete.verifiableCredentials.deferredParse()`: **Added**
-  * `authlete.verifiableCredentials.deferredIssue()`: **Added**
-  * `authlete.service.management.getConfiguration()`: **Deleted** **Breaking** :warning:
-  * `authlete.introspection.management.standardProcess()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.management.getMetadata()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.management.getJwtIssuer()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.management.getJwks()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.management.batchParse()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.management.batchIssue()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.management.deferredParse()`: **Deleted** **Breaking** :warning:
-  * `authlete.verifiableCredentials.management.deferredIssue()`: **Deleted** **Breaking** :warning:
+  * `authlete.jwkSetEndpoint.serviceJwksGetApi()`: **Added**
+  * `authlete.joseObject.joseVerifyApi()`: **Added**

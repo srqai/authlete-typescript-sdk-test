@@ -28,43 +28,6 @@ export const ClientFlagUpdateResponse$inboundSchema: z.ZodType<
   resultMessage: z.string(),
 });
 
-/** @internal */
-export type ClientFlagUpdateResponse$Outbound = {
-  resultCode: string;
-  resultMessage: string;
-};
-
-/** @internal */
-export const ClientFlagUpdateResponse$outboundSchema: z.ZodType<
-  ClientFlagUpdateResponse$Outbound,
-  z.ZodTypeDef,
-  ClientFlagUpdateResponse
-> = z.object({
-  resultCode: z.string(),
-  resultMessage: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientFlagUpdateResponse$ {
-  /** @deprecated use `ClientFlagUpdateResponse$inboundSchema` instead. */
-  export const inboundSchema = ClientFlagUpdateResponse$inboundSchema;
-  /** @deprecated use `ClientFlagUpdateResponse$outboundSchema` instead. */
-  export const outboundSchema = ClientFlagUpdateResponse$outboundSchema;
-  /** @deprecated use `ClientFlagUpdateResponse$Outbound` instead. */
-  export type Outbound = ClientFlagUpdateResponse$Outbound;
-}
-
-export function clientFlagUpdateResponseToJSON(
-  clientFlagUpdateResponse: ClientFlagUpdateResponse,
-): string {
-  return JSON.stringify(
-    ClientFlagUpdateResponse$outboundSchema.parse(clientFlagUpdateResponse),
-  );
-}
-
 export function clientFlagUpdateResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<ClientFlagUpdateResponse, SDKValidationError> {

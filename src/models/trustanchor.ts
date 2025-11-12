@@ -31,7 +31,6 @@ export const TrustAnchor$inboundSchema: z.ZodType<
   entityId: z.string().optional(),
   jwks: z.string().optional(),
 });
-
 /** @internal */
 export type TrustAnchor$Outbound = {
   entityId?: string | undefined;
@@ -48,23 +47,9 @@ export const TrustAnchor$outboundSchema: z.ZodType<
   jwks: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TrustAnchor$ {
-  /** @deprecated use `TrustAnchor$inboundSchema` instead. */
-  export const inboundSchema = TrustAnchor$inboundSchema;
-  /** @deprecated use `TrustAnchor$outboundSchema` instead. */
-  export const outboundSchema = TrustAnchor$outboundSchema;
-  /** @deprecated use `TrustAnchor$Outbound` instead. */
-  export type Outbound = TrustAnchor$Outbound;
-}
-
 export function trustAnchorToJSON(trustAnchor: TrustAnchor): string {
   return JSON.stringify(TrustAnchor$outboundSchema.parse(trustAnchor));
 }
-
 export function trustAnchorFromJSON(
   jsonString: string,
 ): SafeParseResult<TrustAnchor, SDKValidationError> {

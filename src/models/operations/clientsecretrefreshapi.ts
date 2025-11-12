@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ClientSecretRefreshApiRequest = {
   /**
@@ -19,16 +16,6 @@ export type ClientSecretRefreshApiRequest = {
    */
   clientIdentifier: string;
 };
-
-/** @internal */
-export const ClientSecretRefreshApiRequest$inboundSchema: z.ZodType<
-  ClientSecretRefreshApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  clientIdentifier: z.string(),
-});
 
 /** @internal */
 export type ClientSecretRefreshApiRequest$Outbound = {
@@ -46,19 +33,6 @@ export const ClientSecretRefreshApiRequest$outboundSchema: z.ZodType<
   clientIdentifier: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientSecretRefreshApiRequest$ {
-  /** @deprecated use `ClientSecretRefreshApiRequest$inboundSchema` instead. */
-  export const inboundSchema = ClientSecretRefreshApiRequest$inboundSchema;
-  /** @deprecated use `ClientSecretRefreshApiRequest$outboundSchema` instead. */
-  export const outboundSchema = ClientSecretRefreshApiRequest$outboundSchema;
-  /** @deprecated use `ClientSecretRefreshApiRequest$Outbound` instead. */
-  export type Outbound = ClientSecretRefreshApiRequest$Outbound;
-}
-
 export function clientSecretRefreshApiRequestToJSON(
   clientSecretRefreshApiRequest: ClientSecretRefreshApiRequest,
 ): string {
@@ -66,15 +40,5 @@ export function clientSecretRefreshApiRequestToJSON(
     ClientSecretRefreshApiRequest$outboundSchema.parse(
       clientSecretRefreshApiRequest,
     ),
-  );
-}
-
-export function clientSecretRefreshApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientSecretRefreshApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ClientSecretRefreshApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientSecretRefreshApiRequest' from JSON`,
   );
 }

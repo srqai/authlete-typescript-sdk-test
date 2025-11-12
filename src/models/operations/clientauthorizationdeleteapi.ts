@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ClientAuthorizationDeleteApiRequest = {
   /**
@@ -33,18 +30,6 @@ export type ClientAuthorizationDeleteApiRequest = {
 };
 
 /** @internal */
-export const ClientAuthorizationDeleteApiRequest$inboundSchema: z.ZodType<
-  ClientAuthorizationDeleteApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  clientId: z.string(),
-  subjectPathParameter: z.string(),
-  subjectQueryParameter: z.string(),
-});
-
-/** @internal */
 export type ClientAuthorizationDeleteApiRequest$Outbound = {
   serviceId: string;
   clientId: string;
@@ -64,21 +49,6 @@ export const ClientAuthorizationDeleteApiRequest$outboundSchema: z.ZodType<
   subjectQueryParameter: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientAuthorizationDeleteApiRequest$ {
-  /** @deprecated use `ClientAuthorizationDeleteApiRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ClientAuthorizationDeleteApiRequest$inboundSchema;
-  /** @deprecated use `ClientAuthorizationDeleteApiRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ClientAuthorizationDeleteApiRequest$outboundSchema;
-  /** @deprecated use `ClientAuthorizationDeleteApiRequest$Outbound` instead. */
-  export type Outbound = ClientAuthorizationDeleteApiRequest$Outbound;
-}
-
 export function clientAuthorizationDeleteApiRequestToJSON(
   clientAuthorizationDeleteApiRequest: ClientAuthorizationDeleteApiRequest,
 ): string {
@@ -86,16 +56,5 @@ export function clientAuthorizationDeleteApiRequestToJSON(
     ClientAuthorizationDeleteApiRequest$outboundSchema.parse(
       clientAuthorizationDeleteApiRequest,
     ),
-  );
-}
-
-export function clientAuthorizationDeleteApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientAuthorizationDeleteApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      ClientAuthorizationDeleteApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientAuthorizationDeleteApiRequest' from JSON`,
   );
 }

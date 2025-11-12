@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type AuthRevocationApiRequest = {
@@ -16,20 +13,6 @@ export type AuthRevocationApiRequest = {
   serviceId: string;
   revocationRequest: models.RevocationRequest;
 };
-
-/** @internal */
-export const AuthRevocationApiRequest$inboundSchema: z.ZodType<
-  AuthRevocationApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  revocation_request: models.RevocationRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "revocation_request": "revocationRequest",
-  });
-});
 
 /** @internal */
 export type AuthRevocationApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const AuthRevocationApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthRevocationApiRequest$ {
-  /** @deprecated use `AuthRevocationApiRequest$inboundSchema` instead. */
-  export const inboundSchema = AuthRevocationApiRequest$inboundSchema;
-  /** @deprecated use `AuthRevocationApiRequest$outboundSchema` instead. */
-  export const outboundSchema = AuthRevocationApiRequest$outboundSchema;
-  /** @deprecated use `AuthRevocationApiRequest$Outbound` instead. */
-  export type Outbound = AuthRevocationApiRequest$Outbound;
-}
-
 export function authRevocationApiRequestToJSON(
   authRevocationApiRequest: AuthRevocationApiRequest,
 ): string {
   return JSON.stringify(
     AuthRevocationApiRequest$outboundSchema.parse(authRevocationApiRequest),
-  );
-}
-
-export function authRevocationApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<AuthRevocationApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AuthRevocationApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AuthRevocationApiRequest' from JSON`,
   );
 }

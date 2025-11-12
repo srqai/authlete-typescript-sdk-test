@@ -33,45 +33,6 @@ export const TokenRevokeResponse$inboundSchema: z.ZodType<
   count: z.number().int().optional(),
 });
 
-/** @internal */
-export type TokenRevokeResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  count?: number | undefined;
-};
-
-/** @internal */
-export const TokenRevokeResponse$outboundSchema: z.ZodType<
-  TokenRevokeResponse$Outbound,
-  z.ZodTypeDef,
-  TokenRevokeResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  count: z.number().int().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenRevokeResponse$ {
-  /** @deprecated use `TokenRevokeResponse$inboundSchema` instead. */
-  export const inboundSchema = TokenRevokeResponse$inboundSchema;
-  /** @deprecated use `TokenRevokeResponse$outboundSchema` instead. */
-  export const outboundSchema = TokenRevokeResponse$outboundSchema;
-  /** @deprecated use `TokenRevokeResponse$Outbound` instead. */
-  export type Outbound = TokenRevokeResponse$Outbound;
-}
-
-export function tokenRevokeResponseToJSON(
-  tokenRevokeResponse: TokenRevokeResponse,
-): string {
-  return JSON.stringify(
-    TokenRevokeResponse$outboundSchema.parse(tokenRevokeResponse),
-  );
-}
-
 export function tokenRevokeResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<TokenRevokeResponse, SDKValidationError> {

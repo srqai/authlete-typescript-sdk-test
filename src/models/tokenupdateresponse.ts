@@ -6,19 +6,9 @@ import * as z from "zod/v3";
 import { safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
-import {
-  AuthzDetails,
-  AuthzDetails$inboundSchema,
-  AuthzDetails$Outbound,
-  AuthzDetails$outboundSchema,
-} from "./authzdetails.js";
+import { AuthzDetails, AuthzDetails$inboundSchema } from "./authzdetails.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Property,
-  Property$inboundSchema,
-  Property$Outbound,
-  Property$outboundSchema,
-} from "./property.js";
+import { Property, Property$inboundSchema } from "./property.js";
 
 /**
  * The next action that the authorization server implementation should take.
@@ -114,22 +104,6 @@ export const TokenUpdateResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(TokenUpdateResponseAction);
 
 /** @internal */
-export const TokenUpdateResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof TokenUpdateResponseAction
-> = TokenUpdateResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenUpdateResponseAction$ {
-  /** @deprecated use `TokenUpdateResponseAction$inboundSchema` instead. */
-  export const inboundSchema = TokenUpdateResponseAction$inboundSchema;
-  /** @deprecated use `TokenUpdateResponseAction$outboundSchema` instead. */
-  export const outboundSchema = TokenUpdateResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const TokenUpdateResponse$inboundSchema: z.ZodType<
   TokenUpdateResponse,
   z.ZodTypeDef,
@@ -148,63 +122,6 @@ export const TokenUpdateResponse$inboundSchema: z.ZodType<
   tokenId: z.string().optional(),
   refreshTokenExpiresAt: z.number().int().optional(),
 });
-
-/** @internal */
-export type TokenUpdateResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  accessToken?: string | undefined;
-  accessTokenExpiresAt?: number | undefined;
-  properties?: Array<Property$Outbound> | undefined;
-  scopes?: Array<string> | undefined;
-  authorizationDetails?: AuthzDetails$Outbound | undefined;
-  tokenType?: string | undefined;
-  forExternalAttachment?: boolean | undefined;
-  tokenId?: string | undefined;
-  refreshTokenExpiresAt?: number | undefined;
-};
-
-/** @internal */
-export const TokenUpdateResponse$outboundSchema: z.ZodType<
-  TokenUpdateResponse$Outbound,
-  z.ZodTypeDef,
-  TokenUpdateResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: TokenUpdateResponseAction$outboundSchema.optional(),
-  accessToken: z.string().optional(),
-  accessTokenExpiresAt: z.number().int().optional(),
-  properties: z.array(Property$outboundSchema).optional(),
-  scopes: z.array(z.string()).optional(),
-  authorizationDetails: AuthzDetails$outboundSchema.optional(),
-  tokenType: z.string().optional(),
-  forExternalAttachment: z.boolean().optional(),
-  tokenId: z.string().optional(),
-  refreshTokenExpiresAt: z.number().int().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenUpdateResponse$ {
-  /** @deprecated use `TokenUpdateResponse$inboundSchema` instead. */
-  export const inboundSchema = TokenUpdateResponse$inboundSchema;
-  /** @deprecated use `TokenUpdateResponse$outboundSchema` instead. */
-  export const outboundSchema = TokenUpdateResponse$outboundSchema;
-  /** @deprecated use `TokenUpdateResponse$Outbound` instead. */
-  export type Outbound = TokenUpdateResponse$Outbound;
-}
-
-export function tokenUpdateResponseToJSON(
-  tokenUpdateResponse: TokenUpdateResponse,
-): string {
-  return JSON.stringify(
-    TokenUpdateResponse$outboundSchema.parse(tokenUpdateResponse),
-  );
-}
 
 export function tokenUpdateResponseFromJSON(
   jsonString: string,

@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type ClientAuthorizationUpdateApiRequest = {
@@ -24,22 +21,6 @@ export type ClientAuthorizationUpdateApiRequest = {
     | models.ClientAuthorizationUpdateRequest
     | undefined;
 };
-
-/** @internal */
-export const ClientAuthorizationUpdateApiRequest$inboundSchema: z.ZodType<
-  ClientAuthorizationUpdateApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  clientId: z.string(),
-  client_authorization_update_request: models
-    .ClientAuthorizationUpdateRequest$inboundSchema.optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "client_authorization_update_request": "clientAuthorizationUpdateRequest",
-  });
-});
 
 /** @internal */
 export type ClientAuthorizationUpdateApiRequest$Outbound = {
@@ -66,21 +47,6 @@ export const ClientAuthorizationUpdateApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientAuthorizationUpdateApiRequest$ {
-  /** @deprecated use `ClientAuthorizationUpdateApiRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ClientAuthorizationUpdateApiRequest$inboundSchema;
-  /** @deprecated use `ClientAuthorizationUpdateApiRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ClientAuthorizationUpdateApiRequest$outboundSchema;
-  /** @deprecated use `ClientAuthorizationUpdateApiRequest$Outbound` instead. */
-  export type Outbound = ClientAuthorizationUpdateApiRequest$Outbound;
-}
-
 export function clientAuthorizationUpdateApiRequestToJSON(
   clientAuthorizationUpdateApiRequest: ClientAuthorizationUpdateApiRequest,
 ): string {
@@ -88,16 +54,5 @@ export function clientAuthorizationUpdateApiRequestToJSON(
     ClientAuthorizationUpdateApiRequest$outboundSchema.parse(
       clientAuthorizationUpdateApiRequest,
     ),
-  );
-}
-
-export function clientAuthorizationUpdateApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientAuthorizationUpdateApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      ClientAuthorizationUpdateApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientAuthorizationUpdateApiRequest' from JSON`,
   );
 }

@@ -34,19 +34,7 @@ export type ClientAuthMethod = ClosedEnum<typeof ClientAuthMethod>;
 export const ClientAuthMethod$inboundSchema: z.ZodNativeEnum<
   typeof ClientAuthMethod
 > = z.nativeEnum(ClientAuthMethod);
-
 /** @internal */
 export const ClientAuthMethod$outboundSchema: z.ZodNativeEnum<
   typeof ClientAuthMethod
 > = ClientAuthMethod$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientAuthMethod$ {
-  /** @deprecated use `ClientAuthMethod$inboundSchema` instead. */
-  export const inboundSchema = ClientAuthMethod$inboundSchema;
-  /** @deprecated use `ClientAuthMethod$outboundSchema` instead. */
-  export const outboundSchema = ClientAuthMethod$outboundSchema;
-}

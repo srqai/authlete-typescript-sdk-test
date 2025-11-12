@@ -52,24 +52,6 @@ export const FederationConfigurationResponseAction$inboundSchema:
   );
 
 /** @internal */
-export const FederationConfigurationResponseAction$outboundSchema:
-  z.ZodNativeEnum<typeof FederationConfigurationResponseAction> =
-    FederationConfigurationResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FederationConfigurationResponseAction$ {
-  /** @deprecated use `FederationConfigurationResponseAction$inboundSchema` instead. */
-  export const inboundSchema =
-    FederationConfigurationResponseAction$inboundSchema;
-  /** @deprecated use `FederationConfigurationResponseAction$outboundSchema` instead. */
-  export const outboundSchema =
-    FederationConfigurationResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const FederationConfigurationResponse$inboundSchema: z.ZodType<
   FederationConfigurationResponse,
   z.ZodTypeDef,
@@ -80,49 +62,6 @@ export const FederationConfigurationResponse$inboundSchema: z.ZodType<
   action: FederationConfigurationResponseAction$inboundSchema.optional(),
   responseContent: z.string().optional(),
 });
-
-/** @internal */
-export type FederationConfigurationResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-};
-
-/** @internal */
-export const FederationConfigurationResponse$outboundSchema: z.ZodType<
-  FederationConfigurationResponse$Outbound,
-  z.ZodTypeDef,
-  FederationConfigurationResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: FederationConfigurationResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FederationConfigurationResponse$ {
-  /** @deprecated use `FederationConfigurationResponse$inboundSchema` instead. */
-  export const inboundSchema = FederationConfigurationResponse$inboundSchema;
-  /** @deprecated use `FederationConfigurationResponse$outboundSchema` instead. */
-  export const outboundSchema = FederationConfigurationResponse$outboundSchema;
-  /** @deprecated use `FederationConfigurationResponse$Outbound` instead. */
-  export type Outbound = FederationConfigurationResponse$Outbound;
-}
-
-export function federationConfigurationResponseToJSON(
-  federationConfigurationResponse: FederationConfigurationResponse,
-): string {
-  return JSON.stringify(
-    FederationConfigurationResponse$outboundSchema.parse(
-      federationConfigurationResponse,
-    ),
-  );
-}
 
 export function federationConfigurationResponseFromJSON(
   jsonString: string,

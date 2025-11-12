@@ -61,22 +61,6 @@ export const VciDeferredIssueResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(VciDeferredIssueResponseAction);
 
 /** @internal */
-export const VciDeferredIssueResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof VciDeferredIssueResponseAction
-> = VciDeferredIssueResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciDeferredIssueResponseAction$ {
-  /** @deprecated use `VciDeferredIssueResponseAction$inboundSchema` instead. */
-  export const inboundSchema = VciDeferredIssueResponseAction$inboundSchema;
-  /** @deprecated use `VciDeferredIssueResponseAction$outboundSchema` instead. */
-  export const outboundSchema = VciDeferredIssueResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const VciDeferredIssueResponse$inboundSchema: z.ZodType<
   VciDeferredIssueResponse,
   z.ZodTypeDef,
@@ -87,47 +71,6 @@ export const VciDeferredIssueResponse$inboundSchema: z.ZodType<
   action: VciDeferredIssueResponseAction$inboundSchema.optional(),
   responseContent: z.string().optional(),
 });
-
-/** @internal */
-export type VciDeferredIssueResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-};
-
-/** @internal */
-export const VciDeferredIssueResponse$outboundSchema: z.ZodType<
-  VciDeferredIssueResponse$Outbound,
-  z.ZodTypeDef,
-  VciDeferredIssueResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: VciDeferredIssueResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciDeferredIssueResponse$ {
-  /** @deprecated use `VciDeferredIssueResponse$inboundSchema` instead. */
-  export const inboundSchema = VciDeferredIssueResponse$inboundSchema;
-  /** @deprecated use `VciDeferredIssueResponse$outboundSchema` instead. */
-  export const outboundSchema = VciDeferredIssueResponse$outboundSchema;
-  /** @deprecated use `VciDeferredIssueResponse$Outbound` instead. */
-  export type Outbound = VciDeferredIssueResponse$Outbound;
-}
-
-export function vciDeferredIssueResponseToJSON(
-  vciDeferredIssueResponse: VciDeferredIssueResponse,
-): string {
-  return JSON.stringify(
-    VciDeferredIssueResponse$outboundSchema.parse(vciDeferredIssueResponse),
-  );
-}
 
 export function vciDeferredIssueResponseFromJSON(
   jsonString: string,

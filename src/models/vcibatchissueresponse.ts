@@ -62,22 +62,6 @@ export const VciBatchIssueResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(VciBatchIssueResponseAction);
 
 /** @internal */
-export const VciBatchIssueResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof VciBatchIssueResponseAction
-> = VciBatchIssueResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciBatchIssueResponseAction$ {
-  /** @deprecated use `VciBatchIssueResponseAction$inboundSchema` instead. */
-  export const inboundSchema = VciBatchIssueResponseAction$inboundSchema;
-  /** @deprecated use `VciBatchIssueResponseAction$outboundSchema` instead. */
-  export const outboundSchema = VciBatchIssueResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const VciBatchIssueResponse$inboundSchema: z.ZodType<
   VciBatchIssueResponse,
   z.ZodTypeDef,
@@ -88,47 +72,6 @@ export const VciBatchIssueResponse$inboundSchema: z.ZodType<
   action: VciBatchIssueResponseAction$inboundSchema.optional(),
   responseContent: z.string().optional(),
 });
-
-/** @internal */
-export type VciBatchIssueResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-};
-
-/** @internal */
-export const VciBatchIssueResponse$outboundSchema: z.ZodType<
-  VciBatchIssueResponse$Outbound,
-  z.ZodTypeDef,
-  VciBatchIssueResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: VciBatchIssueResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciBatchIssueResponse$ {
-  /** @deprecated use `VciBatchIssueResponse$inboundSchema` instead. */
-  export const inboundSchema = VciBatchIssueResponse$inboundSchema;
-  /** @deprecated use `VciBatchIssueResponse$outboundSchema` instead. */
-  export const outboundSchema = VciBatchIssueResponse$outboundSchema;
-  /** @deprecated use `VciBatchIssueResponse$Outbound` instead. */
-  export type Outbound = VciBatchIssueResponse$Outbound;
-}
-
-export function vciBatchIssueResponseToJSON(
-  vciBatchIssueResponse: VciBatchIssueResponse,
-): string {
-  return JSON.stringify(
-    VciBatchIssueResponse$outboundSchema.parse(vciBatchIssueResponse),
-  );
-}
 
 export function vciBatchIssueResponseFromJSON(
   jsonString: string,

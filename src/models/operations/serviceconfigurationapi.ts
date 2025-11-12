@@ -30,17 +30,6 @@ export type ServiceConfigurationApiRequest = {
 export type ServiceConfigurationApiResponse = {};
 
 /** @internal */
-export const ServiceConfigurationApiRequest$inboundSchema: z.ZodType<
-  ServiceConfigurationApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  pretty: z.boolean().optional(),
-  patch: z.string().optional(),
-});
-
-/** @internal */
 export type ServiceConfigurationApiRequest$Outbound = {
   serviceId: string;
   pretty?: boolean | undefined;
@@ -58,19 +47,6 @@ export const ServiceConfigurationApiRequest$outboundSchema: z.ZodType<
   patch: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceConfigurationApiRequest$ {
-  /** @deprecated use `ServiceConfigurationApiRequest$inboundSchema` instead. */
-  export const inboundSchema = ServiceConfigurationApiRequest$inboundSchema;
-  /** @deprecated use `ServiceConfigurationApiRequest$outboundSchema` instead. */
-  export const outboundSchema = ServiceConfigurationApiRequest$outboundSchema;
-  /** @deprecated use `ServiceConfigurationApiRequest$Outbound` instead. */
-  export type Outbound = ServiceConfigurationApiRequest$Outbound;
-}
-
 export function serviceConfigurationApiRequestToJSON(
   serviceConfigurationApiRequest: ServiceConfigurationApiRequest,
 ): string {
@@ -81,55 +57,12 @@ export function serviceConfigurationApiRequestToJSON(
   );
 }
 
-export function serviceConfigurationApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ServiceConfigurationApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ServiceConfigurationApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ServiceConfigurationApiRequest' from JSON`,
-  );
-}
-
 /** @internal */
 export const ServiceConfigurationApiResponse$inboundSchema: z.ZodType<
   ServiceConfigurationApiResponse,
   z.ZodTypeDef,
   unknown
 > = z.object({});
-
-/** @internal */
-export type ServiceConfigurationApiResponse$Outbound = {};
-
-/** @internal */
-export const ServiceConfigurationApiResponse$outboundSchema: z.ZodType<
-  ServiceConfigurationApiResponse$Outbound,
-  z.ZodTypeDef,
-  ServiceConfigurationApiResponse
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceConfigurationApiResponse$ {
-  /** @deprecated use `ServiceConfigurationApiResponse$inboundSchema` instead. */
-  export const inboundSchema = ServiceConfigurationApiResponse$inboundSchema;
-  /** @deprecated use `ServiceConfigurationApiResponse$outboundSchema` instead. */
-  export const outboundSchema = ServiceConfigurationApiResponse$outboundSchema;
-  /** @deprecated use `ServiceConfigurationApiResponse$Outbound` instead. */
-  export type Outbound = ServiceConfigurationApiResponse$Outbound;
-}
-
-export function serviceConfigurationApiResponseToJSON(
-  serviceConfigurationApiResponse: ServiceConfigurationApiResponse,
-): string {
-  return JSON.stringify(
-    ServiceConfigurationApiResponse$outboundSchema.parse(
-      serviceConfigurationApiResponse,
-    ),
-  );
-}
 
 export function serviceConfigurationApiResponseFromJSON(
   jsonString: string,

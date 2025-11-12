@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type NativeSsoLogoutApiRequest = {
@@ -16,20 +13,6 @@ export type NativeSsoLogoutApiRequest = {
   serviceId: string;
   nativeSsoLogoutRequest: models.NativeSsoLogoutRequest;
 };
-
-/** @internal */
-export const NativeSsoLogoutApiRequest$inboundSchema: z.ZodType<
-  NativeSsoLogoutApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  native_sso_logout_request: models.NativeSsoLogoutRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "native_sso_logout_request": "nativeSsoLogoutRequest",
-  });
-});
 
 /** @internal */
 export type NativeSsoLogoutApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const NativeSsoLogoutApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NativeSsoLogoutApiRequest$ {
-  /** @deprecated use `NativeSsoLogoutApiRequest$inboundSchema` instead. */
-  export const inboundSchema = NativeSsoLogoutApiRequest$inboundSchema;
-  /** @deprecated use `NativeSsoLogoutApiRequest$outboundSchema` instead. */
-  export const outboundSchema = NativeSsoLogoutApiRequest$outboundSchema;
-  /** @deprecated use `NativeSsoLogoutApiRequest$Outbound` instead. */
-  export type Outbound = NativeSsoLogoutApiRequest$Outbound;
-}
-
 export function nativeSsoLogoutApiRequestToJSON(
   nativeSsoLogoutApiRequest: NativeSsoLogoutApiRequest,
 ): string {
   return JSON.stringify(
     NativeSsoLogoutApiRequest$outboundSchema.parse(nativeSsoLogoutApiRequest),
-  );
-}
-
-export function nativeSsoLogoutApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<NativeSsoLogoutApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => NativeSsoLogoutApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'NativeSsoLogoutApiRequest' from JSON`,
   );
 }

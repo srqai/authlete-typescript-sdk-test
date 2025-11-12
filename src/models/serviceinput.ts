@@ -3,113 +3,54 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
 import {
   AttachmentType,
-  AttachmentType$inboundSchema,
   AttachmentType$outboundSchema,
 } from "./attachmenttype.js";
-import {
-  ClaimType,
-  ClaimType$inboundSchema,
-  ClaimType$outboundSchema,
-} from "./claimtype.js";
+import { ClaimType, ClaimType$outboundSchema } from "./claimtype.js";
 import {
   ClientAuthMethod,
-  ClientAuthMethod$inboundSchema,
   ClientAuthMethod$outboundSchema,
 } from "./clientauthmethod.js";
 import {
   ClientRegistrationType,
-  ClientRegistrationType$inboundSchema,
   ClientRegistrationType$outboundSchema,
 } from "./clientregistrationtype.js";
 import {
   CredentialIssuerMetadata,
-  CredentialIssuerMetadata$inboundSchema,
   CredentialIssuerMetadata$Outbound,
   CredentialIssuerMetadata$outboundSchema,
 } from "./credentialissuermetadata.js";
-import {
-  DeliveryMode,
-  DeliveryMode$inboundSchema,
-  DeliveryMode$outboundSchema,
-} from "./deliverymode.js";
-import {
-  Display,
-  Display$inboundSchema,
-  Display$outboundSchema,
-} from "./display.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  FapiMode,
-  FapiMode$inboundSchema,
-  FapiMode$outboundSchema,
-} from "./fapimode.js";
-import {
-  GrantType,
-  GrantType$inboundSchema,
-  GrantType$outboundSchema,
-} from "./granttype.js";
-import {
-  Hsk,
-  Hsk$inboundSchema,
-  Hsk$Outbound,
-  Hsk$outboundSchema,
-} from "./hsk.js";
-import {
-  JwsAlg,
-  JwsAlg$inboundSchema,
-  JwsAlg$outboundSchema,
-} from "./jwsalg.js";
+import { DeliveryMode, DeliveryMode$outboundSchema } from "./deliverymode.js";
+import { Display, Display$outboundSchema } from "./display.js";
+import { FapiMode, FapiMode$outboundSchema } from "./fapimode.js";
+import { GrantType, GrantType$outboundSchema } from "./granttype.js";
+import { Hsk, Hsk$Outbound, Hsk$outboundSchema } from "./hsk.js";
+import { JwsAlg, JwsAlg$outboundSchema } from "./jwsalg.js";
 import {
   NamedUri,
-  NamedUri$inboundSchema,
   NamedUri$Outbound,
   NamedUri$outboundSchema,
 } from "./nameduri.js";
-import {
-  Pair,
-  Pair$inboundSchema,
-  Pair$Outbound,
-  Pair$outboundSchema,
-} from "./pair.js";
-import {
-  Prompt,
-  Prompt$inboundSchema,
-  Prompt$outboundSchema,
-} from "./prompt.js";
-import {
-  ResponseType,
-  ResponseType$inboundSchema,
-  ResponseType$outboundSchema,
-} from "./responsetype.js";
-import {
-  Scope,
-  Scope$inboundSchema,
-  Scope$Outbound,
-  Scope$outboundSchema,
-} from "./scope.js";
+import { Pair, Pair$Outbound, Pair$outboundSchema } from "./pair.js";
+import { Prompt, Prompt$outboundSchema } from "./prompt.js";
+import { ResponseType, ResponseType$outboundSchema } from "./responsetype.js";
+import { Scope, Scope$Outbound, Scope$outboundSchema } from "./scope.js";
 import {
   ServiceProfile,
-  ServiceProfile$inboundSchema,
   ServiceProfile$outboundSchema,
 } from "./serviceprofile.js";
 import {
   TrustAnchor,
-  TrustAnchor$inboundSchema,
   TrustAnchor$Outbound,
   TrustAnchor$outboundSchema,
 } from "./trustanchor.js";
 import {
   UserCodeCharset,
-  UserCodeCharset$inboundSchema,
   UserCodeCharset$outboundSchema,
 } from "./usercodecharset.js";
 import {
   VerifiedClaimsValidationSchema,
-  VerifiedClaimsValidationSchema$inboundSchema,
   VerifiedClaimsValidationSchema$outboundSchema,
 } from "./verifiedclaimsvalidationschema.js";
 
@@ -1714,178 +1655,6 @@ export type ServiceInput = {
 };
 
 /** @internal */
-export const ServiceInput$inboundSchema: z.ZodType<
-  ServiceInput,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceName: z.string().optional(),
-  issuer: z.string().optional(),
-  description: z.string().optional(),
-  clientIdAliasEnabled: z.boolean().optional(),
-  metadata: z.array(Pair$inboundSchema).optional(),
-  authenticationCallbackEndpoint: z.string().optional(),
-  authenticationCallbackApiKey: z.string().optional(),
-  authenticationCallbackApiSecret: z.string().optional(),
-  supportedGrantTypes: z.array(GrantType$inboundSchema).optional(),
-  supportedResponseTypes: z.array(ResponseType$inboundSchema).optional(),
-  supportedAuthorizationDetailsTypes: z.array(z.string()).optional(),
-  supportedServiceProfiles: z.array(ServiceProfile$inboundSchema).optional(),
-  errorDescriptionOmitted: z.boolean().optional(),
-  errorUriOmitted: z.boolean().optional(),
-  authorizationEndpoint: z.string().optional(),
-  directAuthorizationEndpointEnabled: z.boolean().optional(),
-  supportedUiLocales: z.array(z.string()).optional(),
-  supportedDisplays: z.array(Display$inboundSchema).optional(),
-  pkceRequired: z.boolean().optional(),
-  pkceS256Required: z.boolean().optional(),
-  authorizationResponseDuration: z.number().int().optional(),
-  tokenEndpoint: z.string().optional(),
-  directTokenEndpointEnabled: z.boolean().optional(),
-  supportedTokenAuthMethods: z.array(ClientAuthMethod$inboundSchema).optional(),
-  missingClientIdAllowed: z.boolean().optional(),
-  revocationEndpoint: z.string().optional(),
-  directRevocationEndpointEnabled: z.boolean().optional(),
-  supportedRevocationAuthMethods: z.array(ClientAuthMethod$inboundSchema)
-    .optional(),
-  introspectionEndpoint: z.string().optional(),
-  directIntrospectionEndpointEnabled: z.boolean().optional(),
-  supportedIntrospectionAuthMethods: z.array(ClientAuthMethod$inboundSchema)
-    .optional(),
-  pushedAuthReqEndpoint: z.string().optional(),
-  pushedAuthReqDuration: z.number().int().optional(),
-  parRequired: z.boolean().optional(),
-  requestObjectRequired: z.boolean().optional(),
-  traditionalRequestObjectProcessingApplied: z.boolean().optional(),
-  mutualTlsValidatePkiCertChain: z.boolean().optional(),
-  trustedRootCertificates: z.array(z.string()).optional(),
-  mtlsEndpointAliases: z.array(NamedUri$inboundSchema).optional(),
-  accessTokenType: z.string().optional(),
-  tlsClientCertificateBoundAccessTokens: z.boolean().optional(),
-  accessTokenDuration: z.number().int().optional(),
-  singleAccessTokenPerSubject: z.boolean().optional(),
-  accessTokenSignAlg: JwsAlg$inboundSchema.optional(),
-  accessTokenSignatureKeyId: z.string().optional(),
-  refreshTokenDuration: z.number().int().optional(),
-  refreshTokenDurationKept: z.boolean().optional(),
-  refreshTokenDurationReset: z.boolean().optional(),
-  refreshTokenKept: z.boolean().optional(),
-  supportedScopes: z.array(Scope$inboundSchema).optional(),
-  scopeRequired: z.boolean().optional(),
-  idTokenDuration: z.number().int().optional(),
-  allowableClockSkew: z.number().int().optional(),
-  supportedClaimTypes: z.array(ClaimType$inboundSchema).optional(),
-  supportedClaimLocales: z.array(z.string()).optional(),
-  supportedClaims: z.array(z.string()).optional(),
-  claimShortcutRestrictive: z.boolean().optional(),
-  jwksUri: z.string().optional(),
-  directJwksEndpointEnabled: z.boolean().optional(),
-  jwks: z.string().optional(),
-  idTokenSignatureKeyId: z.string().optional(),
-  userInfoSignatureKeyId: z.string().optional(),
-  authorizationSignatureKeyId: z.string().optional(),
-  userInfoEndpoint: z.string().optional(),
-  directUserInfoEndpointEnabled: z.boolean().optional(),
-  dynamicRegistrationSupported: z.boolean().optional(),
-  registrationEndpoint: z.string().optional(),
-  registrationManagementEndpoint: z.string().optional(),
-  policyUri: z.string().optional(),
-  tosUri: z.string().optional(),
-  serviceDocumentation: z.string().optional(),
-  backchannelAuthenticationEndpoint: z.string().optional(),
-  supportedBackchannelTokenDeliveryModes: z.array(DeliveryMode$inboundSchema)
-    .optional(),
-  backchannelAuthReqIdDuration: z.number().int().optional(),
-  backchannelPollingInterval: z.number().int().optional(),
-  backchannelUserCodeParameterSupported: z.boolean().optional(),
-  backchannelBindingMessageRequiredInFapi: z.boolean().optional(),
-  deviceAuthorizationEndpoint: z.string().optional(),
-  deviceVerificationUri: z.string().optional(),
-  deviceVerificationUriComplete: z.string().optional(),
-  deviceFlowCodeDuration: z.number().int().optional(),
-  deviceFlowPollingInterval: z.number().int().optional(),
-  userCodeCharset: UserCodeCharset$inboundSchema.optional(),
-  userCodeLength: z.number().int().optional(),
-  supportedTrustFrameworks: z.array(z.string()).optional(),
-  supportedEvidence: z.array(z.string()).optional(),
-  supportedIdentityDocuments: z.array(z.string()).optional(),
-  supportedVerificationMethods: z.array(z.string()).optional(),
-  supportedVerifiedClaims: z.array(z.string()).optional(),
-  verifiedClaimsValidationSchemaSet:
-    VerifiedClaimsValidationSchema$inboundSchema.optional(),
-  attributes: z.array(Pair$inboundSchema).optional(),
-  nbfOptional: z.boolean().optional(),
-  issSuppressed: z.boolean().optional(),
-  supportedCustomClientMetadata: z.array(z.string()).optional(),
-  tokenExpirationLinked: z.boolean().optional(),
-  frontChannelRequestObjectEncryptionRequired: z.boolean().optional(),
-  requestObjectEncryptionAlgMatchRequired: z.boolean().optional(),
-  requestObjectEncryptionEncMatchRequired: z.boolean().optional(),
-  hsmEnabled: z.boolean().optional(),
-  hsks: z.array(Hsk$inboundSchema).optional(),
-  grantManagementEndpoint: z.string().optional(),
-  grantManagementActionRequired: z.boolean().optional(),
-  unauthorizedOnClientConfigSupported: z.boolean().optional(),
-  dcrScopeUsedAsRequestable: z.boolean().optional(),
-  endSessionEndpoint: z.string().optional(),
-  loopbackRedirectionUriVariable: z.boolean().optional(),
-  requestObjectAudienceChecked: z.boolean().optional(),
-  accessTokenForExternalAttachmentEmbedded: z.boolean().optional(),
-  authorityHints: z.array(z.string()).optional(),
-  federationEnabled: z.boolean().optional(),
-  federationJwks: z.string().optional(),
-  federationSignatureKeyId: z.string().optional(),
-  federationConfigurationDuration: z.number().int().optional(),
-  federationRegistrationEndpoint: z.string().optional(),
-  organizationName: z.string().optional(),
-  predefinedTransformedClaims: z.string().optional(),
-  refreshTokenIdempotent: z.boolean().optional(),
-  signedJwksUri: z.string().optional(),
-  supportedAttachments: z.array(AttachmentType$inboundSchema).optional(),
-  supportedDigestAlgorithms: z.array(z.string()).optional(),
-  supportedDocuments: z.array(z.string()).optional(),
-  supportedDocumentsMethods: z.array(z.string()).optional(),
-  supportedDocumentsValidationMethods: z.array(z.string()).optional(),
-  supportedDocumentsVerificationMethods: z.array(z.string()).optional(),
-  supportedElectronicRecords: z.array(z.string()).optional(),
-  supportedClientRegistrationTypes: z.array(
-    ClientRegistrationType$inboundSchema,
-  ).optional(),
-  tokenExchangeByIdentifiableClientsOnly: z.boolean().optional(),
-  tokenExchangeByConfidentialClientsOnly: z.boolean().optional(),
-  tokenExchangeByPermittedClientsOnly: z.boolean().optional(),
-  tokenExchangeEncryptedJwtRejected: z.boolean().optional(),
-  tokenExchangeUnsignedJwtRejected: z.boolean().optional(),
-  jwtGrantByIdentifiableClientsOnly: z.boolean().optional(),
-  jwtGrantEncryptedJwtRejected: z.boolean().optional(),
-  jwtGrantUnsignedJwtRejected: z.boolean().optional(),
-  dcrDuplicateSoftwareIdBlocked: z.boolean().optional(),
-  trustAnchors: z.array(TrustAnchor$inboundSchema).optional(),
-  openidDroppedOnRefreshWithoutOfflineAccess: z.boolean().optional(),
-  supportedDocumentsCheckMethods: z.array(z.string()).optional(),
-  rsResponseSigned: z.boolean().optional(),
-  cnonceDuration: z.number().int().optional(),
-  dpopNonceRequired: z.boolean().optional(),
-  verifiableCredentialsEnabled: z.boolean().optional(),
-  credentialJwksUri: z.string().optional(),
-  credentialOfferDuration: z.number().int().optional(),
-  dpopNonceDuration: z.number().int().optional(),
-  preAuthorizedGrantAnonymousAccessSupported: z.boolean().optional(),
-  credentialTransactionDuration: z.number().int().optional(),
-  introspectionSignatureKeyId: z.string().optional(),
-  resourceSignatureKeyId: z.string().optional(),
-  userPinLength: z.number().int().optional(),
-  supportedPromptValues: z.array(Prompt$inboundSchema).optional(),
-  idTokenReissuable: z.boolean().optional(),
-  credentialJwks: z.string().optional(),
-  fapiModes: z.array(FapiMode$inboundSchema).optional(),
-  credentialDuration: z.number().int().optional(),
-  credentialIssuerMetadata: CredentialIssuerMetadata$inboundSchema.optional(),
-  idTokenAudType: z.string().optional(),
-  nativeSsoSupported: z.boolean().optional(),
-});
-
-/** @internal */
 export type ServiceInput$Outbound = {
   serviceName?: string | undefined;
   issuer?: string | undefined;
@@ -2220,29 +1989,6 @@ export const ServiceInput$outboundSchema: z.ZodType<
   nativeSsoSupported: z.boolean().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ServiceInput$ {
-  /** @deprecated use `ServiceInput$inboundSchema` instead. */
-  export const inboundSchema = ServiceInput$inboundSchema;
-  /** @deprecated use `ServiceInput$outboundSchema` instead. */
-  export const outboundSchema = ServiceInput$outboundSchema;
-  /** @deprecated use `ServiceInput$Outbound` instead. */
-  export type Outbound = ServiceInput$Outbound;
-}
-
 export function serviceInputToJSON(serviceInput: ServiceInput): string {
   return JSON.stringify(ServiceInput$outboundSchema.parse(serviceInput));
-}
-
-export function serviceInputFromJSON(
-  jsonString: string,
-): SafeParseResult<ServiceInput, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ServiceInput$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ServiceInput' from JSON`,
-  );
 }

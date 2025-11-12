@@ -15,18 +15,6 @@ export type DeliveryMode = ClosedEnum<typeof DeliveryMode>;
 /** @internal */
 export const DeliveryMode$inboundSchema: z.ZodNativeEnum<typeof DeliveryMode> =
   z.nativeEnum(DeliveryMode);
-
 /** @internal */
 export const DeliveryMode$outboundSchema: z.ZodNativeEnum<typeof DeliveryMode> =
   DeliveryMode$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeliveryMode$ {
-  /** @deprecated use `DeliveryMode$inboundSchema` instead. */
-  export const inboundSchema = DeliveryMode$inboundSchema;
-  /** @deprecated use `DeliveryMode$outboundSchema` instead. */
-  export const outboundSchema = DeliveryMode$outboundSchema;
-}

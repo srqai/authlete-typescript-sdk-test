@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type AuthAuthorizationFailApiRequest = {
@@ -16,20 +13,6 @@ export type AuthAuthorizationFailApiRequest = {
   serviceId: string;
   authorizationFailRequest: models.AuthorizationFailRequest;
 };
-
-/** @internal */
-export const AuthAuthorizationFailApiRequest$inboundSchema: z.ZodType<
-  AuthAuthorizationFailApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  authorization_fail_request: models.AuthorizationFailRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "authorization_fail_request": "authorizationFailRequest",
-  });
-});
 
 /** @internal */
 export type AuthAuthorizationFailApiRequest$Outbound = {
@@ -51,19 +34,6 @@ export const AuthAuthorizationFailApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthAuthorizationFailApiRequest$ {
-  /** @deprecated use `AuthAuthorizationFailApiRequest$inboundSchema` instead. */
-  export const inboundSchema = AuthAuthorizationFailApiRequest$inboundSchema;
-  /** @deprecated use `AuthAuthorizationFailApiRequest$outboundSchema` instead. */
-  export const outboundSchema = AuthAuthorizationFailApiRequest$outboundSchema;
-  /** @deprecated use `AuthAuthorizationFailApiRequest$Outbound` instead. */
-  export type Outbound = AuthAuthorizationFailApiRequest$Outbound;
-}
-
 export function authAuthorizationFailApiRequestToJSON(
   authAuthorizationFailApiRequest: AuthAuthorizationFailApiRequest,
 ): string {
@@ -71,15 +41,5 @@ export function authAuthorizationFailApiRequestToJSON(
     AuthAuthorizationFailApiRequest$outboundSchema.parse(
       authAuthorizationFailApiRequest,
     ),
-  );
-}
-
-export function authAuthorizationFailApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<AuthAuthorizationFailApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AuthAuthorizationFailApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AuthAuthorizationFailApiRequest' from JSON`,
   );
 }

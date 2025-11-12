@@ -6,12 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
-import {
-  Client,
-  Client$inboundSchema,
-  Client$Outbound,
-  Client$outboundSchema,
-} from "./client.js";
+import { Client, Client$inboundSchema } from "./client.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 /**
@@ -68,22 +63,6 @@ export const ClientRegistrationResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(ClientRegistrationResponseAction);
 
 /** @internal */
-export const ClientRegistrationResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof ClientRegistrationResponseAction
-> = ClientRegistrationResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientRegistrationResponseAction$ {
-  /** @deprecated use `ClientRegistrationResponseAction$inboundSchema` instead. */
-  export const inboundSchema = ClientRegistrationResponseAction$inboundSchema;
-  /** @deprecated use `ClientRegistrationResponseAction$outboundSchema` instead. */
-  export const outboundSchema = ClientRegistrationResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const ClientRegistrationResponse$inboundSchema: z.ZodType<
   ClientRegistrationResponse,
   z.ZodTypeDef,
@@ -95,49 +74,6 @@ export const ClientRegistrationResponse$inboundSchema: z.ZodType<
   responseContent: z.string().optional(),
   client: Client$inboundSchema.optional(),
 });
-
-/** @internal */
-export type ClientRegistrationResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-  client?: Client$Outbound | undefined;
-};
-
-/** @internal */
-export const ClientRegistrationResponse$outboundSchema: z.ZodType<
-  ClientRegistrationResponse$Outbound,
-  z.ZodTypeDef,
-  ClientRegistrationResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: ClientRegistrationResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-  client: Client$outboundSchema.optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientRegistrationResponse$ {
-  /** @deprecated use `ClientRegistrationResponse$inboundSchema` instead. */
-  export const inboundSchema = ClientRegistrationResponse$inboundSchema;
-  /** @deprecated use `ClientRegistrationResponse$outboundSchema` instead. */
-  export const outboundSchema = ClientRegistrationResponse$outboundSchema;
-  /** @deprecated use `ClientRegistrationResponse$Outbound` instead. */
-  export type Outbound = ClientRegistrationResponse$Outbound;
-}
-
-export function clientRegistrationResponseToJSON(
-  clientRegistrationResponse: ClientRegistrationResponse,
-): string {
-  return JSON.stringify(
-    ClientRegistrationResponse$outboundSchema.parse(clientRegistrationResponse),
-  );
-}
 
 export function clientRegistrationResponseFromJSON(
   jsonString: string,

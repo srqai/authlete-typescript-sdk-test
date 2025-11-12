@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type NativeSsoRequest = {
   /**
@@ -87,22 +84,6 @@ export type NativeSsoRequest = {
 };
 
 /** @internal */
-export const NativeSsoRequest$inboundSchema: z.ZodType<
-  NativeSsoRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  accessToken: z.string(),
-  refreshToken: z.string().optional(),
-  sub: z.string().optional(),
-  claims: z.string().optional(),
-  idtHeaderParams: z.string().optional(),
-  idTokenAudType: z.string().optional(),
-  deviceSecret: z.string(),
-  deviceSecretHash: z.string().optional(),
-});
-
-/** @internal */
 export type NativeSsoRequest$Outbound = {
   accessToken: string;
   refreshToken?: string | undefined;
@@ -130,33 +111,10 @@ export const NativeSsoRequest$outboundSchema: z.ZodType<
   deviceSecretHash: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NativeSsoRequest$ {
-  /** @deprecated use `NativeSsoRequest$inboundSchema` instead. */
-  export const inboundSchema = NativeSsoRequest$inboundSchema;
-  /** @deprecated use `NativeSsoRequest$outboundSchema` instead. */
-  export const outboundSchema = NativeSsoRequest$outboundSchema;
-  /** @deprecated use `NativeSsoRequest$Outbound` instead. */
-  export type Outbound = NativeSsoRequest$Outbound;
-}
-
 export function nativeSsoRequestToJSON(
   nativeSsoRequest: NativeSsoRequest,
 ): string {
   return JSON.stringify(
     NativeSsoRequest$outboundSchema.parse(nativeSsoRequest),
-  );
-}
-
-export function nativeSsoRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<NativeSsoRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => NativeSsoRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'NativeSsoRequest' from JSON`,
   );
 }

@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type BackchannelAuthenticationRequest = {
   /**
@@ -73,21 +70,6 @@ export type BackchannelAuthenticationRequest = {
 };
 
 /** @internal */
-export const BackchannelAuthenticationRequest$inboundSchema: z.ZodType<
-  BackchannelAuthenticationRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  parameters: z.string(),
-  clientId: z.string().optional(),
-  clientSecret: z.string().optional(),
-  clientCertificate: z.string().optional(),
-  clientCertificatePath: z.string().optional(),
-  oauthClientAttestation: z.string().optional(),
-  oauthClientAttestationPop: z.string().optional(),
-});
-
-/** @internal */
 export type BackchannelAuthenticationRequest$Outbound = {
   parameters: string;
   clientId?: string | undefined;
@@ -113,19 +95,6 @@ export const BackchannelAuthenticationRequest$outboundSchema: z.ZodType<
   oauthClientAttestationPop: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BackchannelAuthenticationRequest$ {
-  /** @deprecated use `BackchannelAuthenticationRequest$inboundSchema` instead. */
-  export const inboundSchema = BackchannelAuthenticationRequest$inboundSchema;
-  /** @deprecated use `BackchannelAuthenticationRequest$outboundSchema` instead. */
-  export const outboundSchema = BackchannelAuthenticationRequest$outboundSchema;
-  /** @deprecated use `BackchannelAuthenticationRequest$Outbound` instead. */
-  export type Outbound = BackchannelAuthenticationRequest$Outbound;
-}
-
 export function backchannelAuthenticationRequestToJSON(
   backchannelAuthenticationRequest: BackchannelAuthenticationRequest,
 ): string {
@@ -133,15 +102,5 @@ export function backchannelAuthenticationRequestToJSON(
     BackchannelAuthenticationRequest$outboundSchema.parse(
       backchannelAuthenticationRequest,
     ),
-  );
-}
-
-export function backchannelAuthenticationRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<BackchannelAuthenticationRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => BackchannelAuthenticationRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'BackchannelAuthenticationRequest' from JSON`,
   );
 }

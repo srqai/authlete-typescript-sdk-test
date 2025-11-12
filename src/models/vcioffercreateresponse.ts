@@ -9,8 +9,6 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import {
   CredentialOfferInfo,
   CredentialOfferInfo$inboundSchema,
-  CredentialOfferInfo$Outbound,
-  CredentialOfferInfo$outboundSchema,
 } from "./credentialofferinfo.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
@@ -52,22 +50,6 @@ export const VciOfferCreateResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(VciOfferCreateResponseAction);
 
 /** @internal */
-export const VciOfferCreateResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof VciOfferCreateResponseAction
-> = VciOfferCreateResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciOfferCreateResponseAction$ {
-  /** @deprecated use `VciOfferCreateResponseAction$inboundSchema` instead. */
-  export const inboundSchema = VciOfferCreateResponseAction$inboundSchema;
-  /** @deprecated use `VciOfferCreateResponseAction$outboundSchema` instead. */
-  export const outboundSchema = VciOfferCreateResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const VciOfferCreateResponse$inboundSchema: z.ZodType<
   VciOfferCreateResponse,
   z.ZodTypeDef,
@@ -78,47 +60,6 @@ export const VciOfferCreateResponse$inboundSchema: z.ZodType<
   action: VciOfferCreateResponseAction$inboundSchema.optional(),
   info: CredentialOfferInfo$inboundSchema.optional(),
 });
-
-/** @internal */
-export type VciOfferCreateResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  info?: CredentialOfferInfo$Outbound | undefined;
-};
-
-/** @internal */
-export const VciOfferCreateResponse$outboundSchema: z.ZodType<
-  VciOfferCreateResponse$Outbound,
-  z.ZodTypeDef,
-  VciOfferCreateResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: VciOfferCreateResponseAction$outboundSchema.optional(),
-  info: CredentialOfferInfo$outboundSchema.optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciOfferCreateResponse$ {
-  /** @deprecated use `VciOfferCreateResponse$inboundSchema` instead. */
-  export const inboundSchema = VciOfferCreateResponse$inboundSchema;
-  /** @deprecated use `VciOfferCreateResponse$outboundSchema` instead. */
-  export const outboundSchema = VciOfferCreateResponse$outboundSchema;
-  /** @deprecated use `VciOfferCreateResponse$Outbound` instead. */
-  export type Outbound = VciOfferCreateResponse$Outbound;
-}
-
-export function vciOfferCreateResponseToJSON(
-  vciOfferCreateResponse: VciOfferCreateResponse,
-): string {
-  return JSON.stringify(
-    VciOfferCreateResponse$outboundSchema.parse(vciOfferCreateResponse),
-  );
-}
 
 export function vciOfferCreateResponseFromJSON(
   jsonString: string,

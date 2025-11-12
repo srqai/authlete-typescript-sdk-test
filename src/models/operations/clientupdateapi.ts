@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type ClientUpdateApiRequest = {
@@ -19,17 +16,6 @@ export type ClientUpdateApiRequest = {
   clientId: string;
   client?: models.ClientInput | undefined;
 };
-
-/** @internal */
-export const ClientUpdateApiRequest$inboundSchema: z.ZodType<
-  ClientUpdateApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  clientId: z.string(),
-  client: models.ClientInput$inboundSchema.optional(),
-});
 
 /** @internal */
 export type ClientUpdateApiRequest$Outbound = {
@@ -49,33 +35,10 @@ export const ClientUpdateApiRequest$outboundSchema: z.ZodType<
   client: models.ClientInput$outboundSchema.optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientUpdateApiRequest$ {
-  /** @deprecated use `ClientUpdateApiRequest$inboundSchema` instead. */
-  export const inboundSchema = ClientUpdateApiRequest$inboundSchema;
-  /** @deprecated use `ClientUpdateApiRequest$outboundSchema` instead. */
-  export const outboundSchema = ClientUpdateApiRequest$outboundSchema;
-  /** @deprecated use `ClientUpdateApiRequest$Outbound` instead. */
-  export type Outbound = ClientUpdateApiRequest$Outbound;
-}
-
 export function clientUpdateApiRequestToJSON(
   clientUpdateApiRequest: ClientUpdateApiRequest,
 ): string {
   return JSON.stringify(
     ClientUpdateApiRequest$outboundSchema.parse(clientUpdateApiRequest),
-  );
-}
-
-export function clientUpdateApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientUpdateApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ClientUpdateApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientUpdateApiRequest' from JSON`,
   );
 }

@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type VciOfferInfoRequest = {
   /**
@@ -13,15 +10,6 @@ export type VciOfferInfoRequest = {
    */
   identifier?: string | undefined;
 };
-
-/** @internal */
-export const VciOfferInfoRequest$inboundSchema: z.ZodType<
-  VciOfferInfoRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  identifier: z.string().optional(),
-});
 
 /** @internal */
 export type VciOfferInfoRequest$Outbound = {
@@ -37,33 +25,10 @@ export const VciOfferInfoRequest$outboundSchema: z.ZodType<
   identifier: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciOfferInfoRequest$ {
-  /** @deprecated use `VciOfferInfoRequest$inboundSchema` instead. */
-  export const inboundSchema = VciOfferInfoRequest$inboundSchema;
-  /** @deprecated use `VciOfferInfoRequest$outboundSchema` instead. */
-  export const outboundSchema = VciOfferInfoRequest$outboundSchema;
-  /** @deprecated use `VciOfferInfoRequest$Outbound` instead. */
-  export type Outbound = VciOfferInfoRequest$Outbound;
-}
-
 export function vciOfferInfoRequestToJSON(
   vciOfferInfoRequest: VciOfferInfoRequest,
 ): string {
   return JSON.stringify(
     VciOfferInfoRequest$outboundSchema.parse(vciOfferInfoRequest),
-  );
-}
-
-export function vciOfferInfoRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciOfferInfoRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciOfferInfoRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciOfferInfoRequest' from JSON`,
   );
 }

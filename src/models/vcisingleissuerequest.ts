@@ -3,15 +3,11 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
 import {
   CredentialIssuanceOrder,
-  CredentialIssuanceOrder$inboundSchema,
   CredentialIssuanceOrder$Outbound,
   CredentialIssuanceOrder$outboundSchema,
 } from "./credentialissuanceorder.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type VciSingleIssueRequest = {
   /**
@@ -20,16 +16,6 @@ export type VciSingleIssueRequest = {
   accessToken?: string | undefined;
   order?: CredentialIssuanceOrder | undefined;
 };
-
-/** @internal */
-export const VciSingleIssueRequest$inboundSchema: z.ZodType<
-  VciSingleIssueRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  accessToken: z.string().optional(),
-  order: CredentialIssuanceOrder$inboundSchema.optional(),
-});
 
 /** @internal */
 export type VciSingleIssueRequest$Outbound = {
@@ -47,33 +33,10 @@ export const VciSingleIssueRequest$outboundSchema: z.ZodType<
   order: CredentialIssuanceOrder$outboundSchema.optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciSingleIssueRequest$ {
-  /** @deprecated use `VciSingleIssueRequest$inboundSchema` instead. */
-  export const inboundSchema = VciSingleIssueRequest$inboundSchema;
-  /** @deprecated use `VciSingleIssueRequest$outboundSchema` instead. */
-  export const outboundSchema = VciSingleIssueRequest$outboundSchema;
-  /** @deprecated use `VciSingleIssueRequest$Outbound` instead. */
-  export type Outbound = VciSingleIssueRequest$Outbound;
-}
-
 export function vciSingleIssueRequestToJSON(
   vciSingleIssueRequest: VciSingleIssueRequest,
 ): string {
   return JSON.stringify(
     VciSingleIssueRequest$outboundSchema.parse(vciSingleIssueRequest),
-  );
-}
-
-export function vciSingleIssueRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciSingleIssueRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciSingleIssueRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciSingleIssueRequest' from JSON`,
   );
 }

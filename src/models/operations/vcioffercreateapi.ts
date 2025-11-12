@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type VciOfferCreateApiRequest = {
@@ -16,20 +13,6 @@ export type VciOfferCreateApiRequest = {
   serviceId: string;
   vciOfferCreateRequest: models.VciOfferCreateRequest;
 };
-
-/** @internal */
-export const VciOfferCreateApiRequest$inboundSchema: z.ZodType<
-  VciOfferCreateApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  vci_offer_create_request: models.VciOfferCreateRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "vci_offer_create_request": "vciOfferCreateRequest",
-  });
-});
 
 /** @internal */
 export type VciOfferCreateApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const VciOfferCreateApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciOfferCreateApiRequest$ {
-  /** @deprecated use `VciOfferCreateApiRequest$inboundSchema` instead. */
-  export const inboundSchema = VciOfferCreateApiRequest$inboundSchema;
-  /** @deprecated use `VciOfferCreateApiRequest$outboundSchema` instead. */
-  export const outboundSchema = VciOfferCreateApiRequest$outboundSchema;
-  /** @deprecated use `VciOfferCreateApiRequest$Outbound` instead. */
-  export type Outbound = VciOfferCreateApiRequest$Outbound;
-}
-
 export function vciOfferCreateApiRequestToJSON(
   vciOfferCreateApiRequest: VciOfferCreateApiRequest,
 ): string {
   return JSON.stringify(
     VciOfferCreateApiRequest$outboundSchema.parse(vciOfferCreateApiRequest),
-  );
-}
-
-export function vciOfferCreateApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciOfferCreateApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciOfferCreateApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciOfferCreateApiRequest' from JSON`,
   );
 }

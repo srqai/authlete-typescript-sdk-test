@@ -21,7 +21,6 @@ export const NamedUri$inboundSchema: z.ZodType<
   name: z.string().optional(),
   uri: z.string().optional(),
 });
-
 /** @internal */
 export type NamedUri$Outbound = {
   name?: string | undefined;
@@ -38,23 +37,9 @@ export const NamedUri$outboundSchema: z.ZodType<
   uri: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace NamedUri$ {
-  /** @deprecated use `NamedUri$inboundSchema` instead. */
-  export const inboundSchema = NamedUri$inboundSchema;
-  /** @deprecated use `NamedUri$outboundSchema` instead. */
-  export const outboundSchema = NamedUri$outboundSchema;
-  /** @deprecated use `NamedUri$Outbound` instead. */
-  export type Outbound = NamedUri$Outbound;
-}
-
 export function namedUriToJSON(namedUri: NamedUri): string {
   return JSON.stringify(NamedUri$outboundSchema.parse(namedUri));
 }
-
 export function namedUriFromJSON(
   jsonString: string,
 ): SafeParseResult<NamedUri, SDKValidationError> {

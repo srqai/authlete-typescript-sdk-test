@@ -42,18 +42,6 @@ export type Display = ClosedEnum<typeof Display>;
 /** @internal */
 export const Display$inboundSchema: z.ZodNativeEnum<typeof Display> = z
   .nativeEnum(Display);
-
 /** @internal */
 export const Display$outboundSchema: z.ZodNativeEnum<typeof Display> =
   Display$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Display$ {
-  /** @deprecated use `Display$inboundSchema` instead. */
-  export const inboundSchema = Display$inboundSchema;
-  /** @deprecated use `Display$outboundSchema` instead. */
-  export const outboundSchema = Display$outboundSchema;
-}

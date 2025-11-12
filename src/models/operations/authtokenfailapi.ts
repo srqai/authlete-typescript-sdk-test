@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type AuthTokenFailApiRequest = {
@@ -16,20 +13,6 @@ export type AuthTokenFailApiRequest = {
   serviceId: string;
   tokenFailRequest: models.TokenFailRequest;
 };
-
-/** @internal */
-export const AuthTokenFailApiRequest$inboundSchema: z.ZodType<
-  AuthTokenFailApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  token_fail_request: models.TokenFailRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "token_fail_request": "tokenFailRequest",
-  });
-});
 
 /** @internal */
 export type AuthTokenFailApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const AuthTokenFailApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace AuthTokenFailApiRequest$ {
-  /** @deprecated use `AuthTokenFailApiRequest$inboundSchema` instead. */
-  export const inboundSchema = AuthTokenFailApiRequest$inboundSchema;
-  /** @deprecated use `AuthTokenFailApiRequest$outboundSchema` instead. */
-  export const outboundSchema = AuthTokenFailApiRequest$outboundSchema;
-  /** @deprecated use `AuthTokenFailApiRequest$Outbound` instead. */
-  export type Outbound = AuthTokenFailApiRequest$Outbound;
-}
-
 export function authTokenFailApiRequestToJSON(
   authTokenFailApiRequest: AuthTokenFailApiRequest,
 ): string {
   return JSON.stringify(
     AuthTokenFailApiRequest$outboundSchema.parse(authTokenFailApiRequest),
-  );
-}
-
-export function authTokenFailApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<AuthTokenFailApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AuthTokenFailApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AuthTokenFailApiRequest' from JSON`,
   );
 }

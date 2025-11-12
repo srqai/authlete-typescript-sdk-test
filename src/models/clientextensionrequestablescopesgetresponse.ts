@@ -21,47 +21,6 @@ export const ClientExtensionRequestableScopesGetResponse$inboundSchema:
     requestableScopes: z.array(z.string()).optional(),
   });
 
-/** @internal */
-export type ClientExtensionRequestableScopesGetResponse$Outbound = {
-  requestableScopes?: Array<string> | undefined;
-};
-
-/** @internal */
-export const ClientExtensionRequestableScopesGetResponse$outboundSchema:
-  z.ZodType<
-    ClientExtensionRequestableScopesGetResponse$Outbound,
-    z.ZodTypeDef,
-    ClientExtensionRequestableScopesGetResponse
-  > = z.object({
-    requestableScopes: z.array(z.string()).optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientExtensionRequestableScopesGetResponse$ {
-  /** @deprecated use `ClientExtensionRequestableScopesGetResponse$inboundSchema` instead. */
-  export const inboundSchema =
-    ClientExtensionRequestableScopesGetResponse$inboundSchema;
-  /** @deprecated use `ClientExtensionRequestableScopesGetResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    ClientExtensionRequestableScopesGetResponse$outboundSchema;
-  /** @deprecated use `ClientExtensionRequestableScopesGetResponse$Outbound` instead. */
-  export type Outbound = ClientExtensionRequestableScopesGetResponse$Outbound;
-}
-
-export function clientExtensionRequestableScopesGetResponseToJSON(
-  clientExtensionRequestableScopesGetResponse:
-    ClientExtensionRequestableScopesGetResponse,
-): string {
-  return JSON.stringify(
-    ClientExtensionRequestableScopesGetResponse$outboundSchema.parse(
-      clientExtensionRequestableScopesGetResponse,
-    ),
-  );
-}
-
 export function clientExtensionRequestableScopesGetResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<

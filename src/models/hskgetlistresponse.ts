@@ -7,12 +7,7 @@ import { safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  Hsk,
-  Hsk$inboundSchema,
-  Hsk$Outbound,
-  Hsk$outboundSchema,
-} from "./hsk.js";
+import { Hsk, Hsk$inboundSchema } from "./hsk.js";
 
 /**
  * Result of the API call
@@ -54,22 +49,6 @@ export const HskGetListResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(HskGetListResponseAction);
 
 /** @internal */
-export const HskGetListResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof HskGetListResponseAction
-> = HskGetListResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace HskGetListResponseAction$ {
-  /** @deprecated use `HskGetListResponseAction$inboundSchema` instead. */
-  export const inboundSchema = HskGetListResponseAction$inboundSchema;
-  /** @deprecated use `HskGetListResponseAction$outboundSchema` instead. */
-  export const outboundSchema = HskGetListResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const HskGetListResponse$inboundSchema: z.ZodType<
   HskGetListResponse,
   z.ZodTypeDef,
@@ -80,47 +59,6 @@ export const HskGetListResponse$inboundSchema: z.ZodType<
   action: HskGetListResponseAction$inboundSchema.optional(),
   hsks: z.array(Hsk$inboundSchema).optional(),
 });
-
-/** @internal */
-export type HskGetListResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  hsks?: Array<Hsk$Outbound> | undefined;
-};
-
-/** @internal */
-export const HskGetListResponse$outboundSchema: z.ZodType<
-  HskGetListResponse$Outbound,
-  z.ZodTypeDef,
-  HskGetListResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: HskGetListResponseAction$outboundSchema.optional(),
-  hsks: z.array(Hsk$outboundSchema).optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace HskGetListResponse$ {
-  /** @deprecated use `HskGetListResponse$inboundSchema` instead. */
-  export const inboundSchema = HskGetListResponse$inboundSchema;
-  /** @deprecated use `HskGetListResponse$outboundSchema` instead. */
-  export const outboundSchema = HskGetListResponse$outboundSchema;
-  /** @deprecated use `HskGetListResponse$Outbound` instead. */
-  export type Outbound = HskGetListResponse$Outbound;
-}
-
-export function hskGetListResponseToJSON(
-  hskGetListResponse: HskGetListResponse,
-): string {
-  return JSON.stringify(
-    HskGetListResponse$outboundSchema.parse(hskGetListResponse),
-  );
-}
 
 export function hskGetListResponseFromJSON(
   jsonString: string,

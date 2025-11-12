@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type DeviceCompleteApiRequest = {
@@ -16,20 +13,6 @@ export type DeviceCompleteApiRequest = {
   serviceId: string;
   deviceCompleteRequest: models.DeviceCompleteRequest;
 };
-
-/** @internal */
-export const DeviceCompleteApiRequest$inboundSchema: z.ZodType<
-  DeviceCompleteApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  device_complete_request: models.DeviceCompleteRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "device_complete_request": "deviceCompleteRequest",
-  });
-});
 
 /** @internal */
 export type DeviceCompleteApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const DeviceCompleteApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DeviceCompleteApiRequest$ {
-  /** @deprecated use `DeviceCompleteApiRequest$inboundSchema` instead. */
-  export const inboundSchema = DeviceCompleteApiRequest$inboundSchema;
-  /** @deprecated use `DeviceCompleteApiRequest$outboundSchema` instead. */
-  export const outboundSchema = DeviceCompleteApiRequest$outboundSchema;
-  /** @deprecated use `DeviceCompleteApiRequest$Outbound` instead. */
-  export type Outbound = DeviceCompleteApiRequest$Outbound;
-}
-
 export function deviceCompleteApiRequestToJSON(
   deviceCompleteApiRequest: DeviceCompleteApiRequest,
 ): string {
   return JSON.stringify(
     DeviceCompleteApiRequest$outboundSchema.parse(deviceCompleteApiRequest),
-  );
-}
-
-export function deviceCompleteApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<DeviceCompleteApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DeviceCompleteApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DeviceCompleteApiRequest' from JSON`,
   );
 }

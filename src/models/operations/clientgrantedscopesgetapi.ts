@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ClientGrantedScopesGetApiRequest = {
   /**
@@ -33,18 +30,6 @@ export type ClientGrantedScopesGetApiRequest = {
 };
 
 /** @internal */
-export const ClientGrantedScopesGetApiRequest$inboundSchema: z.ZodType<
-  ClientGrantedScopesGetApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  clientId: z.string(),
-  subjectPathParameter: z.string(),
-  subjectQueryParameter: z.string(),
-});
-
-/** @internal */
 export type ClientGrantedScopesGetApiRequest$Outbound = {
   serviceId: string;
   clientId: string;
@@ -64,19 +49,6 @@ export const ClientGrantedScopesGetApiRequest$outboundSchema: z.ZodType<
   subjectQueryParameter: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientGrantedScopesGetApiRequest$ {
-  /** @deprecated use `ClientGrantedScopesGetApiRequest$inboundSchema` instead. */
-  export const inboundSchema = ClientGrantedScopesGetApiRequest$inboundSchema;
-  /** @deprecated use `ClientGrantedScopesGetApiRequest$outboundSchema` instead. */
-  export const outboundSchema = ClientGrantedScopesGetApiRequest$outboundSchema;
-  /** @deprecated use `ClientGrantedScopesGetApiRequest$Outbound` instead. */
-  export type Outbound = ClientGrantedScopesGetApiRequest$Outbound;
-}
-
 export function clientGrantedScopesGetApiRequestToJSON(
   clientGrantedScopesGetApiRequest: ClientGrantedScopesGetApiRequest,
 ): string {
@@ -84,15 +56,5 @@ export function clientGrantedScopesGetApiRequestToJSON(
     ClientGrantedScopesGetApiRequest$outboundSchema.parse(
       clientGrantedScopesGetApiRequest,
     ),
-  );
-}
-
-export function clientGrantedScopesGetApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientGrantedScopesGetApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ClientGrantedScopesGetApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientGrantedScopesGetApiRequest' from JSON`,
   );
 }

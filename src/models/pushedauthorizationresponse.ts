@@ -102,44 +102,9 @@ export const PushedAuthorizationResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(PushedAuthorizationResponseAction);
 
 /** @internal */
-export const PushedAuthorizationResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof PushedAuthorizationResponseAction
-> = PushedAuthorizationResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PushedAuthorizationResponseAction$ {
-  /** @deprecated use `PushedAuthorizationResponseAction$inboundSchema` instead. */
-  export const inboundSchema = PushedAuthorizationResponseAction$inboundSchema;
-  /** @deprecated use `PushedAuthorizationResponseAction$outboundSchema` instead. */
-  export const outboundSchema =
-    PushedAuthorizationResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const PushedAuthorizationResponseClientAuthMethod$inboundSchema:
   z.ZodNativeEnum<typeof PushedAuthorizationResponseClientAuthMethod> = z
     .nativeEnum(PushedAuthorizationResponseClientAuthMethod);
-
-/** @internal */
-export const PushedAuthorizationResponseClientAuthMethod$outboundSchema:
-  z.ZodNativeEnum<typeof PushedAuthorizationResponseClientAuthMethod> =
-    PushedAuthorizationResponseClientAuthMethod$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PushedAuthorizationResponseClientAuthMethod$ {
-  /** @deprecated use `PushedAuthorizationResponseClientAuthMethod$inboundSchema` instead. */
-  export const inboundSchema =
-    PushedAuthorizationResponseClientAuthMethod$inboundSchema;
-  /** @deprecated use `PushedAuthorizationResponseClientAuthMethod$outboundSchema` instead. */
-  export const outboundSchema =
-    PushedAuthorizationResponseClientAuthMethod$outboundSchema;
-}
 
 /** @internal */
 export const PushedAuthorizationResponse$inboundSchema: z.ZodType<
@@ -156,56 +121,6 @@ export const PushedAuthorizationResponse$inboundSchema: z.ZodType<
     .optional(),
   dpopNonce: z.string().optional(),
 });
-
-/** @internal */
-export type PushedAuthorizationResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  requestUri?: string | undefined;
-  responseContent?: string | undefined;
-  clientAuthMethod?: string | undefined;
-  dpopNonce?: string | undefined;
-};
-
-/** @internal */
-export const PushedAuthorizationResponse$outboundSchema: z.ZodType<
-  PushedAuthorizationResponse$Outbound,
-  z.ZodTypeDef,
-  PushedAuthorizationResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: PushedAuthorizationResponseAction$outboundSchema.optional(),
-  requestUri: z.string().optional(),
-  responseContent: z.string().optional(),
-  clientAuthMethod: PushedAuthorizationResponseClientAuthMethod$outboundSchema
-    .optional(),
-  dpopNonce: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PushedAuthorizationResponse$ {
-  /** @deprecated use `PushedAuthorizationResponse$inboundSchema` instead. */
-  export const inboundSchema = PushedAuthorizationResponse$inboundSchema;
-  /** @deprecated use `PushedAuthorizationResponse$outboundSchema` instead. */
-  export const outboundSchema = PushedAuthorizationResponse$outboundSchema;
-  /** @deprecated use `PushedAuthorizationResponse$Outbound` instead. */
-  export type Outbound = PushedAuthorizationResponse$Outbound;
-}
-
-export function pushedAuthorizationResponseToJSON(
-  pushedAuthorizationResponse: PushedAuthorizationResponse,
-): string {
-  return JSON.stringify(
-    PushedAuthorizationResponse$outboundSchema.parse(
-      pushedAuthorizationResponse,
-    ),
-  );
-}
 
 export function pushedAuthorizationResponseFromJSON(
   jsonString: string,

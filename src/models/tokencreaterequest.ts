@@ -3,23 +3,14 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
 import {
   AuthzDetails,
-  AuthzDetails$inboundSchema,
   AuthzDetails$Outbound,
   AuthzDetails$outboundSchema,
 } from "./authzdetails.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
-import {
-  GrantType,
-  GrantType$inboundSchema,
-  GrantType$outboundSchema,
-} from "./granttype.js";
+import { GrantType, GrantType$outboundSchema } from "./granttype.js";
 import {
   Property,
-  Property$inboundSchema,
   Property$Outbound,
   Property$outboundSchema,
 } from "./property.js";
@@ -220,36 +211,6 @@ export type TokenCreateRequest = {
 };
 
 /** @internal */
-export const TokenCreateRequest$inboundSchema: z.ZodType<
-  TokenCreateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  grantType: GrantType$inboundSchema,
-  clientId: z.number().int(),
-  subject: z.string().optional(),
-  scopes: z.array(z.string()).optional(),
-  accessTokenDuration: z.number().int().optional(),
-  refreshTokenDuration: z.number().int().optional(),
-  properties: z.array(Property$inboundSchema).optional(),
-  clientIdAliasUsed: z.boolean().optional(),
-  accessToken: z.string().optional(),
-  refreshToken: z.string().optional(),
-  accessTokenPersistent: z.boolean().optional(),
-  certificateThumbprint: z.string().optional(),
-  dpopKeyThumbprint: z.string().optional(),
-  authorizationDetails: AuthzDetails$inboundSchema.optional(),
-  resources: z.array(z.string()).optional(),
-  forExternalAttachment: z.boolean().optional(),
-  jwtAtClaims: z.string().optional(),
-  acr: z.string().optional(),
-  authTime: z.number().int().optional(),
-  clientEntityIdUsed: z.boolean().optional(),
-  clientIdentifier: z.string().optional(),
-  sessionId: z.string().optional(),
-});
-
-/** @internal */
 export type TokenCreateRequest$Outbound = {
   grantType: string;
   clientId: number;
@@ -305,33 +266,10 @@ export const TokenCreateRequest$outboundSchema: z.ZodType<
   sessionId: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenCreateRequest$ {
-  /** @deprecated use `TokenCreateRequest$inboundSchema` instead. */
-  export const inboundSchema = TokenCreateRequest$inboundSchema;
-  /** @deprecated use `TokenCreateRequest$outboundSchema` instead. */
-  export const outboundSchema = TokenCreateRequest$outboundSchema;
-  /** @deprecated use `TokenCreateRequest$Outbound` instead. */
-  export type Outbound = TokenCreateRequest$Outbound;
-}
-
 export function tokenCreateRequestToJSON(
   tokenCreateRequest: TokenCreateRequest,
 ): string {
   return JSON.stringify(
     TokenCreateRequest$outboundSchema.parse(tokenCreateRequest),
-  );
-}
-
-export function tokenCreateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<TokenCreateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TokenCreateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TokenCreateRequest' from JSON`,
   );
 }

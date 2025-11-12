@@ -34,19 +34,7 @@ export type GrantManagementAction = ClosedEnum<typeof GrantManagementAction>;
 export const GrantManagementAction$inboundSchema: z.ZodNativeEnum<
   typeof GrantManagementAction
 > = z.nativeEnum(GrantManagementAction);
-
 /** @internal */
 export const GrantManagementAction$outboundSchema: z.ZodNativeEnum<
   typeof GrantManagementAction
 > = GrantManagementAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GrantManagementAction$ {
-  /** @deprecated use `GrantManagementAction$inboundSchema` instead. */
-  export const inboundSchema = GrantManagementAction$inboundSchema;
-  /** @deprecated use `GrantManagementAction$outboundSchema` instead. */
-  export const outboundSchema = GrantManagementAction$outboundSchema;
-}

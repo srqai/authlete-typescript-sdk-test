@@ -3,18 +3,13 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
 import {
   AuthzDetails,
-  AuthzDetails$inboundSchema,
   AuthzDetails$Outbound,
   AuthzDetails$outboundSchema,
 } from "./authzdetails.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 import {
   Property,
-  Property$inboundSchema,
   Property$Outbound,
   Property$outboundSchema,
 } from "./property.js";
@@ -142,29 +137,6 @@ export type TokenUpdateRequest = {
 };
 
 /** @internal */
-export const TokenUpdateRequest$inboundSchema: z.ZodType<
-  TokenUpdateRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  accessToken: z.string(),
-  accessTokenExpiresAt: z.number().int().optional(),
-  scopes: z.array(z.string()).optional(),
-  properties: z.array(Property$inboundSchema).optional(),
-  accessTokenExpiresAtUpdatedOnScopeUpdate: z.boolean().optional(),
-  accessTokenHash: z.string().optional(),
-  accessTokenValueUpdated: z.boolean().optional(),
-  accessTokenPersistent: z.boolean().optional(),
-  certificateThumbprint: z.string().optional(),
-  dpopKeyThumbprint: z.string().optional(),
-  authorizationDetails: AuthzDetails$inboundSchema.optional(),
-  forExternalAttachment: z.boolean().optional(),
-  refreshTokenExpiresAt: z.number().int().optional(),
-  refreshTokenExpiresAtUpdatedOnScopeUpdate: z.boolean().optional(),
-  tokenId: z.string().optional(),
-});
-
-/** @internal */
 export type TokenUpdateRequest$Outbound = {
   accessToken: string;
   accessTokenExpiresAt?: number | undefined;
@@ -206,33 +178,10 @@ export const TokenUpdateRequest$outboundSchema: z.ZodType<
   tokenId: z.string().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TokenUpdateRequest$ {
-  /** @deprecated use `TokenUpdateRequest$inboundSchema` instead. */
-  export const inboundSchema = TokenUpdateRequest$inboundSchema;
-  /** @deprecated use `TokenUpdateRequest$outboundSchema` instead. */
-  export const outboundSchema = TokenUpdateRequest$outboundSchema;
-  /** @deprecated use `TokenUpdateRequest$Outbound` instead. */
-  export type Outbound = TokenUpdateRequest$Outbound;
-}
-
 export function tokenUpdateRequestToJSON(
   tokenUpdateRequest: TokenUpdateRequest,
 ): string {
   return JSON.stringify(
     TokenUpdateRequest$outboundSchema.parse(tokenUpdateRequest),
-  );
-}
-
-export function tokenUpdateRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<TokenUpdateRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => TokenUpdateRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'TokenUpdateRequest' from JSON`,
   );
 }

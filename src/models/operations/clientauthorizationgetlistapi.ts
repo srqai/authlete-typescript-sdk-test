@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ClientAuthorizationGetListApiRequest = {
   /**
@@ -43,20 +40,6 @@ export type ClientAuthorizationGetListApiRequest = {
 };
 
 /** @internal */
-export const ClientAuthorizationGetListApiRequest$inboundSchema: z.ZodType<
-  ClientAuthorizationGetListApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  subjectPathParameter: z.string(),
-  subjectQueryParameter: z.string(),
-  developer: z.string().optional(),
-  start: z.number().int().optional(),
-  end: z.number().int().optional(),
-});
-
-/** @internal */
 export type ClientAuthorizationGetListApiRequest$Outbound = {
   serviceId: string;
   subjectPathParameter: string;
@@ -80,21 +63,6 @@ export const ClientAuthorizationGetListApiRequest$outboundSchema: z.ZodType<
   end: z.number().int().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientAuthorizationGetListApiRequest$ {
-  /** @deprecated use `ClientAuthorizationGetListApiRequest$inboundSchema` instead. */
-  export const inboundSchema =
-    ClientAuthorizationGetListApiRequest$inboundSchema;
-  /** @deprecated use `ClientAuthorizationGetListApiRequest$outboundSchema` instead. */
-  export const outboundSchema =
-    ClientAuthorizationGetListApiRequest$outboundSchema;
-  /** @deprecated use `ClientAuthorizationGetListApiRequest$Outbound` instead. */
-  export type Outbound = ClientAuthorizationGetListApiRequest$Outbound;
-}
-
 export function clientAuthorizationGetListApiRequestToJSON(
   clientAuthorizationGetListApiRequest: ClientAuthorizationGetListApiRequest,
 ): string {
@@ -102,16 +70,5 @@ export function clientAuthorizationGetListApiRequestToJSON(
     ClientAuthorizationGetListApiRequest$outboundSchema.parse(
       clientAuthorizationGetListApiRequest,
     ),
-  );
-}
-
-export function clientAuthorizationGetListApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientAuthorizationGetListApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      ClientAuthorizationGetListApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientAuthorizationGetListApiRequest' from JSON`,
   );
 }

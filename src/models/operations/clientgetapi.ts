@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ClientGetApiRequest = {
   /**
@@ -17,16 +14,6 @@ export type ClientGetApiRequest = {
    */
   clientId: string;
 };
-
-/** @internal */
-export const ClientGetApiRequest$inboundSchema: z.ZodType<
-  ClientGetApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  clientId: z.string(),
-});
 
 /** @internal */
 export type ClientGetApiRequest$Outbound = {
@@ -44,33 +31,10 @@ export const ClientGetApiRequest$outboundSchema: z.ZodType<
   clientId: z.string(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ClientGetApiRequest$ {
-  /** @deprecated use `ClientGetApiRequest$inboundSchema` instead. */
-  export const inboundSchema = ClientGetApiRequest$inboundSchema;
-  /** @deprecated use `ClientGetApiRequest$outboundSchema` instead. */
-  export const outboundSchema = ClientGetApiRequest$outboundSchema;
-  /** @deprecated use `ClientGetApiRequest$Outbound` instead. */
-  export type Outbound = ClientGetApiRequest$Outbound;
-}
-
 export function clientGetApiRequestToJSON(
   clientGetApiRequest: ClientGetApiRequest,
 ): string {
   return JSON.stringify(
     ClientGetApiRequest$outboundSchema.parse(clientGetApiRequest),
-  );
-}
-
-export function clientGetApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ClientGetApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ClientGetApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ClientGetApiRequest' from JSON`,
   );
 }

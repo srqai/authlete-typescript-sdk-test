@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as models from "../index.js";
 
 export type PushedAuthReqApiRequest = {
@@ -16,20 +13,6 @@ export type PushedAuthReqApiRequest = {
   serviceId: string;
   pushedAuthorizationRequest: models.PushedAuthorizationRequest;
 };
-
-/** @internal */
-export const PushedAuthReqApiRequest$inboundSchema: z.ZodType<
-  PushedAuthReqApiRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  serviceId: z.string(),
-  pushed_authorization_request: models.PushedAuthorizationRequest$inboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    "pushed_authorization_request": "pushedAuthorizationRequest",
-  });
-});
 
 /** @internal */
 export type PushedAuthReqApiRequest$Outbound = {
@@ -51,33 +34,10 @@ export const PushedAuthReqApiRequest$outboundSchema: z.ZodType<
   });
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace PushedAuthReqApiRequest$ {
-  /** @deprecated use `PushedAuthReqApiRequest$inboundSchema` instead. */
-  export const inboundSchema = PushedAuthReqApiRequest$inboundSchema;
-  /** @deprecated use `PushedAuthReqApiRequest$outboundSchema` instead. */
-  export const outboundSchema = PushedAuthReqApiRequest$outboundSchema;
-  /** @deprecated use `PushedAuthReqApiRequest$Outbound` instead. */
-  export type Outbound = PushedAuthReqApiRequest$Outbound;
-}
-
 export function pushedAuthReqApiRequestToJSON(
   pushedAuthReqApiRequest: PushedAuthReqApiRequest,
 ): string {
   return JSON.stringify(
     PushedAuthReqApiRequest$outboundSchema.parse(pushedAuthReqApiRequest),
-  );
-}
-
-export function pushedAuthReqApiRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<PushedAuthReqApiRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => PushedAuthReqApiRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'PushedAuthReqApiRequest' from JSON`,
   );
 }

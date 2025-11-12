@@ -3,12 +3,8 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 import {
   GrantManagementAction,
-  GrantManagementAction$inboundSchema,
   GrantManagementAction$outboundSchema,
 } from "./grantmanagementaction.js";
 
@@ -84,22 +80,6 @@ export type GMRequest = {
 };
 
 /** @internal */
-export const GMRequest$inboundSchema: z.ZodType<
-  GMRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  accessToken: z.string().optional(),
-  clientCertificate: z.string().optional(),
-  dpop: z.string().optional(),
-  htm: z.string().optional(),
-  htu: z.string().optional(),
-  gmAction: GrantManagementAction$inboundSchema.optional(),
-  grantId: z.string().optional(),
-  dpopNonceRequired: z.boolean().optional(),
-});
-
-/** @internal */
 export type GMRequest$Outbound = {
   accessToken?: string | undefined;
   clientCertificate?: string | undefined;
@@ -127,29 +107,6 @@ export const GMRequest$outboundSchema: z.ZodType<
   dpopNonceRequired: z.boolean().optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GMRequest$ {
-  /** @deprecated use `GMRequest$inboundSchema` instead. */
-  export const inboundSchema = GMRequest$inboundSchema;
-  /** @deprecated use `GMRequest$outboundSchema` instead. */
-  export const outboundSchema = GMRequest$outboundSchema;
-  /** @deprecated use `GMRequest$Outbound` instead. */
-  export type Outbound = GMRequest$Outbound;
-}
-
 export function gMRequestToJSON(gmRequest: GMRequest): string {
   return JSON.stringify(GMRequest$outboundSchema.parse(gmRequest));
-}
-
-export function gMRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GMRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GMRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GMRequest' from JSON`,
-  );
 }

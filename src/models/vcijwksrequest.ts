@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type VciJwksRequest = {
   /**
@@ -16,15 +13,6 @@ export type VciJwksRequest = {
    */
   pretty: boolean;
 };
-
-/** @internal */
-export const VciJwksRequest$inboundSchema: z.ZodType<
-  VciJwksRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  pretty: z.boolean(),
-});
 
 /** @internal */
 export type VciJwksRequest$Outbound = {
@@ -40,29 +28,6 @@ export const VciJwksRequest$outboundSchema: z.ZodType<
   pretty: z.boolean(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciJwksRequest$ {
-  /** @deprecated use `VciJwksRequest$inboundSchema` instead. */
-  export const inboundSchema = VciJwksRequest$inboundSchema;
-  /** @deprecated use `VciJwksRequest$outboundSchema` instead. */
-  export const outboundSchema = VciJwksRequest$outboundSchema;
-  /** @deprecated use `VciJwksRequest$Outbound` instead. */
-  export type Outbound = VciJwksRequest$Outbound;
-}
-
 export function vciJwksRequestToJSON(vciJwksRequest: VciJwksRequest): string {
   return JSON.stringify(VciJwksRequest$outboundSchema.parse(vciJwksRequest));
-}
-
-export function vciJwksRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciJwksRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciJwksRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciJwksRequest' from JSON`,
-  );
 }

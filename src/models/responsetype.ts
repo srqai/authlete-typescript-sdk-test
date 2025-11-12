@@ -20,18 +20,6 @@ export type ResponseType = ClosedEnum<typeof ResponseType>;
 /** @internal */
 export const ResponseType$inboundSchema: z.ZodNativeEnum<typeof ResponseType> =
   z.nativeEnum(ResponseType);
-
 /** @internal */
 export const ResponseType$outboundSchema: z.ZodNativeEnum<typeof ResponseType> =
   ResponseType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ResponseType$ {
-  /** @deprecated use `ResponseType$inboundSchema` instead. */
-  export const inboundSchema = ResponseType$inboundSchema;
-  /** @deprecated use `ResponseType$outboundSchema` instead. */
-  export const outboundSchema = ResponseType$outboundSchema;
-}

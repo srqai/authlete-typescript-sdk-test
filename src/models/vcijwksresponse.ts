@@ -61,22 +61,6 @@ export const VciJwksResponseAction$inboundSchema: z.ZodNativeEnum<
 > = z.nativeEnum(VciJwksResponseAction);
 
 /** @internal */
-export const VciJwksResponseAction$outboundSchema: z.ZodNativeEnum<
-  typeof VciJwksResponseAction
-> = VciJwksResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciJwksResponseAction$ {
-  /** @deprecated use `VciJwksResponseAction$inboundSchema` instead. */
-  export const inboundSchema = VciJwksResponseAction$inboundSchema;
-  /** @deprecated use `VciJwksResponseAction$outboundSchema` instead. */
-  export const outboundSchema = VciJwksResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const VciJwksResponse$inboundSchema: z.ZodType<
   VciJwksResponse,
   z.ZodTypeDef,
@@ -87,45 +71,6 @@ export const VciJwksResponse$inboundSchema: z.ZodType<
   action: VciJwksResponseAction$inboundSchema.optional(),
   responseContent: z.string().optional(),
 });
-
-/** @internal */
-export type VciJwksResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-};
-
-/** @internal */
-export const VciJwksResponse$outboundSchema: z.ZodType<
-  VciJwksResponse$Outbound,
-  z.ZodTypeDef,
-  VciJwksResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: VciJwksResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciJwksResponse$ {
-  /** @deprecated use `VciJwksResponse$inboundSchema` instead. */
-  export const inboundSchema = VciJwksResponse$inboundSchema;
-  /** @deprecated use `VciJwksResponse$outboundSchema` instead. */
-  export const outboundSchema = VciJwksResponse$outboundSchema;
-  /** @deprecated use `VciJwksResponse$Outbound` instead. */
-  export type Outbound = VciJwksResponse$Outbound;
-}
-
-export function vciJwksResponseToJSON(
-  vciJwksResponse: VciJwksResponse,
-): string {
-  return JSON.stringify(VciJwksResponse$outboundSchema.parse(vciJwksResponse));
-}
 
 export function vciJwksResponseFromJSON(
   jsonString: string,

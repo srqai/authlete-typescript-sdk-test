@@ -12,6 +12,8 @@ import { Federation } from "./federation.js";
 import { GrantManagement } from "./grantmanagement.js";
 import { HardwareSecurityKeys } from "./hardwaresecuritykeys.js";
 import { Introspection } from "./introspection.js";
+import { JoseObject } from "./joseobject.js";
+import { JWKSetEndpoint } from "./jwksetendpoint.js";
 import { NativeSso } from "./nativesso.js";
 import { PushedAuthorization } from "./pushedauthorization.js";
 import { Revocation } from "./revocation.js";
@@ -68,6 +70,11 @@ export class Authlete extends ClientSDK {
     return (this._grantManagement ??= new GrantManagement(this._options));
   }
 
+  private _jwkSetEndpoint?: JWKSetEndpoint;
+  get jwkSetEndpoint(): JWKSetEndpoint {
+    return (this._jwkSetEndpoint ??= new JWKSetEndpoint(this._options));
+  }
+
   private _dynamicClientRegistration?: DynamicClientRegistration;
   get dynamicClientRegistration(): DynamicClientRegistration {
     return (this._dynamicClientRegistration ??= new DynamicClientRegistration(
@@ -83,6 +90,11 @@ export class Authlete extends ClientSDK {
   private _deviceFlow?: DeviceFlow;
   get deviceFlow(): DeviceFlow {
     return (this._deviceFlow ??= new DeviceFlow(this._options));
+  }
+
+  private _joseObject?: JoseObject;
+  get joseObject(): JoseObject {
+    return (this._joseObject ??= new JoseObject(this._options));
   }
 
   private _federation?: Federation;

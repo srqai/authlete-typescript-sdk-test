@@ -51,24 +51,6 @@ export const BackchannelAuthenticationFailResponseAction$inboundSchema:
     .nativeEnum(BackchannelAuthenticationFailResponseAction);
 
 /** @internal */
-export const BackchannelAuthenticationFailResponseAction$outboundSchema:
-  z.ZodNativeEnum<typeof BackchannelAuthenticationFailResponseAction> =
-    BackchannelAuthenticationFailResponseAction$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BackchannelAuthenticationFailResponseAction$ {
-  /** @deprecated use `BackchannelAuthenticationFailResponseAction$inboundSchema` instead. */
-  export const inboundSchema =
-    BackchannelAuthenticationFailResponseAction$inboundSchema;
-  /** @deprecated use `BackchannelAuthenticationFailResponseAction$outboundSchema` instead. */
-  export const outboundSchema =
-    BackchannelAuthenticationFailResponseAction$outboundSchema;
-}
-
-/** @internal */
 export const BackchannelAuthenticationFailResponse$inboundSchema: z.ZodType<
   BackchannelAuthenticationFailResponse,
   z.ZodTypeDef,
@@ -79,51 +61,6 @@ export const BackchannelAuthenticationFailResponse$inboundSchema: z.ZodType<
   action: BackchannelAuthenticationFailResponseAction$inboundSchema.optional(),
   responseContent: z.string().optional(),
 });
-
-/** @internal */
-export type BackchannelAuthenticationFailResponse$Outbound = {
-  resultCode?: string | undefined;
-  resultMessage?: string | undefined;
-  action?: string | undefined;
-  responseContent?: string | undefined;
-};
-
-/** @internal */
-export const BackchannelAuthenticationFailResponse$outboundSchema: z.ZodType<
-  BackchannelAuthenticationFailResponse$Outbound,
-  z.ZodTypeDef,
-  BackchannelAuthenticationFailResponse
-> = z.object({
-  resultCode: z.string().optional(),
-  resultMessage: z.string().optional(),
-  action: BackchannelAuthenticationFailResponseAction$outboundSchema.optional(),
-  responseContent: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace BackchannelAuthenticationFailResponse$ {
-  /** @deprecated use `BackchannelAuthenticationFailResponse$inboundSchema` instead. */
-  export const inboundSchema =
-    BackchannelAuthenticationFailResponse$inboundSchema;
-  /** @deprecated use `BackchannelAuthenticationFailResponse$outboundSchema` instead. */
-  export const outboundSchema =
-    BackchannelAuthenticationFailResponse$outboundSchema;
-  /** @deprecated use `BackchannelAuthenticationFailResponse$Outbound` instead. */
-  export type Outbound = BackchannelAuthenticationFailResponse$Outbound;
-}
-
-export function backchannelAuthenticationFailResponseToJSON(
-  backchannelAuthenticationFailResponse: BackchannelAuthenticationFailResponse,
-): string {
-  return JSON.stringify(
-    BackchannelAuthenticationFailResponse$outboundSchema.parse(
-      backchannelAuthenticationFailResponse,
-    ),
-  );
-}
 
 export function backchannelAuthenticationFailResponseFromJSON(
   jsonString: string,

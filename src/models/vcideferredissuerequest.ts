@@ -3,28 +3,15 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../lib/schemas.js";
-import { Result as SafeParseResult } from "../types/fp.js";
 import {
   CredentialIssuanceOrder,
-  CredentialIssuanceOrder$inboundSchema,
   CredentialIssuanceOrder$Outbound,
   CredentialIssuanceOrder$outboundSchema,
 } from "./credentialissuanceorder.js";
-import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 export type VciDeferredIssueRequest = {
   order?: CredentialIssuanceOrder | undefined;
 };
-
-/** @internal */
-export const VciDeferredIssueRequest$inboundSchema: z.ZodType<
-  VciDeferredIssueRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  order: CredentialIssuanceOrder$inboundSchema.optional(),
-});
 
 /** @internal */
 export type VciDeferredIssueRequest$Outbound = {
@@ -40,33 +27,10 @@ export const VciDeferredIssueRequest$outboundSchema: z.ZodType<
   order: CredentialIssuanceOrder$outboundSchema.optional(),
 });
 
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace VciDeferredIssueRequest$ {
-  /** @deprecated use `VciDeferredIssueRequest$inboundSchema` instead. */
-  export const inboundSchema = VciDeferredIssueRequest$inboundSchema;
-  /** @deprecated use `VciDeferredIssueRequest$outboundSchema` instead. */
-  export const outboundSchema = VciDeferredIssueRequest$outboundSchema;
-  /** @deprecated use `VciDeferredIssueRequest$Outbound` instead. */
-  export type Outbound = VciDeferredIssueRequest$Outbound;
-}
-
 export function vciDeferredIssueRequestToJSON(
   vciDeferredIssueRequest: VciDeferredIssueRequest,
 ): string {
   return JSON.stringify(
     VciDeferredIssueRequest$outboundSchema.parse(vciDeferredIssueRequest),
-  );
-}
-
-export function vciDeferredIssueRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<VciDeferredIssueRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => VciDeferredIssueRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'VciDeferredIssueRequest' from JSON`,
   );
 }
