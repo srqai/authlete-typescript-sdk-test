@@ -47,13 +47,13 @@
   "exports": {
     ".": {
       "import": {
-        "@authlete/typescript-sdk/source": "./src/index.ts",
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "@authlete/typescript-sdk/source": "./src/authlete.ts",
+        "types": "./dist/esm/authlete.d.ts",
+        "default": "./dist/esm/authlete.js"
       },
       "require": {
-        "types": "./dist/commonjs/index.d.ts",
-        "default": "./dist/commonjs/index.js"
+        "types": "./dist/commonjs/authlete.d.ts",
+        "default": "./dist/commonjs/authlete.js"
       }
     },
     "./package.json": "./package.json",
@@ -124,7 +124,7 @@
       }
     }
   },
-  "main": "./dist/commonjs/index.js",
-  "types": "./dist/commonjs/index.d.ts",
-  "module": "./dist/esm/index.js"
+  "main": "./dist/commonjs/authlete.js",
+  "types": "./dist/commonjs/authlete.d.ts",
+  "module": "./dist/esm/authlete.js"
 }
