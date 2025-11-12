@@ -1,6 +1,6 @@
 {
   "name": "@authlete/typescript-sdk",
-  "version": "0.0.1-beta",
+  "version": "0.0.1-beta.1",
   "author": "Speakeasy",
   "publishConfig": {
     "access": "public",
@@ -47,13 +47,13 @@
   "exports": {
     ".": {
       "import": {
-        "@authlete/typescript-sdk/source": "./src/authlete.ts",
-        "types": "./dist/esm/authlete.d.ts",
-        "default": "./dist/esm/authlete.js"
+        "@authlete/typescript-sdk/source": "./src/index.ts",
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       },
       "require": {
-        "types": "./dist/commonjs/authlete.d.ts",
-        "default": "./dist/commonjs/authlete.js"
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
       }
     },
     "./package.json": "./package.json",
@@ -124,7 +124,7 @@
       }
     }
   },
-  "main": "./dist/commonjs/authlete.js",
-  "types": "./dist/commonjs/authlete.d.ts",
-  "module": "./dist/esm/authlete.js"
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
+  "module": "./dist/esm/index.js"
 }
