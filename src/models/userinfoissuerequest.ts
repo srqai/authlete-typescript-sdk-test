@@ -110,7 +110,7 @@ export type UserinfoIssueRequest = {
    * ]
    * ```
    */
-  verifiedClaimsForTx?: string | undefined;
+  verifiedClaimsForTx?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -121,7 +121,7 @@ export type UserinfoIssueRequest$Outbound = {
   claimsForTx?: string | undefined;
   requestSignature?: string | undefined;
   headers?: Array<Pair$Outbound> | undefined;
-  verifiedClaimsForTx?: string | undefined;
+  verifiedClaimsForTx?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -136,7 +136,7 @@ export const UserinfoIssueRequest$outboundSchema: z.ZodType<
   claimsForTx: z.string().optional(),
   requestSignature: z.string().optional(),
   headers: z.array(Pair$outboundSchema).optional(),
-  verifiedClaimsForTx: z.string().optional(),
+  verifiedClaimsForTx: z.array(z.string()).optional(),
 });
 
 export function userinfoIssueRequestToJSON(

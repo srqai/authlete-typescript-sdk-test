@@ -19,6 +19,7 @@ export const Prompt = {
   Login: "LOGIN",
   Consent: "CONSENT",
   SelectAccount: "SELECT_ACCOUNT",
+  Create: "CREATE",
 } as const;
 /**
  * The prompt that the UI displayed to the end-user must satisfy as the minimum level. This value comes from `prompt` request parameter.

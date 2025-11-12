@@ -16,7 +16,7 @@ export type JoseVerifyRequest = {
    *
    * @remarks
    */
-  mandatoryClaims?: string | undefined;
+  mandatoryClaims?: Array<string> | undefined;
   /**
    * Allowable clock skew in seconds.
    *
@@ -42,7 +42,7 @@ export type JoseVerifyRequest = {
 /** @internal */
 export type JoseVerifyRequest$Outbound = {
   jose: string;
-  mandatoryClaims?: string | undefined;
+  mandatoryClaims?: Array<string> | undefined;
   clockSkew?: number | undefined;
   clientIdentifier?: string | undefined;
   signedByClient?: boolean | undefined;
@@ -55,7 +55,7 @@ export const JoseVerifyRequest$outboundSchema: z.ZodType<
   JoseVerifyRequest
 > = z.object({
   jose: z.string(),
-  mandatoryClaims: z.string().optional(),
+  mandatoryClaims: z.array(z.string()).optional(),
   clockSkew: z.number().int().optional(),
   clientIdentifier: z.string().optional(),
   signedByClient: z.boolean().optional(),

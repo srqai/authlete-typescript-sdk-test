@@ -27,7 +27,7 @@ export type CredentialIssuerMetadata = {
   /**
    * The URL of the batch credential endpoint of the credential issuer.
    */
-  batchCredentialEndpoint?: number | undefined;
+  batchCredentialEndpoint?: string | undefined;
   /**
    * The URL of the deferred credential endpoint of the credential issuer.
    */
@@ -70,7 +70,7 @@ export const CredentialIssuerMetadata$inboundSchema: z.ZodType<
   authorizationServers: z.array(z.string()).optional(),
   credentialIssuer: z.string().optional(),
   credentialEndpoint: z.boolean().optional(),
-  batchCredentialEndpoint: z.number().int().optional(),
+  batchCredentialEndpoint: z.string().optional(),
   deferredCredentialEndpoint: z.string().optional(),
   credentialsSupported: z.boolean().optional(),
   credentialResponseEncryptionAlgValuesSupported: z.array(z.string())
@@ -84,7 +84,7 @@ export type CredentialIssuerMetadata$Outbound = {
   authorizationServers?: Array<string> | undefined;
   credentialIssuer?: string | undefined;
   credentialEndpoint?: boolean | undefined;
-  batchCredentialEndpoint?: number | undefined;
+  batchCredentialEndpoint?: string | undefined;
   deferredCredentialEndpoint?: string | undefined;
   credentialsSupported?: boolean | undefined;
   credentialResponseEncryptionAlgValuesSupported?: Array<string> | undefined;
@@ -101,7 +101,7 @@ export const CredentialIssuerMetadata$outboundSchema: z.ZodType<
   authorizationServers: z.array(z.string()).optional(),
   credentialIssuer: z.string().optional(),
   credentialEndpoint: z.boolean().optional(),
-  batchCredentialEndpoint: z.number().int().optional(),
+  batchCredentialEndpoint: z.string().optional(),
   deferredCredentialEndpoint: z.string().optional(),
   credentialsSupported: z.boolean().optional(),
   credentialResponseEncryptionAlgValuesSupported: z.array(z.string())

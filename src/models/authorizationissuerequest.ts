@@ -205,7 +205,7 @@ export type AuthorizationIssueRequest = {
    * ]
    * ```
    */
-  verifiedClaimsForTx?: string | undefined;
+  verifiedClaimsForTx?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -227,7 +227,7 @@ export type AuthorizationIssueRequest$Outbound = {
   accessTokenDuration?: number | undefined;
   sessionId?: string | undefined;
   idTokenAudType?: string | undefined;
-  verifiedClaimsForTx?: string | undefined;
+  verifiedClaimsForTx?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -253,7 +253,7 @@ export const AuthorizationIssueRequest$outboundSchema: z.ZodType<
   accessTokenDuration: z.number().int().optional(),
   sessionId: z.string().optional(),
   idTokenAudType: z.string().optional(),
-  verifiedClaimsForTx: z.string().optional(),
+  verifiedClaimsForTx: z.array(z.string()).optional(),
 });
 
 export function authorizationIssueRequestToJSON(

@@ -6,6 +6,10 @@ import * as z from "zod/v3";
 import { safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
+import {
+  AuthorizationTicketInfo,
+  AuthorizationTicketInfo$inboundSchema,
+} from "./authorizationticketinfo.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 
 /**
@@ -85,12 +89,7 @@ export type AuthorizationIssueResponse = {
    * this property is always set to `null`.
    */
   jwtAccessToken?: string | undefined;
-  /**
-   * The information about the ticket.
-   *
-   * @remarks
-   */
-  ticketInfo?: string | undefined;
+  ticketInfo?: AuthorizationTicketInfo | undefined;
 };
 
 /** @internal */
@@ -114,7 +113,7 @@ export const AuthorizationIssueResponse$inboundSchema: z.ZodType<
   idToken: z.string().optional(),
   authorizationCode: z.string().optional(),
   jwtAccessToken: z.string().optional(),
-  ticketInfo: z.string().optional(),
+  ticketInfo: AuthorizationTicketInfo$inboundSchema.optional(),
 });
 
 export function authorizationIssueResponseFromJSON(

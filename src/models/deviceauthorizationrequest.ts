@@ -52,7 +52,7 @@ export type DeviceAuthorizationRequest = {
    * @remarks
    * is a string in PEM format.
    */
-  clientCertificatePath?: string | undefined;
+  clientCertificatePath?: Array<string> | undefined;
   /**
    * The value of the `OAuth-Client-Attestation` HTTP header, which is defined in the specification
    *
@@ -75,7 +75,7 @@ export type DeviceAuthorizationRequest$Outbound = {
   clientId?: string | undefined;
   clientSecret?: string | undefined;
   clientCertificate?: string | undefined;
-  clientCertificatePath?: string | undefined;
+  clientCertificatePath?: Array<string> | undefined;
   oauthClientAttestation?: string | undefined;
   oauthClientAttestationPop?: string | undefined;
 };
@@ -90,7 +90,7 @@ export const DeviceAuthorizationRequest$outboundSchema: z.ZodType<
   clientId: z.string().optional(),
   clientSecret: z.string().optional(),
   clientCertificate: z.string().optional(),
-  clientCertificatePath: z.string().optional(),
+  clientCertificatePath: z.array(z.string()).optional(),
   oauthClientAttestation: z.string().optional(),
   oauthClientAttestationPop: z.string().optional(),
 });
