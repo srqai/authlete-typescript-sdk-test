@@ -3,17 +3,17 @@ id: b46c9081-6a59-4f57-9207-8f7715e429dc
 management:
   docChecksum: be3df6a3380e25269ed5c6a5204c3972
   docVersion: 3.0.16
-  speakeasyVersion: 1.656.0
-  generationVersion: 2.752.0
-  releaseVersion: 0.0.1-beta.1
-  configChecksum: 3037fb4ca0e69515ce624aa35c0be408
+  speakeasyVersion: 1.656.1
+  generationVersion: 2.753.1
+  releaseVersion: 0.0.1-beta.2
+  configChecksum: fca8d9fbd183523f92528e7033f1b8a5
   repoURL: https://github.com/authlete/authlete-typescript-sdk.git
   installationURL: https://github.com/authlete/authlete-typescript-sdk
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.26.5
+    core: 3.26.6
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
