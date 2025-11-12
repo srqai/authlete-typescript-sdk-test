@@ -3,17 +3,17 @@ id: b46c9081-6a59-4f57-9207-8f7715e429dc
 management:
   docChecksum: be3df6a3380e25269ed5c6a5204c3972
   docVersion: 3.0.16
-  speakeasyVersion: 1.651.0
-  generationVersion: 2.745.2
-  releaseVersion: 1.1.6
-  configChecksum: 9de075011590306c4138e4c8c25a310c
+  speakeasyVersion: 1.656.0
+  generationVersion: 2.752.0
+  releaseVersion: 0.0.1-beta
+  configChecksum: 34afd9be1345a8ddd93a8ce9d7a1631c
   repoURL: https://github.com/authlete/authlete-typescript-sdk.git
   installationURL: https://github.com/authlete/authlete-typescript-sdk
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.26.3
+    core: 3.26.5
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -1837,4 +1837,3 @@ examples:
         "500":
           application/json: {}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes Detected:\n* `authlete.service.get()`:  `response` **Changed** **Breaking** :warning:\n* `authlete.authorization.management.getTicketInfo()`:  `response.info` **Changed** **Breaking** :warning:\n* `authlete.service.create()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `authlete.service.update()`: \n  *  `request.service` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `authlete.joseObject.joseVerifyApi()`: \n  *  `request.joseVerifyRequest.mandatoryClaims` **Changed** **Breaking** :warning:\n* `authlete.deviceFlow.authorization()`: \n  *  `request.deviceAuthorizationRequest.clientCertificatePath` **Changed** **Breaking** :warning:\n* `authlete.service.list()`:  `response.services.[]` **Changed** **Breaking** :warning:\n* `authlete.authorization.processRequest()`:  `response.service` **Changed** **Breaking** :warning:\n* `authlete.revocation.process()`: \n  *  `request.revocationRequest.clientCertificatePath` **Changed** **Breaking** :warning:\n* `authlete.authorization.issue()`: \n  *  `request.authorizationIssueRequest.verifiedClaimsForTx` **Changed** **Breaking** :warning:\n  *  `response.ticketinfo` **Changed** **Breaking** :warning:\n* `authlete.ciba.processAuthentication()`: \n  *  `request.backchannelAuthenticationRequest.clientCertificatePath` **Changed** **Breaking** :warning:\n* `authlete.pushedAuthorization.create()`: \n  *  `request.pushedAuthorizationRequest.clientCertificatePath` **Changed** **Breaking** :warning:\n* `authlete.token.process()`: \n  *  `request.tokenRequest.clientCertificatePath` **Changed** **Breaking** :warning:\n* `authlete.userinfo.issue()`: \n  *  `request.userinfoIssueRequest.verifiedClaimsForTx` **Changed** **Breaking** :warning:\n* `authlete.introspection.standardProcess()`: \n  *  `request.standardIntrospectionRequest.withHiddenProperties` **Changed** **Breaking** :warning:\n* `authlete.client.create()`: \n  *  `request.client` **Changed**\n  *  `response` **Changed**\n* `authlete.token.management.create()`: \n  *  `request.tokenCreateRequest.grantType` **Changed**\n* `authlete.dynamicClientRegistration.register()`:  `response.client` **Changed**\n* `authlete.dynamicClientRegistration.get()`:  `response.client` **Changed**\n* `authlete.dynamicClientRegistration.update()`:  `response.client` **Changed**\n* `authlete.dynamicClientRegistration.delete()`:  `response.client` **Changed**\n* `authlete.client.update()`: \n  *  `request.client` **Changed**\n  *  `response` **Changed**\n* `authlete.client.list()`:  `response.clients.[]` **Changed**\n* `authlete.client.get()`:  `response` **Changed**\n* `authlete.federation.registration()`:  `response.client` **Changed**\n"
