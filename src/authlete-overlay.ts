@@ -55,9 +55,42 @@ function createServiceIdProxy<T extends object>(
     return target;
   }
   
+  // Track what we've already proxied to avoid double-proxying
+  const proxyCache = new WeakMap<object, any>();
+  
   return new Proxy(target, {
     get(propTarget, propName) {
       const value = Reflect.get(propTarget, propName);
+      
+      // Don't proxy native constructors or special objects
+      if (value === null || value === undefined) {
+        return value;
+      }
+      
+      // Don't proxy built-in constructors (URL, Date, etc.)
+      if (typeof value === 'function') {
+        // Check if it's a native constructor by name
+        const funcName = (value as any).name || '';
+        const isNativeConstructor = 
+          funcName === 'URL' ||
+          funcName === 'Date' ||
+          funcName === 'Object' ||
+          funcName === 'Array' ||
+          funcName === 'String' ||
+          funcName === 'Number' ||
+          funcName === 'Boolean' ||
+          funcName === 'RegExp' ||
+          funcName === 'Error' ||
+          funcName === 'Promise' ||
+          funcName === 'Map' ||
+          funcName === 'Set' ||
+          funcName === 'WeakMap' ||
+          funcName === 'WeakSet';
+        
+        if (isNativeConstructor) {
+          return value;
+        }
+      }
       
       // If it's a function, wrap it to inject serviceId
       if (typeof value === 'function') {
@@ -66,13 +99,43 @@ function createServiceIdProxy<T extends object>(
           if (args.length > 0 && typeof args[0] === 'object' && args[0] !== null) {
             args[0] = injectServiceId(args[0], defaultServiceId);
           }
-          return value.apply(this, args);
+          // Use the original target (not proxied) as 'this' context to avoid issues with native methods
+          return value.apply(target, args);
         };
       }
       
       // If it's an object (like authorization, token, etc.), proxy it too
+      // But skip native objects and already-proxied objects
       if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-        return createServiceIdProxy(value, defaultServiceId);
+        // Don't proxy native objects
+        if (value instanceof URL || 
+            value instanceof Date || 
+            value instanceof RegExp ||
+            value instanceof Map ||
+            value instanceof Set ||
+            value instanceof WeakMap ||
+            value instanceof WeakSet ||
+            value instanceof Promise) {
+          return value;
+        }
+        
+        // Check if already proxied
+        if (proxyCache.has(value)) {
+          return proxyCache.get(value);
+        }
+        
+        // Only proxy SDK objects (Authorization, Token, etc.)
+        // Skip plain objects that might be request/response objects
+        const constructorName = value.constructor?.name || '';
+        // Proxy SDK classes (Authorization, Token, Service, etc.)
+        if (constructorName && 
+            !constructorName.startsWith('Native') &&
+            constructorName !== 'Object' &&
+            constructorName !== 'Array') {
+          const proxied = createServiceIdProxy(value, defaultServiceId);
+          proxyCache.set(value, proxied);
+          return proxied;
+        }
       }
       
       return value;
