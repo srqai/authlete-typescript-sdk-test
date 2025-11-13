@@ -1,6 +1,6 @@
 {
-  "name": "@authlete/typescript-sdk",
-  "version": "0.0.1-beta.2",
+  "name": "test-sdk",
+  "version": "0.0.1-beta.0",
   "author": "Speakeasy",
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
@@ -9,7 +9,7 @@
   "type": "module",
   "tshy": {
     "sourceDialects": [
-      "@authlete/typescript-sdk/source"
+      "test-sdk/source"
     ],
     "exports": {
       ".": "./src/authlete.ts",
@@ -29,7 +29,7 @@
   },
   "scripts": {
     "lint": "eslint --cache --max-warnings=0 src",
-    "build": "tshy",
+    "build": "bash scripts/build.sh",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {},
@@ -47,7 +47,7 @@
   "exports": {
     ".": {
       "import": {
-        "@authlete/typescript-sdk/source": "./src/authlete.ts",
+        "test-sdk/source": "./src/authlete.ts",
         "types": "./dist/esm/authlete.d.ts",
         "default": "./dist/esm/authlete.js"
       },
@@ -59,7 +59,7 @@
     "./package.json": "./package.json",
     "./types": {
       "import": {
-        "@authlete/typescript-sdk/source": "./src/types/index.ts",
+        "test-sdk/source": "./src/types/index.ts",
         "types": "./dist/esm/types/index.d.ts",
         "default": "./dist/esm/types/index.js"
       },
@@ -70,7 +70,7 @@
     },
     "./models/errors": {
       "import": {
-        "@authlete/typescript-sdk/source": "./src/models/errors/index.ts",
+        "test-sdk/source": "./src/models/errors/index.ts",
         "types": "./dist/esm/models/errors/index.d.ts",
         "default": "./dist/esm/models/errors/index.js"
       },
@@ -81,7 +81,7 @@
     },
     "./models": {
       "import": {
-        "@authlete/typescript-sdk/source": "./src/models/index.ts",
+        "test-sdk/source": "./src/models/index.ts",
         "types": "./dist/esm/models/index.d.ts",
         "default": "./dist/esm/models/index.js"
       },
@@ -92,7 +92,7 @@
     },
     "./models/operations": {
       "import": {
-        "@authlete/typescript-sdk/source": "./src/models/operations/index.ts",
+        "test-sdk/source": "./src/models/operations/index.ts",
         "types": "./dist/esm/models/operations/index.d.ts",
         "default": "./dist/esm/models/operations/index.js"
       },
@@ -103,7 +103,7 @@
     },
     "./*.js": {
       "import": {
-        "@authlete/typescript-sdk/source": "./src/*.ts",
+        "test-sdk/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },
@@ -114,7 +114,7 @@
     },
     "./*": {
       "import": {
-        "@authlete/typescript-sdk/source": "./src/*.ts",
+        "test-sdk/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },
