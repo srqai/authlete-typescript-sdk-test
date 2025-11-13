@@ -19,8 +19,8 @@ specific category of applications.
 ## Example
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { serviceGet } from "@authlete/typescript-sdk/funcs/serviceGet.js";
+import { AuthleteCore } from "test-sdk/core.js";
+import { serviceGet } from "test-sdk/funcs/serviceGet.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

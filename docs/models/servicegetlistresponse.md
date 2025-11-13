@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ServiceGetListResponse } from "@authlete/typescript-sdk/models";
+import { ServiceGetListResponse } from "test-sdk/models";
 
 let value: ServiceGetListResponse = {
   services: [

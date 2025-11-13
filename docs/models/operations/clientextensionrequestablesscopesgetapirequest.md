@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ClientExtensionRequestablesScopesGetApiRequest } from "@authlete/typescript-sdk/models/operations";
+import { ClientExtensionRequestablesScopesGetApiRequest } from "test-sdk/models/operations";
 
 let value: ClientExtensionRequestablesScopesGetApiRequest = {
   serviceId: "<id>",

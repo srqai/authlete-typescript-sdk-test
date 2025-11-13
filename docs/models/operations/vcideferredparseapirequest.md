@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { VciDeferredParseApiRequest } from "@authlete/typescript-sdk/models/operations";
+import { VciDeferredParseApiRequest } from "test-sdk/models/operations";
 
 let value: VciDeferredParseApiRequest = {
   serviceId: "<id>",

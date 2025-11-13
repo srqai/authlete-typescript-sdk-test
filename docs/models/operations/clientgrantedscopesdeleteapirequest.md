@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ClientGrantedScopesDeleteApiRequest } from "@authlete/typescript-sdk/models/operations";
+import { ClientGrantedScopesDeleteApiRequest } from "test-sdk/models/operations";
 
 let value: ClientGrantedScopesDeleteApiRequest = {
   serviceId: "<id>",

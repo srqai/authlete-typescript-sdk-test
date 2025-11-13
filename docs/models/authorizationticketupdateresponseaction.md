@@ -5,7 +5,7 @@ The result of the /auth/authorization/ticket/info API call.
 ## Example Usage
 
 ```typescript
-import { AuthorizationTicketUpdateResponseAction } from "@authlete/typescript-sdk/models";
+import { AuthorizationTicketUpdateResponseAction } from "test-sdk/models";
 
 let value: AuthorizationTicketUpdateResponseAction = "CALLER_ERROR";
 ```

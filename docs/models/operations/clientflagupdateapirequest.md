@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ClientFlagUpdateApiRequest } from "@authlete/typescript-sdk/models/operations";
+import { ClientFlagUpdateApiRequest } from "test-sdk/models/operations";
 
 let value: ClientFlagUpdateApiRequest = {
   serviceId: "<id>",
