@@ -7,7 +7,7 @@ For more details, see [NO_INTERACTION] in the description of `/auth/authorizatio
 ## Example Usage
 
 ```typescript
-import { AuthorizationFailRequestReason } from "@authlete/typescript-sdk/models";
+import { AuthorizationFailRequestReason } from "test-sdk/models";
 
 let value: AuthorizationFailRequestReason = "DIFFERENT_SUBJECT";
 ```

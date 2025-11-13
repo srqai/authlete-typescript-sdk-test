@@ -7,7 +7,7 @@ The API returns short codes (enum constant names) in response fields.
 ## Example Usage
 
 ```typescript
-import { TokenType } from "@authlete/typescript-sdk/models";
+import { TokenType } from "test-sdk/models";
 
 let value: TokenType = "JWT_BEARER";
 ```

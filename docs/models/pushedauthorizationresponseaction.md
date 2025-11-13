@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take. Any ot
 ## Example Usage
 
 ```typescript
-import { PushedAuthorizationResponseAction } from "@authlete/typescript-sdk/models";
+import { PushedAuthorizationResponseAction } from "test-sdk/models";
 
 let value: PushedAuthorizationResponseAction = "CREATED";
 ```

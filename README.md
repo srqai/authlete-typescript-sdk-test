@@ -27,15 +27,103 @@ If you have any questions or need assistance, our team is here to help:
 - [Contact Page](https://www.authlete.com/contact/)
 <!-- End Summary [summary] -->
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Authlete API: Welcome to the **Authlete API documentation**. Authlete is an **API-first service** where every aspect of the 
+platform is configurable via API. This documentation will help you authenticate and integrate with Authlete to 
+build powerful OAuth 2.0 and OpenID Connect servers. 🚀
+
+At a high level, the Authlete API is grouped into two categories:
+
+- **Management APIs**: Enable you to manage services and clients. 🔧
+- **Runtime APIs**: Allow you to build your own Authorization Servers or Verifiable Credential (VC) issuers. 🔐
+
+## 🌐 API Servers
+
+Authlete is a global service with clusters available in multiple regions across the world:
+
+- 🇺🇸 **US**: `https://us.authlete.com`
+- 🇯🇵 **Japan**: `https://jp.authlete.com`
+- 🇪🇺 **Europe**: `https://eu.authlete.com`
+- 🇧🇷 **Brazil**: `https://br.authlete.com`
+
+Our customers can host their data in the region that best meets their requirements.
+
+## 🔑 Authentication
+
+All API endpoints are secured using **Bearer token authentication**. You must include an access token in every request:
+
+```
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Getting Your Access Token
+
+Authlete supports two types of access tokens:
+
+**Service Access Token** - Scoped to a single service (authorization server instance)
+
+1. Log in to [Authlete Console](https://console.authlete.com)
+2. Navigate to your service → **Settings** → **Access Tokens**
+3. Click **Create Token** and select permissions (e.g., `service.read`, `client.write`)
+4. Copy the generated token
+
+**Organization Token** - Scoped to your entire organization
+
+1. Log in to [Authlete Console](https://console.authlete.com)
+2. Navigate to **Organization Settings** → **Access Tokens**
+3. Click **Create Token** and select org-level permissions
+4. Copy the generated token
+
+> ⚠️ **Important Note**: Tokens inherit the permissions of the account that creates them. Service tokens can only 
+> access their specific service, while organization tokens can access all services within your org.
+
+### Token Security Best Practices
+
+- **Never commit tokens to version control** - Store in environment variables or secure secret managers
+- **Rotate regularly** - Generate new tokens periodically and revoke old ones
+- **Scope appropriately** - Request only the permissions your application needs
+- **Revoke unused tokens** - Delete tokens you're no longer using from the console
+
+### Quick Test
+
+Verify your token works with a simple API call:
+
+```bash
+curl -X GET https://us.authlete.com/api/service/get/list \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+```
+
+## 🎓 Tutorials
+
+If you're new to Authlete or want to see sample implementations, these resources will help you get started:
+
+- [🚀 Getting Started with Authlete](https://www.authlete.com/developers/getting_started/)
+- [🔑 From Sign-Up to the First API Request](https://www.authlete.com/developers/tutorial/signup/)
+
+## 🛠 Contact Us
+
+If you have any questions or need assistance, our team is here to help:
+
+- [Contact Page](https://www.authlete.com/contact/)
+<!-- End Summary [summary] -->
+
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
 * [Authlete Typescript SDK](#authlete-typescript-sdk)
+  * [🎓 Tutorials](#tutorials)
+  * [🛠 Contact Us](#contact-us)
+  * [🌐 API Servers](#api-servers)
+  * [🔑 Authentication](#authentication)
+  * [🎓 Tutorials](#tutorials-1)
+  * [🛠 Contact Us](#contact-us-1)
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [Access Tokens](#access-tokens)
   * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication)
+  * [Authentication](#authentication-1)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
   * [Retries](#retries)
@@ -57,25 +145,25 @@ The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https
 ### NPM
 
 ```bash
-npm add @authlete/typescript-sdk
+npm add test-sdk
 ```
 
 ### PNPM
 
 ```bash
-pnpm add @authlete/typescript-sdk
+pnpm add test-sdk
 ```
 
 ### Bun
 
 ```bash
-bun add @authlete/typescript-sdk
+bun add test-sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add @authlete/typescript-sdk
+yarn add test-sdk
 ```
 
 > [!NOTE]
@@ -109,7 +197,7 @@ Make sure that you create a token with the correct scope. If you face permission
 ### Example
 
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -141,7 +229,7 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `bearer` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -408,7 +496,7 @@ Some of the endpoints in this SDK support retries.  If you use the SDK without a
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -439,7 +527,7 @@ run();
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "test-sdk";
 
 const authlete = new Authlete({
   retryConfig: {
@@ -484,8 +572,8 @@ run();
 
 ### Example
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
-import * as errors from "@authlete/typescript-sdk/models/errors";
+import { Authlete } from "test-sdk";
+import * as errors from "test-sdk/models/errors";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -559,7 +647,7 @@ You can override the default server globally by passing a server index to the `s
 #### Example
 
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "test-sdk";
 
 const authlete = new Authlete({
   serverIdx: 0,
@@ -582,7 +670,7 @@ run();
 
 The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "test-sdk";
 
 const authlete = new Authlete({
   serverURL: "https://br.authlete.com",
@@ -620,8 +708,8 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
-import { HTTPClient } from "@authlete/typescript-sdk/lib/http";
+import { Authlete } from "test-sdk";
+import { HTTPClient } from "test-sdk/lib/http";
 
 const httpClient = new HTTPClient({
   // fetcher takes a function that has the same signature as native `fetch`.
@@ -662,7 +750,7 @@ You can pass a logger that matches `console`'s interface as an SDK option.
 > Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
 
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "test-sdk";
 
 const sdk = new Authlete({ debugLogger: console });
 ```

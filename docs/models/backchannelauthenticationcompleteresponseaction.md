@@ -6,7 +6,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { BackchannelAuthenticationCompleteResponseAction } from "@authlete/typescript-sdk/models";
+import { BackchannelAuthenticationCompleteResponseAction } from "test-sdk/models";
 
 let value: BackchannelAuthenticationCompleteResponseAction = "SERVER_ERROR";
 ```

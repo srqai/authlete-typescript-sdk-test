@@ -5,7 +5,7 @@ The next action that the implementation of the token endpoint should take.
 ## Example Usage
 
 ```typescript
-import { IdtokenReissueResponseAction } from "@authlete/typescript-sdk/models";
+import { IdtokenReissueResponseAction } from "test-sdk/models";
 
 let value: IdtokenReissueResponseAction = "CALLER_ERROR";
 ```

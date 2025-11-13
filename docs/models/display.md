@@ -14,7 +14,7 @@ Values for this property correspond to the values listed in
 ## Example Usage
 
 ```typescript
-import { Display } from "@authlete/typescript-sdk/models";
+import { Display } from "test-sdk/models";
 
 let value: Display = "POPUP";
 ```

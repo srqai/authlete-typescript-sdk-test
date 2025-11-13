@@ -5,7 +5,7 @@ Result of the API call
 ## Example Usage
 
 ```typescript
-import { HskDeleteResponseAction } from "@authlete/typescript-sdk/models";
+import { HskDeleteResponseAction } from "test-sdk/models";
 
 let value: HskDeleteResponseAction = "INVALID_REQUEST";
 ```

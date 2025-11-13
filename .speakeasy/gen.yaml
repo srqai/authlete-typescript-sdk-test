@@ -71,7 +71,7 @@ typescript:
   moduleFormat: dual
   omitDescriptionIfSummaryPresent: true
   outputModelSuffix: output
-  packageName: 'test-sdk'
+  packageName: test-sdk
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2

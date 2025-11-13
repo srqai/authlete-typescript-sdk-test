@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { VciOfferInfoRequest } from "@authlete/typescript-sdk/models";
+import { VciOfferInfoRequest } from "test-sdk/models";
 
 let value: VciOfferInfoRequest = {};
 ```
