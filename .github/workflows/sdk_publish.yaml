@@ -1,4 +1,6 @@
 name: Publish
+# NOTE: NPM_TOKEN must be an automation token or granular token with 2FA bypass enabled
+# Create at: https://www.npmjs.com/settings/[username]/tokens
 permissions:
   checks: write
   contents: write
