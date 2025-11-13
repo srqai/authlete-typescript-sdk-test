@@ -1,5 +1,5 @@
 {
-  "name": "test-sdk",
+  "name": "@big76/test-sdk",
   "version": "0.0.1-beta.0",
   "author": "Speakeasy",
   "publishConfig": {
@@ -9,7 +9,7 @@
   "type": "module",
   "tshy": {
     "sourceDialects": [
-      "test-sdk/source"
+      "@big76/test-sdk/source"
     ],
     "exports": {
       ".": "./src/authlete.ts",
@@ -47,7 +47,7 @@
   "exports": {
     ".": {
       "import": {
-        "test-sdk/source": "./src/authlete.ts",
+        "@big76/test-sdk/source": "./src/authlete.ts",
         "types": "./dist/esm/authlete.d.ts",
         "default": "./dist/esm/authlete.js"
       },
@@ -59,7 +59,7 @@
     "./package.json": "./package.json",
     "./types": {
       "import": {
-        "test-sdk/source": "./src/types/index.ts",
+        "@big76/test-sdk/source": "./src/types/index.ts",
         "types": "./dist/esm/types/index.d.ts",
         "default": "./dist/esm/types/index.js"
       },
@@ -70,7 +70,7 @@
     },
     "./models/errors": {
       "import": {
-        "test-sdk/source": "./src/models/errors/index.ts",
+        "@big76/test-sdk/source": "./src/models/errors/index.ts",
         "types": "./dist/esm/models/errors/index.d.ts",
         "default": "./dist/esm/models/errors/index.js"
       },
@@ -81,7 +81,7 @@
     },
     "./models": {
       "import": {
-        "test-sdk/source": "./src/models/index.ts",
+        "@big76/test-sdk/source": "./src/models/index.ts",
         "types": "./dist/esm/models/index.d.ts",
         "default": "./dist/esm/models/index.js"
       },
@@ -92,7 +92,7 @@
     },
     "./models/operations": {
       "import": {
-        "test-sdk/source": "./src/models/operations/index.ts",
+        "@big76/test-sdk/source": "./src/models/operations/index.ts",
         "types": "./dist/esm/models/operations/index.d.ts",
         "default": "./dist/esm/models/operations/index.js"
       },
@@ -103,7 +103,7 @@
     },
     "./*.js": {
       "import": {
-        "test-sdk/source": "./src/*.ts",
+        "@big76/test-sdk/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },
@@ -114,7 +114,7 @@
     },
     "./*": {
       "import": {
-        "test-sdk/source": "./src/*.ts",
+        "@big76/test-sdk/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },
