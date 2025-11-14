@@ -5,6 +5,9 @@
  * It exports the enhanced Authlete class with serviceId support.
  */
 
+// Import type augmentations to make serviceId optional in request types
+import "../service-id-augmentation.js";
+
 // Re-export everything from the generated index, but override Authlete with our overlay
 export * from "./index.js";
 

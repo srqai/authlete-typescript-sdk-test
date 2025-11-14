@@ -126,5 +126,9 @@
   },
   "main": "./dist/commonjs/authlete.js",
   "types": "./dist/commonjs/authlete.d.ts",
-  "module": "./dist/esm/authlete.js"
+  "module": "./dist/esm/authlete.js",
+  "typeRoots": [
+    "./node_modules/@types",
+    "."
+  ]
 }
