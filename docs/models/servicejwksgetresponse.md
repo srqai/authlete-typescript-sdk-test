@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ServiceJwksGetResponse } from "@authlete/typescript-sdk/models";
+import { ServiceJwksGetResponse } from "@big76/test-sdk/models";
 
 let value: ServiceJwksGetResponse = {};
 ```
@@ -12,4 +12,4 @@ let value: ServiceJwksGetResponse = {};
 
 | Field                                                              | Type                                                               | Required                                                           | Description                                                        |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `keys`                                                             | [models.Key](../models/key.md)[]                                   | :heavy_minus_sign:                                                 | An array of [JWK](https://datatracker.ietf.org/doc/html/rfc7517)s. |
+| `keys`                                                             | Record<string, *any*>[]                                            | :heavy_minus_sign:                                                 | An array of [JWK](https://datatracker.ietf.org/doc/html/rfc7517)s. |

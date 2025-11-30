@@ -9,7 +9,7 @@ should take after getting a response from Authlete's
 ## Example Usage
 
 ```typescript
-import { VciMetadataResponseAction } from "@authlete/typescript-sdk/models";
+import { VciMetadataResponseAction } from "@big76/test-sdk/models";
 
 let value: VciMetadataResponseAction = "OK";
 ```

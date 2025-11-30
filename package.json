@@ -1,10 +1,10 @@
 {
   "name": "@big76/test-sdk",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.2-beta",
   "author": "Speakeasy",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org",
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "type": "module",
   "tshy": {
@@ -12,7 +12,7 @@
       "@big76/test-sdk/source"
     ],
     "exports": {
-      ".": "./src/authlete.ts",
+      ".": "./src/index.ts",
       "./package.json": "./package.json",
       "./types": "./src/types/index.ts",
       "./models/errors": "./src/models/errors/index.ts",
@@ -25,11 +25,11 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/authlete/authlete-typescript-sdk.git"
+    "url": "https://github.com/srqai/authlete-typescript-sdk-test.git"
   },
   "scripts": {
     "lint": "eslint --cache --max-warnings=0 src",
-    "build": "bash scripts/build.sh",
+    "build": "tshy",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {},
@@ -47,13 +47,13 @@
   "exports": {
     ".": {
       "import": {
-        "@big76/test-sdk/source": "./src/authlete.ts",
-        "types": "./dist/esm/authlete.d.ts",
-        "default": "./dist/esm/authlete.js"
+        "@big76/test-sdk/source": "./src/index.ts",
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       },
       "require": {
-        "types": "./dist/commonjs/authlete.d.ts",
-        "default": "./dist/commonjs/authlete.js"
+        "types": "./dist/commonjs/index.d.ts",
+        "default": "./dist/commonjs/index.js"
       }
     },
     "./package.json": "./package.json",
@@ -124,11 +124,7 @@
       }
     }
   },
-  "main": "./dist/commonjs/authlete.js",
-  "types": "./dist/commonjs/authlete.d.ts",
-  "module": "./dist/esm/authlete.js",
-  "typeRoots": [
-    "./node_modules/@types",
-    "."
-  ]
+  "main": "./dist/commonjs/index.js",
+  "types": "./dist/commonjs/index.d.ts",
+  "module": "./dist/esm/index.js"
 }

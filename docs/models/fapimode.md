@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { FapiMode } from "@authlete/typescript-sdk/models";
+import { FapiMode } from "@big76/test-sdk/models";
 
 let value: FapiMode = "FAPI1_ADVANCED";
 ```

@@ -6,7 +6,7 @@ The grant type of the access token when the access token was created.
 ## Example Usage
 
 ```typescript
-import { GrantType } from "@authlete/typescript-sdk/models";
+import { GrantType } from "@big76/test-sdk/models";
 
 let value: GrantType = "PASSWORD";
 ```
