@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { IdtokenReissueRequest } from "@authlete/typescript-sdk/models";
+import { IdtokenReissueRequest } from "@big76/test-sdk/models";
 
 let value: IdtokenReissueRequest = {
   accessToken: "<value>",

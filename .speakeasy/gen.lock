@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: b46c9081-6a59-4f57-9207-8f7715e429dc
 management:
-  docChecksum: be3df6a3380e25269ed5c6a5204c3972
+  docChecksum: 0aa8415ff85fe126a360338d5cbaebba
   docVersion: 3.0.16
-  speakeasyVersion: 1.656.1
-  generationVersion: 2.753.1
-  releaseVersion: 0.0.1-beta.2
-  configChecksum: fca8d9fbd183523f92528e7033f1b8a5
-  repoURL: https://github.com/authlete/authlete-typescript-sdk.git
-  installationURL: https://github.com/authlete/authlete-typescript-sdk
+  speakeasyVersion: 1.665.0
+  generationVersion: 2.767.2
+  releaseVersion: 0.0.2-beta
+  configChecksum: 5f596510b89c5b3e1e7a6f28680ef91e
+  repoURL: https://github.com/srqai/authlete-typescript-sdk-test.git
+  installationURL: https://github.com/srqai/authlete-typescript-sdk-test
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    core: 3.26.6
+    core: 3.26.13
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -28,7 +28,7 @@ features:
     nameOverrides: 2.81.2
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.3.0
+    sdkHooks: 0.4.0
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -152,7 +152,6 @@ generatedFiles:
   - docs/models/jwealg.md
   - docs/models/jweenc.md
   - docs/models/jwsalg.md
-  - docs/models/key.md
   - docs/models/nameduri.md
   - docs/models/nativessologoutrequest.md
   - docs/models/nativessologoutresponse.md
@@ -721,6 +720,7 @@ generatedFiles:
   - src/types/operations.ts
   - src/types/rfcdate.ts
   - src/types/streams.ts
+  - src/types/unrecognized.ts
   - tsconfig.json
 examples:
   service_get_api:
@@ -1837,3 +1837,4 @@ examples:
         "500":
           application/json: {}
 examplesVersion: 1.0.2
+releaseNotes: "## Typescript SDK Changes:\n* `authlete.service.get()`:  `response.credentialissuermetadata` **Changed** **Breaking** :warning:\n* `authlete.service.list()`:  `response.services.[].credentialIssuerMetadata` **Changed** **Breaking** :warning:\n* `authlete.service.create()`: \n  *  `request.credentialIssuerMetadata` **Changed** **Breaking** :warning:\n  *  `response.credentialissuermetadata` **Changed** **Breaking** :warning:\n* `authlete.service.update()`: \n  *  `request.service.credentialIssuerMetadata` **Changed** **Breaking** :warning:\n  *  `response.credentialissuermetadata` **Changed** **Breaking** :warning:\n* `authlete.authorization.processRequest()`:  `response.service.credentialIssuerMetadata` **Changed** **Breaking** :warning:\n* `authlete.jwkSetEndpoint.serviceJwksGetApi()`:  `response.keys.[]` **Changed** **Breaking** :warning:\n"
