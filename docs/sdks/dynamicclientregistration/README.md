@@ -1,5 +1,4 @@
 # DynamicClientRegistration
-(*dynamicClientRegistration*)
 
 ## Overview
 
@@ -74,7 +73,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="client_registration_api" method="post" path="/api/{serviceId}/client/registration" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -99,8 +98,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { dynamicClientRegistrationRegister } from "@authlete/typescript-sdk/funcs/dynamicClientRegistrationRegister.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { dynamicClientRegistrationRegister } from "@big76/test-sdk/funcs/dynamicClientRegistrationRegister.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -230,7 +229,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="client_registration_get_api" method="post" path="/api/{serviceId}/client/registration/get" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -256,8 +255,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { dynamicClientRegistrationGet } from "@authlete/typescript-sdk/funcs/dynamicClientRegistrationGet.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { dynamicClientRegistrationGet } from "@big76/test-sdk/funcs/dynamicClientRegistrationGet.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -388,7 +387,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="client_registration_update_api" method="post" path="/api/{serviceId}/client/registration/update" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -415,8 +414,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { dynamicClientRegistrationUpdate } from "@authlete/typescript-sdk/funcs/dynamicClientRegistrationUpdate.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { dynamicClientRegistrationUpdate } from "@big76/test-sdk/funcs/dynamicClientRegistrationUpdate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -545,7 +544,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="client_registration_delete_api" method="post" path="/api/{serviceId}/client/registration/delete" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -571,8 +570,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { dynamicClientRegistrationDelete } from "@authlete/typescript-sdk/funcs/dynamicClientRegistrationDelete.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { dynamicClientRegistrationDelete } from "@big76/test-sdk/funcs/dynamicClientRegistrationDelete.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

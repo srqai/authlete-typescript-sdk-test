@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeliveryMode } from "@authlete/typescript-sdk/models";
+import { DeliveryMode } from "@big76/test-sdk/models";
 
 let value: DeliveryMode = "PING";
 ```

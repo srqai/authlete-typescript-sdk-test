@@ -1,5 +1,4 @@
 # DeviceFlow
-(*deviceFlow*)
 
 ## Overview
 
@@ -82,7 +81,7 @@ and return to the client application.
 
 <!-- UsageSnippet language="typescript" operationID="device_authorization_api" method="post" path="/api/{serviceId}/device/authorization" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -109,8 +108,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { deviceFlowAuthorization } from "@authlete/typescript-sdk/funcs/deviceFlowAuthorization.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { deviceFlowAuthorization } from "@big76/test-sdk/funcs/deviceFlowAuthorization.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -194,7 +193,7 @@ to ask whether she approves or rejects the authorization request from the device
 
 <!-- UsageSnippet language="typescript" operationID="device_verification_api" method="post" path="/api/{serviceId}/device/verification" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -219,8 +218,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { deviceFlowVerification } from "@authlete/typescript-sdk/funcs/deviceFlowVerification.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { deviceFlowVerification } from "@big76/test-sdk/funcs/deviceFlowVerification.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -324,7 +323,7 @@ using.
 
 <!-- UsageSnippet language="typescript" operationID="device_complete_api" method="post" path="/api/{serviceId}/device/complete" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -351,8 +350,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { deviceFlowComplete } from "@authlete/typescript-sdk/funcs/deviceFlowComplete.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { deviceFlowComplete } from "@big76/test-sdk/funcs/deviceFlowComplete.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

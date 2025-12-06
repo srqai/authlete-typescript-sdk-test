@@ -1,5 +1,4 @@
 # JWKSetEndpoint
-(*jwkSetEndpoint*)
 
 ## Overview
 
@@ -25,7 +24,7 @@ if the service supports [OpenID Connect Discovery 1.0](https://openid.net/specs/
 
 <!-- UsageSnippet language="typescript" operationID="service_jwks_get_api" method="get" path="/api/{serviceId}/service/jwks/get" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -47,8 +46,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { jwkSetEndpointServiceJwksGetApi } from "@authlete/typescript-sdk/funcs/jwkSetEndpointServiceJwksGetApi.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { jwkSetEndpointServiceJwksGetApi } from "@big76/test-sdk/funcs/jwkSetEndpointServiceJwksGetApi.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

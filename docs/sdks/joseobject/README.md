@@ -1,5 +1,4 @@
 # JoseObject
-(*joseObject*)
 
 ## Overview
 
@@ -18,7 +17,7 @@ This API verifies a JOSE object.
 
 <!-- UsageSnippet language="typescript" operationID="jose_verify_api" method="post" path="/api/{serviceId}/jose/verify" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -46,8 +45,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { joseObjectJoseVerifyApi } from "@authlete/typescript-sdk/funcs/joseObjectJoseVerifyApi.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { joseObjectJoseVerifyApi } from "@big76/test-sdk/funcs/joseObjectJoseVerifyApi.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

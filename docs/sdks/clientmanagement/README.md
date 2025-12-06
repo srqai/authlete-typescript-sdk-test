@@ -1,5 +1,4 @@
-# ClientManagement
-(*client.management*)
+# Client.Management
 
 ## Overview
 
@@ -26,7 +25,7 @@ Lock and unlock a client
 
 <!-- UsageSnippet language="typescript" operationID="client_flag_update_api" method="post" path="/api/{serviceId}/client/lock_flag/update/{clientIdentifier}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -52,8 +51,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientManagementUpdateLockFlag } from "@authlete/typescript-sdk/funcs/clientManagementUpdateLockFlag.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientManagementUpdateLockFlag } from "@big76/test-sdk/funcs/clientManagementUpdateLockFlag.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -113,7 +112,7 @@ If you want to specify a new value, use `/api/client/secret/update` API.
 
 <!-- UsageSnippet language="typescript" operationID="client_secret_refresh_api" method="get" path="/api/{serviceId}/client/secret/refresh/{clientIdentifier}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -136,8 +135,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientManagementRefreshSecret } from "@authlete/typescript-sdk/funcs/clientManagementRefreshSecret.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientManagementRefreshSecret } from "@big76/test-sdk/funcs/clientManagementRefreshSecret.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -194,7 +193,7 @@ API.
 
 <!-- UsageSnippet language="typescript" operationID="client_secret_update_api" method="post" path="/api/{serviceId}/client/secret/update/{clientIdentifier}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -220,8 +219,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientManagementUpdateSecret } from "@authlete/typescript-sdk/funcs/clientManagementUpdateSecret.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientManagementUpdateSecret } from "@big76/test-sdk/funcs/clientManagementUpdateSecret.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -280,7 +279,7 @@ The subject parameter is required and can be provided either in the path or as a
 
 <!-- UsageSnippet language="typescript" operationID="client_authorization_get_list_api" method="get" path="/api/{serviceId}/client/authorization/get/list/{subject}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -304,8 +303,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientManagementListAuthorizations } from "@authlete/typescript-sdk/funcs/clientManagementListAuthorizations.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientManagementListAuthorizations } from "@big76/test-sdk/funcs/clientManagementListAuthorizations.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -360,7 +359,7 @@ Update attributes of all existing access tokens given to a client application.
 
 <!-- UsageSnippet language="typescript" operationID="client_authorization_update_api" method="post" path="/api/{serviceId}/client/authorization/update/{clientId}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -389,8 +388,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientManagementUpdateAuthorizations } from "@authlete/typescript-sdk/funcs/clientManagementUpdateAuthorizations.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientManagementUpdateAuthorizations } from "@big76/test-sdk/funcs/clientManagementUpdateAuthorizations.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -452,7 +451,7 @@ The subject parameter is required and can be provided either in the path or as a
 
 <!-- UsageSnippet language="typescript" operationID="client_authorization_delete_api" method="delete" path="/api/{serviceId}/client/authorization/delete/{clientId}/{subject}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -477,8 +476,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientManagementDeleteAuthorizations } from "@authlete/typescript-sdk/funcs/clientManagementDeleteAuthorizations.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientManagementDeleteAuthorizations } from "@big76/test-sdk/funcs/clientManagementDeleteAuthorizations.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -547,7 +546,7 @@ The subject parameter is required and can be provided either in the path or as a
 
 <!-- UsageSnippet language="typescript" operationID="client_granted_scopes_get_api" method="get" path="/api/{serviceId}/client/granted_scopes/get/{clientId}/{subject}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -572,8 +571,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientManagementGetGrantedScopes } from "@authlete/typescript-sdk/funcs/clientManagementGetGrantedScopes.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientManagementGetGrantedScopes } from "@big76/test-sdk/funcs/clientManagementGetGrantedScopes.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -633,7 +632,7 @@ The subject parameter is required and can be provided either in the path or as a
 
 <!-- UsageSnippet language="typescript" operationID="client_granted_scopes_delete_api" method="delete" path="/api/{serviceId}/client/granted_scopes/delete/{clientId}/{subject}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -658,8 +657,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientManagementDeleteGrantedScopes } from "@authlete/typescript-sdk/funcs/clientManagementDeleteGrantedScopes.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientManagementDeleteGrantedScopes } from "@big76/test-sdk/funcs/clientManagementDeleteGrantedScopes.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -715,7 +714,7 @@ Get the requestable scopes per client
 
 <!-- UsageSnippet language="typescript" operationID="client_extension_requestables_scopes_get_api" method="get" path="/api/{serviceId}/client/extension/requestable_scopes/get/{clientId}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -738,8 +737,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientManagementGetRequestableScopes } from "@authlete/typescript-sdk/funcs/clientManagementGetRequestableScopes.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientManagementGetRequestableScopes } from "@big76/test-sdk/funcs/clientManagementGetRequestableScopes.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -793,7 +792,7 @@ Update requestable scopes of a client
 
 <!-- UsageSnippet language="typescript" operationID="client_extension_requestables_scopes_update_api" method="put" path="/api/{serviceId}/client/extension/requestable_scopes/update/{clientId}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -817,8 +816,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientManagementUpdateRequestableScopes } from "@authlete/typescript-sdk/funcs/clientManagementUpdateRequestableScopes.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientManagementUpdateRequestableScopes } from "@big76/test-sdk/funcs/clientManagementUpdateRequestableScopes.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -873,7 +872,7 @@ Delete requestable scopes of a client
 
 <!-- UsageSnippet language="typescript" operationID="client_extension_requestables_scopes_delete_api" method="delete" path="/api/{serviceId}/client/extension/requestable_scopes/delete/{clientId}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -896,8 +895,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientManagementDeleteRequestableScopes } from "@authlete/typescript-sdk/funcs/clientManagementDeleteRequestableScopes.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientManagementDeleteRequestableScopes } from "@big76/test-sdk/funcs/clientManagementDeleteRequestableScopes.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
