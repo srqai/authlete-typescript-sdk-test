@@ -1,5 +1,4 @@
 # Client
-(*client*)
 
 ## Overview
 
@@ -20,7 +19,7 @@ Get a client.
 
 <!-- UsageSnippet language="typescript" operationID="client_get_api" method="get" path="/api/{serviceId}/client/get/{clientId}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -43,8 +42,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientGet } from "@authlete/typescript-sdk/funcs/clientGet.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientGet } from "@big76/test-sdk/funcs/clientGet.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -103,7 +102,7 @@ service are returned.
 
 <!-- UsageSnippet language="typescript" operationID="client_get_list_api" method="get" path="/api/{serviceId}/client/get/list" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -125,8 +124,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientList } from "@authlete/typescript-sdk/funcs/clientList.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientList } from "@big76/test-sdk/funcs/clientList.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -179,7 +178,7 @@ Create a new client.
 
 <!-- UsageSnippet language="typescript" operationID="client_create_api" method="post" path="/api/{serviceId}/client/create" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -232,8 +231,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientCreate } from "@authlete/typescript-sdk/funcs/clientCreate.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientCreate } from "@big76/test-sdk/funcs/clientCreate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -317,7 +316,7 @@ Update a client.
 
 <!-- UsageSnippet language="typescript" operationID="client_update_api" method="post" path="/api/{serviceId}/client/update/{clientId}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -382,8 +381,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientUpdate } from "@authlete/typescript-sdk/funcs/clientUpdate.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientUpdate } from "@big76/test-sdk/funcs/clientUpdate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -479,7 +478,7 @@ Delete a client.
 
 <!-- UsageSnippet language="typescript" operationID="client_delete_api" method="delete" path="/api/{serviceId}/client/delete/{clientId}" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -502,8 +501,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { clientDelete } from "@authlete/typescript-sdk/funcs/clientDelete.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { clientDelete } from "@big76/test-sdk/funcs/clientDelete.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

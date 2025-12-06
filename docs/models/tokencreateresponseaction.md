@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { TokenCreateResponseAction } from "@authlete/typescript-sdk/models";
+import { TokenCreateResponseAction } from "@big76/test-sdk/models";
 
 let value: TokenCreateResponseAction = "BAD_REQUEST";
 ```

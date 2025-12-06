@@ -7,7 +7,7 @@ described in the description.
 ## Example Usage
 
 ```typescript
-import { BackchannelAuthenticationCompleteRequestResult } from "@authlete/typescript-sdk/models";
+import { BackchannelAuthenticationCompleteRequestResult } from "@big76/test-sdk/models";
 
 let value: BackchannelAuthenticationCompleteRequestResult = "ACCESS_DENIED";
 ```

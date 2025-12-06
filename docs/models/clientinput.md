@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ClientInput } from "@authlete/typescript-sdk/models";
+import { ClientInput } from "@big76/test-sdk/models";
 
 let value: ClientInput = {
   clientName: "My Test Client",

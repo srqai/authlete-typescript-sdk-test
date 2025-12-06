@@ -27,15 +27,103 @@ If you have any questions or need assistance, our team is here to help:
 - [Contact Page](https://www.authlete.com/contact/)
 <!-- End Summary [summary] -->
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Authlete API: Welcome to the **Authlete API documentation**. Authlete is an **API-first service** where every aspect of the 
+platform is configurable via API. This documentation will help you authenticate and integrate with Authlete to 
+build powerful OAuth 2.0 and OpenID Connect servers. 🚀
+
+At a high level, the Authlete API is grouped into two categories:
+
+- **Management APIs**: Enable you to manage services and clients. 🔧
+- **Runtime APIs**: Allow you to build your own Authorization Servers or Verifiable Credential (VC) issuers. 🔐
+
+## 🌐 API Servers
+
+Authlete is a global service with clusters available in multiple regions across the world:
+
+- 🇺🇸 **US**: `https://us.authlete.com`
+- 🇯🇵 **Japan**: `https://jp.authlete.com`
+- 🇪🇺 **Europe**: `https://eu.authlete.com`
+- 🇧🇷 **Brazil**: `https://br.authlete.com`
+
+Our customers can host their data in the region that best meets their requirements.
+
+## 🔑 Authentication
+
+All API endpoints are secured using **Bearer token authentication**. You must include an access token in every request:
+
+```
+Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+### Getting Your Access Token
+
+Authlete supports two types of access tokens:
+
+**Service Access Token** - Scoped to a single service (authorization server instance)
+
+1. Log in to [Authlete Console](https://console.authlete.com)
+2. Navigate to your service → **Settings** → **Access Tokens**
+3. Click **Create Token** and select permissions (e.g., `service.read`, `client.write`)
+4. Copy the generated token
+
+**Organization Token** - Scoped to your entire organization
+
+1. Log in to [Authlete Console](https://console.authlete.com)
+2. Navigate to **Organization Settings** → **Access Tokens**
+3. Click **Create Token** and select org-level permissions
+4. Copy the generated token
+
+> ⚠️ **Important Note**: Tokens inherit the permissions of the account that creates them. Service tokens can only 
+> access their specific service, while organization tokens can access all services within your org.
+
+### Token Security Best Practices
+
+- **Never commit tokens to version control** - Store in environment variables or secure secret managers
+- **Rotate regularly** - Generate new tokens periodically and revoke old ones
+- **Scope appropriately** - Request only the permissions your application needs
+- **Revoke unused tokens** - Delete tokens you're no longer using from the console
+
+### Quick Test
+
+Verify your token works with a simple API call:
+
+```bash
+curl -X GET https://us.authlete.com/api/service/get/list \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+```
+
+## 🎓 Tutorials
+
+If you're new to Authlete or want to see sample implementations, these resources will help you get started:
+
+- [🚀 Getting Started with Authlete](https://www.authlete.com/developers/getting_started/)
+- [🔑 From Sign-Up to the First API Request](https://www.authlete.com/developers/tutorial/signup/)
+
+## 🛠 Contact Us
+
+If you have any questions or need assistance, our team is here to help:
+
+- [Contact Page](https://www.authlete.com/contact/)
+<!-- End Summary [summary] -->
+
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
 * [Authlete Typescript SDK](#authlete-typescript-sdk)
+  * [🎓 Tutorials](#tutorials)
+  * [🛠 Contact Us](#contact-us)
+  * [🌐 API Servers](#api-servers)
+  * [🔑 Authentication](#authentication)
+  * [🎓 Tutorials](#tutorials-1)
+  * [🛠 Contact Us](#contact-us-1)
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [Access Tokens](#access-tokens)
   * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication)
+  * [Authentication](#authentication-1)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
   * [Retries](#retries)
@@ -57,25 +145,25 @@ The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https
 ### NPM
 
 ```bash
-npm add @authlete/typescript-sdk
+npm add @big76/test-sdk
 ```
 
 ### PNPM
 
 ```bash
-pnpm add @authlete/typescript-sdk
+pnpm add @big76/test-sdk
 ```
 
 ### Bun
 
 ```bash
-bun add @authlete/typescript-sdk
+bun add @big76/test-sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add @authlete/typescript-sdk
+yarn add @big76/test-sdk
 ```
 
 > [!NOTE]
@@ -109,7 +197,7 @@ Make sure that you create a token with the correct scope. If you face permission
 ### Example
 
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -141,7 +229,7 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `bearer` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -166,25 +254,25 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-### [authorization](docs/sdks/authorization/README.md)
+### [Authorization](docs/sdks/authorization/README.md)
 
 * [processRequest](docs/sdks/authorization/README.md#processrequest) - Process Authorization Request
 * [fail](docs/sdks/authorization/README.md#fail) - Fail Authorization Request
 * [issue](docs/sdks/authorization/README.md#issue) - Issue Authorization Response
 
-#### [authorization.management](docs/sdks/authorizationmanagement/README.md)
+#### [Authorization.Management](docs/sdks/authorizationmanagement/README.md)
 
 * [getTicketInfo](docs/sdks/authorizationmanagement/README.md#getticketinfo) - Get Ticket Information
 * [updateTicket](docs/sdks/authorizationmanagement/README.md#updateticket) - Update Ticket Information
 
-### [ciba](docs/sdks/ciba/README.md)
+### [Ciba](docs/sdks/ciba/README.md)
 
 * [processAuthentication](docs/sdks/ciba/README.md#processauthentication) - Process Backchannel Authentication Request
 * [issue](docs/sdks/ciba/README.md#issue) - Issue Backchannel Authentication Response
 * [fail](docs/sdks/ciba/README.md#fail) - Fail Backchannel Authentication Request
 * [complete](docs/sdks/ciba/README.md#complete) - Complete Backchannel Authentication
 
-### [client](docs/sdks/client/README.md)
+### [Client](docs/sdks/client/README.md)
 
 * [get](docs/sdks/client/README.md#get) - Get Client
 * [list](docs/sdks/client/README.md#list) - List Clients
@@ -192,7 +280,7 @@ run();
 * [update](docs/sdks/client/README.md#update) - Update Client
 * [delete](docs/sdks/client/README.md#delete) - Delete Client ⚡
 
-#### [client.management](docs/sdks/clientmanagement/README.md)
+#### [Client.Management](docs/sdks/clientmanagement/README.md)
 
 * [updateLockFlag](docs/sdks/clientmanagement/README.md#updatelockflag) - Update Client Lock
 * [refreshSecret](docs/sdks/clientmanagement/README.md#refreshsecret) - Rotate Client Secret
@@ -206,62 +294,62 @@ run();
 * [updateRequestableScopes](docs/sdks/clientmanagement/README.md#updaterequestablescopes) - Update Requestable Scopes
 * [deleteRequestableScopes](docs/sdks/clientmanagement/README.md#deleterequestablescopes) - Delete Requestable Scopes
 
-### [deviceFlow](docs/sdks/deviceflow/README.md)
+### [DeviceFlow](docs/sdks/deviceflow/README.md)
 
 * [authorization](docs/sdks/deviceflow/README.md#authorization) - Process Device Authorization Request
 * [verification](docs/sdks/deviceflow/README.md#verification) - Process Device Verification Request
 * [complete](docs/sdks/deviceflow/README.md#complete) - Complete Device Authorization
 
-### [dynamicClientRegistration](docs/sdks/dynamicclientregistration/README.md)
+### [DynamicClientRegistration](docs/sdks/dynamicclientregistration/README.md)
 
 * [register](docs/sdks/dynamicclientregistration/README.md#register) - Register Client
 * [get](docs/sdks/dynamicclientregistration/README.md#get) - Get Client
 * [update](docs/sdks/dynamicclientregistration/README.md#update) - Update Client
 * [delete](docs/sdks/dynamicclientregistration/README.md#delete) - Delete Client
 
-### [federation](docs/sdks/federation/README.md)
+### [Federation](docs/sdks/federation/README.md)
 
 * [configuration](docs/sdks/federation/README.md#configuration) - Process Entity Configuration Request
 * [registration](docs/sdks/federation/README.md#registration) - Process Federation Registration Request
 
-### [grantManagement](docs/sdks/grantmanagement/README.md)
+### [GrantManagement](docs/sdks/grantmanagement/README.md)
 
 * [processRequest](docs/sdks/grantmanagement/README.md#processrequest) - Process Grant Management Request
 
-### [hardwareSecurityKeys](docs/sdks/hardwaresecuritykeys/README.md)
+### [HardwareSecurityKeys](docs/sdks/hardwaresecuritykeys/README.md)
 
 * [create](docs/sdks/hardwaresecuritykeys/README.md#create) - Create Security Key
 * [delete](docs/sdks/hardwaresecuritykeys/README.md#delete) - Delete Security Key
 * [get](docs/sdks/hardwaresecuritykeys/README.md#get) - Get Security Key
 * [list](docs/sdks/hardwaresecuritykeys/README.md#list) - List Security Keys
 
-### [introspection](docs/sdks/introspection/README.md)
+### [Introspection](docs/sdks/introspection/README.md)
 
 * [process](docs/sdks/introspection/README.md#process) - Process Introspection Request
 * [standardProcess](docs/sdks/introspection/README.md#standardprocess) - Process OAuth 2.0 Introspection Request
 
-### [joseObject](docs/sdks/joseobject/README.md)
+### [JoseObject](docs/sdks/joseobject/README.md)
 
 * [joseVerifyApi](docs/sdks/joseobject/README.md#joseverifyapi) - Verify JOSE
 
-### [jwkSetEndpoint](docs/sdks/jwksetendpoint/README.md)
+### [JWKSetEndpoint](docs/sdks/jwksetendpoint/README.md)
 
 * [serviceJwksGetApi](docs/sdks/jwksetendpoint/README.md#servicejwksgetapi) - Get JWK Set
 
-### [nativeSso](docs/sdks/nativesso/README.md)
+### [NativeSso](docs/sdks/nativesso/README.md)
 
 * [process](docs/sdks/nativesso/README.md#process) - Native SSO Processing
 * [logout](docs/sdks/nativesso/README.md#logout) - Native SSO Logout Processing
 
-### [pushedAuthorization](docs/sdks/pushedauthorization/README.md)
+### [PushedAuthorization](docs/sdks/pushedauthorization/README.md)
 
 * [create](docs/sdks/pushedauthorization/README.md#create) - Process Pushed Authorization Request
 
-### [revocation](docs/sdks/revocation/README.md)
+### [Revocation](docs/sdks/revocation/README.md)
 
 * [process](docs/sdks/revocation/README.md#process) - Process Revocation Request
 
-### [service](docs/sdks/service/README.md)
+### [Service](docs/sdks/service/README.md)
 
 * [get](docs/sdks/service/README.md#get) - Get Service
 * [list](docs/sdks/service/README.md#list) - List Services
@@ -270,13 +358,13 @@ run();
 * [delete](docs/sdks/service/README.md#delete) - Delete Service ⚡
 * [getConfiguration](docs/sdks/service/README.md#getconfiguration) - Get Service Configuration
 
-### [token](docs/sdks/token/README.md)
+### [Token](docs/sdks/token/README.md)
 
 * [process](docs/sdks/token/README.md#process) - Process Token Request
 * [fail](docs/sdks/token/README.md#fail) - Fail Token Request
 * [issue](docs/sdks/token/README.md#issue) - Issue Token Response
 
-#### [token.management](docs/sdks/tokenmanagement/README.md)
+#### [Token.Management](docs/sdks/tokenmanagement/README.md)
 
 * [reissueIdToken](docs/sdks/tokenmanagement/README.md#reissueidtoken) - Reissue ID Token
 * [list](docs/sdks/tokenmanagement/README.md#list) - List Issued Tokens
@@ -285,12 +373,12 @@ run();
 * [delete](docs/sdks/tokenmanagement/README.md#delete) - Delete Access Token
 * [revoke](docs/sdks/tokenmanagement/README.md#revoke) - Revoke Access Token
 
-### [userinfo](docs/sdks/userinfo/README.md)
+### [Userinfo](docs/sdks/userinfo/README.md)
 
 * [process](docs/sdks/userinfo/README.md#process) - Process UserInfo Request
 * [issue](docs/sdks/userinfo/README.md#issue) - Issue UserInfo Response
 
-### [verifiableCredentials](docs/sdks/verifiablecredentials/README.md)
+### [VerifiableCredentials](docs/sdks/verifiablecredentials/README.md)
 
 * [getMetadata](docs/sdks/verifiablecredentials/README.md#getmetadata) - Get Verifiable Credential Issuer Metadata
 * [getJwtIssuer](docs/sdks/verifiablecredentials/README.md#getjwtissuer) - Get JWT Issuer Information
@@ -408,7 +496,7 @@ Some of the endpoints in this SDK support retries.  If you use the SDK without a
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -439,7 +527,7 @@ run();
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   retryConfig: {
@@ -484,8 +572,8 @@ run();
 
 ### Example
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
-import * as errors from "@authlete/typescript-sdk/models/errors";
+import { Authlete } from "@big76/test-sdk";
+import * as errors from "@big76/test-sdk/models/errors";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -559,7 +647,7 @@ You can override the default server globally by passing a server index to the `s
 #### Example
 
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   serverIdx: 0,
@@ -582,7 +670,7 @@ run();
 
 The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   serverURL: "https://br.authlete.com",
@@ -620,8 +708,8 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
-import { HTTPClient } from "@authlete/typescript-sdk/lib/http";
+import { Authlete } from "@big76/test-sdk";
+import { HTTPClient } from "@big76/test-sdk/lib/http";
 
 const httpClient = new HTTPClient({
   // fetcher takes a function that has the same signature as native `fetch`.
@@ -662,7 +750,7 @@ You can pass a logger that matches `console`'s interface as an SDK option.
 > Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
 
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const sdk = new Authlete({ debugLogger: console });
 ```

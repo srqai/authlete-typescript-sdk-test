@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GrantScope } from "@authlete/typescript-sdk/models";
+import { GrantScope } from "@big76/test-sdk/models";
 
 let value: GrantScope = {};
 ```
