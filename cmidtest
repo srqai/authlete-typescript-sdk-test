@@ -1,5 +1,5 @@
 {
-  "client_id": "https://raw.githubusercontent.com/srqai/authlete-typescript-sdk-test/fa237936904761bad63bb0504f17600a3ffc80d6/cmidtest",
+  "client_id": "https://raw.githubusercontent.com/srqai/authlete-typescript-sdk-test/main/cmidtest",
   "redirect_uris": ["https://example.com/cb"],
   "grant_types": ["authorization_code"],
   "response_types": ["code"],
