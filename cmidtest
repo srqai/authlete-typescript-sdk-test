@@ -3,6 +3,7 @@
   "redirect_uris": ["https://example.com/cb"],
   "grant_types": ["authorization_code"],
   "response_types": ["code"],
-  "token_endpoint_auth_method": "client_secret_basic",
+  "token_endpoint_auth_method": "private_key_jwt",
+  "token_endpoint_auth_signing_alg": "RS256",
   "client_name": "CIMD Test Client"
 }
