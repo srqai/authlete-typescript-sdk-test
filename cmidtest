@@ -1,1 +1,8 @@
-
+{
+  "client_id": "https://raw.githubusercontent.com/srqai/authlete-typescript-sdk-test/main/cmidtest",
+  "redirect_uris": ["https://example.com/cb"],
+  "grant_types": ["authorization_code"],
+  "response_types": ["code"],
+  "token_endpoint_auth_method": "client_secret_basic",
+  "client_name": "CIMD Test Client"
+}
