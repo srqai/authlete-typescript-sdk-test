@@ -506,6 +506,14 @@ export type AuthorizationResponse = {
    * to the `/auth/authorization/issue` API.
    */
   nativeSsoRequested?: boolean | undefined;
+  /**
+   * Flag indicating whether a metadata document was used to resolve client metadata for this request.
+   *
+   * @remarks
+   *
+   * When `true`, the client metadata was retrieved via the CIMD mechanism rather than from the Authlete database.
+   */
+  metadataDocumentUsed?: boolean | undefined;
 };
 
 /** @internal */
@@ -558,6 +566,7 @@ export const AuthorizationResponse$inboundSchema: z.ZodType<
   credentialOfferInfo: CredentialOfferInfo$inboundSchema.optional(),
   issuableCredentials: z.string().optional(),
   nativeSsoRequested: z.boolean().optional(),
+  metadataDocumentUsed: z.boolean().optional(),
 });
 
 export function authorizationResponseFromJSON(

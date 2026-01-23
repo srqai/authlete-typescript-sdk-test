@@ -8,14 +8,14 @@ Client Registration 1.0, 2. Client Metadata](https://openid.net/specs/openid-con
 ## Example Usage
 
 ```typescript
-import { PushedAuthorizationResponseClientAuthMethod } from "@authlete/typescript-sdk/models";
+import { PushedAuthorizationResponseClientAuthMethod } from "@big76/test-sdk/models";
 
 let value: PushedAuthorizationResponseClientAuthMethod =
-  "SELF_SIGNED_TLS_CLIENT_AUTH";
+  "ATTEST_JWT_CLIENT_AUTH";
 ```
 
 ## Values
 
 ```typescript
-"NONE" | "CLIENT_SECRET_BASIC" | "CLIENT_SECRET_POST" | "CLIENT_SECRET_JWT" | "PRIVATE_KEY_JWT" | "TLS_CLIENT_AUTH" | "SELF_SIGNED_TLS_CLIENT_AUTH"
+"NONE" | "CLIENT_SECRET_BASIC" | "CLIENT_SECRET_POST" | "CLIENT_SECRET_JWT" | "PRIVATE_KEY_JWT" | "TLS_CLIENT_AUTH" | "SELF_SIGNED_TLS_CLIENT_AUTH" | "ATTEST_JWT_CLIENT_AUTH"
 ```

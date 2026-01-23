@@ -1,6 +1,6 @@
 
 <div align="center">
-    <a href="https://codespaces.new/authlete/authlete-typescript-sdk.git/tree/main"><img src="https://github.com/codespaces/badge.svg" /></a>
+    <a href="https://codespaces.new/srqai/authlete-typescript-sdk-test.git/tree/main"><img src="https://github.com/codespaces/badge.svg" /></a>
 </div>
 <br>
 

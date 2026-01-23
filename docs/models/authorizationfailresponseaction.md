@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { AuthorizationFailResponseAction } from "@authlete/typescript-sdk/models";
+import { AuthorizationFailResponseAction } from "@big76/test-sdk/models";
 
 let value: AuthorizationFailResponseAction = "INTERNAL_SERVER_ERROR";
 ```

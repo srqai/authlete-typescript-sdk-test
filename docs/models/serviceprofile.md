@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ServiceProfile } from "@authlete/typescript-sdk/models";
+import { ServiceProfile } from "@big76/test-sdk/models";
 
 let value: ServiceProfile = "OPEN_BANKING";
 ```

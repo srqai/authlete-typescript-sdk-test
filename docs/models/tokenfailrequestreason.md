@@ -6,7 +6,7 @@ The reason of the failure of the token request.
 ## Example Usage
 
 ```typescript
-import { TokenFailRequestReason } from "@authlete/typescript-sdk/models";
+import { TokenFailRequestReason } from "@big76/test-sdk/models";
 
 let value: TokenFailRequestReason = "UNKNOWN";
 ```

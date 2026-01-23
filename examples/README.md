@@ -1,6 +1,6 @@
-# @authlete/typescript-sdk Examples
+# @big76/test-sdk Examples
 
-This directory contains example scripts demonstrating how to use the @authlete/typescript-sdk SDK.
+This directory contains example scripts demonstrating how to use the @big76/test-sdk SDK.
 
 ## Prerequisites
 

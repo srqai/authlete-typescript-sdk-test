@@ -1,5 +1,4 @@
 # Service
-(*service*)
 
 ## Overview
 
@@ -24,7 +23,7 @@ have access to view this service directly, a limited view of the service will be
 
 <!-- UsageSnippet language="typescript" operationID="service_get_api" method="get" path="/api/{serviceId}/service/get" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -46,8 +45,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { serviceGet } from "@authlete/typescript-sdk/funcs/serviceGet.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { serviceGet } from "@big76/test-sdk/funcs/serviceGet.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -107,7 +106,7 @@ Otherwise, all services that the access token can view, even in a limited fashio
 
 <!-- UsageSnippet language="typescript" operationID="service_get_list_api" method="get" path="/api/service/get/list" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -127,8 +126,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { serviceList } from "@authlete/typescript-sdk/funcs/serviceList.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { serviceList } from "@big76/test-sdk/funcs/serviceList.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -179,7 +178,7 @@ Create a new service.
 
 <!-- UsageSnippet language="typescript" operationID="service_create_api" method="post" path="/api/service/create" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -249,8 +248,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { serviceCreate } from "@authlete/typescript-sdk/funcs/serviceCreate.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { serviceCreate } from "@big76/test-sdk/funcs/serviceCreate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -351,7 +350,7 @@ Update a service.
 
 <!-- UsageSnippet language="typescript" operationID="service_update_api" method="post" path="/api/{serviceId}/service/update" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -474,8 +473,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { serviceUpdate } from "@authlete/typescript-sdk/funcs/serviceUpdate.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { serviceUpdate } from "@big76/test-sdk/funcs/serviceUpdate.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -629,7 +628,7 @@ Delete a service.
 
 <!-- UsageSnippet language="typescript" operationID="service_delete_api" method="delete" path="/api/{serviceId}/service/delete" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -651,8 +650,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { serviceDelete } from "@authlete/typescript-sdk/funcs/serviceDelete.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { serviceDelete } from "@big76/test-sdk/funcs/serviceDelete.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -711,7 +710,7 @@ in OpenID Connect Discovery 1.0.
 
 <!-- UsageSnippet language="typescript" operationID="service_configuration_api" method="get" path="/api/{serviceId}/service/configuration" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -733,8 +732,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { serviceGetConfiguration } from "@authlete/typescript-sdk/funcs/serviceGetConfiguration.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { serviceGetConfiguration } from "@big76/test-sdk/funcs/serviceGetConfiguration.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -768,7 +767,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.ServiceConfigurationApiResponse](../../models/operations/serviceconfigurationapiresponse.md)\>**
+**Promise\<[{ [k: string]: any }](../../models/.md)\>**
 
 ### Errors
 

@@ -5,13 +5,13 @@
 import dotenv from "dotenv";
 dotenv.config();
 /**
- * Example usage of the @authlete/typescript-sdk SDK
+ * Example usage of the @big76/test-sdk SDK
  *
  * To run this example from the examples directory:
  * npm run build && npx tsx serviceGet.example.ts
  */
 
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",

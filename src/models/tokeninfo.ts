@@ -11,6 +11,7 @@ import {
 } from "./authorizationdetailselement.js";
 import { SDKValidationError } from "./errors/sdkvalidationerror.js";
 import { Property, Property$inboundSchema } from "./property.js";
+import { Scope, Scope$inboundSchema } from "./scope.js";
 
 export type TokenInfo = {
   /**
@@ -32,7 +33,7 @@ export type TokenInfo = {
   /**
    * The scopes granted on the token
    */
-  scopes?: Array<string> | undefined;
+  scopes?: Array<Scope> | undefined;
   /**
    * time which the token expires.
    */
@@ -58,6 +59,22 @@ export type TokenInfo = {
    * @remarks
    */
   clientEntityIdUsed?: boolean | undefined;
+  /**
+   * The location of the client's metadata document that was used to resolve client metadata.
+   *
+   * @remarks
+   *
+   * This property is set when client metadata was retrieved via the [OAuth Client ID Metadata Document](https://datatracker.ietf.org/doc/draft-ietf-oauth-client-id-metadata-document/) (CIMD) mechanism.
+   */
+  metadataDocumentLocation?: string | undefined;
+  /**
+   * Flag indicating whether a metadata document was used to resolve client metadata for this request.
+   *
+   * @remarks
+   *
+   * When `true`, the client metadata was retrieved via the CIMD mechanism rather than from the Authlete database.
+   */
+  metadataDocumentUsed?: boolean | undefined;
 };
 
 /** @internal */
@@ -70,13 +87,15 @@ export const TokenInfo$inboundSchema: z.ZodType<
   clientIdAlias: z.string().optional(),
   clientIdAliasUsed: z.boolean().optional(),
   subject: z.string().optional(),
-  scopes: z.array(z.string()).optional(),
+  scopes: z.array(Scope$inboundSchema).optional(),
   expiresAt: z.number().int().optional(),
   properties: z.array(Property$inboundSchema).optional(),
   resources: z.array(z.string()).optional(),
   authorizationDetails: AuthorizationDetailsElement$inboundSchema.optional(),
   clientEntityId: z.string().optional(),
   clientEntityIdUsed: z.boolean().optional(),
+  metadataDocumentLocation: z.string().optional(),
+  metadataDocumentUsed: z.boolean().optional(),
 });
 
 export function tokenInfoFromJSON(
