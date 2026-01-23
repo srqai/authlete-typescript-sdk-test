@@ -6,7 +6,7 @@ The verified claims validation schema set.
 ## Example Usage
 
 ```typescript
-import { VerifiedClaimsValidationSchema } from "@authlete/typescript-sdk/models";
+import { VerifiedClaimsValidationSchema } from "@big76/test-sdk/models";
 
 let value: VerifiedClaimsValidationSchema = "standard+id_document";
 ```

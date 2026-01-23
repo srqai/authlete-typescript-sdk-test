@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { VciJwtissuerRequest } from "@authlete/typescript-sdk/models";
+import { VciJwtissuerRequest } from "@big76/test-sdk/models";
 
 let value: VciJwtissuerRequest = {
   pretty: true,

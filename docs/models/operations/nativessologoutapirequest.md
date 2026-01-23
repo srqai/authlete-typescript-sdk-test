@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NativeSsoLogoutApiRequest } from "@authlete/typescript-sdk/models/operations";
+import { NativeSsoLogoutApiRequest } from "@big76/test-sdk/models/operations";
 
 let value: NativeSsoLogoutApiRequest = {
   serviceId: "<id>",

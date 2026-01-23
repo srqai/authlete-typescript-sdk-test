@@ -5,7 +5,7 @@ The next action that the authorization server implementation should take.
 ## Example Usage
 
 ```typescript
-import { FederationRegistrationResponseAction } from "@authlete/typescript-sdk/models";
+import { FederationRegistrationResponseAction } from "@big76/test-sdk/models";
 
 let value: FederationRegistrationResponseAction = "NOT_FOUND";
 ```

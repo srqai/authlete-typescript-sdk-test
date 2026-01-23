@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ResponseMode } from "@authlete/typescript-sdk/models";
+import { ResponseMode } from "@big76/test-sdk/models";
 
 let value: ResponseMode = "QUERY_JWT";
 ```

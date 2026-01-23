@@ -6,7 +6,7 @@ The next action that the API caller should take.
 ## Example Usage
 
 ```typescript
-import { NativeSsoLogoutResponseAction } from "@authlete/typescript-sdk/models";
+import { NativeSsoLogoutResponseAction } from "@big76/test-sdk/models";
 
 let value: NativeSsoLogoutResponseAction = "SERVER_ERROR";
 ```

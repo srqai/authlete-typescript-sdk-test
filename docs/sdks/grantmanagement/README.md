@@ -1,5 +1,4 @@
 # GrantManagement
-(*grantManagement*)
 
 ## Overview
 
@@ -17,7 +16,7 @@ defined in "[Grant Management for OAuth 2.0](https://openid.net/specs/fapi-grant
 
 <!-- UsageSnippet language="typescript" operationID="grant_m_api" method="post" path="/api/{serviceId}/gm" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -44,8 +43,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { grantManagementProcessRequest } from "@authlete/typescript-sdk/funcs/grantManagementProcessRequest.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { grantManagementProcessRequest } from "@big76/test-sdk/funcs/grantManagementProcessRequest.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

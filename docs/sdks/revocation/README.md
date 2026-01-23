@@ -1,5 +1,4 @@
 # Revocation
-(*revocation*)
 
 ## Overview
 
@@ -109,7 +108,7 @@ Pragma: no-cache
 
 <!-- UsageSnippet language="typescript" operationID="auth_revocation_api" method="post" path="/api/{serviceId}/auth/revocation" -->
 ```typescript
-import { Authlete } from "@authlete/typescript-sdk";
+import { Authlete } from "@big76/test-sdk";
 
 const authlete = new Authlete({
   bearer: process.env["AUTHLETE_BEARER"] ?? "",
@@ -136,8 +135,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { AuthleteCore } from "@authlete/typescript-sdk/core.js";
-import { revocationProcess } from "@authlete/typescript-sdk/funcs/revocationProcess.js";
+import { AuthleteCore } from "@big76/test-sdk/core.js";
+import { revocationProcess } from "@big76/test-sdk/funcs/revocationProcess.js";
 
 // Use `AuthleteCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

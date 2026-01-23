@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BackchannelAuthenticationCompleteRequest } from "@authlete/typescript-sdk/models";
+import { BackchannelAuthenticationCompleteRequest } from "@big76/test-sdk/models";
 
 let value: BackchannelAuthenticationCompleteRequest = {
   ticket: "<value>",
